@@ -1,55 +1,68 @@
-// Simple kid-friendly smiley image (numbers = color indexes)
-const smiley = [
-  [0,0,0,0,0,0,0,0],
-  [0,1,1,0,0,1,1,0],
-  [0,1,1,0,0,1,1,0],
-  [0,0,0,0,0,0,0,0],
-  [0,2,0,0,0,0,2,0],
-  [0,0,2,2,2,2,0,0],
-  [0,0,0,2,2,0,0,0],
-  [0,0,0,0,0,0,0,0]
+/* --- main.js --- */
+// Built-in pixel art templates (expandable later)
+const pictures = [
+{
+name: "Heart",
+pixelSize: 20,
+data: [
+"000110000",
+"001221100",
+"012222210",
+"122222221",
+"122222221",
+"012222210",
+"001222100",
+"000110000"
+],
+colors: {
+0: "#ffffff", // background
+1: "#ff0000", // red outline
+2: "#ff6666" // inside
+}
+},
+{
+name: "Star",
+pixelSize: 20,
+data: [
+"0001000",
+"0011100",
+"1112111",
+"0111110",
+"0011100",
+"0001000"
+],
+colors: {
+0: "#ffffff",
+1: "#ffd700",
+2: "#ffea00"
+}
+},
+{
+name: "Smiley",
+pixelSize: 20,
+data: [
+"00111100",
+"01222210",
+"12200221",
+"12222221",
+"12220221",
+"01222210",
+"00111100"
+],
+colors: {
+0: "#ffffff",
+1: "#000000",
+2: "#ffff66"
+}
+}
 ];
 
-// Colors for each number
-const colors = [
-  "#FFD93D",  // yellow
-  "#000000",  // black
-  "#FF6B6B"   // red
-];
 
-let selectedColorIndex = 0;
-
-// ------- Load colors -------
-const palette = document.getElementById("color-palette");
-colors.forEach((c, idx) => {
-    const btn = document.createElement("div");
-    btn.className = "color-btn";
-    btn.style.backgroundColor = c;
-    btn.onclick = () => {
-        selectedColorIndex = idx;
-    };
-    palette.appendChild(btn);
-});
-
-// ------- Build grid -------
-const grid = document.getElementById("grid");
-grid.style.gridTemplateColumns = `repeat(${smiley[0].length}, 1fr)`;
-
-smiley.forEach((row, r) => {
-    row.forEach((num, c) => {
-        const cell = document.createElement("div");
-        cell.className = "cell";
-        cell.innerText = num;
-        cell.dataset.correct = num;
-
-        cell.onclick = () => {
-            // Fill with selected color
-            cell.style.backgroundColor = colors[selectedColorIndex];
-
-            // Clear number to show it's "done"
-            cell.innerText = "";
-        };
-
-        grid.appendChild(cell);
-    });
-});
+// UI Elements
+const homeScreen = document.getElementById("home-screen");
+const appScreen = document.getElementById("app-screen");
+const pictureList = document.getElementById("picture-list");
+const canvas = document.getElementById("pixel-canvas");
+const ctx = canvas.getContext("2d");
+const colorBar = document.getElementById("color-bar");
+};
