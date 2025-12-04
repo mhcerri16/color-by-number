@@ -6,11 +6,7 @@ body {
     user-select: none;
 }
 .screen {
-    display: none;
     padding: 20px;
-}
-.screen.active {
-    display: block;
 }
 .title {
     text-align: center;
@@ -21,7 +17,7 @@ body {
     display: flex;
     flex-direction: column;
     gap: 15px;
-    max-height: 70vh;
+    max-height: 80vh;
     overflow-y: auto;
     padding-bottom: 20px;
 }
@@ -33,6 +29,8 @@ body {
     text-align: center;
     font-size: 20px;
     cursor: pointer;
+    text-decoration: none;
+    color: black;
 }
 .back-btn {
     background: #ff6666;
