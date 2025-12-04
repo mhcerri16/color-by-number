@@ -1,25 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Color by Number</title>
-    <link rel="manifest" href="manifest.json" />
-    <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Color by Number - Home</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div id="home-screen" class="screen active">
-        <h1 class="title">Choose a Picture</h1>
-        <div id="picture-list" class="scroll-container"></div>
+  <div class="screen active">
+    <h1 class="title">Choose a Picture</h1>
+    <div class="scroll-container">
+      <a href="heart.html" class="picture-option">Heart</a>
+      <a href="star.html" class="picture-option">Star</a>
+      <a href="smiley.html" class="picture-option">Smiley</a>
     </div>
-
-    <div id="app-screen" class="screen">
-        <button id="back-btn" class="back-btn">Back</button>
-        <h2 id="picture-title"></h2>
-        <div id="color-bar"></div>
-        <canvas id="pixel-canvas"></canvas>
-    </div>
-
-    <script src="app.js"></script>
+  </div>
 </body>
 </html>
