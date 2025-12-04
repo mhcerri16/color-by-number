@@ -1,9 +1,9 @@
 {
-  "name": "Color By Number",
-  "short_name": "ColorApp",
-  "start_url": "index.html",
+  "name": "Color by Number",
+  "short_name": "ColorNum",
   "display": "standalone",
+  "start_url": "/",
   "background_color": "#ffffff",
-  "theme_color": "#FFD93D",
+  "theme_color": "#ffffff",
   "icons": []
 }
