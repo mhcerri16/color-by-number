@@ -1,4 +1,4 @@
-// Built-in pixel art templates (expandable later)
+// Built-in pixel art templates (expandable)
 const pictures = [
     {
         name: "Heart",
@@ -146,4 +146,38 @@ function paintPixel(x, y) {
     ctx.fillRect(c * size, r * size, size, size);
 }
 
-//
+// Mouse + touch events
+canvas.addEventListener('mousedown', () => isDragging = true);
+canvas.addEventListener('mouseup', () => isDragging = false);
+canvas.addEventListener('mouseleave', () => isDragging = false);
+canvas.addEventListener('mousemove', (e) => {
+    if (isDragging) {
+        const rect = canvas.getBoundingClientRect();
+        paintPixel(e.clientX - rect.left, e.clientY - rect.top);
+    }
+});
+
+// Touch events
+canvas.addEventListener('touchstart', (e) => {
+    isDragging = true;
+    const rect = canvas.getBoundingClientRect();
+    const touch = e.touches[0];
+    paintPixel(touch.clientX - rect.left, touch.clientY - rect.top);
+});
+
+canvas.addEventListener('touchmove', (e) => {
+    const rect = canvas.getBoundingClientRect();
+    const touch = e.touches[0];
+    paintPixel(touch.clientX - rect.left, touch.clientY - rect.top);
+});
+
+canvas.addEventListener('touchend', () => isDragging = false);
+
+// Back button
+backBtn.onclick = () => {
+    appScreen.classList.remove("active");
+    homeScreen.classList.add("active");
+};
+
+// Initialize home screen
+loadPictureList();
