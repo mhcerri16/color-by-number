@@ -1,31 +1,26 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Color — Color by Number</title>
-  <link rel="stylesheet" href="styles.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+  <title>Color by Number</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <header class="topbar">
-    <a class="back" href="index.html">⬅️ Back</a>
-    <h1 id="page-title">Color</h1>
-    <div class="spacer"></div>
-  </header>
+  <h2 id="picture-title"></h2>
+  <div id="color-bar"></div>
+  <canvas id="pixel-canvas"></canvas>
+  <button id="back-btn" class="back-btn">Back</button>
 
-  <main class="center-col">
-    <div id="canvas-wrap" class="canvas-wrap">
-      <canvas id="pixel-canvas"></canvas>
-    </div>
+  <script type="module">
+    import { PICTURES } from './pictures.js';
+    import { setupColoring } from './app.js';
 
-    <div id="palette-area">
-      <h3>Colors</h3>
-      <div id="color-bar" class="color-bar"></div>
-    </div>
+    // Get picture name from URL query string
+    const params = new URLSearchParams(window.location.search);
+    const pictureName = params.get('name');
 
-    <p id="instructions" class="hint">Select a color (number shown). Drag to fill. Only the matching number accepts the color.</p>
-  </main>
-
-  <script src="app.js"></script>
+    setupColoring(pictureName, PICTURES);
+  </script>
 </body>
 </html>
