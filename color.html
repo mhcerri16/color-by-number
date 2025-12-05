@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Color — Color by Number</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <a class="back" href="index.html">⬅️ Back</a>
+    <h1 id="page-title">Color</h1>
+    <div class="spacer"></div>
+  </header>
+
+  <main class="center-col">
+    <div id="canvas-wrap" class="canvas-wrap">
+      <canvas id="pixel-canvas"></canvas>
+    </div>
+
+    <div id="palette-area">
+      <h3>Colors</h3>
+      <div id="color-bar" class="color-bar"></div>
+    </div>
+
+    <p id="instructions" class="hint">Select a color (number shown). Drag to fill. Only the matching number accepts the color.</p>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
