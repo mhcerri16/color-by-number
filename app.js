@@ -85,5 +85,4 @@ function setupColoring(pictureName, PICTURES) {
   backBtn.onclick = () => window.location.href = 'index.html';
 }
 
-// Make global for color.html
 window.setupColoring = setupColoring;
