@@ -116,3 +116,34 @@ h1{margin:0;font-size:20px}
   .thumb-inner{height:86px;padding:12px;font-size:14px}
   .color-swatch{min-width:48px;height:48px}
 }
+
+/* --- touch & scrolling behavior --- */
+/* Prevent page scrolling / zoom while interacting with canvas */
+html, body {
+  touch-action: pan-y; /* allow vertical page scroll but not pinch zoom; we'll block canvas separately */
+  -ms-touch-action: pan-y;
+  overscroll-behavior: contain;
+}
+
+/* Prevent canvas from causing page scroll or pinch-zoom */
+#pixel-canvas, .canvas-wrap {
+  touch-action: none; /* prevents scrolling when dragging the canvas */
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Disable double-tap zoom on mobile */
+meta[name="viewport"] {
+  /* You already set viewport; ensure no user-scalable=yes. */
+}
+
+/* --- selected color highlight --- */
+.color-swatch.selected {
+  transform: scale(1.08);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.22);
+  outline: 3px solid rgba(255,255,255,0.9);
+  border-radius: 10px;
+  z-index: 2;
+}
+
