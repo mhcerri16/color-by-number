@@ -1,5 +1,4 @@
-// app.js - coloring logic
-export function setupColoring(pictureName, PICTURES) {
+function setupColoring(pictureName, PICTURES) {
   const currentPicture = PICTURES[pictureName];
   if (!currentPicture) return;
 
@@ -43,11 +42,10 @@ export function setupColoring(pictureName, PICTURES) {
 
     for (let r = 0; r < rows; r++) {
       for (let c = 0; c < cols; c++) {
-        ctx.fillStyle = currentPicture.colors[0]; // default blank
+        ctx.fillStyle = currentPicture.colors[0];
         ctx.fillRect(c * size, r * size, size, size);
 
         const val = currentPicture.data[r][c];
-        // Show number if it matches selected color
         if (currentColor !== null && String(val) === String(currentColor)) {
           ctx.fillStyle = "#000";
           ctx.font = `bold ${size / 2}px Arial`;
@@ -69,7 +67,7 @@ export function setupColoring(pictureName, PICTURES) {
 
     ctx.fillStyle = currentPicture.colors[currentColor];
     ctx.fillRect(c * size, r * size, size, size);
-    drawPixels(); // redraw numbers after painting
+    drawPixels();
   }
 
   drawPixels();
@@ -86,3 +84,6 @@ export function setupColoring(pictureName, PICTURES) {
 
   backBtn.onclick = () => window.location.href = 'index.html';
 }
+
+// Make global for color.html
+window.setupColoring = setupColoring;
