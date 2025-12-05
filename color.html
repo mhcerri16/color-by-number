@@ -12,15 +12,12 @@
   <canvas id="pixel-canvas"></canvas>
   <button id="back-btn" class="back-btn">Back</button>
 
-  <script type="module">
-    import { PICTURES } from './pictures.js';
-    import { setupColoring } from './app.js';
-
-    // Get picture name from URL query string
+  <script src="pictures.js"></script>
+  <script src="app.js"></script>
+  <script>
     const params = new URLSearchParams(window.location.search);
     const pictureName = params.get('name');
-
-    setupColoring(pictureName, PICTURES);
+    setupColoring(pictureName, window.PICTURES);
   </script>
 </body>
 </html>
