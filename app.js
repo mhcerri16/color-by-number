@@ -47,18 +47,21 @@ function setupColoring(pictureName, PICTURES) {
 
     for (let r = 0; r < rows; r++) {
       for (let c = 0; c < cols; c++) {
-        // Draw pixel color: userGrid or blank
         const userVal = userGrid[r][c];
+
+        // Draw pixel: blank or filled
         ctx.fillStyle = userVal !== null ? currentPicture.colors[userVal] : currentPicture.colors[0];
         ctx.fillRect(c*size, r*size, size, size);
 
-        // Draw number
+        // Draw number only if not painted yet
         const val = currentPicture.data[r][c];
-        ctx.fillStyle = "#000";
-        ctx.font = (currentColor !== null && String(val) === String(currentColor))
-          ? `bold ${size/2}px Arial`
-          : `${size/2}px Arial`;
-        ctx.fillText(val, c*size + size/2, r*size + size/2);
+        if (userVal === null) {
+          ctx.fillStyle = "#000";
+          ctx.font = (currentColor !== null && String(val) === String(currentColor))
+            ? `bold ${size/2}px Arial`
+            : `${size/2}px Arial`;
+          ctx.fillText(val, c*size + size/2, r*size + size/2);
+        }
       }
     }
   }
@@ -97,6 +100,7 @@ function setupColoring(pictureName, PICTURES) {
   });
   canvas.addEventListener('touchend', () => isDragging = false);
 
+  // Back button
   backBtn.onclick = () => window.location.href = 'index.html';
 
   drawPixels();
