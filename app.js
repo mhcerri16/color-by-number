@@ -13,6 +13,7 @@ function setupColoring(pictureName, PICTURES) {
   title.textContent = currentPicture.name;
 
   // Build color bar
+  colorBar.innerHTML = '';
   Object.entries(currentPicture.colors).forEach(([num, color]) => {
     const swatch = document.createElement("div");
     swatch.className = "color-swatch";
@@ -29,6 +30,7 @@ function setupColoring(pictureName, PICTURES) {
     drawPixels();
   }
 
+  // Draw blank canvas with numbers
   function drawPixels() {
     const size = currentPicture.pixelSize;
     const rows = currentPicture.data.length;
@@ -42,18 +44,22 @@ function setupColoring(pictureName, PICTURES) {
 
     for (let r = 0; r < rows; r++) {
       for (let c = 0; c < cols; c++) {
+        // Blank pixel
         ctx.fillStyle = currentPicture.colors[0];
         ctx.fillRect(c * size, r * size, size, size);
 
+        // Draw number
         const val = currentPicture.data[r][c];
-        if (currentColor !== null && String(val) === String(currentColor)) {
-          ctx.fillStyle = "#000";
-          ctx.font = `bold ${size / 2}px Arial`;
-          ctx.fillText(val, c * size + size/2, r * size + size/2);
-        }
+        ctx.fillStyle = "#000";
+        ctx.font = (currentColor !== null && String(val) === String(currentColor))
+          ? `bold ${size / 2}px Arial`
+          : `${size / 2}px Arial`;
+        ctx.fillText(val, c * size + size / 2, r * size + size / 2);
       }
     }
   }
+
+  drawPixels();
 
   function paintPixel(x, y) {
     if (!currentColor) return;
@@ -65,21 +71,34 @@ function setupColoring(pictureName, PICTURES) {
     const targetVal = currentPicture.data[r][c];
     if (String(currentColor) !== String(targetVal)) return;
 
+    // Paint pixel
     ctx.fillStyle = currentPicture.colors[currentColor];
     ctx.fillRect(c * size, r * size, size, size);
+
+    // Redraw numbers on top
     drawPixels();
   }
-
-  drawPixels();
 
   // Mouse / touch events
   canvas.addEventListener('mousedown', () => isDragging = true);
   canvas.addEventListener('mouseup', () => isDragging = false);
   canvas.addEventListener('mouseleave', () => isDragging = false);
-  canvas.addEventListener('mousemove', e => { if(isDragging){ paintPixel(e.offsetX, e.offsetY); } });
+  canvas.addEventListener('mousemove', e => { if (isDragging) paintPixel(e.offsetX, e.offsetY); });
 
-  canvas.addEventListener('touchstart', e => { isDragging = true; paintPixel(e.touches[0].clientX - canvas.getBoundingClientRect().left, e.touches[0].clientY - canvas.getBoundingClientRect().top); });
-  canvas.addEventListener('touchmove', e => { e.preventDefault(); if(isDragging){ paintPixel(e.touches[0].clientX - canvas.getBoundingClientRect().left, e.touches[0].clientY - canvas.getBoundingClientRect().top); } });
+  canvas.addEventListener('touchstart', e => {
+    isDragging = true;
+    const rect = canvas.getBoundingClientRect();
+    const touch = e.touches[0];
+    paintPixel(touch.clientX - rect.left, touch.clientY - rect.top);
+  });
+  canvas.addEventListener('touchmove', e => {
+    e.preventDefault();
+    if (isDragging) {
+      const rect = canvas.getBoundingClientRect();
+      const touch = e.touches[0];
+      paintPixel(touch.clientX - rect.left, touch.clientY - rect.top);
+    }
+  });
   canvas.addEventListener('touchend', () => isDragging = false);
 
   backBtn.onclick = () => window.location.href = 'index.html';
