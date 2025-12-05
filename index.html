@@ -2,40 +2,38 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Color by Number — Blocks (Auto)</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no" />
+  <title>Color by Number — Minecraft Objects</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
   <main class="center-col">
-    <h1>📦 Blocks — Pick one to color</h1>
-    <p class="hint">Auto-generated block set (120). Click a tile to open the coloring page.</p>
+    <h1>📦 Minecraft Objects — Choose One</h1>
+    <p class="hint">Tap a block or item to begin coloring. Drag on mobile without scrolling.</p>
 
-    <div id="thumb-grid" class="thumb-grid" aria-live="polite" aria-label="Block thumbnails"></div>
+    <div id="thumb-grid" class="thumb-grid"></div>
 
-    <p class="small">Tip: use the GitHub Pages URL (https://username.github.io/repo-name/) — do not open raw GitHub file links.</p>
+    <p class="small note">
+      Tip: Use the GitHub Pages URL, not the raw GitHub file links.
+    </p>
   </main>
 
-  <script>
-    (function buildAutoThumbs(){
-      const container = document.getElementById('thumb-grid');
-      container.innerHTML = '';
-      // Create 120 deterministic block links: Block-001 .. Block-120
-      for (let i = 1; i <= 120; i++) {
-        const id = 'Block-' + String(i).padStart(3, '0');
-        const a = document.createElement('a');
-        a.className = 'thumb';
-        a.href = 'color.html?name=' + encodeURIComponent(id);
-        a.setAttribute('aria-label', id);
+  <script type="module">
+    import { pictureList } from './pictures.js';
 
-        const inner = document.createElement('div');
-        inner.className = 'thumb-inner';
-        inner.textContent = id;
+    const grid = document.getElementById('thumb-grid');
+    pictureList.forEach(pic => {
+      const tile = document.createElement('a');
+      tile.className = 'thumb';
+      tile.href = `color.html?name=${encodeURIComponent(pic.id)}`;
 
-        a.appendChild(inner);
-        container.appendChild(a);
-      }
-    })();
+      const inner = document.createElement('div');
+      inner.className = 'thumb-inner';
+      inner.textContent = pic.name;
+
+      tile.appendChild(inner);
+      grid.appendChild(tile);
+    });
   </script>
 </body>
 </html>
