@@ -12,6 +12,12 @@ function setupColoring(pictureName, PICTURES) {
 
   title.textContent = currentPicture.name;
 
+  const rows = currentPicture.data.length;
+  const cols = currentPicture.data[0].length;
+
+  // Track user progress (null = unpainted)
+  const userGrid = Array.from({ length: rows }, () => Array(cols).fill(null));
+
   // Build color bar
   colorBar.innerHTML = '';
   Object.entries(currentPicture.colors).forEach(([num, color]) => {
@@ -30,52 +36,44 @@ function setupColoring(pictureName, PICTURES) {
     drawPixels();
   }
 
-  // Draw blank canvas with numbers
   function drawPixels() {
     const size = currentPicture.pixelSize;
-    const rows = currentPicture.data.length;
-    const cols = currentPicture.data[0].length;
     canvas.width = cols * size;
     canvas.height = rows * size;
 
-    ctx.font = `${size / 2}px Arial`;
+    ctx.font = `${size/2}px Arial`;
     ctx.textAlign = "center";
     ctx.textBaseline = "middle";
 
     for (let r = 0; r < rows; r++) {
       for (let c = 0; c < cols; c++) {
-        // Blank pixel
-        ctx.fillStyle = currentPicture.colors[0];
-        ctx.fillRect(c * size, r * size, size, size);
+        // Draw pixel color: userGrid or blank
+        const userVal = userGrid[r][c];
+        ctx.fillStyle = userVal !== null ? currentPicture.colors[userVal] : currentPicture.colors[0];
+        ctx.fillRect(c*size, r*size, size, size);
 
         // Draw number
         const val = currentPicture.data[r][c];
         ctx.fillStyle = "#000";
         ctx.font = (currentColor !== null && String(val) === String(currentColor))
-          ? `bold ${size / 2}px Arial`
-          : `${size / 2}px Arial`;
-        ctx.fillText(val, c * size + size / 2, r * size + size / 2);
+          ? `bold ${size/2}px Arial`
+          : `${size/2}px Arial`;
+        ctx.fillText(val, c*size + size/2, r*size + size/2);
       }
     }
   }
-
-  drawPixels();
 
   function paintPixel(x, y) {
     if (!currentColor) return;
     const size = currentPicture.pixelSize;
     const c = Math.floor(x / size);
     const r = Math.floor(y / size);
-    if (r < 0 || c < 0 || r >= currentPicture.data.length || c >= currentPicture.data[0].length) return;
+    if (r < 0 || c < 0 || r >= rows || c >= cols) return;
 
     const targetVal = currentPicture.data[r][c];
     if (String(currentColor) !== String(targetVal)) return;
 
-    // Paint pixel
-    ctx.fillStyle = currentPicture.colors[currentColor];
-    ctx.fillRect(c * size, r * size, size, size);
-
-    // Redraw numbers on top
+    userGrid[r][c] = currentColor;
     drawPixels();
   }
 
@@ -88,20 +86,20 @@ function setupColoring(pictureName, PICTURES) {
   canvas.addEventListener('touchstart', e => {
     isDragging = true;
     const rect = canvas.getBoundingClientRect();
-    const touch = e.touches[0];
-    paintPixel(touch.clientX - rect.left, touch.clientY - rect.top);
+    paintPixel(e.touches[0].clientX - rect.left, e.touches[0].clientY - rect.top);
   });
   canvas.addEventListener('touchmove', e => {
     e.preventDefault();
-    if (isDragging) {
+    if (isDragging){
       const rect = canvas.getBoundingClientRect();
-      const touch = e.touches[0];
-      paintPixel(touch.clientX - rect.left, touch.clientY - rect.top);
+      paintPixel(e.touches[0].clientX - rect.left, e.touches[0].clientY - rect.top);
     }
   });
   canvas.addEventListener('touchend', () => isDragging = false);
 
   backBtn.onclick = () => window.location.href = 'index.html';
+
+  drawPixels();
 }
 
 window.setupColoring = setupColoring;
