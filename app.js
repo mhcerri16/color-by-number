@@ -320,3 +320,30 @@ drawGrid();
 
 /* Expose function for index.html if you want to list names dynamically */
 window.generatedBlocks = generated;
+
+function drawPixels() {
+  const size = currentPicture.pixelSize;
+  const rows = currentPicture.data.length;
+  const cols = currentPicture.data[0].length;
+  canvas.width = cols * size;
+  canvas.height = rows * size;
+
+  ctx.font = `${size / 2}px Arial`;
+  ctx.textAlign = "center";
+  ctx.textBaseline = "middle";
+
+  for (let r = 0; r < rows; r++) {
+    for (let c = 0; c < cols; c++) {
+      ctx.fillStyle = currentPicture.colors[0]; // blank
+      ctx.fillRect(c * size, r * size, size, size);
+
+      // Draw number if current color matches
+      const val = currentPicture.data[r][c];
+      if (currentColor && String(val) === String(currentColor)) {
+        ctx.fillStyle = "#000000";
+        ctx.font = `bold ${size / 2}px Arial`;
+        ctx.fillText(val, c * size + size/2, r * size + size/2);
+      }
+    }
+  }
+}
