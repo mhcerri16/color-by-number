@@ -1,55 +1,78 @@
-/*******************************
- app.js — single-file app logic
- - generates many block pictures (Block-001 ... Block-120)
- - renders numbered grid, numbered color swatches
- - only correct color can fill the matching number
- - drag-to-fill (mouse + touch)
- - canvas auto-sizes but keeps crisp pixel look
-*******************************/
+/******************************************
+ app.js — Bedrock-inspired blocks, lazy load,
+ numbered grid, palette with numbered swatches,
+ strict color-only filling, drag + touch support.
+******************************************/
 
 /* -------------------------
-  Utilities
+ Utilities
 ------------------------- */
-function q(name){ return document.querySelector(name); }
-function qs(name){ return document.querySelectorAll(name); }
-function getQueryParam(key){
-  const u = new URL(location.href);
-  return u.searchParams.get(key);
-}
+function q(sel){ return document.querySelector(sel); }
+function qs(sel){ return Array.from(document.querySelectorAll(sel)); }
+function getQueryParam(k){ return new URL(location.href).searchParams.get(k); }
 
 /* -------------------------
-  Picture generation
-  We'll programmatically create 120 "blocks" using palettes.
-  Each picture has:
-    - name (Block-###)
-    - size (pixels per side) e.g., 16, 20
-    - data: array of strings with numeric digits (0..N)
-    - colors: object mapping digit->hex color
+ Bedrock-inspired name list (120)
+ We include many real names and many color variants to reach 120.
+ We append " (inspired)" so it's clear these are NOT official textures.
 ------------------------- */
+const bedrockNames = (function buildNames(){
+  const core = [
+    "Grass Block","Dirt","Stone","Cobblestone","Sand","Red Sand","Gravel","Oak Planks","Spruce Planks",
+    "Birch Planks","Jungle Planks","Acacia Planks","Dark Oak Planks","Oak Log","Spruce Log","Birch Log",
+    "Jungle Log","Acacia Log","Dark Oak Log","Bedrock","Obsidian","End Stone","Netherrack","Soul Sand",
+    "Basalt","Blackstone","Polished Blackstone","Nether Bricks","Red Nether Bricks","Quartz Block",
+    "Sandstone","Smooth Sandstone","Red Sandstone","Smooth Red Sandstone","Stone Bricks","Mossy Stone Bricks",
+    "Cracked Stone Bricks","Bricks","Mossy Cobblestone","Glass","Glass Pane","Glowstone","Sea Lantern",
+    "Concrete (White)","Concrete (Orange)","Concrete (Magenta)","Concrete (Light Blue)","Concrete (Yellow)",
+    "Concrete (Lime)","Concrete (Pink)","Concrete (Gray)","Concrete (Light Gray)","Concrete (Cyan)",
+    "Concrete (Purple)","Concrete (Blue)","Concrete (Brown)","Concrete (Green)","Concrete (Red)",
+    "Concrete (Black)","Terracotta (White)","Terracotta (Orange)","Terracotta (Magenta)",
+    "Terracotta (Light Blue)","Terracotta (Yellow)","Terracotta (Lime)","Terracotta (Pink)",
+    "Terracotta (Gray)","Terracotta (Light Gray)","Terracotta (Cyan)","Terracotta (Purple)",
+    "Terracotta (Blue)","Terracotta (Brown)","Terracotta (Green)","Terracotta (Red)","Gold Ore",
+    "Iron Ore","Coal Ore","Diamond Ore","Redstone Ore","Lapis Ore","Emerald Ore","Copper Ore",
+    "TNT","Furnace","Crafting Table","Chest","Bookshelf","Anvil","Beacon","End Portal Frame",
+    "Prismarine","Prismarine Bricks","Dark Prismarine","Sea Lantern (alt)","Purpur Block","End Stone Bricks",
+    "Hay Bale","Wool (White)","Wool (Red)","Wool (Blue)","Wool (Green)","Wool (Yellow)","Wool (Pink)","Wool (Black)",
+    "Iron Block","Gold Block","Diamond Block","Lapis Block","Redstone Lamp","Coal Block","Emerald Block",
+    "Nether Wart Block","Warped Nylium","Crimson Nylium","Shroomlight","Soul Soil","NETHER_GOLD_ORE",
+    "Frosted Ice","Packed Ice","Blue Ice","Moss Block","Lichen","Copper Block","Amethyst Block",
+    "Smooth Stone","Smooth Quartz","Hay Block","End Gateway Block","Barrel","Smoker","Blast Furnace",
+    "Cartography Table","Loom","Grindstone","Composter","Stonecutter","Smithing Table","Bell","Lantern"
+  ];
+  // If core < 120, append color-conjugates to reach 120
+  const names = core.slice();
+  let c = 1;
+  while (names.length < 120) {
+    names.push("Variant Block " + String(c++).padStart(3,'0'));
+  }
+  // append "(inspired)"
+  return names.map(n => n + " (inspired)");
+})();
 
-function pick(arr){ return arr[Math.floor(Math.random()*arr.length)]; }
-
-// A few Minecraft-ish palettes (simplified)
+/* -------------------------
+ Palettes inspired by Bedrock textures
+ These are simplified palettes (not copies).
+------------------------- */
 const palettes = [
-  // Grass (0=bg,1=top,2=side)
-  {name:'Grass', colors:{0:'#2b2b2b',1:'#71b95b',2:'#8fb05a'}},
-  // Dirt
-  {name:'Dirt', colors:{0:'#261b13',1:'#6b452b',2:'#845534'}},
-  // Stone
-  {name:'Stone', colors:{0:'#1f2021',1:'#8b8e90',2:'#c7c9ca'}},
-  // Wood
-  {name:'Wood', colors:{0:'#2b1f12',1:'#9b6b3b',2:'#8a4f2a'}},
-  // Sand
-  {name:'Sand', colors:{0:'#f1e2b3',1:'#e7d08a',2:'#c8b07a'}},
-  // Water-ish
-  {name:'Water', colors:{0:'#081620',1:'#2b7fa1',2:'#64b5d6'}},
-  // Brick
-  {name:'Brick', colors:{0:'#210808',1:'#a83a2b',2:'#7a1f16'}},
-  // Leaf
-  {name:'Leaf', colors:{0:'#0d1a0d',1:'#2f8a3d',2:'#4fbf6b'}},
+  { name: 'grass', shades: ['#0b2d0b','#6dbf4b','#97d97a'] },
+  { name: 'dirt', shades: ['#2a1610','#6f3f2a','#9b6b4a'] },
+  { name: 'stone', shades: ['#1c1d1f','#7b7d80','#bfc2c4'] },
+  { name: 'sand', shades: ['#efe2af','#e2cd86','#bfa96f'] },
+  { name: 'wood', shades: ['#2d1608','#8b5a36','#b47d55'] },
+  { name: 'nether', shades: ['#2b0a0a','#8a1f1f','#c84b3a'] },
+  { name: 'prismarine', shades: ['#002f34','#2f8f8f','#6fd6c6'] },
+  { name: 'stone2', shades: ['#0f1416','#6f777a','#bfc6c8'] },
+  { name: 'brick', shades: ['#2b0b09','#a23b2a','#8c2a1b'] },
+  { name: 'metal', shades: ['#0f0f0f','#9da3a7','#e6e9ea'] },
+  { name: 'concrete', shades: ['#121212','#777777','#cfcfcf'] },
+  { name: 'glow', shades: ['#2b1b00','#ffd36a','#fff2d0'] }
 ];
 
-// deterministic seeded RNG so every load generates same blocks
+/* -------------------------
+ Deterministic generator for N blocks
+------------------------- */
 function seededRng(seed){
   let s = seed >>> 0;
   return function(){
@@ -58,106 +81,95 @@ function seededRng(seed){
   };
 }
 
-// Generate patterns using simple noise-like rules
-function generateBlocks(count){
-  const seed = 12345; // fixed for deterministic output
+function generateBedrockBlocks(count, seed=42){
   const rnd = seededRng(seed);
   const blocks = {};
   for(let i=1;i<=count;i++){
     const id = 'Block-' + String(i).padStart(3,'0');
-    const size = 16 + (i % 3 === 0 ? 4 : 0); // mostly 16, some 20 for variety
-    // pick a palette deterministically
-    const palette = palettes[Math.floor(rnd() * palettes.length)];
-    // number of distinct colors for block (1..3)
-    const colorCount = 2 + Math.floor(rnd()*2);
-    // map color indexes to palette shades
-    const keys = Object.keys(palette.colors);
-    // build colors object mapping digits "0..(colorCount)" where 0 is background (darker)
+    // size 16 or 20 occasionally
+    const size = (i % 5 === 0) ? 20 : 16;
+    // pick a palette
+    const p = palettes[Math.floor(rnd() * palettes.length)];
+    // number of colors (1..3)
+    const colorCount = 1 + Math.floor(rnd() * Math.min(3, p.shades.length));
+    // build color mapping: 0 background (darker), 1..N are fill shades
     const colors = {};
-    // ensure index 0 is a darker background variant
-    colors[0] = palette.colors[0] || '#000000';
-    // assign 1..colorCount using available palette shades or variations
-    const shades = Object.values(palette.colors).slice(1);
+    // background dither/darker
+    colors[0] = shadeHex(p.shades[0], -14); // darker base for background
     for(let c=1;c<=colorCount;c++){
-      colors[c] = shades[(c-1) % shades.length] || pick(['#ff8888','#88ff88','#8888ff']);
+      colors[c] = p.shades[(c-1) % p.shades.length];
     }
-
-    // create an empty grid of zeros
-    const grid = Array.from({length:size}, ()=> Array(size).fill(0));
-
-    // fill central area with primary color, add border/texture
-    const primary = 1;
-    const secondary = colorCount >=2 ? 2 : 1;
-
+    // generate grid with simple texture rules
+    const grid = [];
     for(let y=0;y<size;y++){
+      let row = '';
       for(let x=0;x<size;x++){
-        // basic layered rules to produce block-feel:
-        const cx = x - size/2;
-        const cy = y - size/2;
-        const dist = Math.sqrt(cx*cx + cy*cy);
-        // base fill: primary with noise
-        if (Math.abs((x+y+i) % (3 + Math.floor(rnd()*3))) === 0){
-          grid[y][x] = secondary;
-        } else {
-          grid[y][x] = primary;
+        // seam edges dark occasionally
+        if (x < 1 || x >= size-1 || y < 1 || y >= size-1){
+          row += '0';
+          continue;
         }
-        // add subtle seam at edges for some blocks
-        if (x<2 || x>size-3 || y<2 || y>size-3){
-          if (rnd() > 0.5) grid[y][x] = 0; // dark edge
-        }
+        // noise for variation
+        const v = Math.floor((Math.abs(Math.sin((x*13+y*7+i*3)*0.07)) + rnd()) * 10) % (colorCount+1);
+        row += String(Math.min(v, colorCount));
       }
+      grid.push(row);
     }
-
-    // convert rows to strings of digits
-    const data = grid.map(row => row.map(d => String(d)).join(''));
+    // name mapping from bedrockNames array
+    const name = bedrockNames[(i-1) % bedrockNames.length];
     blocks[id] = {
-      name: id,
-      pixelSize: 18, // logical pixel size (canvas will scale)
-      data,
+      id,
+      name,
+      pixelSize: size,
+      data: grid,
       colors
     };
   }
   return blocks;
 }
 
-/* generate 120 blocks */
-const generatedPictures = generateBlocks(120);
+// small helper to slightly darken/lighten hex colors
+function shadeHex(hex, percent){
+  // hex e.g. "#aabbcc"
+  const h = hex.replace('#','');
+  const r = Math.max(0, Math.min(255, parseInt(h.substring(0,2),16) + percent));
+  const g = Math.max(0, Math.min(255, parseInt(h.substring(2,4),16) + percent));
+  const b = Math.max(0, Math.min(255, parseInt(h.substring(4,6),16) + percent));
+  return '#' + [r,g,b].map(v => v.toString(16).padStart(2,'0')).join('');
+}
 
-/* This object can contain custom or hand-crafted pictures that override generated ones.
-   Add entries like:
-   generatedPictures['Block-001'] = { name:'Block-001', pixelSize:16, data:[...], colors: {...} }
-*/
-const customPictures = {
-  // Example override (optional)
-  // 'Block-002': { name:'Block-002', pixelSize:16, data:[ "000", "010", "000" ], colors: {0:'#ffffff',1:'#ff0000'} }
+/* generate 120 blocks deterministically */
+const generated = generateBedrockBlocks(120, 20231107);
+
+/* Allow overrides: add named objects here to replace generated ones */
+const custom = {
+  // Example if you want to handcraft a particular one later:
+  // 'Block-001': { id:'Block-001', name:'Grass Block (inspired)', pixelSize:16, data: [...], colors: {...} }
 };
+for(const k in custom) generated[k] = custom[k];
 
-// merge custom onto generated
-for(const k in customPictures) generatedPictures[k] = customPictures[k];
-
-/* Expose a function to list picture names (optional) */
-window.listPictureNames = function(){ return Object.keys(generatedPictures); };
+/* expose helper to list names for index.html if needed */
+window.listPictureNames = () => Object.values(generated).map(b => ({id: b.id, name: b.name}));
 
 /* -------------------------
-  App logic: loads picture by query param name
+ App logic (one color.html page)
 ------------------------- */
 const pictureParam = getQueryParam('name') || 'Block-001';
-const picture = generatedPictures[pictureParam];
+const picture = generated[pictureParam];
 
 const canvas = q('#pixel-canvas');
 const ctx = canvas.getContext('2d');
 const colorBar = q('#color-bar');
 const pageTitle = q('#page-title');
 
-// Basic guard
-if (!picture) {
-  // display friendly message
-  if (pageTitle) pageTitle.textContent = 'Picture not found';
-  if (canvas) {
-    canvas.width = 400; canvas.height = 200;
+// If not found, show friendly text
+if (!picture){
+  if (pageTitle) pageTitle.textContent = 'Not found';
+  if (canvas){
+    canvas.width = 640; canvas.height = 240;
     ctx.fillStyle = '#fff'; ctx.fillRect(0,0,canvas.width,canvas.height);
-    ctx.fillStyle = '#111'; ctx.font='16px sans-serif';
-    ctx.fillText('Picture "'+pictureParam+'" not found.',20,40);
+    ctx.fillStyle = '#111'; ctx.font = '16px sans-serif';
+    ctx.fillText('Picture ' + pictureParam + ' not found.', 20, 30);
   }
   throw new Error('Picture not found: ' + pictureParam);
 }
@@ -165,7 +177,7 @@ if (!picture) {
 // show title
 if (pageTitle) pageTitle.textContent = picture.name;
 
-// Build palette UI (number labels inside swatches)
+// Build palette (numbered)
 function buildPalette(){
   if (!colorBar) return;
   colorBar.innerHTML = '';
@@ -175,8 +187,8 @@ function buildPalette(){
     sw.className = 'color-swatch';
     sw.style.background = picture.colors[k];
     sw.dataset.value = k;
-    // label as number inside swatch (ensure readable)
-    sw.textContent = k;
+    sw.dataset.number = k;
+    sw.textContent = k; // show number in swatch
     sw.style.color = (luma(picture.colors[k]) > 160) ? '#111' : '#fff';
     sw.onclick = () => selectColor(k, sw);
     colorBar.appendChild(sw);
@@ -184,7 +196,6 @@ function buildPalette(){
 }
 
 function luma(hex){
-  // hex -> approximate brightness
   const c = hex.replace('#','');
   const r = parseInt(c.substring(0,2),16);
   const g = parseInt(c.substring(2,4),16);
@@ -195,116 +206,117 @@ function luma(hex){
 let currentColor = null;
 function selectColor(val, el){
   currentColor = String(val);
-  qs('.color-swatch').forEach(x=>x.classList.remove('selected'));
+  qs('.color-swatch').forEach(s => s.classList.remove('selected'));
   if (el) el.classList.add('selected');
 }
 
-/* Draw the numbered grid (numbers visible until colored) */
-let rows = picture.data.length;
-let cols = picture.data[0].length;
-let logicalPixel = picture.pixelSize; // base pixel size
-// We'll render at a scale so the whole image fits comfortably on screen.
+/* grid state */
+const rows = picture.data.length;
+const cols = picture.data[0].length;
+const state = { filled: Array.from({length:rows}, ()=>Array(cols).fill(false)) };
+
+/* compute canvas size so image is centered and scaled nicely */
 function computeCanvasSize(){
-  const maxWidth = Math.min(window.innerWidth - 40, 800); // leave margins
-  const maxHeight = Math.min(window.innerHeight - 220, 900);
-  // desired cell size tries to be between 12 and 36
+  const marginW = 60;
+  const marginH = 200; // header + palette space
+  const maxWidth = Math.min(window.innerWidth - marginW, 1000);
+  const maxHeight = Math.max(200, window.innerHeight - marginH);
   const idealCell = Math.floor(Math.min(maxWidth/cols, maxHeight/rows));
-  const cell = Math.max(12, Math.min(36, idealCell));
-  return {width: cols*cell, height: rows*cell, cell};
+  const cell = Math.max(8, Math.min(36, idealCell)); // keep cells reasonable
+  return { cell, width: cols * cell, height: rows * cell };
 }
 
-let state = {
-  filled: Array.from({length:rows}, ()=>Array(cols).fill(false))
-};
-
+/* Draw grid with numbers where not filled */
 function drawGrid(){
-  const sizeInfo = computeCanvasSize();
-  canvas.width = sizeInfo.width;
-  canvas.height = sizeInfo.height;
-  // clear
-  ctx.fillStyle = '#fff';
+  const sz = computeCanvasSize();
+  canvas.width = sz.width;
+  canvas.height = sz.height;
+  // background
+  ctx.fillStyle = '#ffffff';
   ctx.fillRect(0,0,canvas.width,canvas.height);
-  const cell = sizeInfo.cell;
+  // grid
   ctx.textAlign = 'center';
   ctx.textBaseline = 'middle';
-  // draw each cell background as blank (light)
   for(let r=0;r<rows;r++){
     for(let c=0;c<cols;c++){
       const val = picture.data[r][c];
-      // base cell background: light neutral
-      ctx.fillStyle = '#ffffff';
-      ctx.fillRect(c*cell, r*cell, cell, cell);
-      // border
-      ctx.strokeStyle = '#e0e0e0';
-      ctx.lineWidth = 1;
-      ctx.strokeRect(c*cell+0.5, r*cell+0.5, cell-1, cell-1);
-
-      // if cell has been filled, draw color; otherwise draw number
+      const x = c * sz.cell;
+      const y = r * sz.cell;
       if (state.filled[r][c]){
-        const colVal = picture.data[r][c];
-        ctx.fillStyle = picture.colors[colVal] || '#000';
-        ctx.fillRect(c*cell, r*cell, cell, cell);
+        ctx.fillStyle = picture.colors[val] || '#000';
+        ctx.fillRect(x, y, sz.cell, sz.cell);
       } else {
-        // draw the number (small, but readable)
+        // blank cell background
+        ctx.fillStyle = '#ffffff';
+        ctx.fillRect(x, y, sz.cell, sz.cell);
+        // border
+        ctx.strokeStyle = '#e0e0e0';
+        ctx.lineWidth = 1;
+        ctx.strokeRect(x + 0.5, y + 0.5, sz.cell - 1, sz.cell - 1);
+        // number
         ctx.fillStyle = '#222';
-        const fontSize = Math.max(10, Math.floor(cell * 0.45));
+        const fontSize = Math.max(9, Math.floor(sz.cell * 0.45));
         ctx.font = fontSize + 'px sans-serif';
-        ctx.fillText(String(picture.data[r][c]), c*cell + cell/2, r*cell + cell/2);
+        ctx.fillText(String(val), x + sz.cell/2, y + sz.cell/2);
       }
     }
   }
 }
 
-/* Paint logic — only allow painting if selected color matches target */
-function paintAtClient(x,y){
+/* painting logic - only when selected color equals target number */
+function paintAtClient(clientX, clientY){
   const rect = canvas.getBoundingClientRect();
-  const cx = x - rect.left;
-  const cy = y - rect.top;
-  const sizeInfo = computeCanvasSize();
-  const cell = sizeInfo.cell;
-  const c = Math.floor(cx / cell);
-  const r = Math.floor(cy / cell);
-  if (r<0 || r>=rows || c<0 || c>=cols) return;
+  const cx = clientX - rect.left;
+  const cy = clientY - rect.top;
+  const sz = computeCanvasSize();
+  const c = Math.floor(cx / sz.cell);
+  const r = Math.floor(cy / sz.cell);
+  if (r < 0 || r >= rows || c < 0 || c >= cols) return;
   const target = String(picture.data[r][c]);
-  if (!currentColor) return; // no color selected
-  if (target !== currentColor) return; // must match
-  // set filled
+  if (!currentColor) return;
+  if (target !== currentColor) return;
+  if (state.filled[r][c]) return;
   state.filled[r][c] = true;
-  // draw the single cell quickly
+  // draw the cell quickly
   ctx.fillStyle = picture.colors[currentColor];
-  ctx.fillRect(c*cell, r*cell, cell, cell);
+  ctx.fillRect(c * sz.cell, r * sz.cell, sz.cell, sz.cell);
 }
 
-/* Drag and touch handling */
+/* drag/touch handling */
 let isDown = false;
-canvas.addEventListener('mousedown', e=>{ isDown=true; paintAtClient(e.clientX, e.clientY); });
-window.addEventListener('mouseup', ()=> isDown=false);
-canvas.addEventListener('mousemove', e=>{ if (isDown) paintAtClient(e.clientX, e.clientY); });
+canvas.addEventListener('mousedown', e => { isDown = true; paintAtClient(e.clientX, e.clientY); });
+window.addEventListener('mouseup', () => isDown = false);
+canvas.addEventListener('mousemove', e => { if (isDown) paintAtClient(e.clientX, e.clientY); });
 
-// touch
-canvas.addEventListener('touchstart', e=>{
+canvas.addEventListener('touchstart', e => {
+  e.preventDefault(); // prevents page scroll
   isDown = true;
   const t = e.touches[0];
   paintAtClient(t.clientX, t.clientY);
-});
-canvas.addEventListener('touchmove', e=>{
+}, {passive:false});
+
+canvas.addEventListener('touchmove', e => {
+  e.preventDefault();
   const t = e.touches[0];
   paintAtClient(t.clientX, t.clientY);
-});
-window.addEventListener('touchend', ()=> isDown=false);
+}, {passive:false});
 
-/* Keyboard: number keys to select color */
+window.addEventListener('touchend', ()=> isDown = false);
+
+/* keyboard quick select - numbers 0..9 */
 window.addEventListener('keydown', e=>{
   if (/^[0-9]$/.test(e.key)){
-    // try to find swatch with that number
     const sw = document.querySelector('.color-swatch[data-value="'+e.key+'"]');
     if (sw) sw.click();
   }
 });
 
-/* Re-draw on resize (responsive) */
+/* responsive redraw */
 window.addEventListener('resize', ()=> drawGrid());
 
-/* initialize */
+/* init */
 buildPalette();
 drawGrid();
+
+/* Expose function for index.html if you want to list names dynamically */
+window.generatedBlocks = generated;
