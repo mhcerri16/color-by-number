@@ -17,7 +17,7 @@
   <script src="pictures.js"></script>
   <script>
     const grid = document.getElementById('thumb-grid');
-    pictureList.forEach(pic => {
+    window.pictureList.forEach(pic => {
       const tile = document.createElement('a');
       tile.className = 'thumb';
       tile.href = `color.html?name=${encodeURIComponent(pic.id)}`;
