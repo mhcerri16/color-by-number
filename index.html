@@ -3,34 +3,35 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Color by Number — Home</title>
+  <title>Color by Number — Blocks (Auto)</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
   <main class="center-col">
-    <h1>📦 Minecraft Blocks — Pick one to color</h1>
-    <p class="hint">100+ auto-generated block images. Click a tile to open the coloring page.</p>
-    <div id="thumb-grid" class="thumb-grid"></div>
-    <p class="small">Tip: pages are served from GitHub Pages — use that URL, not the raw GitHub file view.</p>
+    <h1>📦 Blocks — Pick one to color</h1>
+    <p class="hint">Auto-generated block set (120). Click a tile to open the coloring page.</p>
+
+    <div id="thumb-grid" class="thumb-grid" aria-live="polite" aria-label="Block thumbnails"></div>
+
+    <p class="small">Tip: use the GitHub Pages URL (https://username.github.io/repo-name/) — do not open raw GitHub file links.</p>
   </main>
 
   <script>
-    // Build list of 100 picture links (names generated in app.js)
-    // We'll assume app.js will also expose `getPictureNames()` if loaded.
-    // But to keep index lightweight we simply build the list client-side
-    // based on deterministic names: Block-001 ... Block-120 (we generate 120)
-    (function buildThumbs(){
+    (function buildAutoThumbs(){
       const container = document.getElementById('thumb-grid');
-      // We'll create 120 thumbnails to be safe (user wanted 100+)
-      for(let i=1;i<=120;i++){
-        const name = 'Block-' + String(i).padStart(3,'0');
+      container.innerHTML = '';
+      // Create 120 deterministic block links: Block-001 .. Block-120
+      for (let i = 1; i <= 120; i++) {
+        const id = 'Block-' + String(i).padStart(3, '0');
         const a = document.createElement('a');
         a.className = 'thumb';
-        a.href = 'color.html?name=' + encodeURIComponent(name);
-        // Simple visual thumbnail: colored square with name
+        a.href = 'color.html?name=' + encodeURIComponent(id);
+        a.setAttribute('aria-label', id);
+
         const inner = document.createElement('div');
         inner.className = 'thumb-inner';
-        inner.textContent = name;
+        inner.textContent = id;
+
         a.appendChild(inner);
         container.appendChild(a);
       }
