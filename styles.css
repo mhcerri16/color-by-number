@@ -68,6 +68,11 @@ h1, h2 {
   margin-bottom: 8px;
   border-radius: 4px;
   background: #020617;
+
+  /* Make preview grayscale */
+  filter: grayscale(100%) brightness(0.85) contrast(1.2);
+  opacity: 0.8;
+  transition: filter 0.2s ease, opacity 0.2s ease;
 }
 
 .thumb-label {
