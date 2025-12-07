@@ -68,6 +68,10 @@
         tile.className = "thumb";
         tile.href = `color.html?name=${encodeURIComponent(pic.id)}`;
 
+        if (localStorage.getItem("completed_" + pic.id)) {
+          tile.classList.add("completed");
+        }
+        
         const previewCanvas = document.createElement("canvas");
         const pctx = previewCanvas.getContext("2d");
 
