@@ -285,3 +285,17 @@ h1, h2 {
   font-weight: 700;
   border-color: #d4af37;
 }
+.thumb.completed {
+  position: relative;
+  border: 2px solid #22c55e;
+  box-shadow: 0 0 14px #22c55eaa, 0 0 28px #4ade80aa;
+}
+
+.thumb.completed canvas {
+  filter: none !important;
+  opacity: 1 !important;
+}
+
+.thumb.completed:hover {
+  box-shadow: 0 0 20px #22c55e, 0 0 40px #4ade80;
+}
