@@ -18,23 +18,25 @@ function setupColoring(pictureName, PICTURES) {
   const cols = currentPicture.data[0].length;
 
   // === MAIN USER GRID ===
-  // null = unpainted/white
   const userGrid = Array.from({ length: rows }, () => Array(cols).fill(null));
 
-  // === CREATE OVERLAY CANVAS (PAINT RADIUS INDICATOR) ===
+  // === CREATE OVERLAY CANVAS ===
   const overlay = document.createElement("canvas");
   overlay.id = "paint-overlay";
   overlay.style.position = "absolute";
   overlay.style.pointerEvents = "none";
+
+  // canvas.parentNode is .canvas-container
   canvas.parentNode.appendChild(overlay);
 
-  // Update overlay position after DOM layout
-function positionOverlay() {
-  const canvasRect = canvas.getBoundingClientRect();
-  const parentRect = canvas.parentNode.getBoundingClientRect();
-  overlay.style.left = (canvasRect.left - parentRect.left) + "px";
-  overlay.style.top  = (canvasRect.top  - parentRect.top)  + "px";
-}
+  // Overlay always sits at (0,0) inside canvas-container
+  function positionOverlay() {
+    overlay.style.left = "0px";
+    overlay.style.top = "0px";
+    overlay.width = canvas.width;
+    overlay.height = canvas.height;
+  }
+
   positionOverlay();
   window.addEventListener("resize", positionOverlay);
 
@@ -56,7 +58,6 @@ function positionOverlay() {
     colorBar.appendChild(swatch);
   });
 
-  // === SELECT A COLOR ===
   function selectColor(value, element) {
     currentColor = value;
     document.querySelectorAll(".color-swatch")
@@ -71,8 +72,7 @@ function positionOverlay() {
     const size = currentPicture.pixelSize;
     canvas.width = cols * size;
     canvas.height = rows * size;
-    overlay.width = canvas.width;
-    overlay.height = canvas.height;
+    positionOverlay(); // resync overlay size
 
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
@@ -81,7 +81,7 @@ function positionOverlay() {
         const pixelVal = currentPicture.data[r][c];
         const paintedVal = userGrid[r][c];
 
-        // White background if unpainted
+        // background white unless painted
         if (paintedVal === null) {
           ctx.fillStyle = "#ffffff";
         } else {
@@ -89,19 +89,17 @@ function positionOverlay() {
         }
         ctx.fillRect(c * size, r * size, size, size);
 
-        // Draw number only if unpainted
+        // draw numbers only if not painted
         if (paintedVal === null) {
-          const isMatch = currentColor !== null &&
-                          String(pixelVal) === String(currentColor);
+          const isMatch =
+            currentColor !== null && String(pixelVal) === String(currentColor);
 
           if (isMatch) {
-            // BIG + glowing
             ctx.font = `bold ${size * 0.7}px Arial`;
-            ctx.fillStyle = "#000000";
+            ctx.fillStyle = "#000";
             ctx.shadowColor = "rgba(255,255,0,0.8)";
             ctx.shadowBlur = 6;
           } else {
-            // Normal number
             ctx.font = `${size * 0.5}px Arial`;
             ctx.fillStyle = "#000";
             ctx.shadowBlur = 0;
@@ -115,8 +113,8 @@ function positionOverlay() {
     }
   }
 
-  // === PAINTING LOGIC (3×3 BRUSH) ===
-  const BRUSH_RADIUS = 1; // 1 = 3×3, 2 = 5×5
+  // === BRUSH LOGIC (3×3) ===
+  const BRUSH_RADIUS = 1; // 1 = 3×3
 
   function paintPixel(x, y) {
     if (!currentColor) return;
@@ -142,7 +140,7 @@ function positionOverlay() {
     drawPixels();
   }
 
-  // === DRAW PAINT INDICATOR CIRCLE ===
+  // === DRAW CIRCLE ON OVERLAY ===
   function drawIndicator(x, y) {
     const octx = overlay.getContext("2d");
     octx.clearRect(0, 0, overlay.width, overlay.height);
@@ -159,7 +157,7 @@ function positionOverlay() {
     octx.stroke();
   }
 
-  // === MOUSE EVENTS ===
+  // === MOUSE ===
   canvas.addEventListener("mousedown", (e) => {
     isDragging = true;
     paintPixel(e.offsetX, e.offsetY);
@@ -182,13 +180,13 @@ function positionOverlay() {
     drawIndicator(x, y);
   });
 
-  // === TOUCH EVENTS ===
+  // === TOUCH ===
   canvas.addEventListener("touchstart", (e) => {
-    isDragging = true;
     const rect = canvas.getBoundingClientRect();
     const x = e.touches[0].clientX - rect.left;
     const y = e.touches[0].clientY - rect.top;
 
+    isDragging = true;
     paintPixel(x, y);
     drawIndicator(x, y);
   });
