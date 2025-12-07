@@ -86,3 +86,19 @@ h1, h2 {
   font-size: 0.8rem;
   color: #555;
 }
+.color-swatch {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.swatch-number {
+  color: black; /* overrides light/dark colors */
+  text-shadow: 0 0 4px white;
+}
