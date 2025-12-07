@@ -95,15 +95,15 @@ function setupColoring(pictureName, PICTURES) {
             currentColor !== null && String(pixelVal) === String(currentColor);
 
           if (isMatch) {
-            ctx.font = `bold ${size * 0.7}px Arial`;
-            ctx.fillStyle = "#000";
-            ctx.shadowColor = "rgba(255,255,0,0.8)";
-            ctx.shadowBlur = 6;
-          } else {
+            ctx.fillStyle = "rgba(255,255,0,0.25)";  // soft yellow highlight
+            ctx.fillRect(c * size, r * size, size, size);
+
             ctx.font = `${size * 0.5}px Arial`;
             ctx.fillStyle = "#000";
-            ctx.shadowBlur = 0;
-          }
+        } else {
+            ctx.font = `${size * 0.5}px Arial`;
+            ctx.fillStyle = "#000";
+        }
 
           ctx.textAlign = "center";
           ctx.textBaseline = "middle";
