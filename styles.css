@@ -249,3 +249,34 @@ h1, h2 {
   transform: translateY(-1px);
 }
 
+/* Category Buttons */
+#category-bar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  margin: 0.5rem 0 1rem;
+}
+
+.cat-btn {
+  padding: 6px 14px;
+  border-radius: 12px;
+  border: 1px solid #4b5563;
+  background: #1f2937;
+  color: #e5e7eb;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background 0.12s, transform 0.1s;
+}
+
+.cat-btn:hover {
+  background: #374151;
+  transform: translateY(-1px);
+}
+
+.cat-btn.selected {
+  background: #facc15;
+  color: #000;
+  font-weight: 700;
+  border-color: #d4af37;
+}
