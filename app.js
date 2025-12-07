@@ -98,7 +98,7 @@ function setupColoring(pictureName, PICTURES) {
             ctx.fillStyle = "rgba(255,255,0,0.25)";  // soft yellow highlight
             ctx.fillRect(c * size, r * size, size, size);
 
-            ctx.font = `${size * 0.5}px Arial`;
+            ctx.font = `bold ${size * 0.7}px Arial`;
             ctx.fillStyle = "#000";
         } else {
             ctx.font = `${size * 0.5}px Arial`;
