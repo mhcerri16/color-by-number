@@ -10,7 +10,8 @@ function setupColoring(pictureName, PICTURES) {
   let currentColor = null;
   let isDragging = false;
 
-  title.textContent = currentPicture.name;
+  // NEW: Display human-friendly name
+  title.textContent = currentPicture.name || pictureName;
 
   const rows = currentPicture.data.length;
   const cols = currentPicture.data[0].length;
@@ -83,7 +84,7 @@ function setupColoring(pictureName, PICTURES) {
   // Mouse / touch events
   canvas.addEventListener('mousedown', () => isDragging = true);
   canvas.addEventListener('mouseup', () => isDragging = false);
-  canvas.addEventListener('mouseleave', () => isDragging = false);
+  canvas.addaddEventListener('mouseleave', () => isDragging = false);
   canvas.addEventListener('mousemove', e => { if (isDragging) paintPixel(e.offsetX, e.offsetY); });
 
   canvas.addEventListener('touchstart', e => {
