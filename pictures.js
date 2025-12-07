@@ -33,7 +33,7 @@ window.PICTURES = {
   },
 
   "apple_golden": {
-    name: "Apple Golden",
+    name: "Golden Apple",
     category: "Food",
     pixelSize: 16,
     colors: {
@@ -70,7 +70,7 @@ window.PICTURES = {
 
   "armor_stand": {
     name: "Armor Stand",
-    category: "Blocks",
+    category: "Decoration",
     pixelSize: 16,
     colors: {
       "0": "#ffffff",
@@ -180,7 +180,7 @@ window.PICTURES = {
 
   "bamboo_sign": {
     name: "Bamboo Sign",
-    category: "Plants",
+    category: "Decoration",
     pixelSize: 16,
     colors: {
       "0": "#ffffff",
@@ -219,7 +219,7 @@ window.PICTURES = {
 
   "bamboo_trapdoor": {
     name: "Bamboo Trapdoor",
-    category: "Plants",
+    category: "Decoration",
     pixelSize: 16,
     colors: {
       "0": "#998741",
@@ -257,7 +257,7 @@ window.PICTURES = {
 
   "bedrock": {
     name: "Bedrock",
-    category: "Decoration",
+    category: "Blocks",
     pixelSize: 16,
     colors: {
       "0": "#636363",
@@ -468,7 +468,7 @@ window.PICTURES = {
 
   "birch_trapdoor": {
     name: "Birch Trapdoor",
-    category: "Blocks",
+    category: "Decoration",
     pixelSize: 16,
     colors: {
       "0": "#9e8b61",
@@ -680,7 +680,7 @@ window.PICTURES = {
 
   "book_normal": {
     name: "Book Normal",
-    category: "Blocks",
+    category: "Enchanting",
     pixelSize: 16,
     colors: {
       "0": "#ffffff",
@@ -717,7 +717,7 @@ window.PICTURES = {
 
   "book_writable": {
     name: "Book Writable",
-    category: "Blocks",
+    category: "Miscellaneous",
     pixelSize: 16,
     colors: {
       "0": "#ffffff",
@@ -759,7 +759,7 @@ window.PICTURES = {
 
   "bookshelf": {
     name: "Bookshelf",
-    category: "Decoration",
+    category: "Enchanting",
     pixelSize: 16,
     colors: {
       "0": "#b38c51",
@@ -884,7 +884,7 @@ window.PICTURES = {
 
   "brewing_stand": {
     name: "Brewing Stand",
-    category: "Blocks",
+    category: "Brewing",
     pixelSize: 16,
     colors: {
       "0": "#ffffff",
@@ -958,7 +958,7 @@ window.PICTURES = {
 
   "bucket_axolotl": {
     name: "Bucket Axolotl",
-    category: "Blocks",
+    category: "Items",
     pixelSize: 16,
     colors: {
       "0": "#ffffff",
@@ -1002,7 +1002,7 @@ window.PICTURES = {
 
   "bucket_lava": {
     name: "Bucket Lava",
-    category: "Blocks",
+    category: "Items",
     pixelSize: 16,
     colors: {
       "0": "#ffffff",
@@ -1040,7 +1040,7 @@ window.PICTURES = {
 
   "bucket_milk": {
     name: "Bucket Milk",
-    category: "Blocks",
+    category: "Items",
     pixelSize: 16,
     colors: {
       "0": "#ffffff",
@@ -1119,7 +1119,7 @@ window.PICTURES = {
 
   "campfire": {
     name: "Campfire",
-    category: "Blocks",
+    category: "Decoration",
     pixelSize: 16,
     colors: {
       "0": "#ffffff",
@@ -1162,7 +1162,7 @@ window.PICTURES = {
 
   "carried_waterlily": {
     name: "Carried Waterlily",
-    category: "Blocks",
+    category: "Plants",
     pixelSize: 16,
     colors: {
       "0": "#ffffff",
@@ -1275,7 +1275,7 @@ window.PICTURES = {
 
   "cartography_table_top": {
     name: "Cartography Table Top",
-    category: "Blocks",
+    category: "Tables",
     pixelSize: 16,
     colors: {
       "0": "#4f3218",
@@ -1534,7 +1534,7 @@ window.PICTURES = {
 
   "chorus_fruit": {
     name: "Chorus Fruit",
-    category: "Blocks",
+    category: "Food",
     pixelSize: 16,
     colors: {
       "0": "#ffffff",
@@ -1570,7 +1570,7 @@ window.PICTURES = {
 
   "clock_item": {
     name: "Clock Item",
-    category: "Blocks",
+    category: "Items",
     pixelSize: 16,
     colors: {
       "0": "#ffffff",
@@ -1804,7 +1804,7 @@ window.PICTURES = {
 
   "compass_item": {
     name: "Compass Item",
-    category: "Blocks",
+    category: "Items",
     pixelSize: 16,
     colors: {
       "0": "#ffffff",
@@ -1842,7 +1842,7 @@ window.PICTURES = {
 
   "composter_side": {
     name: "Composter Side",
-    category: "Blocks",
+    category: "Tables",
     pixelSize: 16,
     colors: {
       "0": "#b4753e",
@@ -1954,7 +1954,7 @@ window.PICTURES = {
 
   "crafting_table_front": {
     name: "Crafting Table Front",
-    category: "Blocks",
+    category: "Tables",
     pixelSize: 16,
     colors: {
       "0": "#19140c",
@@ -1998,7 +1998,7 @@ window.PICTURES = {
 
   "crafting_table_top": {
     name: "Crafting Table Top",
-    category: "Blocks",
+    category: "Tables",
     pixelSize: 16,
     colors: {
       "0": "#19140c",
@@ -2436,7 +2436,7 @@ window.PICTURES = {
 
   "diamond_horse_armor": {
     name: "Diamond Horse Armor",
-    category: "Ores",
+    category: "Armor",
     pixelSize: 16,
     colors: {
       "0": "#ffffff",
@@ -2539,7 +2539,7 @@ window.PICTURES = {
 
   "diamond_pickaxe": {
     name: "Diamond Pickaxe",
-    category: "Weapons",
+    category: "Tools",
     pixelSize: 16,
     colors: {
       "0": "#ffffff",
@@ -2717,7 +2717,7 @@ window.PICTURES = {
 
   "dispenser_front_horizontal": {
     name: "Dispenser Front Horizontal",
-    category: "Blocks",
+    category: "Tables",
     pixelSize: 16,
     colors: {
       "0": "#504e4e",
@@ -2757,7 +2757,7 @@ window.PICTURES = {
 
   "door_acacia": {
     name: "Door Acacia",
-    category: "Blocks",
+    category: "Decoration",
     pixelSize: 16,
     colors: {
       "0": "#ffffff",
@@ -2788,7 +2788,7 @@ window.PICTURES = {
 
   "door_birch": {
     name: "Door Birch",
-    category: "Blocks",
+    category: "Decoration",
     pixelSize: 16,
     colors: {
       "0": "#ffffff",
@@ -2821,7 +2821,7 @@ window.PICTURES = {
 
   "door_dark_oak": {
     name: "Door Dark Oak",
-    category: "Blocks",
+    category: "Decoration",
     pixelSize: 16,
     colors: {
       "0": "#ffffff",
@@ -2854,7 +2854,7 @@ window.PICTURES = {
 
   "door_iron": {
     name: "Door Iron",
-    category: "Ores",
+    category: "Decoration",
     pixelSize: 16,
     colors: {
       "0": "#ffffff",
@@ -2887,7 +2887,7 @@ window.PICTURES = {
 
   "door_jungle": {
     name: "Door Jungle",
-    category: "Blocks",
+    category: "Decoration",
     pixelSize: 16,
     colors: {
       "0": "#ffffff",
@@ -2921,7 +2921,7 @@ window.PICTURES = {
 
   "door_spruce": {
     name: "Door Spruce",
-    category: "Blocks",
+    category: "Decoration",
     pixelSize: 16,
     colors: {
       "0": "#ffffff",
@@ -2957,7 +2957,7 @@ window.PICTURES = {
 
   "door_wood": {
     name: "Door Wood",
-    category: "Blocks",
+    category: "Decoration",
     pixelSize: 16,
     colors: {
       "0": "#ffffff",
@@ -2990,7 +2990,7 @@ window.PICTURES = {
 
   "dropper_front_horizontal": {
     name: "Dropper Front Horizontal",
-    category: "Blocks",
+    category: "Tables",
     pixelSize: 16,
     colors: {
       "0": "#504e4e",
@@ -3030,7 +3030,7 @@ window.PICTURES = {
 
   "dropper_front_vertical": {
     name: "Dropper Front Vertical",
-    category: "Blocks",
+    category: "Tables",
     pixelSize: 16,
     colors: {
       "0": "#504e4e",
@@ -3065,7 +3065,7 @@ window.PICTURES = {
 
   "egg": {
     name: "Egg",
-    category: "Blocks",
+    category: "Miscellaneous",
     pixelSize: 16,
     colors: {
       "0": "#ffffff",
@@ -3098,7 +3098,7 @@ window.PICTURES = {
 
   "elytra": {
     name: "Elytra",
-    category: "Blocks",
+    category: "End",
     pixelSize: 16,
     colors: {
       "0": "#ffffff",
@@ -3279,7 +3279,7 @@ window.PICTURES = {
 
   "end_bricks": {
     name: "End Bricks",
-    category: "Blocks",
+    category: "End",
     pixelSize: 16,
     colors: {
       "0": "#c2bb88",
@@ -3313,7 +3313,7 @@ window.PICTURES = {
 
   "end_crystal": {
     name: "End Crystal",
-    category: "Blocks",
+    category: "End",
     pixelSize: 16,
     colors: {
       "0": "#ffffff",
@@ -3351,7 +3351,7 @@ window.PICTURES = {
 
   "end_portal": {
     name: "End Portal",
-    category: "Blocks",
+    category: "End",
     pixelSize: 16,
     colors: {
       "0": "#ffffff",
@@ -3389,7 +3389,7 @@ window.PICTURES = {
 
   "end_stone": {
     name: "End Stone",
-    category: "Blocks",
+    category: "End",
     pixelSize: 16,
     colors: {
       "0": "#dee6a4",
@@ -3421,7 +3421,7 @@ window.PICTURES = {
 
   "ender_eye": {
     name: "Ender Eye",
-    category: "Blocks",
+    category: "End",
     pixelSize: 16,
     colors: {
       "0": "#ffffff",
@@ -3460,7 +3460,7 @@ window.PICTURES = {
 
   "ender_pearl": {
     name: "Ender Pearl",
-    category: "Blocks",
+    category: "End",
     pixelSize: 16,
     colors: {
       "0": "#ffffff",
@@ -3497,7 +3497,7 @@ window.PICTURES = {
 
   "endframe_side": {
     name: "Endframe Side",
-    category: "Blocks",
+    category: "End",
     pixelSize: 16,
     colors: {
       "0": "#ffffff",
@@ -3537,7 +3537,7 @@ window.PICTURES = {
 
   "endframe_top": {
     name: "Endframe Top",
-    category: "Blocks",
+    category: "End",
     pixelSize: 16,
     colors: {
       "0": "#427367",
@@ -3573,7 +3573,7 @@ window.PICTURES = {
 
   "experience_bottle": {
     name: "Experience Bottle",
-    category: "Blocks",
+    category: "Enchanting",
     pixelSize: 16,
     colors: {
       "0": "#ffffff",
@@ -3685,7 +3685,7 @@ window.PICTURES = {
 
   "fireball": {
     name: "Fireball",
-    category: "Blocks",
+    category: "Miscellaneous",
     pixelSize: 16,
     colors: {
       "0": "#ffffff",
@@ -3723,7 +3723,7 @@ window.PICTURES = {
 
   "fireworks": {
     name: "Fireworks",
-    category: "Blocks",
+    category: "Items",
     pixelSize: 16,
     colors: {
       "0": "#ffffff",
@@ -3801,7 +3801,7 @@ window.PICTURES = {
 
   "fishing_rod_uncast": {
     name: "Fishing Rod Uncast",
-    category: "Food",
+    category: "Items",
     pixelSize: 16,
     colors: {
       "0": "#ffffff",
@@ -3837,8 +3837,8 @@ window.PICTURES = {
   },
 
   "fletcher_table_side2": {
-    name: "Fletcher Table Side2",
-    category: "Blocks",
+    name: "Fletcher Table",
+    category: "Tables",
     pixelSize: 16,
     colors: {
       "0": "#ae9f76",
@@ -3886,7 +3886,7 @@ window.PICTURES = {
 
   "flint_and_steel": {
     name: "Flint And Steel",
-    category: "Blocks",
+    category: "Items",
     pixelSize: 16,
     colors: {
       "0": "#ffffff",
@@ -4526,8 +4526,8 @@ window.PICTURES = {
   },
 
   "furnace_front_on": {
-    name: "Furnace Front On",
-    category: "Blocks",
+    name: "Furnace",
+    category: "Tables",
     pixelSize: 16,
     colors: {
       "0": "#504e4e",
@@ -4677,7 +4677,7 @@ window.PICTURES = {
 
   "glow_berries": {
     name: "Glow Berries",
-    category: "Blocks",
+    category: "Food",
     pixelSize: 16,
     colors: {
       "0": "#ffffff",
@@ -4765,7 +4765,7 @@ window.PICTURES = {
 
   "glowstone": {
     name: "Glowstone",
-    category: "Blocks",
+    category: "Nether",
     pixelSize: 16,
     colors: {
       "0": "#fbda74",
@@ -4799,7 +4799,7 @@ window.PICTURES = {
 
   "glowstone_dust": {
     name: "Glowstone Dust",
-    category: "Blocks",
+    category: "Ores",
     pixelSize: 16,
     colors: {
       "0": "#ffffff",
@@ -4935,7 +4935,7 @@ window.PICTURES = {
 
   "gold_pickaxe": {
     name: "Gold Pickaxe",
-    category: "Weapons",
+    category: "Tools",
     pixelSize: 16,
     colors: {
       "0": "#ffffff",
@@ -5008,7 +5008,7 @@ window.PICTURES = {
 
   "grass_block_snow": {
     name: "Grass Block Snow",
-    category: "Plants",
+    category: "Blocks",
     pixelSize: 16,
     colors: {
       "0": "#f0fdfd",
@@ -5154,7 +5154,7 @@ window.PICTURES = {
 
   "heartofthesea_closed": {
     name: "Heartofthesea Closed",
-    category: "Blocks",
+    category: "Miscellaneous",
     pixelSize: 16,
     colors: {
       "0": "#ffffff",
@@ -5221,7 +5221,7 @@ window.PICTURES = {
 
   "hopper": {
     name: "Hopper",
-    category: "Blocks",
+    category: "Tables",
     pixelSize: 16,
     colors: {
       "0": "#ffffff",
@@ -5323,7 +5323,7 @@ window.PICTURES = {
 
   "iron_bars": {
     name: "Iron Bars",
-    category: "Ores",
+    category: "Decoration",
     pixelSize: 16,
     colors: {
       "0": "#ffffff",
@@ -5594,8 +5594,8 @@ window.PICTURES = {
   },
 
   "jukebox_top": {
-    name: "Jukebox Top",
-    category: "Blocks",
+    name: "Jukebox",
+    category: "Tables",
     pixelSize: 16,
     colors: {
       "0": "#292820",
@@ -5628,7 +5628,7 @@ window.PICTURES = {
 
   "ladder": {
     name: "Ladder",
-    category: "Blocks",
+    category: "Transportation",
     pixelSize: 16,
     colors: {
       "0": "#ffffff",
@@ -5934,7 +5934,7 @@ window.PICTURES = {
 
   "mace": {
     name: "Mace",
-    category: "Blocks",
+    category: "Weapons",
     pixelSize: 16,
     colors: {
       "0": "#ffffff",
@@ -5973,7 +5973,7 @@ window.PICTURES = {
 
   "magma_cream": {
     name: "Magma Cream",
-    category: "Blocks",
+    category: "Nether",
     pixelSize: 16,
     colors: {
       "0": "#ffffff",
@@ -6441,7 +6441,7 @@ window.PICTURES = {
 
   "mushroom_stew": {
     name: "Mushroom Stew",
-    category: "Plants",
+    category: "Food",
     pixelSize: 16,
     colors: {
       "0": "#ffffff",
@@ -6478,7 +6478,7 @@ window.PICTURES = {
 
   "music_disc_lava_chicken": {
     name: "Music Disc Lava Chicken",
-    category: "Food",
+    category: "Decoration",
     pixelSize: 16,
     colors: {
       "0": "#ffffff",
@@ -6595,7 +6595,7 @@ window.PICTURES = {
 
   "name_tag": {
     name: "Name Tag",
-    category: "Blocks",
+    category: "Miscellaneous",
     pixelSize: 16,
     colors: {
       "0": "#ffffff",
@@ -6633,7 +6633,7 @@ window.PICTURES = {
 
   "nautilus": {
     name: "Nautilus",
-    category: "Blocks",
+    category: "Miscellaneous",
     pixelSize: 16,
     colors: {
       "0": "#ffffff",
@@ -7087,7 +7087,7 @@ window.PICTURES = {
 
   "netherite_pickaxe": {
     name: "Netherite Pickaxe",
-    category: "Weapons",
+    category: "Tools",
     pixelSize: 16,
     colors: {
       "0": "#ffffff",
@@ -7305,7 +7305,7 @@ window.PICTURES = {
 
   "noteblock": {
     name: "Noteblock",
-    category: "Blocks",
+    category: "Tables",
     pixelSize: 16,
     colors: {
       "0": "#292820",
@@ -7336,8 +7336,8 @@ window.PICTURES = {
   },
 
   "observer_front": {
-    name: "Observer Front",
-    category: "Blocks",
+    name: "Observer",
+    category: "Tables",
     pixelSize: 16,
     colors: {
       "0": "#292929",
@@ -7483,7 +7483,7 @@ window.PICTURES = {
 
   "piston_side": {
     name: "Piston Side",
-    category: "Blocks",
+    category: "Decoration",
     pixelSize: 16,
     colors: {
       "0": "#cdcdcd",
@@ -7527,7 +7527,7 @@ window.PICTURES = {
   },
 
   "piston_top_sticky": {
-    name: "Piston Top Sticky",
+    name: "Piston Top Decoration",
     category: "Blocks",
     pixelSize: 16,
     colors: {
@@ -7766,8 +7766,8 @@ window.PICTURES = {
   },
 
   "pointed_dripstone_down_merge": {
-    name: "Pointed Dripstone Down Merge",
-    category: "Blocks",
+    name: "Pointed Dripstone",
+    category: "Miscellaneous",
     pixelSize: 16,
     colors: {
       "0": "#ffffff",
@@ -8073,7 +8073,7 @@ window.PICTURES = {
 
   "powder_snow": {
     name: "Powder Snow",
-    category: "Brewing",
+    category: "Blocks",
     pixelSize: 16,
     colors: {
       "0": "#f4fcfc",
@@ -8238,7 +8238,7 @@ window.PICTURES = {
 
   "pumpkin_pie": {
     name: "Pumpkin Pie",
-    category: "Blocks",
+    category: "Food",
     pixelSize: 16,
     colors: {
       "0": "#ffffff",
@@ -8346,7 +8346,7 @@ window.PICTURES = {
 
   "quartz_block_chiseled_top": {
     name: "Quartz Block Chiseled Top",
-    category: "Ores",
+    category: "Nether",
     pixelSize: 16,
     colors: {
       "0": "#ddd9cb",
@@ -8415,7 +8415,7 @@ window.PICTURES = {
 
   "rail_activator_powered": {
     name: "Rail Activator Powered",
-    category: "Blocks",
+    category: "Transportation",
     pixelSize: 16,
     colors: {
       "0": "#ffffff",
@@ -8454,7 +8454,7 @@ window.PICTURES = {
 
   "rail_detector_powered": {
     name: "Rail Detector Powered",
-    category: "Blocks",
+    category: "Transportation",
     pixelSize: 16,
     colors: {
       "0": "#ffffff",
@@ -8496,7 +8496,7 @@ window.PICTURES = {
 
   "rail_golden": {
     name: "Rail Golden",
-    category: "Ores",
+    category: "Transportation",
     pixelSize: 16,
     colors: {
       "0": "#ffffff",
@@ -8538,7 +8538,7 @@ window.PICTURES = {
 
   "rail_golden_powered": {
     name: "Rail Golden Powered",
-    category: "Ores",
+    category: "Transportation",
     pixelSize: 16,
     colors: {
       "0": "#ffffff",
@@ -8580,7 +8580,7 @@ window.PICTURES = {
 
   "rail_normal": {
     name: "Rail Normal",
-    category: "Blocks",
+    category: "Transportation",
     pixelSize: 16,
     colors: {
       "0": "#ffffff",
@@ -8724,7 +8724,7 @@ window.PICTURES = {
 
   "record_cat": {
     name: "Record Cat",
-    category: "Blocks",
+    category: "Decoration",
     pixelSize: 16,
     colors: {
       "0": "#ffffff",
@@ -8855,7 +8855,7 @@ window.PICTURES = {
 
   "redstone_dust": {
     name: "Redstone Dust",
-    category: "Blocks",
+    category: "Ores",
     pixelSize: 16,
     colors: {
       "0": "#ffffff",
@@ -9001,7 +9001,7 @@ window.PICTURES = {
 
   "reeds": {
     name: "Reeds",
-    category: "Blocks",
+    category: "Plants",
     pixelSize: 16,
     colors: {
       "0": "#ffffff",
@@ -9034,7 +9034,7 @@ window.PICTURES = {
 
   "rotten_flesh": {
     name: "Rotten Flesh",
-    category: "Blocks",
+    category: "Food",
     pixelSize: 16,
     colors: {
       "0": "#ffffff",
@@ -9276,7 +9276,7 @@ window.PICTURES = {
 
   "shears": {
     name: "Shears",
-    category: "Blocks",
+    category: "Items",
     pixelSize: 16,
     colors: {
       "0": "#ffffff",
@@ -9419,7 +9419,7 @@ window.PICTURES = {
 
   "slimeball": {
     name: "Slimeball",
-    category: "Blocks",
+    category: "Miscellaneous",
     pixelSize: 16,
     colors: {
       "0": "#ffffff",
@@ -9454,7 +9454,7 @@ window.PICTURES = {
 
   "smithing_table_front": {
     name: "Smithing Table Front",
-    category: "Blocks",
+    category: "Tables",
     pixelSize: 16,
     colors: {
       "0": "#383a47",
@@ -9630,7 +9630,7 @@ window.PICTURES = {
 
   "spider_eye": {
     name: "Spider Eye",
-    category: "Blocks",
+    category: "Food",
     pixelSize: 16,
     colors: {
       "0": "#ffffff",
@@ -9763,7 +9763,7 @@ window.PICTURES = {
 
   "spruce_trapdoor": {
     name: "Spruce Trapdoor",
-    category: "Blocks",
+    category: "Decoration",
     pixelSize: 16,
     colors: {
       "0": "#664d28",
@@ -9965,7 +9965,7 @@ window.PICTURES = {
 
   "stone_pickaxe": {
     name: "Stone Pickaxe",
-    category: "Weapons",
+    category: "Tools",
     pixelSize: 16,
     colors: {
       "0": "#ffffff",
@@ -10215,7 +10215,7 @@ window.PICTURES = {
 
   "suspicious_stew": {
     name: "Suspicious Stew",
-    category: "Blocks",
+    category: "Food",
     pixelSize: 16,
     colors: {
       "0": "#ffffff",
@@ -10256,7 +10256,7 @@ window.PICTURES = {
 
   "sweet_berries": {
     name: "Sweet Berries",
-    category: "Blocks",
+    category: "Food",
     pixelSize: 16,
     colors: {
       "0": "#ffffff",
@@ -10292,7 +10292,7 @@ window.PICTURES = {
 
   "sweet_berry_bush_stage3": {
     name: "Sweet Berry Bush Stage3",
-    category: "Blocks",
+    category: "Plants",
     pixelSize: 16,
     colors: {
       "0": "#ffffff",
@@ -10439,7 +10439,7 @@ window.PICTURES = {
 
   "totem": {
     name: "Totem",
-    category: "Blocks",
+    category: "Miscellaneous",
     pixelSize: 16,
     colors: {
       "0": "#ffffff",
@@ -10546,7 +10546,7 @@ window.PICTURES = {
 
   "trip_wire_source": {
     name: "Trip Wire Source",
-    category: "Blocks",
+    category: "Miscellaneous",
     pixelSize: 16,
     colors: {
       "0": "#ffffff",
@@ -10650,7 +10650,7 @@ window.PICTURES = {
 
   "villagebell": {
     name: "Villagebell",
-    category: "Blocks",
+    category: "Miscellaneous",
     pixelSize: 16,
     colors: {
       "0": "#ffffff",
@@ -10916,7 +10916,7 @@ window.PICTURES = {
 
   "wood_pickaxe": {
     name: "Wood Pickaxe",
-    category: "Weapons",
+    category: "Tools",
     pixelSize: 16,
     colors: {
       "0": "#ffffff",
