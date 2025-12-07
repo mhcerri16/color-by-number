@@ -86,9 +86,18 @@ function setupColoring(pictureName, PICTURES) {
         // Draw number if not painted
         if (userVal === null) {
           ctx.fillStyle = "#000";
-          ctx.font = (currentColor !== null && String(targetVal) === String(currentColor))
-            ? `bold ${size / 2}px Arial`
-            : `${size / 2}px Arial`;
+          if (currentColor !== null && String(val) === String(currentColor)) {
+            ctx.font = `bold ${size * 0.7}px Arial`;
+            ctx.fillStyle = "#000";
+            // glow to make them stand out
+            ctx.shadowColor = "rgba(255,255,0,0.7)";
+            ctx.shadowBlur = 6;
+        } else {
+            ctx.font = `${size * 0.5}px Arial`;
+            ctx.fillStyle = "#000";
+            ctx.shadowBlur = 0;
+        }
+
 
           ctx.fillText(
             targetVal,
