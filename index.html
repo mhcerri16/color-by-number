@@ -9,10 +9,16 @@
 </head>
 <body>
   <main class="center-col">
+
     <h1>🎨 Minecraft Color-by-Number</h1>
-    <p class="hint">
-      Tap a block or item to start coloring. Each pixel uses the exact Minecraft texture colors.
-    </p>
+
+    <!-- SEARCH + RANDOM -->
+    <div id="top-controls">
+      <input id="search-box" type="text" placeholder="Search blocks...">
+      <button id="random-btn">🎲 Random</button>
+    </div>
+
+    <p class="hint small">Browse or search for a block below.</p>
 
     <div id="thumb-grid" class="thumb-grid"></div>
   </main>
@@ -20,48 +26,77 @@
   <script src="pictures.js"></script>
   <script>
     const grid = document.getElementById("thumb-grid");
+    const searchBox = document.getElementById("search-box");
+    const randomBtn = document.getElementById("random-btn");
 
-    const entries = Object.entries(window.PICTURES || {});
-    // Sort by display name
-    entries.sort((a, b) => {
-      const nameA = (a[1].name || a[0]).toLowerCase();
-      const nameB = (b[1].name || b[0]).toLowerCase();
-      return nameA.localeCompare(nameB);
+    // Convert PICTURES object to a sortable array
+    const entries = Object.entries(window.PICTURES || {})
+      .map(([id, pic]) => ({
+        id,
+        name: pic.name || id,
+        data: pic.data,
+        colors: pic.colors
+      }))
+      .sort((a, b) => a.name.localeCompare(b.name));
+
+    // Render thumbnails
+    function render(list) {
+      grid.innerHTML = "";
+
+      list.forEach(pic => {
+        const tile = document.createElement("a");
+        tile.className = "thumb";
+        tile.href = `color.html?name=${encodeURIComponent(pic.id)}`;
+
+        const previewCanvas = document.createElement("canvas");
+        const pctx = previewCanvas.getContext("2d");
+
+        const rows = pic.data.length;
+        const cols = pic.data[0].length;
+        const scale = Math.floor(64 / Math.max(rows, cols)) || 4;
+        const size = scale;
+
+        previewCanvas.width = cols * size;
+        previewCanvas.height = rows * size;
+        previewCanvas.style.imageRendering = "pixelated";
+
+        for (let r = 0; r < rows; r++) {
+          for (let c = 0; c < cols; c++) {
+            const code = pic.data[r][c];
+            pctx.fillStyle = pic.colors[code];
+            pctx.fillRect(c * size, r * size, size, size);
+          }
+        }
+
+        const label = document.createElement("div");
+        label.className = "thumb-label";
+        label.textContent = pic.name;
+
+        tile.appendChild(previewCanvas);
+        tile.appendChild(label);
+        grid.appendChild(tile);
+      });
+    }
+
+    // Initial display
+    render(entries);
+
+    // === SEARCH FILTER ===
+    searchBox.addEventListener("input", () => {
+      const q = searchBox.value.trim().toLowerCase();
+
+      const filtered = entries.filter(p =>
+        p.id.toLowerCase().includes(q) ||
+        p.name.toLowerCase().includes(q)
+      );
+
+      render(filtered);
     });
 
-    entries.forEach(([id, pic]) => {
-      const tile = document.createElement("a");
-      tile.className = "thumb";
-      tile.href = `color.html?name=${encodeURIComponent(id)}`;
-
-      const previewCanvas = document.createElement("canvas");
-      const pctx = previewCanvas.getContext("2d");
-
-      const rows = pic.data.length;
-      const cols = pic.data[0].length;
-      const scale = Math.floor(64 / Math.max(rows, cols)) || 4;
-      const size = scale;
-
-      previewCanvas.width = cols * size;
-      previewCanvas.height = rows * size;
-      previewCanvas.style.imageRendering = "pixelated";
-
-      for (let r = 0; r < rows; r++) {
-        for (let c = 0; c < cols; c++) {
-          const code = pic.data[r][c];
-          const color = pic.colors[code];
-          pctx.fillStyle = color;
-          pctx.fillRect(c * size, r * size, size, size);
-        }
-      }
-
-      const label = document.createElement("div");
-      label.className = "thumb-label";
-      label.textContent = pic.name || id;
-
-      tile.appendChild(previewCanvas);
-      tile.appendChild(label);
-      grid.appendChild(tile);
+    // === RANDOM BUTTON ===
+    randomBtn.addEventListener("click", () => {
+      const choice = entries[Math.floor(Math.random() * entries.length)];
+      window.location.href = `color.html?name=${encodeURIComponent(choice.id)}`;
     });
   </script>
 </body>
