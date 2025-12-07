@@ -1,30 +1,43 @@
+/* ===== Global ===== */
+
 body {
   margin: 0;
   font-family: Arial, sans-serif;
   background: #f0f0f0;
-  text-align: center;
   -webkit-user-select: none;
   -ms-user-select: none;
   user-select: none;
 }
 
+/* center column for both index.html and color.html */
 .center-col {
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 1rem;
+  box-sizing: border-box;
+  text-align: center;
 }
 
 h1, h2 {
   margin: 0.5rem 0;
 }
 
+.hint, .small {
+  font-size: 0.8rem;
+  color: #555;
+}
+
+/* ===== Index page: thumbnail grid ===== */
+
 .thumb-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
   gap: 16px;
   width: 100%;
+  max-width: 900px;
   padding: 10px;
+  box-sizing: border-box;
 }
 
 .thumb {
@@ -36,11 +49,13 @@ h1, h2 {
   padding: 12px;
   text-decoration: none;
   color: white;
-  transition: transform 0.1s;
+  transition: transform 0.1s ease-out, box-shadow 0.1s ease-out;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.4);
 }
 
 .thumb:hover {
   transform: scale(1.04);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.6);
 }
 
 .thumb canvas {
@@ -55,37 +70,49 @@ h1, h2 {
   padding-top: 4px;
 }
 
+/* ===== Color page ===== */
 
-#pixel-canvas {
-  margin: 1rem 0;
-  background: #fff;
-  border: 1px solid #ccc;
-  touch-action: none; /* prevent scrolling on mobile drag */
-}
-
-.color-swatch {
-  width: 40px;
-  height: 40px;
+/* Wraps the canvas + overlay so the overlay aligns correctly */
+.canvas-container {
+  position: relative;
   display: inline-block;
-  margin: 3px;
-  border: 2px solid #999;
-  cursor: pointer;
+  margin: 1rem 0;
 }
 
-.color-swatch.selected {
-  border: 3px solid #000;
+/* If your color.html doesn't have this wrapper, it's okay:
+   we also make .center-col relative as a fallback container. */
+.center-col {
+  position: relative;
 }
 
-.back-btn {
-  padding: 0.5rem 1rem;
-  font-size: 1rem;
-  margin-bottom: 2rem;
+/* Main pixel canvas */
+#pixel-canvas {
+  display: block;
+  background: #ffffff;
+  border: 1px solid #ccc;
+  image-rendering: pixelated;
+  touch-action: none; /* prevent scrolling on mobile drag */
+  max-width: 100%;
 }
 
-.hint, .small {
-  font-size: 0.8rem;
-  color: #555;
+/* Overlay canvas used for the brush radius circle */
+#paint-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  pointer-events: none;
 }
+
+/* Color bar under/above the canvas */
+#color-bar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  margin: 0.5rem 0 1.5rem 0;
+}
+
+/* Color swatches with number inside */
 .color-swatch {
   position: relative;
   width: 40px;
@@ -96,9 +123,36 @@ h1, h2 {
   justify-content: center;
   font-weight: bold;
   font-size: 20px;
+  margin: 3px;
+  border: 2px solid #999;
+  cursor: pointer;
+  box-sizing: border-box;
 }
 
+.color-swatch.selected {
+  border: 3px solid #000;
+}
+
+/* Number inside the swatch */
 .swatch-number {
-  color: black; /* overrides light/dark colors */
+  color: black;
   text-shadow: 0 0 4px white;
+}
+
+/* Back button */
+.back-btn {
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+  border-radius: 6px;
+  border: 1px solid #444;
+  background: #fff;
+  cursor: pointer;
+  transition: background 0.1s ease-out, transform 0.1s ease-out;
+}
+
+.back-btn:hover {
+  background: #eee;
+  transform: translateY(-1px);
 }
