@@ -21,12 +21,20 @@ function setupColoring(pictureName, PICTURES) {
   // Build color bar
   colorBar.innerHTML = '';
   Object.entries(currentPicture.colors).forEach(([num, color]) => {
-    const swatch = document.createElement("div");
-    swatch.className = "color-swatch";
-    swatch.style.background = color;
-    swatch.dataset.value = num;
-    swatch.onclick = () => selectColor(num, swatch);
-    colorBar.appendChild(swatch);
+  const swatch = document.createElement("div");
+  swatch.className = "color-swatch";
+  swatch.dataset.value = num;
+
+  const innerNumber = document.createElement("div");
+  innerNumber.className = "swatch-number";
+  innerNumber.textContent = num;
+
+  swatch.appendChild(innerNumber);
+  swatch.style.background = color;
+  swatch.onclick = () => selectColor(num, swatch);
+
+  colorBar.appendChild(swatch);
+
   });
 
   function selectColor(value, element) {
