@@ -1,20 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-  <title>Color by Number — Minecraft Objects</title>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <title>Minecraft Color by Number</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <main class="center-col">
-    <h1>📦 Minecraft Objects</h1>
-    <p class="hint">Tap an item to start coloring.</p>
+    <h1>🎨 Minecraft Color-by-Number</h1>
+    <p class="hint">
+      Tap a block or item to start coloring. Each pixel uses the exact Minecraft texture colors.
+    </p>
 
     <div id="thumb-grid" class="thumb-grid"></div>
   </main>
 
   <script src="pictures.js"></script>
-  <script src="index.js"></script>
+  <script>
+    const grid = document.getElementById("thumb-grid");
+
+    const entries = Object.entries(window.PICTURES || {});
+    // Sort by display name
+    entries.sort((a, b) => {
+      const nameA = (a[1].name || a[0]).toLowerCase();
+      const nameB = (b[1].name || b[0]).toLowerCase();
+      return nameA.localeCompare(nameB);
+    });
+
+    entries.forEach(([id, pic]) => {
+      const tile = document.createElement("a");
+      tile.className = "thumb";
+      tile.href = `color.html?name=${encodeURIComponent(id)}`;
+
+      const previewCanvas = document.createElement("canvas");
+      const pctx = previewCanvas.getContext("2d");
+
+      const rows = pic.data.length;
+      const cols = pic.data[0].length;
+      const scale = Math.floor(64 / Math.max(rows, cols)) || 4;
+      const size = scale;
+
+      previewCanvas.width = cols * size;
+      previewCanvas.height = rows * size;
+      previewCanvas.style.imageRendering = "pixelated";
+
+      for (let r = 0; r < rows; r++) {
+        for (let c = 0; c < cols; c++) {
+          const code = pic.data[r][c];
+          const color = pic.colors[code];
+          pctx.fillStyle = color;
+          pctx.fillRect(c * size, r * size, size, size);
+        }
+      }
+
+      const label = document.createElement("div");
+      label.className = "thumb-label";
+      label.textContent = pic.name || id;
+
+      tile.appendChild(previewCanvas);
+      tile.appendChild(label);
+      grid.appendChild(tile);
+    });
+  </script>
 </body>
 </html>
