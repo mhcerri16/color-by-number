@@ -1,4 +1,4 @@
-/* ===== Global ===== */
+/* ===== GLOBAL ===== */
 
 body {
   margin: 0;
@@ -9,14 +9,15 @@ body {
   user-select: none;
 }
 
-/* center column for both index.html and color.html */
 .center-col {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
+  text-align: center;
+  width: 100%;
   padding: 1rem;
   box-sizing: border-box;
-  text-align: center;
 }
 
 h1, h2 {
@@ -28,7 +29,8 @@ h1, h2 {
   color: #555;
 }
 
-/* ===== Index page: thumbnail grid ===== */
+
+/* ===== INDEX PAGE (thumbnails) ===== */
 
 .thumb-grid {
   display: grid;
@@ -70,32 +72,31 @@ h1, h2 {
   padding-top: 4px;
 }
 
-/* ===== Color page ===== */
 
-/* Wraps the canvas + overlay so the overlay aligns correctly */
+/* ===== COLOR PAGE ===== */
+
+/* Canvas container ensures perfect overlay alignment */
 .canvas-container {
   position: relative;
-  display: inline-block;
-  margin: 1rem 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 1rem auto;        /* center horizontally */
+  width: fit-content;       /* shrink-wrap to canvas */
+  max-width: 100%;
 }
 
-/* If your color.html doesn't have this wrapper, it's okay:
-   we also make .center-col relative as a fallback container. */
-.center-col {
-  position: relative;
-}
-
-/* Main pixel canvas */
+/* Actual pixel canvas */
 #pixel-canvas {
   display: block;
   background: #ffffff;
   border: 1px solid #ccc;
   image-rendering: pixelated;
-  touch-action: none; /* prevent scrolling on mobile drag */
+  touch-action: none;
   max-width: 100%;
 }
 
-/* Overlay canvas used for the brush radius circle */
+/* Overlay coordinates match canvas exactly */
 #paint-overlay {
   position: absolute;
   top: 0;
@@ -103,16 +104,18 @@ h1, h2 {
   pointer-events: none;
 }
 
-/* Color bar under/above the canvas */
+/* Color selection bar */
 #color-bar {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: 8px;
-  margin: 0.5rem 0 1.5rem 0;
+  margin: 0.5rem 0 1rem 0;
 }
 
-/* Color swatches with number inside */
+
+/* ===== COLOR SWATCHES ===== */
+
 .color-swatch {
   position: relative;
   width: 40px;
@@ -133,19 +136,20 @@ h1, h2 {
   border: 3px solid #000;
 }
 
-/* Number inside the swatch */
+/* Number inside swatch */
 .swatch-number {
   color: black;
   text-shadow: 0 0 4px white;
 }
 
-/* Back button */
+
+/* ===== Back Button ===== */
+
 .back-btn {
-  padding: 0.5rem 1rem;
+  padding: 0.6rem 1.4rem;
   font-size: 1rem;
-  margin-top: 1rem;
-  margin-bottom: 2rem;
-  border-radius: 6px;
+  margin-top: 0.5rem;
+  border-radius: 8px;
   border: 1px solid #444;
   background: #fff;
   cursor: pointer;
@@ -153,6 +157,6 @@ h1, h2 {
 }
 
 .back-btn:hover {
-  background: #eee;
+  background: #e5e5e5;
   transform: translateY(-1px);
 }
