@@ -20,10 +20,10 @@ function setupColoring(pictureName, PICTURES) {
   const rows = currentPicture.data.length;
   const cols = currentPicture.data[0].length;
 
-  // Track painted state: null = unpainted/white, otherwise = color code ('0','1','A'...)
+  // === USER GRID (null = white/unpainted) ===
   const userGrid = Array.from({ length: rows }, () => Array(cols).fill(null));
 
-  // === Overlay canvas (for brush circle) ===
+  // === OVERLAY CANVAS FOR BRUSH CIRCLE ===
   const overlay = document.createElement("canvas");
   overlay.id = "paint-overlay";
   overlay.style.position = "absolute";
@@ -37,87 +37,87 @@ function setupColoring(pictureName, PICTURES) {
     overlay.height = canvas.height;
   }
 
-  // === Build color swatches ===
+  // === BUILD PALETTE ===
   colorBar.innerHTML = "";
   Object.entries(currentPicture.colors).forEach(([num, hex]) => {
     const swatch = document.createElement("div");
     swatch.className = "color-swatch";
     swatch.dataset.value = num;
 
-    const inner = document.createElement("div");
-    inner.className = "swatch-number";
-    inner.textContent = num;
+    const label = document.createElement("div");
+    label.className = "swatch-number";
+    label.textContent = num;
 
-    swatch.appendChild(inner);
     swatch.style.background = hex;
+    swatch.appendChild(label);
 
     swatch.onclick = () => selectColor(num, swatch);
     colorBar.appendChild(swatch);
   });
 
-  function selectColor(value, element) {
-    currentColor = value;
-    document
-      .querySelectorAll(".color-swatch")
-      .forEach((s) => s.classList.remove("selected"));
-    element.classList.add("selected");
+  function selectColor(num, swatchElement) {
+    currentColor = num;
 
-    drawPixels(); // redraw with highlight on target cells
+    document.querySelectorAll(".color-swatch")
+      .forEach(s => s.classList.remove("selected"));
+
+    swatchElement.classList.add("selected");
+    drawPixels();
   }
 
-  // === Progress bar ===
+  // === PROGRESS BAR ===
   function updateProgress() {
-    let filled = 0;
+    let count = 0;
     const total = rows * cols;
 
     for (let r = 0; r < rows; r++) {
       for (let c = 0; c < cols; c++) {
-        if (userGrid[r][c] !== null) filled++;
+        if (userGrid[r][c] !== null) count++;
       }
     }
 
-    const pct = Math.floor((filled / total) * 100);
-    if (progressBar) progressBar.style.width = pct + "%";
-    if (progressText) progressText.textContent = pct + "%";
+    const pct = Math.floor((count / total) * 100);
+    progressBar.style.width = pct + "%";
+    progressText.textContent = pct + "%";
   }
 
-  // === Per-color completion check (swatch checkmarks) ===
+  // === CHECKMARK FOR COMPLETED COLORS ===
   function updateColorChecks() {
-    for (const [num] of Object.entries(currentPicture.colors)) {
+    for (const num in currentPicture.colors) {
       const swatch = document.querySelector(
         `.color-swatch[data-value="${num}"]`
       );
       if (!swatch) continue;
 
-      let totalForColor = 0;
-      let paintedForColor = 0;
+      const label = swatch.querySelector(".swatch-number");
+
+      let needed = 0;
+      let filled = 0;
 
       for (let r = 0; r < rows; r++) {
         for (let c = 0; c < cols; c++) {
-          const val = String(currentPicture.data[r][c]);
-          if (val === String(num)) {
-            totalForColor++;
-            if (userGrid[r][c] === num) paintedForColor++;
+          if (String(currentPicture.data[r][c]) === String(num)) {
+            needed++;
+            if (userGrid[r][c] === num) filled++;
           }
         }
       }
 
-      const inner = swatch.querySelector(".swatch-number");
-      if (!inner) continue;
-
-      if (totalForColor > 0 && paintedForColor === totalForColor) {
-        inner.textContent = "✔";
-        inner.style.fontSize = "24px";
+      if (needed > 0 && needed === filled) {
+        label.textContent = "✔";
+        label.style.fontSize = "22px";
       } else {
-        inner.textContent = num;
-        inner.style.fontSize = "20px";
+        label.textContent = num;
+        label.style.fontSize = "20px";
       }
     }
   }
 
-  // === Main draw ===
+  // === MAIN DRAW FUNCTION ===
   function drawPixels() {
     const size = currentPicture.pixelSize;
+
+    // Resize canvas to exact pixel grid
     canvas.width = cols * size;
     canvas.height = rows * size;
     positionOverlay();
@@ -126,34 +126,41 @@ function setupColoring(pictureName, PICTURES) {
 
     for (let r = 0; r < rows; r++) {
       for (let c = 0; c < cols; c++) {
-        const pixelVal = currentPicture.data[r][c]; // "0"-"9","A"-"Z"
+
+        const pixelVal = currentPicture.data[r][c];
         const paintedVal = userGrid[r][c];
 
-        // Base: white if unpainted, true color if painted
-        if (paintedVal === null) {
-          ctx.fillStyle = "#ffffff";
-        } else {
-          ctx.fillStyle = currentPicture.colors[paintedVal];
-        }
+        // WHITE if not painted yet
+        ctx.fillStyle = paintedVal === null
+          ? "#ffffff"
+          : currentPicture.colors[paintedVal];
+
         ctx.fillRect(c * size, r * size, size, size);
 
-        // If unpainted and this pixel matches currentColor, highlight the cell
+        // Highlight if this pixel matches the selected color
         const isTarget =
           paintedVal === null &&
           currentColor !== null &&
           String(pixelVal) === String(currentColor);
 
         if (isTarget) {
-          ctx.fillStyle = "rgba(250, 204, 21, 0.35)"; // soft amber
+          ctx.fillStyle = "rgba(250, 204, 21, 0.35)";
           ctx.fillRect(c * size, r * size, size, size);
         }
 
-        // Draw number if not painted
+        // Draw number
         if (paintedVal === null) {
-          ctx.font = `${size * 0.5}px Arial`;
-          ctx.fillStyle = "#000000";
           ctx.textAlign = "center";
           ctx.textBaseline = "middle";
+
+          if (isTarget) {
+            ctx.font = `bold ${size * 0.65}px Arial`;
+            ctx.fillStyle = "#000";
+          } else {
+            ctx.font = `${size * 0.5}px Arial`;
+            ctx.fillStyle = "#000";
+          }
+
           ctx.fillText(
             pixelVal,
             c * size + size / 2,
@@ -164,8 +171,8 @@ function setupColoring(pictureName, PICTURES) {
     }
   }
 
-  // === Brush logic (3x3) ===
-  const BRUSH_RADIUS = 1; // 1 = 3×3, 2 = 5×5, etc.
+  // === BRUSH (3×3) ===
+  const BRUSH_RADIUS = 1;
 
   function paintPixel(x, y) {
     if (!currentColor) return;
@@ -178,10 +185,10 @@ function setupColoring(pictureName, PICTURES) {
       for (let dc = -BRUSH_RADIUS; dc <= BRUSH_RADIUS; dc++) {
         const rr = row + dr;
         const cc = col + dc;
-        if (rr < 0 || cc < 0 || rr >= rows || cc >= cols) continue;
 
-        const targetVal = currentPicture.data[rr][cc];
-        if (String(targetVal) === String(currentColor)) {
+        if (rr < 0 || rr >= rows || cc < 0 || cc >= cols) continue;
+
+        if (String(currentPicture.data[rr][cc]) === String(currentColor)) {
           userGrid[rr][cc] = currentColor;
         }
       }
@@ -192,7 +199,7 @@ function setupColoring(pictureName, PICTURES) {
     updateColorChecks();
   }
 
-  // === Brush circle indicator ===
+  // === DRAW BRUSH OVERLAY CIRCLE ===
   function drawIndicator(x, y) {
     const octx = overlay.getContext("2d");
     octx.clearRect(0, 0, overlay.width, overlay.height);
@@ -204,18 +211,16 @@ function setupColoring(pictureName, PICTURES) {
 
     octx.beginPath();
     octx.arc(x, y, radius, 0, Math.PI * 2);
-    octx.strokeStyle = "rgba(15, 23, 42, 0.7)";
+    octx.strokeStyle = "rgba(15, 23, 42, 0.8)";
     octx.lineWidth = 2;
     octx.stroke();
   }
 
-  // === Mouse events ===
-  canvas.addEventListener("mousedown", (e) => {
+  // === INPUT EVENTS ===
+  canvas.addEventListener("mousedown", e => {
     isDragging = true;
-    const x = e.offsetX;
-    const y = e.offsetY;
-    paintPixel(x, y);
-    drawIndicator(x, y);
+    paintPixel(e.offsetX, e.offsetY);
+    drawIndicator(e.offsetX, e.offsetY);
   });
 
   canvas.addEventListener("mouseup", () => {
@@ -228,30 +233,26 @@ function setupColoring(pictureName, PICTURES) {
     overlay.getContext("2d").clearRect(0, 0, overlay.width, overlay.height);
   });
 
-  canvas.addEventListener("mousemove", (e) => {
-    const x = e.offsetX;
-    const y = e.offsetY;
-    if (isDragging) paintPixel(x, y);
-    drawIndicator(x, y);
+  canvas.addEventListener("mousemove", e => {
+    if (isDragging) paintPixel(e.offsetX, e.offsetY);
+    drawIndicator(e.offsetX, e.offsetY);
   });
 
-  // === Touch events ===
-  canvas.addEventListener("touchstart", (e) => {
+  // Touch
+  canvas.addEventListener("touchstart", e => {
     const rect = canvas.getBoundingClientRect();
     const x = e.touches[0].clientX - rect.left;
     const y = e.touches[0].clientY - rect.top;
-
     isDragging = true;
     paintPixel(x, y);
     drawIndicator(x, y);
   });
 
-  canvas.addEventListener("touchmove", (e) => {
+  canvas.addEventListener("touchmove", e => {
     e.preventDefault();
     const rect = canvas.getBoundingClientRect();
     const x = e.touches[0].clientX - rect.left;
     const y = e.touches[0].clientY - rect.top;
-
     if (isDragging) paintPixel(x, y);
     drawIndicator(x, y);
   });
@@ -261,12 +262,10 @@ function setupColoring(pictureName, PICTURES) {
     overlay.getContext("2d").clearRect(0, 0, overlay.width, overlay.height);
   });
 
-  // === Back button ===
-  backBtn.onclick = () => {
-    window.location.href = "index.html";
-  };
+  // Back button
+  backBtn.onclick = () => (window.location.href = "index.html");
 
-  // Initial draw
+  // Initialize
   drawPixels();
   updateProgress();
   updateColorChecks();
