@@ -286,9 +286,8 @@ h1, h2 {
   border-color: #d4af37;
 }
 .thumb.completed {
-  position: relative;
-  border: 2px solid #22c55e;
-  box-shadow: 0 0 14px #22c55eaa, 0 0 28px #4ade80aa;
+  border: 2px solid #86efac; /* light pastel green */
+  box-shadow: 0 0 8px rgba(134, 239, 172, 0.35);
 }
 
 .thumb.completed canvas {
@@ -296,6 +295,7 @@ h1, h2 {
   opacity: 1 !important;
 }
 
+/* Slight emphasis on hover (still subtle) */
 .thumb.completed:hover {
-  box-shadow: 0 0 20px #22c55e, 0 0 40px #4ade80;
+  box-shadow: 0 0 10px rgba(134, 239, 172, 0.45);
 }
