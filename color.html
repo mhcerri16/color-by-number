@@ -3,38 +3,42 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport"
-        content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+        content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
   <title>Color by Number</title>
   <link rel="stylesheet" href="styles.css">
 </head>
-
 <body>
-
-  <div class="center-col">
-
+  <main class="center-col">
     <h2 id="picture-title"></h2>
 
-    <!-- Color palette -->
+    <!-- Progress -->
+    <div id="progress-container">
+      <div id="progress-bar"></div>
+    </div>
+    <div id="progress-text">0%</div>
+
+    <!-- Palette -->
     <div id="color-bar"></div>
 
-    <!-- Canvas wrapped so overlay aligns perfectly -->
+    <!-- Canvas + overlay -->
     <div class="canvas-container">
       <canvas id="pixel-canvas"></canvas>
-      <!-- Overlay canvas injected by app.js -->
+      <!-- overlay canvas is injected by app.js -->
     </div>
 
-    <!-- Back button -->
-    <button id="back-btn" class="back-btn">Back</button>
+    <p class="hint small">
+      Pick a number, then drag to fill matching pixels. All pixels start white.
+    </p>
 
-  </div>
+    <button id="back-btn" class="back-btn">Back to list</button>
+  </main>
 
   <script src="pictures.js"></script>
   <script src="app.js"></script>
   <script>
     const params = new URLSearchParams(window.location.search);
-    const pictureName = params.get("name");
+    const pictureName = params.get('name');
     setupColoring(pictureName, window.PICTURES);
   </script>
-
 </body>
 </html>
