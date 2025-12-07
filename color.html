@@ -2,22 +2,39 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
   <title>Color by Number</title>
   <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
-  <h2 id="picture-title"></h2>
-  <div id="color-bar"></div>
-  <canvas id="pixel-canvas"></canvas>
-  <button id="back-btn" class="back-btn">Back</button>
+
+  <div class="center-col">
+
+    <h2 id="picture-title"></h2>
+
+    <!-- Color palette -->
+    <div id="color-bar"></div>
+
+    <!-- Canvas wrapped so overlay aligns perfectly -->
+    <div class="canvas-container">
+      <canvas id="pixel-canvas"></canvas>
+      <!-- Overlay canvas injected by app.js -->
+    </div>
+
+    <!-- Back button -->
+    <button id="back-btn" class="back-btn">Back</button>
+
+  </div>
 
   <script src="pictures.js"></script>
   <script src="app.js"></script>
   <script>
     const params = new URLSearchParams(window.location.search);
-    const pictureName = params.get('name');
+    const pictureName = params.get("name");
     setupColoring(pictureName, window.PICTURES);
   </script>
+
 </body>
 </html>
