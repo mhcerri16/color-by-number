@@ -79,6 +79,10 @@ function setupColoring(pictureName, PICTURES) {
     const pct = Math.floor((count / total) * 100);
     progressBar.style.width = pct + "%";
     progressText.textContent = pct + "%";
+    if (pct === 100) {
+      localStorage.setItem("completed_" + pictureName, "true");
+}
+
   }
 
   // === CHECKMARK FOR COMPLETED COLORS ===
