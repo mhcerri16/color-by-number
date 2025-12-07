@@ -12,13 +12,23 @@
 
     <h1>🎨 Minecraft Color-by-Number</h1>
 
-    <!-- SEARCH + RANDOM -->
+    <!-- Search + Random -->
     <div id="top-controls">
       <input id="search-box" type="text" placeholder="Search blocks...">
       <button id="random-btn">🎲 Random</button>
     </div>
 
-    <p class="hint small">Browse or search for a block below.</p>
+    <!-- CATEGORY FILTERS -->
+    <div id="category-bar">
+      <button class="cat-btn selected" data-cat="all">All</button>
+      <button class="cat-btn" data-cat="Blocks">Blocks</button>
+      <button class="cat-btn" data-cat="Items">Items</button>
+      <button class="cat-btn" data-cat="Ores">Ores</button>
+      <button class="cat-btn" data-cat="Plants">Plants</button>
+      <button class="cat-btn" data-cat="Nether">Nether</button>
+      <button class="cat-btn" data-cat="Utility">Utility</button>
+      <button class="cat-btn" data-cat="Decoration">Decoration</button>
+    </div>
 
     <div id="thumb-grid" class="thumb-grid"></div>
   </main>
@@ -28,18 +38,19 @@
     const grid = document.getElementById("thumb-grid");
     const searchBox = document.getElementById("search-box");
     const randomBtn = document.getElementById("random-btn");
+    const catBtns = document.querySelectorAll(".cat-btn");
 
-    // Convert PICTURES object to a sortable array
-    const entries = Object.entries(window.PICTURES || {})
-      .map(([id, pic]) => ({
-        id,
-        name: pic.name || id,
-        data: pic.data,
-        colors: pic.colors
-      }))
-      .sort((a, b) => a.name.localeCompare(b.name));
+    // Convert PICTURES → easy structure
+    let entries = Object.entries(window.PICTURES).map(([id, pic]) => ({
+      id,
+      name: pic.name || id,
+      category: pic.category || "Blocks",
+      data: pic.data,
+      colors: pic.colors
+    }));
 
-    // Render thumbnails
+    entries.sort((a, b) => a.name.localeCompare(b.name));
+
     function render(list) {
       grid.innerHTML = "";
 
@@ -54,17 +65,14 @@
         const rows = pic.data.length;
         const cols = pic.data[0].length;
         const scale = Math.floor(64 / Math.max(rows, cols)) || 4;
-        const size = scale;
-
-        previewCanvas.width = cols * size;
-        previewCanvas.height = rows * size;
-        previewCanvas.style.imageRendering = "pixelated";
+        previewCanvas.width = cols * scale;
+        previewCanvas.height = rows * scale;
 
         for (let r = 0; r < rows; r++) {
           for (let c = 0; c < cols; c++) {
-            const code = pic.data[r][c];
-            pctx.fillStyle = pic.colors[code];
-            pctx.fillRect(c * size, r * size, size, size);
+            const val = pic.data[r][c];
+            pctx.fillStyle = pic.colors[val];
+            pctx.fillRect(c * scale, r * scale, scale, scale);
           }
         }
 
@@ -78,25 +86,48 @@
       });
     }
 
-    // Initial display
+    // === INITIAL RENDER ===
     render(entries);
 
-    // === SEARCH FILTER ===
-    searchBox.addEventListener("input", () => {
+    // === SEARCH + CATEGORY FILTER COMBINED ===
+    let activeCategory = "all";
+
+    function applyFilters() {
       const q = searchBox.value.trim().toLowerCase();
 
-      const filtered = entries.filter(p =>
-        p.id.toLowerCase().includes(q) ||
-        p.name.toLowerCase().includes(q)
-      );
+      const filtered = entries.filter(p => {
+        const matchesSearch =
+          p.id.toLowerCase().includes(q) ||
+          p.name.toLowerCase().includes(q);
+
+        const matchesCategory =
+          activeCategory === "all" ||
+          p.category === activeCategory;
+
+        return matchesSearch && matchesCategory;
+      });
 
       render(filtered);
-    });
+    }
+
+    searchBox.addEventListener("input", applyFilters);
+
+    catBtns.forEach(btn =>
+      btn.addEventListener("click", () => {
+        catBtns.forEach(b => b.classList.remove("selected"));
+        btn.classList.add("selected");
+        activeCategory = btn.dataset.cat;
+        applyFilters();
+      })
+    );
 
     // === RANDOM BUTTON ===
     randomBtn.addEventListener("click", () => {
-      const choice = entries[Math.floor(Math.random() * entries.length)];
-      window.location.href = `color.html?name=${encodeURIComponent(choice.id)}`;
+      const filtered = entries.filter(p =>
+        activeCategory === "all" ? true : p.category === activeCategory
+      );
+      const choice = filtered[Math.floor(Math.random() * filtered.length)];
+      window.location.href = `color.html?name=${choice.id}`;
     });
   </script>
 </body>
