@@ -29,11 +29,12 @@ function setupColoring(pictureName, PICTURES) {
   canvas.parentNode.appendChild(overlay);
 
   // Update overlay position after DOM layout
-  function positionOverlay() {
-    const rect = canvas.getBoundingClientRect();
-    overlay.style.left = rect.left + "px";
-    overlay.style.top = rect.top + "px";
-  }
+function positionOverlay() {
+  const canvasRect = canvas.getBoundingClientRect();
+  const parentRect = canvas.parentNode.getBoundingClientRect();
+  overlay.style.left = (canvasRect.left - parentRect.left) + "px";
+  overlay.style.top  = (canvasRect.top  - parentRect.top)  + "px";
+}
   positionOverlay();
   window.addEventListener("resize", positionOverlay);
 
