@@ -2,147 +2,213 @@ function setupColoring(pictureName, PICTURES) {
   const currentPicture = PICTURES[pictureName];
   if (!currentPicture) return;
 
-  const canvas = document.getElementById('pixel-canvas');
-  const ctx = canvas.getContext('2d');
-  const colorBar = document.getElementById('color-bar');
-  const backBtn = document.getElementById('back-btn');
-  const title = document.getElementById('picture-title');
+  const canvas = document.getElementById("pixel-canvas");
+  const ctx = canvas.getContext("2d");
+
+  const colorBar = document.getElementById("color-bar");
+  const backBtn = document.getElementById("back-btn");
+  const title = document.getElementById("picture-title");
+
   let currentColor = null;
   let isDragging = false;
 
-  title.textContent = currentPicture.name || pictureName;
+  title.textContent = currentPicture.name;
 
   const rows = currentPicture.data.length;
   const cols = currentPicture.data[0].length;
 
-  // Track user progress (null = unpainted)
+  // === MAIN USER GRID ===
+  // null = unpainted/white
   const userGrid = Array.from({ length: rows }, () => Array(cols).fill(null));
 
-  // Build color bar
-  colorBar.innerHTML = '';
-  Object.entries(currentPicture.colors).forEach(([num, color]) => {
-  const swatch = document.createElement("div");
-  swatch.className = "color-swatch";
-  swatch.dataset.value = num;
+  // === CREATE OVERLAY CANVAS (PAINT RADIUS INDICATOR) ===
+  const overlay = document.createElement("canvas");
+  overlay.id = "paint-overlay";
+  overlay.style.position = "absolute";
+  overlay.style.pointerEvents = "none";
+  canvas.parentNode.appendChild(overlay);
 
-  const innerNumber = document.createElement("div");
-  innerNumber.className = "swatch-number";
-  innerNumber.textContent = num;
+  // Update overlay position after DOM layout
+  function positionOverlay() {
+    const rect = canvas.getBoundingClientRect();
+    overlay.style.left = rect.left + "px";
+    overlay.style.top = rect.top + "px";
+  }
+  positionOverlay();
+  window.addEventListener("resize", positionOverlay);
 
-  swatch.appendChild(innerNumber);
-  swatch.style.background = color;
-  swatch.onclick = () => selectColor(num, swatch);
+  // === BUILD COLOR BAR ===
+  colorBar.innerHTML = "";
+  Object.entries(currentPicture.colors).forEach(([num, hex]) => {
+    const swatch = document.createElement("div");
+    swatch.className = "color-swatch";
+    swatch.dataset.value = num;
 
-  colorBar.appendChild(swatch);
+    const inner = document.createElement("div");
+    inner.className = "swatch-number";
+    inner.textContent = num;
 
+    swatch.appendChild(inner);
+    swatch.style.background = hex;
+
+    swatch.onclick = () => selectColor(num, swatch);
+    colorBar.appendChild(swatch);
   });
 
+  // === SELECT A COLOR ===
   function selectColor(value, element) {
     currentColor = value;
-    document.querySelectorAll('.color-swatch').forEach(s => s.classList.remove('selected'));
-    element.classList.add('selected');
+    document.querySelectorAll(".color-swatch")
+      .forEach(s => s.classList.remove("selected"));
+    element.classList.add("selected");
+
     drawPixels();
   }
 
-  // Paint a 3x3 block around (r, c)
-  function paintAtCell(r, c) {
-    if (!currentColor) return;
-
-    for (let dr = -1; dr <= 1; dr++) {
-      for (let dc = -1; dc <= 1; dc++) {
-        const rr = r + dr;
-        const cc = c + dc;
-        if (rr < 0 || cc < 0 || rr >= rows || cc >= cols) continue;
-
-        const targetVal = currentPicture.data[rr][cc];
-        if (String(currentColor) === String(targetVal)) {
-          userGrid[rr][cc] = currentColor;
-        }
-      }
-    }
-  }
-
+  // === DRAW FULL IMAGE ===
   function drawPixels() {
     const size = currentPicture.pixelSize;
     canvas.width = cols * size;
     canvas.height = rows * size;
+    overlay.width = canvas.width;
+    overlay.height = canvas.height;
 
-    ctx.textAlign = "center";
-    ctx.textBaseline = "middle";
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
 
     for (let r = 0; r < rows; r++) {
       for (let c = 0; c < cols; c++) {
-        const userVal = userGrid[r][c];
-        const targetVal = currentPicture.data[r][c];
+        const pixelVal = currentPicture.data[r][c];
+        const paintedVal = userGrid[r][c];
 
-        // Reveal real color ONLY when painted
-        if (userVal !== null) {
-          ctx.fillStyle = currentPicture.colors[targetVal];
+        // White background if unpainted
+        if (paintedVal === null) {
+          ctx.fillStyle = "#ffffff";
         } else {
-          ctx.fillStyle = "#ffffff"; // blank
+          ctx.fillStyle = currentPicture.colors[paintedVal];
         }
         ctx.fillRect(c * size, r * size, size, size);
 
-        // Draw number if not painted
-        if (userVal === null) {
-          ctx.fillStyle = "#000";
-          if (currentColor !== null && String(val) === String(currentColor)) {
+        // Draw number only if unpainted
+        if (paintedVal === null) {
+          const isMatch = currentColor !== null &&
+                          String(pixelVal) === String(currentColor);
+
+          if (isMatch) {
+            // BIG + glowing
             ctx.font = `bold ${size * 0.7}px Arial`;
-            ctx.fillStyle = "#000";
-            // glow to make them stand out
-            ctx.shadowColor = "rgba(255,255,0,0.7)";
+            ctx.fillStyle = "#000000";
+            ctx.shadowColor = "rgba(255,255,0,0.8)";
             ctx.shadowBlur = 6;
-        } else {
+          } else {
+            // Normal number
             ctx.font = `${size * 0.5}px Arial`;
             ctx.fillStyle = "#000";
             ctx.shadowBlur = 0;
-        }
+          }
 
-
-          ctx.fillText(
-            targetVal,
-            c * size + size / 2,
-            r * size + size / 2
-          );
+          ctx.textAlign = "center";
+          ctx.textBaseline = "middle";
+          ctx.fillText(pixelVal, c * size + size / 2, r * size + size / 2);
         }
       }
     }
   }
 
+  // === PAINTING LOGIC (3×3 BRUSH) ===
+  const BRUSH_RADIUS = 1; // 1 = 3×3, 2 = 5×5
+
   function paintPixel(x, y) {
     if (!currentColor) return;
-    const size = currentPicture.pixelSize;
-    const c = Math.floor(x / size);
-    const r = Math.floor(y / size);
-    if (r < 0 || c < 0 || r >= rows || c >= cols) return;
 
-    paintAtCell(r, c);
+    const size = currentPicture.pixelSize;
+    const col = Math.floor(x / size);
+    const row = Math.floor(y / size);
+
+    for (let dr = -BRUSH_RADIUS; dr <= BRUSH_RADIUS; dr++) {
+      for (let dc = -BRUSH_RADIUS; dc <= BRUSH_RADIUS; dc++) {
+        const rr = row + dr;
+        const cc = col + dc;
+
+        if (rr < 0 || cc < 0 || rr >= rows || cc >= cols) continue;
+
+        const targetVal = currentPicture.data[rr][cc];
+        if (String(targetVal) === String(currentColor)) {
+          userGrid[rr][cc] = currentColor;
+        }
+      }
+    }
+
     drawPixels();
   }
 
-  // Mouse / touch events
-  canvas.addEventListener('mousedown', () => { isDragging = true; });
-  canvas.addEventListener('mouseup', () => { isDragging = false; });
-  canvas.addEventListener('mouseleave', () => { isDragging = false; });
-  canvas.addEventListener('mousemove', e => {
-    if (isDragging) paintPixel(e.offsetX, e.offsetY);
+  // === DRAW PAINT INDICATOR CIRCLE ===
+  function drawIndicator(x, y) {
+    const octx = overlay.getContext("2d");
+    octx.clearRect(0, 0, overlay.width, overlay.height);
+
+    if (!isDragging) return;
+
+    const size = currentPicture.pixelSize;
+    const radius = BRUSH_RADIUS * size + size / 2;
+
+    octx.beginPath();
+    octx.arc(x, y, radius, 0, Math.PI * 2);
+    octx.strokeStyle = "rgba(0,0,0,0.4)";
+    octx.lineWidth = 2;
+    octx.stroke();
+  }
+
+  // === MOUSE EVENTS ===
+  canvas.addEventListener("mousedown", (e) => {
+    isDragging = true;
+    paintPixel(e.offsetX, e.offsetY);
+    drawIndicator(e.offsetX, e.offsetY);
   });
 
-  canvas.addEventListener('touchstart', e => {
+  canvas.addEventListener("mouseup", () => {
+    isDragging = false;
+    overlay.getContext("2d").clearRect(0, 0, overlay.width, overlay.height);
+  });
+
+  canvas.addEventListener("mouseleave", () => {
+    isDragging = false;
+    overlay.getContext("2d").clearRect(0, 0, overlay.width, overlay.height);
+  });
+
+  canvas.addEventListener("mousemove", (e) => {
+    const x = e.offsetX, y = e.offsetY;
+    if (isDragging) paintPixel(x, y);
+    drawIndicator(x, y);
+  });
+
+  // === TOUCH EVENTS ===
+  canvas.addEventListener("touchstart", (e) => {
     isDragging = true;
     const rect = canvas.getBoundingClientRect();
-    paintPixel(e.touches[0].clientX - rect.left, e.touches[0].clientY - rect.top);
-  });
-  canvas.addEventListener('touchmove', e => {
-    e.preventDefault();
-    if (isDragging) {
-      const rect = canvas.getBoundingClientRect();
-      paintPixel(e.touches[0].clientX - rect.left, e.touches[0].clientY - rect.top);
-    }
-  });
-  canvas.addEventListener('touchend', () => { isDragging = false; });
+    const x = e.touches[0].clientX - rect.left;
+    const y = e.touches[0].clientY - rect.top;
 
-  backBtn.onclick = () => window.location.href = 'index.html';
+    paintPixel(x, y);
+    drawIndicator(x, y);
+  });
+
+  canvas.addEventListener("touchmove", (e) => {
+    e.preventDefault();
+    const rect = canvas.getBoundingClientRect();
+    const x = e.touches[0].clientX - rect.left;
+    const y = e.touches[0].clientY - rect.top;
+
+    if (isDragging) paintPixel(x, y);
+    drawIndicator(x, y);
+  });
+
+  canvas.addEventListener("touchend", () => {
+    isDragging = false;
+    overlay.getContext("2d").clearRect(0, 0, overlay.width, overlay.height);
+  });
+
+  // === BACK BUTTON ===
+  backBtn.onclick = () => (window.location.href = "index.html");
 
   drawPixels();
 }
