@@ -8,27 +8,13 @@
 </head>
 <body>
   <main class="center-col">
-    <h1>📦 Minecraft Objects — Choose One</h1>
-    <p class="hint">Tap a block or item to begin coloring.</p>
+    <h1>📦 Minecraft Objects</h1>
+    <p class="hint">Tap an item to start coloring.</p>
 
     <div id="thumb-grid" class="thumb-grid"></div>
   </main>
 
   <script src="pictures.js"></script>
-  <script>
-    const grid = document.getElementById('thumb-grid');
-    window.pictureList.forEach(pic => {
-      const tile = document.createElement('a');
-      tile.className = 'thumb';
-      tile.href = `color.html?name=${encodeURIComponent(pic.id)}`;
-
-      const inner = document.createElement('div');
-      inner.className = 'thumb-inner';
-      inner.textContent = pic.name;
-
-      tile.appendChild(inner);
-      grid.appendChild(tile);
-    });
-  </script>
+  <script src="index.js"></script>
 </body>
 </html>
