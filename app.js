@@ -37,35 +37,43 @@ function setupColoring(pictureName, PICTURES) {
     drawPixels();
   }
 
-  function drawPixels() {
-    const size = currentPicture.pixelSize;
-    canvas.width = cols * size;
-    canvas.height = rows * size;
+function drawPixels() {
+  const size = currentPicture.pixelSize;
+  canvas.width = cols * size;
+  canvas.height = rows * size;
 
-    ctx.font = `${size/2}px Arial`;
-    ctx.textAlign = "center";
-    ctx.textBaseline = "middle";
+  ctx.textAlign = "center";
+  ctx.textBaseline = "middle";
 
-    for (let r = 0; r < rows; r++) {
-      for (let c = 0; c < cols; c++) {
-        const userVal = userGrid[r][c];
+  for (let r = 0; r < rows; r++) {
+    for (let c = 0; c < cols; c++) {
+      const userVal = userGrid[r][c];
+      const targetVal = currentPicture.data[r][c]; // the “correct” value for that pixel
 
-        // Draw pixel: blank or filled
-        ctx.fillStyle = userVal !== null ? currentPicture.colors[userVal] : currentPicture.colors[0];
-        ctx.fillRect(c*size, r*size, size, size);
+      // ✅ Show the underlying image color until the user paints it
+      if (userVal !== null) {
+        ctx.fillStyle = currentPicture.colors[userVal];
+      } else {
+        ctx.fillStyle = currentPicture.colors[targetVal];
+      }
+      ctx.fillRect(c * size, r * size, size, size);
 
-        // Draw number only if not painted yet
-        const val = currentPicture.data[r][c];
-        if (userVal === null) {
-          ctx.fillStyle = "#000";
-          ctx.font = (currentColor !== null && String(val) === String(currentColor))
-            ? `bold ${size/2}px Arial`
-            : `${size/2}px Arial`;
-          ctx.fillText(val, c*size + size/2, r*size + size/2);
-        }
+      // Draw number only if not painted yet
+      if (userVal === null) {
+        ctx.fillStyle = "#000";
+        ctx.font = (currentColor !== null && String(targetVal) === String(currentColor))
+          ? `bold ${size / 2}px Arial`
+          : `${size / 2}px Arial`;
+        ctx.fillText(
+          targetVal,
+          c * size + size / 2,
+          r * size + size / 2
+        );
       }
     }
   }
+}
+
 
   function paintPixel(x, y) {
     if (!currentColor) return;
@@ -84,7 +92,7 @@ function setupColoring(pictureName, PICTURES) {
   // Mouse / touch events
   canvas.addEventListener('mousedown', () => isDragging = true);
   canvas.addEventListener('mouseup', () => isDragging = false);
-  canvas.addaddEventListener('mouseleave', () => isDragging = false);
+  canvas.addEventListener('mouseleave', () => isDragging = false);
   canvas.addEventListener('mousemove', e => { if (isDragging) paintPixel(e.offsetX, e.offsetY); });
 
   canvas.addEventListener('touchstart', e => {
