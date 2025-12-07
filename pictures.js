@@ -1,4 +1,4 @@
-export const PICTURES = {
+window.PICTURES = {
 
   "ancient_debris_top": {
     "name": "Ancient Debris Top",
