@@ -138,12 +138,6 @@ h1, h2 {
   font-weight: 600;
 }
 
-#progress-bar.complete {
-  backround: #44c767;
-  box-shadow: 0 0 6pxx #44c767;
-  color: white;
-  font-weight: bold;
-}
 /* Palette bar */
 
 #color-bar {
@@ -214,6 +208,12 @@ h1, h2 {
   #pixel-canvas {
     max-width: 95vw;
   }
+}
+
+#pixel-canvas.complete-picture {
+  border: 4px solid #4caf50;
+  border-radius: 8px;
+  box-shadow: 0 0 12px #4caf50; /* optional */
 }
 
 /* === Search + Random Row === */
