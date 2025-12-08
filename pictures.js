@@ -2804,6 +2804,50 @@ window.PICTURES = {
     "0000798715A60000"
   ]
 },
+"creeper_state_charged": {
+  name: "Creeper State Charged",
+  category: "Overworld Mobs",
+  pixelSize: 16,
+  colors: {
+    "0": "#00000000",
+    "1": "#54dcffff",
+    "2": "#42b8ffff",
+    "3": "#83e6ffff",
+    "4": "#b7d8aeff",
+    "5": "#3c9d19ff",
+    "6": "#4ea72eff",
+    "7": "#8fea6fff",
+    "8": "#d9f5cfff",
+    "9": "#73e44bff",
+    "A": "#55d027ff",
+    "B": "#10130eff",
+    "C": "#000000ff",
+    "D": "#607561ff",
+    "E": "#2e6918ff",
+    "F": "#487737ff",
+    "G": "#2a4d23ff",
+    "H": "#345b2cff"
+  },
+  data: [
+    "0011211331121100",
+    "0010000000000100",
+    "0020456789760200",
+    "001059A967940100",
+    "0010ABB76BB80100",
+    "0030ABC9ACB90300",
+    "00307A9CC8670300",
+    "001046CBBC780100",
+    "00108ABBBB960100",
+    "00207AB74B690200",
+    "0010DEEFDEFE0100",
+    "0010E666EG6H0100",
+    "0030554G65F40300",
+    "0030A669A6690300",
+    "00107A9898670100",
+    "0010464669780100"
+  ]
+},
+
 "creeper_banner_pattern": {
     name: "Creeper Banner Pattern",
     category: "Decoration",
