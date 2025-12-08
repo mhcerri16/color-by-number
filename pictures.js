@@ -1,5 +1,37 @@
 window.PICTURES = {
-  "ancient_debris_top": {
+"allay": {
+    "name": "Allay",
+    "category": "Overworld Mobs",
+    "pixelSize": 16,
+    "colors": {
+      "0": "#00000000",
+      "1": "#8bebffff",
+      "2": "#70e9ffff",
+      "3": "#1fdcffff",
+      "4": "#ffffffff",
+      "5": "#20e5ffff",
+      "6": "#1fe0ffff"
+    },
+    "data": [
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0001122222211000",
+      "0001122222211000",
+      "0002233333322000",
+      "0002233333322000",
+      "0003344334433000",
+      "0003344334433000",
+      "0005544554455000",
+      "0005544554455000",
+      "0003366666633000",
+      "0003366666633000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000"
+    ]
+  },
+"ancient_debris_top": {
     name: "Ancient Debris Top",
     category: "Blocks",
     pixelSize: 16,
@@ -31,8 +63,7 @@ window.PICTURES = {
       "0326313341212101"
     ]
   },
-
-  "apple_golden": {
+"apple_golden": {
     name: "Golden Apple",
     category: "Food",
     pixelSize: 16,
@@ -67,8 +98,47 @@ window.PICTURES = {
       "0000000000000000"
     ]
   },
-
-  "armor_stand": {
+"armadillo": {
+    "name": "Armadillo",
+    "category": "Overworld Mobs",
+    "pixelSize": 16,
+    "colors": {
+      "0": "#00000000",
+      "1": "#b5746fff",
+      "2": "#bd7c77ff",
+      "3": "#834141ff",
+      "4": "#723838ff",
+      "5": "#5a272aff",
+      "6": "#834040ff",
+      "7": "#af6d68ff",
+      "8": "#d16b63ff",
+      "9": "#c95950ff",
+      "A": "#643131ff",
+      "B": "#a35b57ff",
+      "C": "#aa6c67ff",
+      "D": "#000000ff",
+      "E": "#95544eff"
+    },
+    "data": [
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0012323232121000",
+      "0011413232156000",
+      "0071323141168000",
+      "0017414137179A40",
+      "00BB4737477BC560",
+      "006B5B4B57B6B7D0",
+      "0B665E5E56466720",
+      "02552E0E05554780",
+      "000E70000E700000",
+      "0000000000000000"
+    ]
+  },
+"armor_stand": {
     name: "Armor Stand",
     category: "Decoration",
     pixelSize: 16,
@@ -102,8 +172,183 @@ window.PICTURES = {
       "0000333333300000"
     ]
   },
-
-  "bamboo": {
+"axolotl_blue": {
+    "name": "Axolotl Blue",
+    "category": "Overworld Mobs",
+    "pixelSize": 16,
+    "colors": {
+      "0": "#00000000",
+      "1": "#fe8502ff",
+      "2": "#d76701ff",
+      "3": "#b2a1f1ff",
+      "4": "#3c156eff",
+      "5": "#7a5cf0ff",
+      "6": "#a491f0ff",
+      "7": "#ac9bf0ff",
+      "8": "#957ef0ff",
+      "9": "#8466f1ff",
+      "A": "#6a36ecff"
+    },
+    "data": [
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000100000010000",
+      "0100210000120010",
+      "0210021001200120",
+      "0021333333331200",
+      "0002333333332000",
+      "0100433553340010",
+      "0210673333760120",
+      "0021867777681200",
+      "0000900000090000",
+      "0000800000080000",
+      "000A8A0000A8A000",
+      "0000A000000A0000"
+    ]
+  },
+"axolotl_cyan": {
+    "name": "Axolotl Cyan",
+    "category": "Overworld Mobs",
+    "pixelSize": 16,
+    "colors": {
+      "0": "#00000000",
+      "1": "#fb367fff",
+      "2": "#fc578dff",
+      "3": "#cc94c4ff",
+      "4": "#8dd0ffff",
+      "5": "#a3e3ffff",
+      "6": "#dbffffff",
+      "7": "#3c156eff",
+      "8": "#ff9dd0ff",
+      "9": "#b3e8ffff",
+      "A": "#c3edffff"
+    },
+    "data": [
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000100000010000",
+      "0100230000320010",
+      "0230045005400320",
+      "0045666666665400",
+      "0004666666664000",
+      "0100766886670010",
+      "02309A6666A90320",
+      "004A59AAAA95A400",
+      "0000400000040000",
+      "0000500000050000",
+      "0001610000161000",
+      "0000100000010000"
+    ]
+  },
+"axolotl_gold": {
+    "name": "Axolotl Gold",
+    "category": "Overworld Mobs",
+    "pixelSize": 16,
+    "colors": {
+      "0": "#00000000",
+      "1": "#e2a701ff",
+      "2": "#e6b901ff",
+      "3": "#fdd72eff",
+      "4": "#3c156eff",
+      "5": "#ff9e34ff",
+      "6": "#f0c412ff",
+      "7": "#f2cd2cff",
+      "8": "#f0c001ff"
+    },
+    "data": [
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000100000010000",
+      "0100210000120010",
+      "0210021001200120",
+      "0021333333331200",
+      "0002333333332000",
+      "0100433553340010",
+      "0210673333760120",
+      "0021867777681200",
+      "0000200000020000",
+      "0000100000010000",
+      "0001310000131000",
+      "0000100000010000"
+    ]
+  },
+"axolotl_pink": {
+    "name": "Axolotl Pink",
+    "category": "Overworld Mobs",
+    "pixelSize": 16,
+    "colors": {
+      "0": "#00000000",
+      "1": "#fb367fff",
+      "2": "#fc578dff",
+      "3": "#fd9fbfff",
+      "4": "#3c156eff",
+      "5": "#9b1d7cff",
+      "6": "#fd8fb3ff",
+      "7": "#fd99baff",
+      "8": "#fd87abff",
+      "9": "#fc6d9cff"
+    },
+    "data": [
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000100000010000",
+      "0100210000120010",
+      "0210021001200120",
+      "0021333333331200",
+      "0002333333332000",
+      "0100433553340010",
+      "0210673333760120",
+      "0021867777681200",
+      "0000900000090000",
+      "0000200000020000",
+      "0001310000131000",
+      "0000100000010000"
+    ]
+  },
+"axolotl_wild": {
+    "name": "Axolotl Wild",
+    "category": "Overworld Mobs",
+    "pixelSize": 16,
+    "colors": {
+      "0": "#00000000",
+      "1": "#2a1d17ff",
+      "2": "#3f2b23ff",
+      "3": "#956950ff",
+      "4": "#8b624aff",
+      "5": "#815b45ff",
+      "6": "#ab795cff",
+      "7": "#583e30ff",
+      "8": "#7a5742ff",
+      "9": "#74523fff"
+    },
+    "data": [
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000100000010000",
+      "0100210000120010",
+      "0210021001200120",
+      "0021345446431200",
+      "0001434344351000",
+      "0100144775410010",
+      "0210854343580120",
+      "0021985555891200",
+      "0000100000010000",
+      "0000200000020000",
+      "0001710000171000",
+      "0000100000010000"
+    ]
+  },
+"bamboo": {
     name: "Bamboo",
     category: "Plants",
     pixelSize: 16,
@@ -139,8 +384,7 @@ window.PICTURES = {
       "0000000000000000"
     ]
   },
-
-  "bamboo_block": {
+"bamboo_block": {
     name: "Bamboo Block",
     category: "Plants",
     pixelSize: 16,
@@ -177,8 +421,7 @@ window.PICTURES = {
       "0753412627264123"
     ]
   },
-
-  "bamboo_sign": {
+"bamboo_sign": {
     name: "Bamboo Sign",
     category: "Decoration",
     pixelSize: 16,
@@ -216,8 +459,7 @@ window.PICTURES = {
       "0000000B1B000000"
     ]
   },
-
-  "bamboo_trapdoor": {
+"bamboo_trapdoor": {
     name: "Bamboo Trapdoor",
     category: "Decoration",
     pixelSize: 16,
@@ -254,8 +496,74 @@ window.PICTURES = {
       "1001201121021000"
     ]
   },
-
-  "bedrock": {
+"bat": {
+    "name": "Bat",
+    "category": "Overworld Mobs",
+    "pixelSize": 16,
+    "colors": {
+      "0": "#00000000",
+      "1": "#453a33ff",
+      "2": "#815f7eff",
+      "3": "#342c27ff",
+      "4": "#5a4159ff",
+      "5": "#25211dff",
+      "6": "#ffffffff",
+      "7": "#000000ff"
+    },
+    "data": [
+      "0000000000000000",
+      "0000000000000000",
+      "0011110000111100",
+      "0011110000111100",
+      "1122330000332211",
+      "1122330000332211",
+      "2244550000554422",
+      "2244550000554422",
+      "4433111133113344",
+      "4433111133113344",
+      "5566772244776655",
+      "5566772244776655",
+      "0033335555333300",
+      "0033335555333300",
+      "0000000000000000",
+      "0000000000000000"
+    ]
+  },
+"bear_polar": {
+    "name": "Bear Polar",
+    "category": "Overworld Mobs",
+    "pixelSize": 16,
+    "colors": {
+      "0": "#00000000",
+      "1": "#bfbea7ff",
+      "2": "#cdccb9ff",
+      "3": "#a3a28cff",
+      "4": "#ffffffff",
+      "5": "#d9d8c4ff",
+      "6": "#000000ff",
+      "7": "#f5f5e5ff",
+      "8": "#121210ff"
+    },
+    "data": [
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0001200000210000",
+      "0003444444430000",
+      "0000444444400000",
+      "0000155455100000",
+      "0000467476400000",
+      "0000451115400000",
+      "0000418881400000",
+      "0000488888400000"
+    ]
+  },
+"bedrock": {
     name: "Bedrock",
     category: "Blocks",
     pixelSize: 16,
@@ -285,8 +593,46 @@ window.PICTURES = {
       "1411433012041120"
     ]
   },
-
-  "bee_nest_front_honey": {
+"bee": {
+    "name": "Bee",
+    "category": "Overworld Mobs",
+    "pixelSize": 16,
+    "colors": {
+      "0": "#00000000",
+      "1": "#ffcb4dff",
+      "2": "#000000ff",
+      "3": "#ffc945ff",
+      "4": "#fdc640ff",
+      "5": "#121212ff",
+      "6": "#82ffeaff",
+      "7": "#f9c23dff",
+      "8": "#0c0c0cff",
+      "9": "#f3be3aff",
+      "A": "#efba37ff",
+      "B": "#e8ae2eff",
+      "C": "#ebb231ff",
+      "D": "#efb634ff"
+    },
+    "data": [
+      "0000000000000000",
+      "0111111111111110",
+      "0111111111111110",
+      "0112233333322110",
+      "0112233333322110",
+      "0113333443333110",
+      "0113333443333110",
+      "0556677447766550",
+      "0556677447766550",
+      "0558899779955880",
+      "0558899779955880",
+      "08855AA99AA88220",
+      "08855AA99AA88220",
+      "0BBCCDDDDDDCCBB0",
+      "0BBCCDDDDDDCCBB0",
+      "0000000000000000"
+    ]
+  },
+"bee_nest_front_honey": {
     name: "Bee Nest Front Honey",
     category: "Blocks",
     pixelSize: 16,
@@ -328,8 +674,49 @@ window.PICTURES = {
       "47DCCD4444444444"
     ]
   },
-
-  "beef_cooked": {
+"bee_state_angry": {
+    "name": "Bee State Angry",
+    "category": "Overworld Mobs",
+    "pixelSize": 16,
+    "colors": {
+      "0": "#00000000",
+      "1": "#ffcb4dff",
+      "2": "#000000ff",
+      "3": "#ffc945ff",
+      "4": "#e9ba46ff",
+      "5": "#e9b83fff",
+      "6": "#f2bf41ff",
+      "7": "#fdc640ff",
+      "8": "#ff0000ff",
+      "9": "#ffffffff",
+      "A": "#f3be3aff",
+      "B": "#f9c23dff",
+      "C": "#b30000ff",
+      "D": "#efba37ff",
+      "E": "#ebb231ff",
+      "F": "#efb634ff",
+      "G": "#e8ae2eff"
+    },
+    "data": [
+      "0000000000000000",
+      "0111111111111110",
+      "0111111111111110",
+      "0112233333322110",
+      "0112233333322110",
+      "0445566776655440",
+      "0445566776655440",
+      "08899AABBAA99880",
+      "08899AABBAA99880",
+      "0CC88DDAADD88CC0",
+      "0CC88DDAADD88CC0",
+      "0EEFFFFDDFFFFEE0",
+      "0EEFFFFDDFFFFEE0",
+      "0GGEEFFFFFFEEGG0",
+      "0GGEEFFFFFFEEGG0",
+      "0000000000000000"
+    ]
+  },
+"beef_cooked": {
     name: "Beef Cooked",
     category: "Food",
     pixelSize: 16,
@@ -364,8 +751,7 @@ window.PICTURES = {
       "0000000000000000"
     ]
   },
-
-  "beetroot": {
+"beetroot": {
     name: "Beetroot",
     category: "Food",
     pixelSize: 16,
@@ -398,8 +784,7 @@ window.PICTURES = {
       "0000000000000000"
     ]
   },
-
-  "beetroots_stage_3": {
+"beetroots_stage_3": {
     name: "Beetroots Stage 3",
     category: "Food",
     pixelSize: 16,
@@ -432,8 +817,7 @@ window.PICTURES = {
       "5776557765567765"
     ]
   },
-
-  "birch_trapdoor": {
+"birch_trapdoor": {
     name: "Birch Trapdoor",
     category: "Decoration",
     pixelSize: 16,
@@ -472,8 +856,7 @@ window.PICTURES = {
       "0011100001111001"
     ]
   },
-
-  "blaze_powder": {
+"blaze_powder": {
     name: "Blaze Powder",
     category: "Brewing",
     pixelSize: 16,
@@ -524,8 +907,7 @@ window.PICTURES = {
       "0000000000000000"
     ]
   },
-
-  "blaze_rod": {
+"blaze_rod": {
     name: "Blaze Rod",
     category: "Nether",
     pixelSize: 16,
@@ -563,8 +945,7 @@ window.PICTURES = {
       "0000000000000000"
     ]
   },
-
-  "boat_oak": {
+"boat_oak": {
     name: "Boat Oak",
     category: "Transportation",
     pixelSize: 16,
@@ -598,8 +979,7 @@ window.PICTURES = {
       "0000000000000000"
     ]
   },
-
-  "book_enchanted": {
+"book_enchanted": {
     name: "Book Enchanted",
     category: "Enchanting",
     pixelSize: 16,
@@ -644,8 +1024,7 @@ window.PICTURES = {
       "0000000000000000"
     ]
   },
-
-  "book_normal": {
+"book_normal": {
     name: "Book Normal",
     category: "Enchanting",
     pixelSize: 16,
@@ -681,8 +1060,7 @@ window.PICTURES = {
       "0000000000000000"
     ]
   },
-
-  "book_writable": {
+"book_writable": {
     name: "Book Writable",
     category: "Miscellaneous",
     pixelSize: 16,
@@ -723,8 +1101,7 @@ window.PICTURES = {
       "0000000000000000"
     ]
   },
-
-  "bookshelf": {
+"bookshelf": {
     name: "Bookshelf",
     category: "Enchanting",
     pixelSize: 16,
@@ -778,8 +1155,7 @@ window.PICTURES = {
       "0OOKKKO00OOOO000"
     ]
   },
-
-  "bow_pulling_0": {
+"bow_pulling_0": {
     name: "Bow Pulling 0",
     category: "Weapons",
     pixelSize: 16,
@@ -814,8 +1190,7 @@ window.PICTURES = {
       "0040000000000000"
     ]
   },
-
-  "bread": {
+"bread": {
     name: "Bread",
     category: "Food",
     pixelSize: 16,
@@ -848,8 +1223,45 @@ window.PICTURES = {
       "0006555000000000"
     ]
   },
-
-  "brewing_stand": {
+"breeze": {
+    "name": "Breeze",
+    "category": "Overworld Mobs",
+    "pixelSize": 16,
+    "colors": {
+      "0": "#00000000",
+      "1": "#baa4d7ff",
+      "2": "#c5afe1ff",
+      "3": "#a99bcfff",
+      "4": "#938cd2ff",
+      "5": "#8587c3ff",
+      "6": "#cbcbcbff",
+      "7": "#ffffffff",
+      "8": "#6b75aaff",
+      "9": "#7781b5ff",
+      "A": "#f9d463ff",
+      "B": "#2f3d53ff",
+      "C": "#405e86ff"
+    },
+    "data": [
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000122211330000",
+      "0000443112210000",
+      "0000432211340000",
+      "0000455445540000",
+      "0006778899776000",
+      "0000677887760000",
+      "0000ABCCCCBA0000",
+      "0000CCCCCCCC0000"
+    ]
+  },
+"brewing_stand": {
     name: "Brewing Stand",
     category: "Brewing",
     pixelSize: 16,
@@ -887,8 +1299,7 @@ window.PICTURES = {
       "0000000000000000"
     ]
   },
-
-  "brick": {
+"brick": {
     name: "Brick",
     category: "Blocks",
     pixelSize: 16,
@@ -922,8 +1333,7 @@ window.PICTURES = {
       "4222224844222488"
     ]
   },
-
-  "bucket_axolotl": {
+"bucket_axolotl": {
     name: "Bucket Axolotl",
     category: "Items",
     pixelSize: 16,
@@ -966,8 +1376,7 @@ window.PICTURES = {
       "0000077777700000"
     ]
   },
-
-  "bucket_lava": {
+"bucket_lava": {
     name: "Bucket Lava",
     category: "Items",
     pixelSize: 16,
@@ -1004,8 +1413,7 @@ window.PICTURES = {
       "0000000000000000"
     ]
   },
-
-  "bucket_milk": {
+"bucket_milk": {
     name: "Bucket Milk",
     category: "Items",
     pixelSize: 16,
@@ -1040,8 +1448,7 @@ window.PICTURES = {
       "0000000000000000"
     ]
   },
-
-  "cake": {
+"cake": {
     name: "Cake",
     category: "Food",
     pixelSize: 16,
@@ -1083,8 +1490,47 @@ window.PICTURES = {
       "0000000000000000"
     ]
   },
-
-  "campfire": {
+"camel": {
+    "name": "Camel",
+    "category": "Overworld Mobs",
+    "pixelSize": 16,
+    "colors": {
+      "0": "#00000000",
+      "1": "#8f7350ff",
+      "2": "#a5845cff",
+      "3": "#e7a651ff",
+      "4": "#c9904aff",
+      "5": "#786143ff",
+      "6": "#4a3c29ff",
+      "7": "#8d714fff",
+      "8": "#040201ff",
+      "9": "#d99b50ff",
+      "A": "#9d7e58ff",
+      "B": "#cf913fff",
+      "C": "#3e3426ff",
+      "D": "#c1873bff",
+      "E": "#ab732bff"
+    },
+    "data": [
+      "0001122222211000",
+      "0331122222211330",
+      "4335566776655334",
+      "4885566776655884",
+      "08899AA55AA99880",
+      "0BB99AA55AA99BB0",
+      "0BBCCCCCCCCCCBB0",
+      "033CCCCCCCCCC330",
+      "0335599999955330",
+      "0BB5599999955BB0",
+      "0BBDDEEEEEEDDBB0",
+      "099DDDDDDDDDD990",
+      "099DDDDDDDDDD990",
+      "099BBDDDDDDBB990",
+      "099BBDDDDDDBB990",
+      "09999BBBBBB99990"
+    ]
+  },
+"campfire": {
     name: "Campfire",
     category: "Decoration",
     pixelSize: 16,
@@ -1126,8 +1572,7 @@ window.PICTURES = {
       "0000000000000000"
     ]
   },
-
-  "carried_waterlily": {
+"carried_waterlily": {
     name: "Carried Waterlily",
     category: "Plants",
     pixelSize: 16,
@@ -1158,8 +1603,7 @@ window.PICTURES = {
       "0000000000000000"
     ]
   },
-
-  "carrot_golden": {
+"carrot_golden": {
     name: "Carrot Golden",
     category: "Food",
     pixelSize: 16,
@@ -1195,8 +1639,7 @@ window.PICTURES = {
       "0000000000000000"
     ]
   },
-
-  "carrot_on_a_stick": {
+"carrot_on_a_stick": {
     name: "Carrot On A Stick",
     category: "Transportation",
     pixelSize: 16,
@@ -1239,8 +1682,7 @@ window.PICTURES = {
       "00000000GG000000"
     ]
   },
-
-  "cartography_table_top": {
+"cartography_table_top": {
     name: "Cartography Table Top",
     category: "Tables",
     pixelSize: 16,
@@ -1292,8 +1734,7 @@ window.PICTURES = {
       "LLMMKA333AEAEEEE"
     ]
   },
-
-  "chainmail_boots": {
+"chainmail_boots": {
     name: "Chainmail Boots",
     category: "Armor",
     pixelSize: 16,
@@ -1325,8 +1766,7 @@ window.PICTURES = {
       "0000000000000000"
     ]
   },
-
-  "chainmail_chestplate": {
+"chainmail_chestplate": {
     name: "Chainmail Chestplate",
     category: "Armor",
     pixelSize: 16,
@@ -1358,8 +1798,7 @@ window.PICTURES = {
       "0000000000000000"
     ]
   },
-
-  "chainmail_helmet": {
+"chainmail_helmet": {
     name: "Chainmail Helmet",
     category: "Armor",
     pixelSize: 16,
@@ -1390,8 +1829,7 @@ window.PICTURES = {
       "0000000000000000"
     ]
   },
-
-  "chainmail_leggings": {
+"chainmail_leggings": {
     name: "Chainmail Leggings",
     category: "Armor",
     pixelSize: 16,
@@ -1423,8 +1861,7 @@ window.PICTURES = {
       "0000000000000000"
     ]
   },
-
-  "cherry_sapling": {
+"cherry_sapling": {
     name: "Cherry Sapling",
     category: "Plants",
     pixelSize: 16,
@@ -1462,8 +1899,54 @@ window.PICTURES = {
       "0000009990000000"
     ]
   },
-
-  "chicken_raw": {
+"chicken_cold_chicken": {
+    "name": "Chicken Cold Chicken",
+    "category": "Overworld Mobs",
+    "pixelSize": 16,
+    "colors": {
+      "0": "#00000000",
+      "1": "#36373aff",
+      "2": "#303134ff",
+      "3": "#28292cff",
+      "4": "#000000ff",
+      "5": "#9e6951ff",
+      "6": "#8d563dff",
+      "7": "#525354ff",
+      "8": "#414244ff",
+      "9": "#38393cff",
+      "A": "#c11b1bff",
+      "B": "#48494bff",
+      "C": "#3b3c3fff",
+      "D": "#323336ff",
+      "E": "#66676dff",
+      "F": "#5e5f67ff",
+      "G": "#585a63ff",
+      "H": "#51535eff",
+      "I": "#484a56ff",
+      "J": "#ae785fff",
+      "K": "#83503aff",
+      "L": "#875741ff"
+    },
+    "data": [
+      "0000000000000000",
+      "0000012112100000",
+      "0000023223200000",
+      "0000034334300000",
+      "0000005555000000",
+      "0000006666000000",
+      "0000789AA9870000",
+      "0000BCDAADCB0000",
+      "0000CECDDCEC0000",
+      "0000DFGCCFGD0000",
+      "00000GHGFGH00000",
+      "00000HHFHGH00000",
+      "000000I00I000000",
+      "000000H00H000000",
+      "000000J00J000000",
+      "00000KL00LK00000"
+    ]
+  },
+"chicken_raw": {
     name: "Chicken Raw",
     category: "Food",
     pixelSize: 16,
@@ -1498,8 +1981,87 @@ window.PICTURES = {
       "0000000000000000"
     ]
   },
-
-  "chorus_fruit": {
+"chicken_temperate_chicken": {
+    "name": "Chicken Temperate Chicken",
+    "category": "Overworld Mobs",
+    "pixelSize": 16,
+    "colors": {
+      "0": "#00000000",
+      "1": "#ffffffff",
+      "2": "#000000ff",
+      "3": "#e4e4e4ff",
+      "4": "#cb881cff",
+      "5": "#a56e17ff",
+      "6": "#d9d9d9ff",
+      "7": "#cbcbcbff",
+      "8": "#c11b1bff",
+      "9": "#c1c1c1ff",
+      "A": "#b1b1b1ff",
+      "B": "#c0c0c0ff",
+      "C": "#d29432ff",
+      "D": "#dda54bff",
+      "E": "#9b6f29ff",
+      "F": "#a57a33ff"
+    },
+    "data": [
+      "0000000000000000",
+      "0000000000000000",
+      "0000001111000000",
+      "0000002332000000",
+      "0000004444000000",
+      "0000005555000000",
+      "0000367887630000",
+      "000039A88A930000",
+      "0000697977960000",
+      "0000BA7979AB0000",
+      "00000A9979A00000",
+      "00000AA99AA00000",
+      "000000C00C000000",
+      "000000D00D000000",
+      "000000D00D000000",
+      "00000EF00FE00000"
+    ]
+  },
+"chicken_warm_chicken": {
+    "name": "Chicken Warm Chicken",
+    "category": "Overworld Mobs",
+    "pixelSize": 16,
+    "colors": {
+      "0": "#00000000",
+      "1": "#e9a25bff",
+      "2": "#000000ff",
+      "3": "#e49343ff",
+      "4": "#693023ff",
+      "5": "#5d261aff",
+      "6": "#f8b97bff",
+      "7": "#ba5e15ff",
+      "8": "#e99a4cff",
+      "9": "#c11b1bff",
+      "A": "#f2b06eff",
+      "B": "#a44e0aff",
+      "C": "#dc832bff",
+      "D": "#743e32ff"
+    },
+    "data": [
+      "0000000000000000",
+      "0000000000000000",
+      "0000001111000000",
+      "0000002332000000",
+      "0000004444000000",
+      "0000005555000000",
+      "0000678998760000",
+      "0000ABC99CBA0000",
+      "0000137B77C10000",
+      "00003C1313C30000",
+      "00000C3313C00000",
+      "00000CC33CC00000",
+      "0000005005000000",
+      "0000004004000000",
+      "000000D00D000000",
+      "0000054004500000"
+    ]
+  },
+"chorus_fruit": {
     name: "Chorus Fruit",
     category: "Food",
     pixelSize: 16,
@@ -1534,8 +2096,7 @@ window.PICTURES = {
       "0000000000000000"
     ]
   },
-
-  "clock_item": {
+"clock_item": {
     name: "Clock Item",
     category: "Items",
     pixelSize: 16,
@@ -1573,8 +2134,7 @@ window.PICTURES = {
       "0000009999000000"
     ]
   },
-
-  "coal": {
+"coal": {
     name: "Coal",
     category: "Ores",
     pixelSize: 16,
@@ -1609,8 +2169,7 @@ window.PICTURES = {
       "0000000000000000"
     ]
   },
-
-  "coal_ore": {
+"coal_ore": {
     name: "Coal Ore",
     category: "Ores",
     pixelSize: 16,
@@ -1645,8 +2204,7 @@ window.PICTURES = {
       "1122210210011211"
     ]
   },
-
-  "cobblestone": {
+"cobblestone": {
     name: "Cobblestone",
     category: "Blocks",
     pixelSize: 16,
@@ -1677,8 +2235,7 @@ window.PICTURES = {
       "1511050101154250"
     ]
   },
-
-  "cobblestone_mossy": {
+"cobblestone_mossy": {
     name: "Cobblestone Mossy",
     category: "Blocks",
     pixelSize: 16,
@@ -1714,8 +2271,7 @@ window.PICTURES = {
       "1766931116678270"
     ]
   },
-
-  "command_block": {
+"command_block": {
     name: "Command Block",
     category: "Blocks",
     pixelSize: 16,
@@ -1768,8 +2324,7 @@ window.PICTURES = {
       "0001280000012800"
     ]
   },
-
-  "compass_item": {
+"compass_item": {
     name: "Compass Item",
     category: "Items",
     pixelSize: 16,
@@ -1806,8 +2361,7 @@ window.PICTURES = {
       "0000000000000000"
     ]
   },
-
-  "composter_side": {
+"composter_side": {
     name: "Composter Side",
     category: "Tables",
     pixelSize: 16,
@@ -1844,8 +2398,7 @@ window.PICTURES = {
       "4444444444444444"
     ]
   },
-
-  "cookie": {
+"cookie": {
     name: "Cookie",
     category: "Food",
     pixelSize: 16,
@@ -1878,8 +2431,7 @@ window.PICTURES = {
       "0000000000000000"
     ]
   },
-
-  "copper_ore": {
+"copper_ore": {
     name: "Copper Ore",
     category: "Ores",
     pixelSize: 16,
@@ -1918,8 +2470,220 @@ window.PICTURES = {
       "1112121011111001"
     ]
   },
-
-  "crafting_table_front": {
+"cow_brown_mooshroom": {
+    "name": "Cow Brown Mooshroom",
+    "category": "Overworld Mobs",
+    "pixelSize": 16,
+    "colors": {
+      "0": "#00000000",
+      "1": "#9f745cff",
+      "2": "#7e5d4aff",
+      "3": "#8f6953ff",
+      "4": "#765643ff",
+      "5": "#85624fff",
+      "6": "#6c4d3bff",
+      "7": "#644635ff",
+      "8": "#d3a88fff",
+      "9": "#b9937dff",
+      "A": "#a47255ff",
+      "B": "#b17b5cff",
+      "C": "#c59d85ff",
+      "D": "#a9856fff",
+      "E": "#000000ff",
+      "F": "#dfdbd8ff",
+      "G": "#685f57ff",
+      "H": "#605851ff",
+      "I": "#544d46ff"
+    },
+    "data": [
+      "0000000000000000",
+      "0000000000000000",
+      "0000001122000000",
+      "0000011324200000",
+      "0000533344460000",
+      "0000455466770000",
+      "0000000720000000",
+      "0008000650008000",
+      "0009ABB88CCB9000",
+      "000DBBB88CBBD000",
+      "0000EEB8CBEE0000",
+      "0000EEB8BBEE0000",
+      "0000ABBBBBBB0000",
+      "0000BBFFFFBB0000",
+      "0000BFEGGEFB0000",
+      "0000BFHIIHFA0000"
+    ]
+  },
+"cow_cold_cow": {
+    "name": "Cow Cold Cow",
+    "category": "Overworld Mobs",
+    "pixelSize": 16,
+    "colors": {
+      "0": "#00000000",
+      "1": "#615955ff",
+      "2": "#4e4844ff",
+      "3": "#ab511bff",
+      "4": "#c66c36ff",
+      "5": "#b9602aff",
+      "6": "#393533ff",
+      "7": "#893d10ff",
+      "8": "#000000ff",
+      "9": "#fff5ebff",
+      "A": "#b45923ff",
+      "B": "#bf6630ff",
+      "C": "#d89a9aff",
+      "D": "#ab7878ff"
+    },
+    "data": [
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0012345544342100",
+      "0026753545736200",
+      "0000737343770000",
+      "0000897757980000",
+      "0000ABB377330000",
+      "0000BABBBBA30000",
+      "0000AB8CC8BA0000",
+      "00007ACDDCA70000"
+    ]
+  },
+"cow_mooshroom": {
+    "name": "Cow Mooshroom",
+    "category": "Overworld Mobs",
+    "pixelSize": 16,
+    "colors": {
+      "0": "#00000000",
+      "1": "#d1d1d1ff",
+      "2": "#971f1fff",
+      "3": "#d12b2bff",
+      "4": "#831b1bff",
+      "5": "#bb1d1dff",
+      "6": "#ddddddff",
+      "7": "#bbbbbbff",
+      "8": "#6e1818ff",
+      "9": "#b3a674ff",
+      "A": "#9d905dff",
+      "B": "#707070ff",
+      "C": "#c3b683ff",
+      "D": "#a99d6fff",
+      "E": "#606060ff",
+      "F": "#930000ff",
+      "G": "#6f665dff",
+      "H": "#615951ff",
+      "I": "#4a4a4aff",
+      "J": "#9f0000ff",
+      "K": "#786e64ff",
+      "L": "#000000ff",
+      "M": "#c5c5c5ff",
+      "N": "#685f57ff",
+      "O": "#605851ff",
+      "P": "#544d46ff"
+    },
+    "data": [
+      "0000000000000000",
+      "0000000000000000",
+      "0000001233000000",
+      "0000042235500000",
+      "0000442255650000",
+      "0000784422440000",
+      "00000009A0000000",
+      "000B000CD000B000",
+      "000EFFFGGHHFE000",
+      "000IFJJKKHJJI000",
+      "0000LLJKHJLL0000",
+      "0000LLJKJJLL0000",
+      "0000FJJJJJJJ0000",
+      "0000FJMMMMJJ0000",
+      "0000FMLNNLMJ0000",
+      "0000FMOPPOMF0000"
+    ]
+  },
+"cow_temperate": {
+    "name": "Cow Temperate",
+    "category": "Overworld Mobs",
+    "pixelSize": 16,
+    "colors": {
+      "0": "#00000000",
+      "1": "#727272ff",
+      "2": "#525252ff",
+      "3": "#341f0dff",
+      "4": "#786e64ff",
+      "5": "#615951ff",
+      "6": "#383838ff",
+      "7": "#c5bcb4ff",
+      "8": "#2a190bff",
+      "9": "#000000ff",
+      "A": "#fff5ebff",
+      "B": "#c5c5c5ff",
+      "C": "#685f57ff",
+      "D": "#544d46ff"
+    },
+    "data": [
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0001000000001000",
+      "0002333445532000",
+      "0006333445336000",
+      "0000773458770000",
+      "00009A3483A90000",
+      "0000333333330000",
+      "000033BBBB330000",
+      "00003B9CC9B30000",
+      "00003BCDDCB30000"
+    ]
+  },
+"cow_warm_cow": {
+    "name": "Cow Warm Cow",
+    "category": "Overworld Mobs",
+    "pixelSize": 16,
+    "colors": {
+      "0": "#00000000",
+      "1": "#5f5c5bff",
+      "2": "#565352ff",
+      "3": "#7b321aff",
+      "4": "#4d4a49ff",
+      "5": "#403d3cff",
+      "6": "#82371eff",
+      "7": "#883f26ff",
+      "8": "#aa5f47ff",
+      "9": "#000000ff",
+      "A": "#fff5ebff",
+      "B": "#914930ff",
+      "C": "#cc8b75ff",
+      "D": "#683f31ff",
+      "E": "#3f251dff"
+    },
+    "data": [
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "1100000000000011",
+      "2100333333330012",
+      "2445677667765442",
+      "4555887777885554",
+      "00009AB77BA90000",
+      "0000BBBBBBBB0000",
+      "0000B8CCCC8B0000",
+      "00008C9DD9C80000",
+      "00008CDEEDC80000"
+    ]
+  },
+"crafting_table_front": {
     name: "Crafting Table Front",
     category: "Tables",
     pixelSize: 16,
@@ -1962,8 +2726,7 @@ window.PICTURES = {
       "B99AA970B9A9AAAB"
     ]
   },
-
-  "crafting_table_top": {
+"crafting_table_top": {
     name: "Crafting Table Top",
     category: "Tables",
     pixelSize: 16,
@@ -1998,8 +2761,7 @@ window.PICTURES = {
       "0414233333320110"
     ]
   },
-
-  "creeper_banner_pattern": {
+"creeper_banner_pattern": {
     name: "Creeper Banner Pattern",
     category: "Decoration",
     pixelSize: 16,
@@ -2034,8 +2796,7 @@ window.PICTURES = {
       "0000000000000000"
     ]
   },
-
-  "crimson_nylium_side": {
+"crimson_nylium_side": {
     name: "Crimson Nylium Side",
     category: "Nether",
     pixelSize: 16,
@@ -2073,8 +2834,7 @@ window.PICTURES = {
       "BB8AAB8A79B8AA88"
     ]
   },
-
-  "crossbow_firework": {
+"crossbow_firework": {
     name: "Crossbow Firework",
     category: "Weapons",
     pixelSize: 16,
@@ -2123,8 +2883,7 @@ window.PICTURES = {
       "3333333333333GG3"
     ]
   },
-
-  "crying_obsidian": {
+"crying_obsidian": {
     name: "Crying Obsidian",
     category: "Blocks",
     pixelSize: 16,
@@ -2157,8 +2916,7 @@ window.PICTURES = {
       "3016103532000200"
     ]
   },
-
-  "diamond": {
+"diamond": {
     name: "Diamond",
     category: "Ores",
     pixelSize: 16,
@@ -2193,8 +2951,7 @@ window.PICTURES = {
       "0000000000000000"
     ]
   },
-
-  "diamond_axe": {
+"diamond_axe": {
     name: "Diamond Axe",
     category: "Weapons",
     pixelSize: 16,
@@ -2230,8 +2987,7 @@ window.PICTURES = {
       "0000000000000000"
     ]
   },
-
-  "diamond_block": {
+"diamond_block": {
     name: "Diamond Block",
     category: "Ores",
     pixelSize: 16,
@@ -2265,8 +3021,7 @@ window.PICTURES = {
       "2282288822882288"
     ]
   },
-
-  "diamond_boots": {
+"diamond_boots": {
     name: "Diamond Boots",
     category: "Armor",
     pixelSize: 16,
@@ -2298,8 +3053,7 @@ window.PICTURES = {
       "0000000000000000"
     ]
   },
-
-  "diamond_chestplate": {
+"diamond_chestplate": {
     name: "Diamond Chestplate",
     category: "Armor",
     pixelSize: 16,
@@ -2331,8 +3085,7 @@ window.PICTURES = {
       "0000000000000000"
     ]
   },
-
-  "diamond_helmet": {
+"diamond_helmet": {
     name: "Diamond Helmet",
     category: "Armor",
     pixelSize: 16,
@@ -2364,8 +3117,7 @@ window.PICTURES = {
       "0000000000000000"
     ]
   },
-
-  "diamond_hoe": {
+"diamond_hoe": {
     name: "Diamond Hoe",
     category: "Tools",
     pixelSize: 16,
@@ -2400,8 +3152,7 @@ window.PICTURES = {
       "0000000000000000"
     ]
   },
-
-  "diamond_horse_armor": {
+"diamond_horse_armor": {
     name: "Diamond Horse Armor",
     category: "Armor",
     pixelSize: 16,
@@ -2434,8 +3185,7 @@ window.PICTURES = {
       "0000000000000000"
     ]
   },
-
-  "diamond_leggings": {
+"diamond_leggings": {
     name: "Diamond Leggings",
     category: "Armor",
     pixelSize: 16,
@@ -2467,8 +3217,7 @@ window.PICTURES = {
       "0000000000000000"
     ]
   },
-
-  "diamond_ore": {
+"diamond_ore": {
     name: "Diamond Ore",
     category: "Ores",
     pixelSize: 16,
@@ -2503,8 +3252,7 @@ window.PICTURES = {
       "1111112011111100"
     ]
   },
-
-  "diamond_pickaxe": {
+"diamond_pickaxe": {
     name: "Diamond Pickaxe",
     category: "Tools",
     pixelSize: 16,
@@ -2539,8 +3287,7 @@ window.PICTURES = {
       "0000000000000000"
     ]
   },
-
-  "diamond_shovel": {
+"diamond_shovel": {
     name: "Diamond Shovel",
     category: "Tools",
     pixelSize: 16,
@@ -2575,8 +3322,7 @@ window.PICTURES = {
       "0000000000000000"
     ]
   },
-
-  "diamond_sword": {
+"diamond_sword": {
     name: "Diamond Sword",
     category: "Weapons",
     pixelSize: 16,
@@ -2613,8 +3359,7 @@ window.PICTURES = {
       "3330000000000000"
     ]
   },
-
-  "dirt": {
+"dirt": {
     name: "Dirt",
     category: "Blocks",
     pixelSize: 16,
@@ -2646,8 +3391,7 @@ window.PICTURES = {
       "1201124211221123"
     ]
   },
-
-  "dirt_with_roots": {
+"dirt_with_roots": {
     name: "Dirt With Roots",
     category: "Blocks",
     pixelSize: 16,
@@ -2681,8 +3425,7 @@ window.PICTURES = {
       "1241128241221153"
     ]
   },
-
-  "dispenser_front_horizontal": {
+"dispenser_front_horizontal": {
     name: "Dispenser Front Horizontal",
     category: "Tables",
     pixelSize: 16,
@@ -2721,8 +3464,48 @@ window.PICTURES = {
       "0000100011110000"
     ]
   },
-
-  "door_acacia": {
+"dolphin": {
+    "name": "Dolphin",
+    "category": "Overworld Mobs",
+    "pixelSize": 16,
+    "colors": {
+      "0": "#00000000",
+      "1": "#bacbdcff",
+      "2": "#bccedfff",
+      "3": "#c0d1e1ff",
+      "4": "#c7d6e4ff",
+      "5": "#b7c9daff",
+      "6": "#bccddeff",
+      "7": "#b2c4d5ff",
+      "8": "#a3b2c2ff",
+      "9": "#99a7b7ff",
+      "A": "#aabacaff",
+      "B": "#ffffffff",
+      "C": "#000000ff",
+      "D": "#adbeceff",
+      "E": "#9dabbbff",
+      "F": "#9faebeff"
+    },
+    "data": [
+      "0000000000000000",
+      "0000000000000000",
+      "1122223344000000",
+      "1122223344000000",
+      "5555116633000000",
+      "5555116633000000",
+      "7755551111000000",
+      "7755551111000000",
+      "88999988AA000000",
+      "88999988AA000000",
+      "99BBCC9999000000",
+      "99BBCC9999000000",
+      "DDDDDDDD8899EEFF",
+      "DDDDDDDD8899EEFF",
+      "227777DDDDDDDD88",
+      "227777DDDDDDDD88"
+    ]
+  },
+"door_acacia": {
     name: "Door Acacia",
     category: "Decoration",
     pixelSize: 16,
@@ -2752,8 +3535,7 @@ window.PICTURES = {
       "0001111111111000"
     ]
   },
-
-  "door_birch": {
+"door_birch": {
     name: "Door Birch",
     category: "Decoration",
     pixelSize: 16,
@@ -2785,8 +3567,7 @@ window.PICTURES = {
       "0001111111111000"
     ]
   },
-
-  "door_dark_oak": {
+"door_dark_oak": {
     name: "Door Dark Oak",
     category: "Decoration",
     pixelSize: 16,
@@ -2818,8 +3599,7 @@ window.PICTURES = {
       "0001111111111000"
     ]
   },
-
-  "door_iron": {
+"door_iron": {
     name: "Door Iron",
     category: "Decoration",
     pixelSize: 16,
@@ -2851,8 +3631,7 @@ window.PICTURES = {
       "0001111111111000"
     ]
   },
-
-  "door_jungle": {
+"door_jungle": {
     name: "Door Jungle",
     category: "Decoration",
     pixelSize: 16,
@@ -2885,8 +3664,7 @@ window.PICTURES = {
       "0001111111111000"
     ]
   },
-
-  "door_spruce": {
+"door_spruce": {
     name: "Door Spruce",
     category: "Decoration",
     pixelSize: 16,
@@ -2921,8 +3699,7 @@ window.PICTURES = {
       "0001111111111000"
     ]
   },
-
-  "door_wood": {
+"door_wood": {
     name: "Door Wood",
     category: "Decoration",
     pixelSize: 16,
@@ -2954,8 +3731,7 @@ window.PICTURES = {
       "0001111111111000"
     ]
   },
-
-  "dropper_front_horizontal": {
+"dropper_front_horizontal": {
     name: "Dropper Front Horizontal",
     category: "Tables",
     pixelSize: 16,
@@ -2994,8 +3770,7 @@ window.PICTURES = {
       "0000100011110000"
     ]
   },
-
-  "dropper_front_vertical": {
+"dropper_front_vertical": {
     name: "Dropper Front Vertical",
     category: "Tables",
     pixelSize: 16,
@@ -3029,8 +3804,7 @@ window.PICTURES = {
       "0000100011110000"
     ]
   },
-
-  "egg": {
+"egg": {
     name: "Egg",
     category: "Miscellaneous",
     pixelSize: 16,
@@ -3062,8 +3836,7 @@ window.PICTURES = {
       "0000000000000000"
     ]
   },
-
-  "elytra": {
+"elytra": {
     name: "Elytra",
     category: "End",
     pixelSize: 16,
@@ -3097,8 +3870,7 @@ window.PICTURES = {
       "0000000000000000"
     ]
   },
-
-  "emerald": {
+"emerald": {
     name: "Emerald",
     category: "Ores",
     pixelSize: 16,
@@ -3134,8 +3906,7 @@ window.PICTURES = {
       "0000000000000000"
     ]
   },
-
-  "emerald_block": {
+"emerald_block": {
     name: "Emerald Block",
     category: "Ores",
     pixelSize: 16,
@@ -3166,8 +3937,7 @@ window.PICTURES = {
       "1555555555555551"
     ]
   },
-
-  "emerald_ore": {
+"emerald_ore": {
     name: "Emerald Ore",
     category: "Ores",
     pixelSize: 16,
@@ -3204,8 +3974,7 @@ window.PICTURES = {
       "1111002210001211"
     ]
   },
-
-  "enchanting_table_side": {
+"enchanting_table_side": {
     name: "Enchanting Table Side",
     category: "Enchanting",
     pixelSize: 16,
@@ -3243,8 +4012,7 @@ window.PICTURES = {
       "9B898B9A98BBBBBB"
     ]
   },
-
-  "end_bricks": {
+"end_bricks": {
     name: "End Bricks",
     category: "End",
     pixelSize: 16,
@@ -3277,46 +4045,55 @@ window.PICTURES = {
       "4006600444400444"
     ]
   },
-
-  "end_crystal": {
-    name: "End Crystal",
-    category: "End",
-    pixelSize: 16,
-    colors: {
-      "0": "#ffffff",
-      "1": "#b3d8dd",
-      "2": "#f9fdfe",
-      "3": "#954dbb",
-      "4": "#9cbdc1",
-      "5": "#dcc7e6",
-      "6": "#5f277d",
-      "7": "#be95d4",
-      "8": "#cfb2dd",
-      "9": "#e20627",
-      "A": "#b70520",
-      "B": "#ce0624"
+"end_crystal": {
+    "name": "End Crystal",
+    "category": "End Mobs",
+    "pixelSize": 16,
+    "colors": {
+      "0": "#00000000",
+      "1": "#d3f3feff",
+      "2": "#e2f8ffff",
+      "3": "#c6eefbff",
+      "4": "#bce5f3ff",
+      "5": "#e241c7ff",
+      "6": "#e83ccbff",
+      "7": "#eb44cfff",
+      "8": "#ff6ce6ff",
+      "9": "#ff64e5ff",
+      "A": "#ff67e5ff",
+      "B": "#ff6ae6ff",
+      "C": "#af004bff",
+      "D": "#c40054ff",
+      "E": "#d2005aff",
+      "F": "#e6b100ff",
+      "G": "#e65800ff",
+      "H": "#d57100ff",
+      "I": "#e68a00ff",
+      "J": "#5e5e5eff",
+      "K": "#4f4f4fff",
+      "L": "#434243ff",
+      "M": "#242424ff"
     },
-    data: [
+    "data": [
       "0000000000000000",
-      "0012222222222220",
-      "0020000030000040",
-      "0020000353000040",
-      "0020663757366040",
-      "0020637787736010",
-      "0020377898773010",
-      "00237789A8877640",
-      "001755997B988360",
-      "0043778777873640",
-      "002037789B733010",
-      "0020633787336010",
-      "0020663383366010",
-      "0020000636000010",
-      "0024111144111110",
-      "0000000000000000"
+      "0012342124122200",
+      "0025262625274100",
+      "0021888889A96200",
+      "0027BAABAAA92200",
+      "0012AACDA9A97200",
+      "0025AAAAE9AA2100",
+      "002298DEAE9A5200",
+      "00159AC9D9993400",
+      "00229AAAAAAA7300",
+      "00159A9FAAB92G00",
+      "00H2726I61646200",
+      "0041I3121I2H1200",
+      "000HI0HH00HHF000",
+      "00IHGIHFIGHGGH00",
+      "00JKJLMKKMLJML00"
     ]
   },
-
-  "end_portal": {
+"end_portal": {
     name: "End Portal",
     category: "End",
     pixelSize: 16,
@@ -3353,8 +4130,7 @@ window.PICTURES = {
       "0000001334000000"
     ]
   },
-
-  "end_stone": {
+"end_stone": {
     name: "End Stone",
     category: "End",
     pixelSize: 16,
@@ -3385,8 +4161,7 @@ window.PICTURES = {
       "1402110101340234"
     ]
   },
-
-  "ender_eye": {
+"ender_eye": {
     name: "Ender Eye",
     category: "End",
     pixelSize: 16,
@@ -3424,8 +4199,7 @@ window.PICTURES = {
       "0000000000000000"
     ]
   },
-
-  "ender_pearl": {
+"ender_pearl": {
     name: "Ender Pearl",
     category: "End",
     pixelSize: 16,
@@ -3461,8 +4235,110 @@ window.PICTURES = {
       "0000000000000000"
     ]
   },
-
-  "endframe_side": {
+"enderdragon_ender_dragon": {
+    "name": "Enderdragon Ender Dragon",
+    "category": "Overworld Mobs",
+    "pixelSize": 16,
+    "colors": {
+      "0": "#00000000",
+      "1": "#7c7c7cff",
+      "2": "#747474ff",
+      "3": "#656565ff",
+      "4": "#1c191dff",
+      "5": "#181619ff",
+      "6": "#221f23ff",
+      "7": "#262327ff",
+      "8": "#1e1c1fff",
+      "9": "#ff97e6ff",
+      "A": "#ff46d2ff",
+      "B": "#151315ff",
+      "C": "#201d21ff",
+      "D": "#1f1c20ff",
+      "E": "#1b191cff"
+    },
+    "data": [
+      "0000110000110000",
+      "0000220000220000",
+      "0000330000330000",
+      "0044555555444500",
+      "0056667776766500",
+      "0058557667558500",
+      "0059A967669A9500",
+      "0059BB9669BB9500",
+      "005C44D44D44D500",
+      "005C46677664D500",
+      "004D67777776D500",
+      "004D6DDDDDD6D400",
+      "004DBBBBBBBBD400",
+      "004DDDDDDDDDD400",
+      "004D67666677D400",
+      "000EEEEEEEEEE000"
+    ]
+  },
+"enderman": {
+    "name": "Enderman",
+    "category": "End Mobs",
+    "pixelSize": 16,
+    "colors": {
+      "0": "#110f1aff",
+      "1": "#1b1825ff",
+      "2": "#151220ff",
+      "3": "#ffa7e6ff",
+      "4": "#ff20b4ff"
+    },
+    "data": [
+      "0011220000221100",
+      "0011220000221100",
+      "2211112222111122",
+      "2211112222111122",
+      "1122111111112211",
+      "1122111111112211",
+      "2211111111111122",
+      "2211111111111122",
+      "3344331111334433",
+      "3344331111334433",
+      "1111111111111111",
+      "1111111111111111",
+      "2222112222112222",
+      "2222112222112222",
+      "0000220000220000",
+      "0000220000220000"
+    ]
+  },
+"endermite": {
+    "name": "Endermite",
+    "category": "End Mobs",
+    "pixelSize": 16,
+    "colors": {
+      "0": "#00000000",
+      "1": "#4c336cff",
+      "2": "#700000ff",
+      "3": "#920300ff",
+      "4": "#432d60ff",
+      "5": "#472f65ff",
+      "6": "#412b5dff",
+      "7": "#3d2857ff"
+    },
+    "data": [
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000112233110000",
+      "0000112233110000",
+      "0000445544440000",
+      "0000445544440000",
+      "0000667777440000",
+      "0000667777440000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000"
+    ]
+  },
+"endframe_side": {
     name: "Endframe Side",
     category: "End",
     pixelSize: 16,
@@ -3501,8 +4377,7 @@ window.PICTURES = {
       "BBAACACACBCA9CAC"
     ]
   },
-
-  "endframe_top": {
+"endframe_top": {
     name: "Endframe Top",
     category: "End",
     pixelSize: 16,
@@ -3537,8 +4412,7 @@ window.PICTURES = {
       "0000000000000000"
     ]
   },
-
-  "experience_bottle": {
+"experience_bottle": {
     name: "Experience Bottle",
     category: "Enchanting",
     pixelSize: 16,
@@ -3585,8 +4459,7 @@ window.PICTURES = {
       "0000002211100000"
     ]
   },
-
-  "farmland_dry": {
+"farmland_dry": {
     name: "Farmland Dry",
     category: "Blocks",
     pixelSize: 16,
@@ -3617,8 +4490,7 @@ window.PICTURES = {
       "0311210030121330"
     ]
   },
-
-  "farmland_wet": {
+"farmland_wet": {
     name: "Farmland Wet",
     category: "Blocks",
     pixelSize: 16,
@@ -3649,8 +4521,7 @@ window.PICTURES = {
       "0311210030121330"
     ]
   },
-
-  "fireball": {
+"fireball": {
     name: "Fireball",
     category: "Miscellaneous",
     pixelSize: 16,
@@ -3687,8 +4558,7 @@ window.PICTURES = {
       "0000000000000000"
     ]
   },
-
-  "fireworks": {
+"fireworks": {
     name: "Fireworks",
     category: "Items",
     pixelSize: 16,
@@ -3722,8 +4592,77 @@ window.PICTURES = {
       "0000000000000000"
     ]
   },
-
-  "fish_pufferfish_raw": {
+"fish_cod": {
+    "name": "Fish Cod",
+    "category": "Overworld Mobs",
+    "pixelSize": 16,
+    "colors": {
+      "0": "#00000000",
+      "1": "#cfb694ff",
+      "2": "#d6bc99ff",
+      "3": "#a3855fff",
+      "4": "#977b57ff",
+      "5": "#000000ff",
+      "6": "#c6aa85ff",
+      "7": "#cbb18eff",
+      "8": "#c7aa84ff",
+      "9": "#c6ad8cff",
+      "A": "#967752ff"
+    },
+    "data": [
+      "0000000000000000",
+      "0000000000000000",
+      "0011001122000000",
+      "0011001122000000",
+      "3344334433443333",
+      "3344334433443333",
+      "4433443322556677",
+      "4433443322556677",
+      "6666774488991122",
+      "6666774488991122",
+      "1122227777119900",
+      "1122227777119900",
+      "00000000AA000000",
+      "00000000AA000000",
+      "0000000000000000",
+      "0000000000000000"
+    ]
+  },
+"fish_pufferfish": {
+    "name": "Fish Pufferfish",
+    "category": "Overworld Mobs",
+    "pixelSize": 16,
+    "colors": {
+      "0": "#b27d0bff",
+      "1": "#b57f0bff",
+      "2": "#bc840cff",
+      "3": "#000000ff",
+      "4": "#f6e8fbff",
+      "5": "#fbd7aaff",
+      "6": "#dcb667ff",
+      "7": "#4d3804ff",
+      "8": "#fcd295ff"
+    },
+    "data": [
+      "0011112222111100",
+      "0011112222111100",
+      "0033440000443300",
+      "0033440000443300",
+      "0000225555220000",
+      "0000225555220000",
+      "6622557777662266",
+      "6622557777662266",
+      "5555886666885555",
+      "5555886666885555",
+      "8855665588556655",
+      "8855665588556655",
+      "5555555555555555",
+      "5555555555555555",
+      "6655885566558855",
+      "6655885566558855"
+    ]
+  },
+"fish_pufferfish_raw": {
     name: "Fish Pufferfish Raw",
     category: "Food",
     pixelSize: 16,
@@ -3765,8 +4704,86 @@ window.PICTURES = {
       "0000000000000000"
     ]
   },
-
-  "fishing_rod_uncast": {
+"fish_salmon": {
+    "name": "Fish Salmon",
+    "category": "Overworld Mobs",
+    "pixelSize": 16,
+    "colors": {
+      "0": "#00000000",
+      "1": "#ad2d2dff",
+      "2": "#852323ff",
+      "3": "#858f25ff",
+      "4": "#7c8522ff",
+      "5": "#61954bff",
+      "6": "#bd3333ff",
+      "7": "#6f761eff",
+      "8": "#788121ff",
+      "9": "#090e07ff",
+      "A": "#4e783cff",
+      "B": "#b39a73ff",
+      "C": "#813333ff",
+      "D": "#b74c4cff",
+      "E": "#c9ae92ff",
+      "F": "#b7a38dff",
+      "G": "#bfa58bff",
+      "H": "#a36629ff",
+      "I": "#c9a077ff"
+    },
+    "data": [
+      "0000000000000000",
+      "0000000000000000",
+      "1122112233000000",
+      "1122112233443355",
+      "2266227733443355",
+      "2266227733889955",
+      "1122117744889955",
+      "112211774444AABB",
+      "CCDDCCDD7744AABB",
+      "CCDDCCDD7733EEFF",
+      "GGGGEEHHEE33EEFF",
+      "GGGGEEHHEE000000",
+      "00000000II000000",
+      "00000000II000000",
+      "0000000000000000",
+      "0000000000000000"
+    ]
+  },
+"fish_tropical_fish": {
+    "name": "Fish Tropical Fish",
+    "category": "Overworld Mobs",
+    "pixelSize": 16,
+    "colors": {
+      "0": "#00000000",
+      "1": "#d08a7100",
+      "2": "#bf330000",
+      "3": "#d87b5100",
+      "4": "#d54c00ff",
+      "5": "#bf3300ff",
+      "6": "#c6562d00",
+      "7": "#f4f4f4ff",
+      "8": "#e2e2e2ff",
+      "9": "#000000ff"
+    },
+    "data": [
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "1122334444555533",
+      "1122334444555533",
+      "5566557755557744",
+      "5566557755557744",
+      "5588557777447799",
+      "5588557777447799",
+      "5566558888557755",
+      "5566558888557755",
+      "0000000000000000",
+      "0000000000000000"
+    ]
+  },
+"fishing_rod_uncast": {
     name: "Fishing Rod Uncast",
     category: "Items",
     pixelSize: 16,
@@ -3802,8 +4819,7 @@ window.PICTURES = {
       "0000000000000000"
     ]
   },
-
-  "fletcher_table_side2": {
+"fletcher_table_side2": {
     name: "Fletcher Table",
     category: "Tables",
     pixelSize: 16,
@@ -3850,8 +4866,7 @@ window.PICTURES = {
       "2343250063342050"
     ]
   },
-
-  "flint_and_steel": {
+"flint_and_steel": {
     name: "Flint And Steel",
     category: "Items",
     pixelSize: 16,
@@ -3889,8 +4904,7 @@ window.PICTURES = {
       "000000000AA00000"
     ]
   },
-
-  "flower_allium": {
+"flower_allium": {
     name: "Flower Allium",
     category: "Plants",
     pixelSize: 16,
@@ -3925,8 +4939,7 @@ window.PICTURES = {
       "0000000900000000"
     ]
   },
-
-  "flower_blue_orchid": {
+"flower_blue_orchid": {
     name: "Flower Blue Orchid",
     category: "Plants",
     pixelSize: 16,
@@ -3959,8 +4972,7 @@ window.PICTURES = {
       "0000000070000000"
     ]
   },
-
-  "flower_cornflower": {
+"flower_cornflower": {
     name: "Flower Cornflower",
     category: "Plants",
     pixelSize: 16,
@@ -3996,8 +5008,7 @@ window.PICTURES = {
       "0000000060000000"
     ]
   },
-
-  "flower_dandelion": {
+"flower_dandelion": {
     name: "Flower Dandelion",
     category: "Plants",
     pixelSize: 16,
@@ -4030,8 +5041,7 @@ window.PICTURES = {
       "0000000650000000"
     ]
   },
-
-  "flower_houstonia": {
+"flower_houstonia": {
     name: "Flower Houstonia",
     category: "Plants",
     pixelSize: 16,
@@ -4063,8 +5073,7 @@ window.PICTURES = {
       "0000000600000000"
     ]
   },
-
-  "flower_lily_of_the_valley": {
+"flower_lily_of_the_valley": {
     name: "Flower Lily Of The Valley",
     category: "Plants",
     pixelSize: 16,
@@ -4096,8 +5105,7 @@ window.PICTURES = {
       "0000000060000000"
     ]
   },
-
-  "flower_oxeye_daisy": {
+"flower_oxeye_daisy": {
     name: "Flower Oxeye Daisy",
     category: "Plants",
     pixelSize: 16,
@@ -4133,8 +5141,7 @@ window.PICTURES = {
       "0000000900000000"
     ]
   },
-
-  "flower_paeonia": {
+"flower_paeonia": {
     name: "Flower Paeonia",
     category: "Plants",
     pixelSize: 16,
@@ -4176,8 +5183,7 @@ window.PICTURES = {
       "00000089G0000000"
     ]
   },
-
-  "flower_rose": {
+"flower_rose": {
     name: "Flower Rose",
     category: "Plants",
     pixelSize: 16,
@@ -4211,8 +5217,7 @@ window.PICTURES = {
       "0000000565000000"
     ]
   },
-
-  "flower_rose_blue": {
+"flower_rose_blue": {
     name: "Flower Rose Blue",
     category: "Plants",
     pixelSize: 16,
@@ -4245,8 +5250,7 @@ window.PICTURES = {
       "0000000060000000"
     ]
   },
-
-  "flower_tulip_orange": {
+"flower_tulip_orange": {
     name: "Flower Tulip Orange",
     category: "Plants",
     pixelSize: 16,
@@ -4279,8 +5283,7 @@ window.PICTURES = {
       "0000000400000000"
     ]
   },
-
-  "flower_tulip_pink": {
+"flower_tulip_pink": {
     name: "Flower Tulip Pink",
     category: "Plants",
     pixelSize: 16,
@@ -4313,8 +5316,7 @@ window.PICTURES = {
       "0000000500000000"
     ]
   },
-
-  "flower_tulip_red": {
+"flower_tulip_red": {
     name: "Flower Tulip Red",
     category: "Plants",
     pixelSize: 16,
@@ -4348,8 +5350,7 @@ window.PICTURES = {
       "0000000700000000"
     ]
   },
-
-  "flower_tulip_white": {
+"flower_tulip_white": {
     name: "Flower Tulip White",
     category: "Plants",
     pixelSize: 16,
@@ -4382,8 +5383,7 @@ window.PICTURES = {
       "0000000400000000"
     ]
   },
-
-  "flower_wither_rose": {
+"flower_wither_rose": {
     name: "Flower Wither Rose",
     category: "Plants",
     pixelSize: 16,
@@ -4419,8 +5419,7 @@ window.PICTURES = {
       "00000009A9000000"
     ]
   },
-
-  "flowering_azalea_side": {
+"flowering_azalea_side": {
     name: "Flowering Azalea Side",
     category: "Plants",
     pixelSize: 16,
@@ -4456,8 +5455,7 @@ window.PICTURES = {
       "AAAAAAAAAAAAAAAA"
     ]
   },
-
-  "flowering_azalea_top": {
+"flowering_azalea_top": {
     name: "Flowering Azalea Top",
     category: "Plants",
     pixelSize: 16,
@@ -4491,8 +5489,204 @@ window.PICTURES = {
       "0021212121320082"
     ]
   },
-
-  "furnace_front_on": {
+"fox": {
+    "name": "Fox",
+    "category": "Overworld Mobs",
+    "pixelSize": 16,
+    "colors": {
+      "0": "#eadfd4ff",
+      "1": "#00000000",
+      "2": "#caaf97ff",
+      "3": "#c46614ff",
+      "4": "#cf6c15ff",
+      "5": "#b75d0fff",
+      "6": "#020202ff",
+      "7": "#ffffffff",
+      "8": "#d37b2dff",
+      "9": "#dc9e67ff",
+      "A": "#262626ff",
+      "B": "#e9dcd0ff",
+      "C": "#f2e8dfff"
+    },
+    "data": [
+      "0000111111110000",
+      "0000111111110000",
+      "0022111111112200",
+      "0022111111112200",
+      "3344444444444433",
+      "3344444444444433",
+      "3344444444444433",
+      "3344444444444433",
+      "5533444444443355",
+      "5533444444443355",
+      "6677448888447766",
+      "6677448888447766",
+      "555599AAAA995555",
+      "555599AAAA995555",
+      "BBBBCCCCCCCCBBBB",
+      "BBBBCCCCCCCCBBBB"
+    ]
+  },
+"fox_snow_fox": {
+    "name": "Fox Snow Fox",
+    "category": "Overworld Mobs",
+    "pixelSize": 16,
+    "colors": {
+      "0": "#e4efedff",
+      "1": "#00000000",
+      "2": "#a4cec9ff",
+      "3": "#e2eeecff",
+      "4": "#bde0dbff",
+      "5": "#d3eae7ff",
+      "6": "#020202ff",
+      "7": "#ffffffff",
+      "8": "#dbeceaff",
+      "9": "#262626ff",
+      "A": "#e8f1f0ff"
+    },
+    "data": [
+      "0000111111110000",
+      "0000111111110000",
+      "0022111111112200",
+      "0022111111112200",
+      "3333333333333333",
+      "3333333333333333",
+      "3333333333333333",
+      "3333333333333333",
+      "4455333333335544",
+      "4455333333335544",
+      "6677330000337766",
+      "6677330000337766",
+      "3333889999883333",
+      "3333889999883333",
+      "3333AAAAAAAA3333",
+      "3333AAAAAAAA3333"
+    ]
+  },
+"frog_cold": {
+    "name": "Frog Cold",
+    "category": "Overworld Mobs",
+    "pixelSize": 16,
+    "colors": {
+      "0": "#00000000",
+      "1": "#4f812fff",
+      "2": "#48742bff",
+      "3": "#1e1b1aff",
+      "4": "#36312eff",
+      "5": "#ccd93dff",
+      "6": "#4b782dff",
+      "7": "#558932ff",
+      "8": "#314e1dff",
+      "9": "#3c6024ff",
+      "A": "#456e2aff",
+      "B": "#d9c082ff",
+      "C": "#bda24fff",
+      "D": "#d9bc75ff",
+      "E": "#c7a85dff",
+      "F": "#c2a255ff",
+      "G": "#d9bb75ff"
+    },
+    "data": [
+      "0000000000000000",
+      "0112222002222110",
+      "0112222002222110",
+      "0334455005544330",
+      "0334455005544330",
+      "0662277222222660",
+      "0662277222222660",
+      "088992222AA99880",
+      "088992222AA99880",
+      "0BBCC999999CCBB0",
+      "0BBCC999999CCBB0",
+      "0DDEEDDFFDDEEDD0",
+      "0DDEEDDFFDDEEDD0",
+      "0CCGGGGCCGGGGCC0",
+      "0CCGGGGCCGGGGCC0",
+      "0000000000000000"
+    ]
+  },
+"frog_temperate": {
+    "name": "Frog Temperate",
+    "category": "Overworld Mobs",
+    "pixelSize": 16,
+    "colors": {
+      "0": "#00000000",
+      "1": "#c16e45ff",
+      "2": "#bb683fff",
+      "3": "#b8643cff",
+      "4": "#1e1b1aff",
+      "5": "#36312eff",
+      "6": "#80ad55ff",
+      "7": "#c9774fff",
+      "8": "#d59779ff",
+      "9": "#a55e27ff",
+      "A": "#a45a27ff",
+      "B": "#d9b382ff",
+      "C": "#bd8c4fff",
+      "D": "#d9ad75ff",
+      "E": "#c99a5eff",
+      "F": "#d9af78ff",
+      "G": "#c49455ff",
+      "H": "#c9985aff",
+      "I": "#d9ab73ff",
+      "J": "#bd8b4aff"
+    },
+    "data": [
+      "0000000000000000",
+      "0112233003322110",
+      "0112233003322110",
+      "0445566006655440",
+      "0445566006655440",
+      "0117788777777110",
+      "0117788777777110",
+      "099AA777722AA990",
+      "099AA777722AA990",
+      "0BBCCAAAAAACCBB0",
+      "0BBCCAAAAAACCBB0",
+      "0DDEEFFGGFFEEDD0",
+      "0DDEEFFGGFFEEDD0",
+      "0HHIIDDJJIIIIHH0",
+      "0HHIIDDJJIIIIHH0",
+      "0000000000000000"
+    ]
+  },
+"frog_warm": {
+    "name": "Frog Warm",
+    "category": "Overworld Mobs",
+    "pixelSize": 16,
+    "colors": {
+      "0": "#00000000",
+      "1": "#d5d7bcff",
+      "2": "#d1d3b8ff",
+      "3": "#1e1b1aff",
+      "4": "#36312eff",
+      "5": "#f1f3d5ff",
+      "6": "#dddfc3ff",
+      "7": "#a3a590ff",
+      "8": "#b7b9a2ff",
+      "9": "#c7c9b1ff",
+      "A": "#cbcdb4ff"
+    },
+    "data": [
+      "0000000000000000",
+      "0112222001122220",
+      "0112222001122220",
+      "0334455005544330",
+      "0334455005544330",
+      "0221166111111220",
+      "0221166111111220",
+      "0778811112288770",
+      "0778811112288770",
+      "0229988888899220",
+      "0229988888899220",
+      "011AA11AA11AA110",
+      "011AA11AA11AA110",
+      "0AA2222992222AA0",
+      "0AA2222992222AA0",
+      "0000000000000000"
+    ]
+  },
+"furnace_front_on": {
     name: "Furnace",
     category: "Tables",
     pixelSize: 16,
@@ -4535,8 +5729,133 @@ window.PICTURES = {
       "121DDHGHDGFDF121"
     ]
   },
-
-  "gilded_blackstone": {
+"ghast": {
+    "name": "Ghast",
+    "category": "Nether Mobs",
+    "pixelSize": 16,
+    "colors": {
+      "0": "#eeeeeeff",
+      "1": "#c4c4c4ff",
+      "2": "#dadadaff",
+      "3": "#d0d0d0ff",
+      "4": "#545454ff",
+      "5": "#d2d2d2ff"
+    },
+    "data": [
+      "0000000000000000",
+      "0000010000100000",
+      "0002300000032000",
+      "0000000000000000",
+      "0000000000000000",
+      "0034444004444300",
+      "0000220000220000",
+      "0000300000020000",
+      "0000100000000000",
+      "1520000000010251",
+      "0000200000000000",
+      "5200000000000025",
+      "0000004444000000",
+      "2000000000000002",
+      "0000000000000000",
+      "0000000000000000"
+    ]
+  },
+"ghast_baby_happy_ghast": {
+    "name": "Ghast Baby Happy Ghast",
+    "category": "Nether Mobs",
+    "pixelSize": 16,
+    "colors": {
+      "0": "#f4f4f4ff",
+      "1": "#eeeeeeff",
+      "2": "#c4c4c4ff",
+      "3": "#d2d2d2ff",
+      "4": "#dadadaff",
+      "5": "#545454ff",
+      "6": "#ff9191ff",
+      "7": "#ffb0b0ff"
+    },
+    "data": [
+      "0000000000000000",
+      "0100011011101100",
+      "0110111111111110",
+      "0111234014321110",
+      "1112411111142101",
+      "0111111111111101",
+      "1111111111111111",
+      "1115552442555111",
+      "1111111111111111",
+      "6741111111111476",
+      "1111111111111111",
+      "6411454114541146",
+      "1111125555211111",
+      "4111111111111114",
+      "1111111111111111",
+      "1111111111111111"
+    ]
+  },
+"ghast_dried_ghast": {
+    "name": "Ghast Dried Ghast",
+    "category": "Nether Mobs",
+    "pixelSize": 16,
+    "colors": {
+      "0": "#00000000",
+      "1": "#a9a9a9ff",
+      "2": "#979797ff",
+      "3": "#686969ff",
+      "4": "#868686ff",
+      "5": "#545454ff"
+    },
+    "data": [
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0001111111211000",
+      "0001222212221000",
+      "0001222221221000",
+      "0001213223241000",
+      "0002234224341000",
+      "0001245245421000",
+      "0001552222551000",
+      "0001224554221000",
+      "4221225445422411",
+      "4441122212221442"
+    ]
+  },
+"ghast_happy_ghast": {
+    "name": "Ghast Happy Ghast",
+    "category": "Nether Mobs",
+    "pixelSize": 16,
+    "colors": {
+      "0": "#eeeeeeff",
+      "1": "#c4c4c4ff",
+      "2": "#dadadaff",
+      "3": "#d0d0d0ff",
+      "4": "#545454ff",
+      "5": "#d2d2d2ff"
+    },
+    "data": [
+      "0000000000000000",
+      "0000120000210000",
+      "0002000000002000",
+      "0000000000000000",
+      "0000000000000000",
+      "0034444004444300",
+      "0000220000220000",
+      "0000200000020000",
+      "0000200000000000",
+      "1520000000000251",
+      "0000000000000000",
+      "5200242002420025",
+      "0000014444100000",
+      "2000000000000002",
+      "0000000000000000",
+      "0000000000000000"
+    ]
+  },
+"gilded_blackstone": {
     name: "Gilded Blackstone",
     category: "Blocks",
     pixelSize: 16,
@@ -4571,8 +5890,7 @@ window.PICTURES = {
       "1102333123115110"
     ]
   },
-
-  "glass": {
+"glass": {
     name: "Glass",
     category: "Blocks",
     pixelSize: 16,
@@ -4602,8 +5920,7 @@ window.PICTURES = {
       "1141444444444411"
     ]
   },
-
-  "glazed_terracotta_white": {
+"glazed_terracotta_white": {
     name: "Glazed Terracotta White",
     category: "Blocks",
     pixelSize: 16,
@@ -4641,8 +5958,7 @@ window.PICTURES = {
       "0111142339A229C0"
     ]
   },
-
-  "glow_berries": {
+"glow_berries": {
     name: "Glow Berries",
     category: "Food",
     pixelSize: 16,
@@ -4683,8 +5999,7 @@ window.PICTURES = {
       "0000000000000000"
     ]
   },
-
-  "glow_item_frame": {
+"glow_item_frame": {
     name: "Glow Item Frame",
     category: "Decoration",
     pixelSize: 16,
@@ -4729,8 +6044,7 @@ window.PICTURES = {
       "0000000000000000"
     ]
   },
-
-  "glowstone": {
+"glowstone": {
     name: "Glowstone",
     category: "Nether",
     pixelSize: 16,
@@ -4763,8 +6077,7 @@ window.PICTURES = {
       "6701275027733376"
     ]
   },
-
-  "glowstone_dust": {
+"glowstone_dust": {
     name: "Glowstone Dust",
     category: "Ores",
     pixelSize: 16,
@@ -4797,8 +6110,51 @@ window.PICTURES = {
       "0000000000000000"
     ]
   },
-
-  "gold_helmet": {
+"goat": {
+    "name": "Goat",
+    "category": "Overworld Mobs",
+    "pixelSize": 16,
+    "colors": {
+      "0": "#00000000",
+      "1": "#52504eff",
+      "2": "#4b4948ff",
+      "3": "#464543ff",
+      "4": "#41403eff",
+      "5": "#3e3d3bff",
+      "6": "#eee9e0ff",
+      "7": "#e9e2d4ff",
+      "8": "#e7decdff",
+      "9": "#383735ff",
+      "A": "#fffbf3ff",
+      "B": "#3a3937ff",
+      "C": "#ebe7deff",
+      "D": "#eae6dcff",
+      "E": "#fff8f022",
+      "F": "#e3d8bfff",
+      "G": "#eae6dbff",
+      "H": "#e1d5b9ff",
+      "I": "#deceabff"
+    },
+    "data": [
+      "0000000000000000",
+      "0000010000000000",
+      "0000023000000000",
+      "0000034000000000",
+      "0000045678666950",
+      "00000556A96668B0",
+      "000000566C6CCC90",
+      "0000006C6CCCCDD0",
+      "E66666CDCD7D7770",
+      "E666666777878880",
+      "0C66C66CF8F8FF80",
+      "0CC6C66CCGG00H80",
+      "0CCCC66CC7G00IF0",
+      "077C7CC7C87000H0",
+      "0FF7F77F7H8000I0",
+      "0000000000000000"
+    ]
+  },
+"gold_helmet": {
     name: "Gold Helmet",
     category: "Armor",
     pixelSize: 16,
@@ -4830,8 +6186,7 @@ window.PICTURES = {
       "0000000000000000"
     ]
   },
-
-  "gold_nugget": {
+"gold_nugget": {
     name: "Gold Nugget",
     category: "Ores",
     pixelSize: 16,
@@ -4863,8 +6218,7 @@ window.PICTURES = {
       "0000000000000000"
     ]
   },
-
-  "gold_ore": {
+"gold_ore": {
     name: "Gold Ore",
     category: "Ores",
     pixelSize: 16,
@@ -4899,8 +6253,7 @@ window.PICTURES = {
       "2220821120022122"
     ]
   },
-
-  "gold_pickaxe": {
+"gold_pickaxe": {
     name: "Gold Pickaxe",
     category: "Tools",
     pixelSize: 16,
@@ -4935,8 +6288,7 @@ window.PICTURES = {
       "0000000000000000"
     ]
   },
-
-  "gold_sword": {
+"gold_sword": {
     name: "Gold Sword",
     category: "Weapons",
     pixelSize: 16,
@@ -4972,8 +6324,7 @@ window.PICTURES = {
       "2220000000000000"
     ]
   },
-
-  "grass_block_snow": {
+"grass_block_snow": {
     name: "Grass Block Snow",
     category: "Blocks",
     pixelSize: 16,
@@ -5015,8 +6366,7 @@ window.PICTURES = {
       "DBCDDBEBDDBBDDB7"
     ]
   },
-
-  "gravel": {
+"gravel": {
     name: "Gravel",
     category: "Blocks",
     pixelSize: 16,
@@ -5049,8 +6399,7 @@ window.PICTURES = {
       "3562355515153535"
     ]
   },
-
-  "gunpowder": {
+"gunpowder": {
     name: "Gunpowder",
     category: "Brewing",
     pixelSize: 16,
@@ -5083,8 +6432,7 @@ window.PICTURES = {
       "0000000000000000"
     ]
   },
-
-  "hay_block_side": {
+"hay_block_side": {
     name: "Hay Block Side",
     category: "Blocks",
     pixelSize: 16,
@@ -5118,8 +6466,7 @@ window.PICTURES = {
       "0421032103432323"
     ]
   },
-
-  "heartofthesea_closed": {
+"heartofthesea_closed": {
     name: "Heartofthesea Closed",
     category: "Miscellaneous",
     pixelSize: 16,
@@ -5153,8 +6500,100 @@ window.PICTURES = {
       "0000000000000000"
     ]
   },
-
-  "honeycomb": {
+"hoglin": {
+    "name": "Hoglin",
+    "category": "Nether Mobs",
+    "pixelSize": 16,
+    "colors": {
+      "0": "#00000000",
+      "1": "#ff9d76ff",
+      "2": "#e19374ff",
+      "3": "#d68260ff",
+      "4": "#d07e5dff",
+      "5": "#bf7354ff",
+      "6": "#ffffffff",
+      "7": "#ffe6a7ff",
+      "8": "#c87959ff"
+    },
+    "data": [
+      "0012222222221100",
+      "0031322122211300",
+      "0043421112243400",
+      "0055431111345500",
+      "0066532112356600",
+      "0066221111226600",
+      "0011232112321100",
+      "0022321111232200",
+      "0778321111238770",
+      "0775332112335770",
+      "0055321111235500",
+      "0054211111124500",
+      "0054444114444500",
+      "0044232112324400",
+      "0053333333333500",
+      "0082211111122800"
+    ]
+  },
+"hoglin_zombified_hoglin": {
+    "name": "Hoglin Zombified Hoglin",
+    "category": "Nether Mobs",
+    "pixelSize": 16,
+    "colors": {
+      "0": "#00000000",
+      "1": "#f98aa0ff",
+      "2": "#dd8692ff",
+      "3": "#b17b69ff",
+      "4": "#ce8b83ff",
+      "5": "#d2747eff",
+      "6": "#7d8b51ff",
+      "7": "#528b46ff",
+      "8": "#b98878ff",
+      "9": "#cc7179ff",
+      "A": "#c3bdc0ff",
+      "B": "#7b9c60ff",
+      "C": "#729b4eff",
+      "D": "#758b40ff",
+      "E": "#bc696bff",
+      "F": "#211f20ff",
+      "G": "#cbc5c7ff",
+      "H": "#788f44ff",
+      "I": "#ffffffff",
+      "J": "#000000ff",
+      "K": "#5b904eff",
+      "L": "#7e9048ff",
+      "M": "#afabacff",
+      "N": "#87915aff",
+      "O": "#7e8c52ff",
+      "P": "#819056ff",
+      "Q": "#ede5e8ff",
+      "R": "#d0c9ccff",
+      "S": "#6e974aff",
+      "T": "#a67660ff",
+      "U": "#4b9750ff",
+      "V": "#97a48bff",
+      "W": "#748a3fff",
+      "X": "#c46d72ff"
+    },
+    "data": [
+      "0012222222221100",
+      "0034522122211500",
+      "0067681112295900",
+      "00ABCD411159EE00",
+      "00FFGAH4125EII00",
+      "00FJGGKL1122II00",
+      "00MMGGAK12521100",
+      "00AAGGAN118OP200",
+      "0QQGRGAS1183TQQ0",
+      "0QQAGGAU42OOEQQ0",
+      "00MMGGAVK125EE00",
+      "00AAGRGAK4129E00",
+      "00GGRRGGNW999E00",
+      "00RRRRGAVP329900",
+      "00RRRGAAMD755E00",
+      "00RRGAAMMVN82X00"
+    ]
+  },
+"honeycomb": {
     name: "Honeycomb",
     category: "Blocks",
     pixelSize: 16,
@@ -5185,8 +6624,7 @@ window.PICTURES = {
       "0022344440233444"
     ]
   },
-
-  "hopper": {
+"hopper": {
     name: "Hopper",
     category: "Tables",
     pixelSize: 16,
@@ -5219,8 +6657,603 @@ window.PICTURES = {
       "0000000000000000"
     ]
   },
-
-  "ice": {
+"horse": {
+    "name": "Horse",
+    "category": "Overworld Mobs",
+    "pixelSize": 16,
+    "colors": {
+      "0": "#00000000",
+      "1": "#3c1b1bff",
+      "2": "#351918ff",
+      "3": "#341917ff",
+      "4": "#d1b173ff",
+      "5": "#3a1a1aff",
+      "6": "#421f1dff",
+      "7": "#46221fff",
+      "8": "#4f2923ff",
+      "9": "#46231fff",
+      "A": "#401e1cff",
+      "B": "#381a19ff",
+      "C": "#d9bb82ff",
+      "D": "#dec28cff",
+      "E": "#ffffffff",
+      "F": "#000000ff",
+      "G": "#321817ff",
+      "H": "#dcbf88ff",
+      "I": "#d7b97fff",
+      "J": "#3b1b1bff",
+      "K": "#391a1aff",
+      "L": "#3b1b1aff"
+    },
+    "data": [
+      "0000000000000000",
+      "0001000000000000",
+      "0002000000000000",
+      "0003000000000000",
+      "0003000000000000",
+      "044567887199AB20",
+      "0CD588EF8799ABG0",
+      "0HH67788719A1BG0",
+      "04IJ6777619AABG0",
+      "0IDKJ66LKKA11BB0",
+      "0HH8899999000000",
+      "04I8888919000000",
+      "0ID8899999000000",
+      "04I8991191000000",
+      "0HH8889111000000",
+      "0000000000000000"
+    ]
+  },
+"horse_black": {
+    "name": "Horse Black",
+    "category": "Overworld Mobs",
+    "pixelSize": 16,
+    "colors": {
+      "0": "#00000000",
+      "1": "#222222ff",
+      "2": "#181818ff",
+      "3": "#090909ff",
+      "4": "#0d0d0dff",
+      "5": "#1e1e1eff",
+      "6": "#262626ff",
+      "7": "#0e0e0eff",
+      "8": "#000000ff",
+      "9": "#202020ff",
+      "A": "#2c2c2cff",
+      "B": "#ffffffff",
+      "C": "#111111ff"
+    },
+    "data": [
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0001000000000000",
+      "0002000000000000",
+      "0342516652115270",
+      "0839AAB865152270",
+      "04C166AA65115270",
+      "0835166615152270",
+      "0342555122527770",
+      "04C1155555000000",
+      "0831111525000000",
+      "0341155555000000",
+      "0831552252000000",
+      "04C1115222000000",
+      "0000000000000000"
+    ]
+  },
+"horse_brown": {
+    "name": "Horse Brown",
+    "category": "Overworld Mobs",
+    "pixelSize": 16,
+    "colors": {
+      "0": "#00000000",
+      "1": "#48251bff",
+      "2": "#2e140cff",
+      "3": "#1a0e09ff",
+      "4": "#2a120bff",
+      "5": "#36180fff",
+      "6": "#3e1f16ff",
+      "7": "#1e0d08ff",
+      "8": "#24140eff",
+      "9": "#2a1913ff",
+      "A": "#ffffffff",
+      "B": "#000000ff",
+      "C": "#2e1414ff"
+    },
+    "data": [
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0001000000000000",
+      "0002000000000000",
+      "0334251155665270",
+      "089411AB16652470",
+      "0995661162655270",
+      "0382566652662470",
+      "089C255244554770",
+      "0991166666000000",
+      "0381111656000000",
+      "0891166666000000",
+      "0381665565000000",
+      "0991116555000000",
+      "0000000000000000"
+    ]
+  },
+"horse_chestnut": {
+    "name": "Horse Chestnut",
+    "category": "Overworld Mobs",
+    "pixelSize": 16,
+    "colors": {
+      "0": "#00000000",
+      "1": "#44210cff",
+      "2": "#3a1b09ff",
+      "3": "#d7ab6cff",
+      "4": "#f1ce9eff",
+      "5": "#2e1607ff",
+      "6": "#4c260fff",
+      "7": "#5e3015ff",
+      "8": "#200f05ff",
+      "9": "#ffe1b6ff",
+      "A": "#ffffffff",
+      "B": "#000000ff",
+      "C": "#ebc38cff",
+      "D": "#6e391bff"
+    },
+    "data": [
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0001000000000000",
+      "0002000000000000",
+      "0345167762661280",
+      "049577AB76612580",
+      "0C31667762611280",
+      "04C2166612662580",
+      "0345211255115880",
+      "049DD77777000000",
+      "0C3DDDD767000000",
+      "04CDD77777000000",
+      "034D776676000000",
+      "0C9DDD7666000000",
+      "0000000000000000"
+    ]
+  },
+"horse_creamy": {
+    "name": "Horse Creamy",
+    "category": "Overworld Mobs",
+    "pixelSize": 16,
+    "colors": {
+      "0": "#00000000",
+      "1": "#7e6239ff",
+      "2": "#725833ff",
+      "3": "#1a0e09ff",
+      "4": "#896b41ff",
+      "5": "#93744aff",
+      "6": "#9f8156ff",
+      "7": "#1e0d08ff",
+      "8": "#24140eff",
+      "9": "#2a1913ff",
+      "A": "#ffffffff",
+      "B": "#000000ff",
+      "C": "#6a512cff"
+    },
+    "data": [
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0001000000000000",
+      "0002000000000000",
+      "0331456642554170",
+      "089166AB65541770",
+      "0994556651544770",
+      "0381455542551770",
+      "089C14422C112C70",
+      "0994411111000000",
+      "03844441C1000000",
+      "0894411111000000",
+      "0384112212000000",
+      "0994441222000000",
+      "0000000000000000"
+    ]
+  },
+"horse_dark_brown": {
+    "name": "Horse Dark Brown",
+    "category": "Overworld Mobs",
+    "pixelSize": 16,
+    "colors": {
+      "0": "#00000000",
+      "1": "#301912ff",
+      "2": "#200e09ff",
+      "3": "#0e0604ff",
+      "4": "#180b07ff",
+      "5": "#26130dff",
+      "6": "#2c1610ff",
+      "7": "#28140eff",
+      "8": "#22110cff",
+      "9": "#160a07ff",
+      "A": "#1a0d0aff",
+      "B": "#ffffffff",
+      "C": "#000000ff",
+      "D": "#1c0e09ff",
+      "E": "#1a0d09ff"
+    },
+    "data": [
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0001000000000000",
+      "0002000000000000",
+      "0334221152567830",
+      "09A251BC15678D30",
+      "0AA5661165677830",
+      "0392566655668D30",
+      "09E426624456D330",
+      "0AA6655555000000",
+      "0396666525000000",
+      "09A6655555000000",
+      "0396552252000000",
+      "0AA6665222000000",
+      "0000000000000000"
+    ]
+  },
+"horse_donkey": {
+    "name": "Horse Donkey",
+    "category": "Overworld Mobs",
+    "pixelSize": 16,
+    "colors": {
+      "0": "#00000000",
+      "1": "#7b6a5bff",
+      "2": "#776556ff",
+      "3": "#736152ff",
+      "4": "#705e50ff",
+      "5": "#6c5b4dff",
+      "6": "#665649ff",
+      "7": "#5e5043ff",
+      "8": "#8f8175ff",
+      "9": "#827263ff",
+      "A": "#6b5c4eff",
+      "B": "#605145ff",
+      "C": "#918276ff",
+      "D": "#69594bff",
+      "E": "#fffefdff",
+      "F": "#000000ff",
+      "G": "#88786cff",
+      "H": "#95877bff",
+      "I": "#6b5b4dff",
+      "J": "#928479ff",
+      "K": "#857465ff",
+      "L": "#7e6e60ff"
+    },
+    "data": [
+      "0001000000000000",
+      "0002000000000000",
+      "0003000000000000",
+      "0004000000000000",
+      "0005000000000000",
+      "0006000000000000",
+      "00733889334ABC00",
+      "00D39EF8934AGH00",
+      "00733889I34BGG00",
+      "00DJK33I63IIGH00",
+      "007KJII66I6B7C00",
+      "00LL3333I0000000",
+      "00LLLLLI30000000",
+      "00LL333330000000",
+      "00L33II3I0000000",
+      "00LLLL3I70000000"
+    ]
+  },
+"horse_gray": {
+    "name": "Horse Gray",
+    "category": "Overworld Mobs",
+    "pixelSize": 16,
+    "colors": {
+      "0": "#00000000",
+      "1": "#343434ff",
+      "2": "#222222ff",
+      "3": "#2c2c2cff",
+      "4": "#404040ff",
+      "5": "#5e5e5eff",
+      "6": "#ffffffff",
+      "7": "#000000ff",
+      "8": "#505050ff"
+    },
+    "data": [
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0001000000000000",
+      "0002000000000000",
+      "0233145541441320",
+      "0311556758413320",
+      "0114885581441320",
+      "0231488841413320",
+      "0313144133132220",
+      "0118844444000000",
+      "0238888414000000",
+      "0318844444000000",
+      "0238441141000000",
+      "0118884111000000",
+      "0000000000000000"
+    ]
+  },
+"horse_mule": {
+    "name": "Horse Mule",
+    "category": "Overworld Mobs",
+    "pixelSize": 16,
+    "colors": {
+      "0": "#00000000",
+      "1": "#502f18ff",
+      "2": "#4b2912ff",
+      "3": "#46230bff",
+      "4": "#44220bff",
+      "5": "#42210aff",
+      "6": "#3e1f0aff",
+      "7": "#391d09ff",
+      "8": "#371d0bff",
+      "9": "#4a250bff",
+      "A": "#3f2009ff",
+      "B": "#3d1e0aff",
+      "C": "#543722ff",
+      "D": "#6d523fff",
+      "E": "#40210bff",
+      "F": "#fffefdff",
+      "G": "#000000ff",
+      "H": "#62442fff",
+      "I": "#8b7566ff",
+      "J": "#41210bff",
+      "K": "#42210bff",
+      "L": "#381c08ff",
+      "M": "#6c503dff",
+      "N": "#816958ff",
+      "O": "#3f210cff",
+      "P": "#371b08ff",
+      "Q": "#351b08ff",
+      "R": "#725845ff",
+      "S": "#321908ff",
+      "T": "#51290cff",
+      "U": "#4f270cff"
+    },
+    "data": [
+      "0001000000000000",
+      "0002000000000000",
+      "0003000000000000",
+      "0004000000000000",
+      "0005000000000000",
+      "0006000000000000",
+      "007839933ABCCD00",
+      "00E33FG937BCHI00",
+      "007JJ993KLBCMN00",
+      "00E9933KOPQQHR00",
+      "00799KKOOPSSSD00",
+      "00TU3333K0000000",
+      "00TTTUUK30000000",
+      "00TU333330000000",
+      "00T33KK3K0000000",
+      "00TTUU3K70000000"
+    ]
+  },
+"horse_pattern_black_dots": {
+    "name": "Horse Pattern Black Dots",
+    "category": "Overworld Mobs",
+    "pixelSize": 16,
+    "colors": {
+      "0": "#00000000",
+      "1": "#00000077",
+      "2": "#000000cc",
+      "3": "#000000da",
+      "4": "#00000045",
+      "5": "#0000009c"
+    },
+    "data": [
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000001000000",
+      "0001010102000000",
+      "0003145211000000",
+      "0000000000000000"
+    ]
+  },
+"horse_pattern_white_field": {
+    "name": "Horse Pattern White Field",
+    "category": "Overworld Mobs",
+    "pixelSize": 16,
+    "colors": {
+      "0": "#00000000",
+      "1": "#ffffff70",
+      "2": "#ffffffa5",
+      "3": "#ffffffe5",
+      "4": "#ffffffed",
+      "5": "#ffffffad",
+      "6": "#ffffff50",
+      "7": "#ffffffd9",
+      "8": "#ffffffc7",
+      "9": "#ffffff87"
+    },
+    "data": [
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000012345600",
+      "0000000001786000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000097000000",
+      "0000000009000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000"
+    ]
+  },
+"horse_pattern_white_spots": {
+    "name": "Horse Pattern White Spots",
+    "category": "Overworld Mobs",
+    "pixelSize": 16,
+    "colors": {
+      "0": "#00000000",
+      "1": "#ffffff50",
+      "2": "#ffffffad"
+    },
+    "data": [
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000001000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000001100000000",
+      "0000002210000000",
+      "0000001100000000",
+      "0000110000000000",
+      "0001220011000000",
+      "0000000000000000"
+    ]
+  },
+"horse_skeleton": {
+    "name": "Horse Skeleton",
+    "category": "Overworld Mobs",
+    "pixelSize": 16,
+    "colors": {
+      "0": "#00000000",
+      "1": "#dbdbdbff",
+      "2": "#cdcdcdff",
+      "3": "#e0e0e0ff",
+      "4": "#e3e3e3ff",
+      "5": "#6c6c6cff",
+      "6": "#323232ff",
+      "7": "#d4d4d4ff",
+      "8": "#d3d3d3ff",
+      "9": "#d2d2d2ff",
+      "A": "#bfbfbfff",
+      "B": "#b7b7b7ff",
+      "C": "#e1e1e1ff",
+      "D": "#cbcbcbff",
+      "E": "#bbbbbbff"
+    },
+    "data": [
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0001111231144200",
+      "0001115617811140",
+      "0014901777200210",
+      "0014100ABAB00020",
+      "00014418CC114120",
+      "00CDEE0000000000",
+      "00C1DE0000000000",
+      "000DDD0000000000",
+      "00C7E00000000000",
+      "00C7E00000000000",
+      "0000000000000000",
+      "0000000000000000"
+    ]
+  },
+"horse_white": {
+    "name": "Horse White",
+    "category": "Overworld Mobs",
+    "pixelSize": 16,
+    "colors": {
+      "0": "#00000000",
+      "1": "#a5a5a5ff",
+      "2": "#979797ff",
+      "3": "#b9b9b9ff",
+      "4": "#c9c9c9ff",
+      "5": "#d5d5d5ff",
+      "6": "#939393ff",
+      "7": "#ffffffff",
+      "8": "#000000ff",
+      "9": "#727272ff",
+      "A": "#626262ff",
+      "B": "#7e7e7eff",
+      "C": "#8f8f8fff"
+    },
+    "data": [
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0001000000000000",
+      "0002000000000000",
+      "0131345541554320",
+      "0613557853543290",
+      "01314455535542A0",
+      "0B11344431543220",
+      "0131133311431120",
+      "0615544444000000",
+      "0135555434000000",
+      "0B15544444000000",
+      "0135443343000000",
+      "0C15553333000000",
+      "0000000000000000"
+    ]
+  },
+"horse_zombie": {
+    "name": "Horse Zombie",
+    "category": "Overworld Mobs",
+    "pixelSize": 16,
+    "colors": {
+      "0": "#00000000",
+      "1": "#336c3bff",
+      "2": "#2e6134ff",
+      "3": "#44864cff",
+      "4": "#438c4cff",
+      "5": "#35703cff",
+      "6": "#3e8347ff",
+      "7": "#3c7d44ff",
+      "8": "#336b3aff",
+      "9": "#070f08ff",
+      "A": "#0a160cff",
+      "B": "#27532cff",
+      "C": "#000000ff",
+      "D": "#102212ff",
+      "E": "#397740ff",
+      "F": "#214627ff",
+      "G": "#2c5c32ff",
+      "H": "#316838ff",
+      "I": "#549e5dff",
+      "J": "#4a9953ff",
+      "K": "#387540ff",
+      "L": "#3d8146ff"
+    },
+    "data": [
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0001000000000000",
+      "0002000000000000",
+      "0003345643477890",
+      "00A43BCCB4778DD0",
+      "00AE45BB5478F990",
+      "00A84445778GFD90",
+      "00A22HE44778GF90",
+      "00AIIJ44KL000000",
+      "00AIJ474LK000000",
+      "00AJ4447KL000000",
+      "00AJ4J47KL000000",
+      "00AIJ447KL000000",
+      "0000000000000000"
+    ]
+  },
+"ice": {
     name: "Ice",
     category: "Blocks",
     pixelSize: 16,
@@ -5251,8 +7284,210 @@ window.PICTURES = {
       "1000112311444323"
     ]
   },
-
-  "iron_axe": {
+"illager_evoker": {
+    "name": "Illager Evoker",
+    "category": "Overworld Mobs",
+    "pixelSize": 16,
+    "colors": {
+      "0": "#00000000",
+      "1": "#969e9fff",
+      "2": "#8c9293ff",
+      "3": "#2f3230ff",
+      "4": "#82898aff",
+      "5": "#1e201fff",
+      "6": "#8b9293ff",
+      "7": "#ffffffff",
+      "8": "#15701bff",
+      "9": "#889091ff",
+      "A": "#676c6cff",
+      "B": "#666c6cff",
+      "C": "#505354ff",
+      "D": "#edb710ff",
+      "E": "#5b6060ff",
+      "F": "#d39f00ff",
+      "G": "#323232ff",
+      "H": "#282828ff"
+    },
+    "data": [
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000112111110000",
+      "0000112111110000",
+      "0000111111210000",
+      "0000122222220000",
+      "0000334224330000",
+      "0000533113350000",
+      "0000678228790000",
+      "0000A42BB24A0000",
+      "0000A4CBBC4A0000",
+      "000DE4CBBC4ED000",
+      "000FDGHBBHGDF000"
+    ]
+  },
+"illager_illusioner": {
+    "name": "Illager Illusioner",
+    "category": "Overworld Mobs",
+    "pixelSize": 16,
+    "colors": {
+      "0": "#00000000",
+      "1": "#3a599dff",
+      "2": "#2a4581ff",
+      "3": "#457a9bff",
+      "4": "#263f74ff",
+      "5": "#1d3058ff",
+      "6": "#192a4eff",
+      "7": "#2b2c2bff",
+      "8": "#8b9293ff",
+      "9": "#8c9394ff",
+      "A": "#191a19ff",
+      "B": "#8e9697ff",
+      "C": "#868c8eff",
+      "D": "#ffffffff",
+      "E": "#13542aff",
+      "F": "#727777ff",
+      "G": "#82898aff",
+      "H": "#737979ff",
+      "I": "#707475ff",
+      "J": "#707474ff",
+      "K": "#808687ff",
+      "L": "#4e5152ff",
+      "M": "#686c6cff",
+      "N": "#6f7373ff",
+      "O": "#6c7171ff"
+    },
+    "data": [
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000111111110000",
+      "0000232112320000",
+      "0000422444440000",
+      "0000456666540000",
+      "0000678998760000",
+      "0000A77BB77A0000",
+      "0000CDE88EDC0000",
+      "0000FGCHICGF0000",
+      "0000JKLMNLKJ0000",
+      "0000NKLNOLKN0000",
+      "0000000OO0000000"
+    ]
+  },
+"illager_pillager": {
+    "name": "Illager Pillager",
+    "category": "Overworld Mobs",
+    "pixelSize": 16,
+    "colors": {
+      "0": "#00000000",
+      "1": "#969e9fff",
+      "2": "#8c9293ff",
+      "3": "#2f3230ff",
+      "4": "#82898aff",
+      "5": "#1e201fff",
+      "6": "#8b9293ff",
+      "7": "#ffffffff",
+      "8": "#15701bff",
+      "9": "#889091ff",
+      "A": "#676c6cff",
+      "B": "#666c6cff",
+      "C": "#505354ff",
+      "D": "#5b6060ff"
+    },
+    "data": [
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000112111110000",
+      "0000112111110000",
+      "0000111111210000",
+      "0000122222220000",
+      "0000334224330000",
+      "0000533113350000",
+      "0000678228790000",
+      "0000A42BB24A0000",
+      "0000A4CBBC4A0000",
+      "0000D4CBBC4D0000",
+      "0000000BB0000000"
+    ]
+  },
+"illager_vex": {
+    "name": "Illager Vex",
+    "category": "Overworld Mobs",
+    "pixelSize": 16,
+    "colors": {
+      "0": "#00000000",
+      "1": "#8fb3d5ff",
+      "2": "#94b8d9ff",
+      "3": "#607283ff",
+      "4": "#82a4c3ff",
+      "5": "#e0e9f1ff",
+      "6": "#ffffffff"
+    },
+    "data": [
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0001122221122000",
+      "0001122221122000",
+      "0003311112233000",
+      "0003311112233000",
+      "0003333443333000",
+      "0003333443333000",
+      "0005566116655000",
+      "0005566116655000",
+      "0001122222211000",
+      "0001122222211000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000"
+    ]
+  },
+"illager_vindicator": {
+    "name": "Illager Vindicator",
+    "category": "Overworld Mobs",
+    "pixelSize": 16,
+    "colors": {
+      "0": "#00000000",
+      "1": "#969e9fff",
+      "2": "#8c9293ff",
+      "3": "#2f3230ff",
+      "4": "#82898aff",
+      "5": "#1e201fff",
+      "6": "#8b9293ff",
+      "7": "#ffffffff",
+      "8": "#004e4dff",
+      "9": "#889091ff",
+      "A": "#676c6cff",
+      "B": "#666c6cff",
+      "C": "#505354ff",
+      "D": "#5b6060ff"
+    },
+    "data": [
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000112111110000",
+      "0000112111110000",
+      "0000111111210000",
+      "0000122222220000",
+      "0000334224330000",
+      "0000533113350000",
+      "0000678228790000",
+      "0000A42BB24A0000",
+      "0000A4CBBC4A0000",
+      "0000D4CBBC4D0000",
+      "0000000BB0000000"
+    ]
+  },
+"iron_axe": {
     name: "Iron Axe",
     category: "Weapons",
     pixelSize: 16,
@@ -5287,8 +7522,7 @@ window.PICTURES = {
       "0000000000000000"
     ]
   },
-
-  "iron_bars": {
+"iron_bars": {
     name: "Iron Bars",
     category: "Decoration",
     pixelSize: 16,
@@ -5319,8 +7553,7 @@ window.PICTURES = {
       "0013000530002300"
     ]
   },
-
-  "iron_boots": {
+"iron_boots": {
     name: "Iron Boots",
     category: "Armor",
     pixelSize: 16,
@@ -5352,8 +7585,7 @@ window.PICTURES = {
       "0000000000000000"
     ]
   },
-
-  "iron_chestplate": {
+"iron_chestplate": {
     name: "Iron Chestplate",
     category: "Armor",
     pixelSize: 16,
@@ -5385,8 +7617,52 @@ window.PICTURES = {
       "0000000000000000"
     ]
   },
-
-  "iron_helmet": {
+"iron_golem": {
+    "name": "Iron Golem",
+    "category": "Overworld Mobs",
+    "pixelSize": 16,
+    "colors": {
+      "0": "#00000000",
+      "1": "#d7d1caff",
+      "2": "#e7e3deff",
+      "3": "#c9c1b8ff",
+      "4": "#bfa181ff",
+      "5": "#d3b28eff",
+      "6": "#e1bf9bff",
+      "7": "#543a1eff",
+      "8": "#4a331aff",
+      "9": "#1a1209ff",
+      "A": "#bbb6b0ff",
+      "B": "#ab0600ff",
+      "C": "#160f08ff",
+      "D": "#78624bff",
+      "E": "#6e5a45ff",
+      "F": "#898076ff",
+      "G": "#7c746bff",
+      "H": "#edcaa5ff",
+      "I": "#70685fff",
+      "J": "#625b53ff"
+    },
+    "data": [
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000112222110000",
+      "0000311111130000",
+      "0000445665440000",
+      "0000531113650000",
+      "0000778888780000",
+      "0000399269940000",
+      "0000ABC65CB40000",
+      "00003DEFGED50000",
+      "00004H2GIH130000",
+      "0000122GJHH60000",
+      "0000000JJ0000000"
+    ]
+  },
+"iron_helmet": {
     name: "Iron Helmet",
     category: "Armor",
     pixelSize: 16,
@@ -5418,8 +7694,7 @@ window.PICTURES = {
       "0000000000000000"
     ]
   },
-
-  "iron_ore": {
+"iron_ore": {
     name: "Iron Ore",
     category: "Ores",
     pixelSize: 16,
@@ -5453,8 +7728,7 @@ window.PICTURES = {
       "1100112211001211"
     ]
   },
-
-  "iron_shovel": {
+"iron_shovel": {
     name: "Iron Shovel",
     category: "Tools",
     pixelSize: 16,
@@ -5488,8 +7762,7 @@ window.PICTURES = {
       "0000000000000000"
     ]
   },
-
-  "iron_sword": {
+"iron_sword": {
     name: "Iron Sword",
     category: "Weapons",
     pixelSize: 16,
@@ -5525,8 +7798,7 @@ window.PICTURES = {
       "2220000000000000"
     ]
   },
-
-  "iron_trapdoor": {
+"iron_trapdoor": {
     name: "Iron Trapdoor",
     category: "Ores",
     pixelSize: 16,
@@ -5559,8 +7831,7 @@ window.PICTURES = {
       "0111122222211110"
     ]
   },
-
-  "jukebox_top": {
+"jukebox_top": {
     name: "Jukebox",
     category: "Tables",
     pixelSize: 16,
@@ -5592,8 +7863,7 @@ window.PICTURES = {
       "0001111111101000"
     ]
   },
-
-  "ladder": {
+"ladder": {
     name: "Ladder",
     category: "Transportation",
     pixelSize: 16,
@@ -5625,8 +7895,7 @@ window.PICTURES = {
       "0026000000002600"
     ]
   },
-
-  "lantern": {
+"lantern": {
     name: "Lantern",
     category: "Decoration",
     pixelSize: 16,
@@ -5661,8 +7930,7 @@ window.PICTURES = {
       "0000000000000000"
     ]
   },
-
-  "lapis_ore": {
+"lapis_ore": {
     name: "Lapis Ore",
     category: "Ores",
     pixelSize: 16,
@@ -5701,8 +7969,745 @@ window.PICTURES = {
       "1111099111111100"
     ]
   },
-
-  "log_acacia": {
+"llama_brown": {
+    "name": "Llama Brown",
+    "category": "Overworld Mobs",
+    "pixelSize": 16,
+    "colors": {
+      "0": "#00000000",
+      "1": "#a36c33ff",
+      "2": "#91602cff",
+      "3": "#7c5326ff",
+      "4": "#e5d0a5ff",
+      "5": "#efdebcff",
+      "6": "#ead6b0ff",
+      "7": "#b19a73ff",
+      "8": "#f3e5c9ff",
+      "9": "#fff2d9ff",
+      "A": "#302511ff",
+      "B": "#6a5b3eff",
+      "C": "#a9885dff",
+      "D": "#997f54ff",
+      "E": "#7c6844ff",
+      "F": "#d9ba97ff",
+      "G": "#9b7042ff",
+      "H": "#916436ff",
+      "I": "#724a1fff"
+    },
+    "data": [
+      "0000121001210000",
+      "0000232002320000",
+      "0000232002320000",
+      "0000455555540000",
+      "0000677887790000",
+      "00008A9999A90000",
+      "000084B88B490000",
+      "0000668CC8450000",
+      "000066DEED550000",
+      "00005F4455G50000",
+      "0000FG45GFGF0000",
+      "0000GH5FGHGG0000",
+      "0000HGFGH3HH0000",
+      "0000H3GHG3I30000",
+      "00003I3G3III0000",
+      "00003I3III3I0000"
+    ]
+  },
+"llama_creamy": {
+    "name": "Llama Creamy",
+    "category": "Overworld Mobs",
+    "pixelSize": 16,
+    "colors": {
+      "0": "#00000000",
+      "1": "#e1ca9cff",
+      "2": "#957852ff",
+      "3": "#e5d0a5ff",
+      "4": "#ead6b0ff",
+      "5": "#b19a73ff",
+      "6": "#f3e5c9ff",
+      "7": "#efdebcff",
+      "8": "#302511ff",
+      "9": "#6a5b3eff",
+      "A": "#a9885dff",
+      "B": "#997f54ff",
+      "C": "#7c6844ff",
+      "D": "#e5d0aaff",
+      "E": "#dfc69dff",
+      "F": "#d3bb8eff"
+    },
+    "data": [
+      "0000111001110000",
+      "0000121001210000",
+      "0000121001210000",
+      "0000133333310000",
+      "0000455665570000",
+      "0000786666870000",
+      "0000739449370000",
+      "0000444AA4340000",
+      "000044BCCB440000",
+      "00004D44D4D40000",
+      "0000DD4DE4ED0000",
+      "0000E4EED4ED0000",
+      "0000DFEDDEFE0000",
+      "0000FFDFEDEE0000",
+      "0000FEFFFFEF0000",
+      "0000FFFFFEFF0000"
+    ]
+  },
+"llama_gray": {
+    "name": "Llama Gray",
+    "category": "Overworld Mobs",
+    "pixelSize": 16,
+    "colors": {
+      "0": "#00000000",
+      "1": "#efefefff",
+      "2": "#aba6a1ff",
+      "3": "#e1e1e1ff",
+      "4": "#a9885dff",
+      "5": "#302511ff",
+      "6": "#ffffffff",
+      "7": "#d3d3d3ff",
+      "8": "#6a5b3eff",
+      "9": "#f9f9f9ff",
+      "A": "#997f54ff",
+      "B": "#7c6844ff",
+      "C": "#c7c7c7ff",
+      "D": "#b5b5b5ff",
+      "E": "#9f9f9fff"
+    },
+    "data": [
+      "0000111001110000",
+      "0000121001210000",
+      "0000121001210000",
+      "0000313131130000",
+      "0000344314430000",
+      "0000356666530000",
+      "0000738998730000",
+      "0000379449730000",
+      "000073ABBA730000",
+      "0000773777370000",
+      "00007CD7C7CC0000",
+      "0000CDC7DCDC0000",
+      "0000DDEDCDCD0000",
+      "0000DEDEDDED0000",
+      "0000EDEEDEDE0000",
+      "0000EEDEEEDE0000"
+    ]
+  },
+"llama_pattern_black": {
+    "name": "Llama Pattern Black",
+    "category": "Overworld Mobs",
+    "pixelSize": 16,
+    "colors": {
+      "0": "#00000000",
+      "1": "#060f36ff",
+      "2": "#040420ff",
+      "3": "#050a28ff",
+      "4": "#404650ff",
+      "5": "#101010ff"
+    },
+    "data": [
+      "0000000000000000",
+      "0000000000000000",
+      "0000000120000000",
+      "0000212002130000",
+      "0002000000001000",
+      "0001000000002000",
+      "0004000000004000",
+      "0005000000005000",
+      "0004000000004000",
+      "0005000000005000",
+      "0004000000004000",
+      "0000000000000000",
+      "0001113212312000",
+      "0000031003200000",
+      "0000045005400000",
+      "0000054004500000"
+    ]
+  },
+"llama_pattern_blue": {
+    "name": "Llama Pattern Blue",
+    "category": "Overworld Mobs",
+    "pixelSize": 16,
+    "colors": {
+      "0": "#00000000",
+      "1": "#ffce6cff",
+      "2": "#ffc95fff",
+      "3": "#ffc151ff",
+      "4": "#001557ff",
+      "5": "#001052ff",
+      "6": "#00021dff",
+      "7": "#000014ff",
+      "8": "#004c9eff",
+      "9": "#00439aff"
+    },
+    "data": [
+      "0000000000000000",
+      "0000000000000000",
+      "0000000120000000",
+      "0000123001210000",
+      "0002000000002000",
+      "0001000000003000",
+      "0001000000001000",
+      "0004000000005000",
+      "0005000000004000",
+      "0006000000007000",
+      "0007000000006000",
+      "0000000000000000",
+      "0001232211232000",
+      "0000000110000000",
+      "0000012121200000",
+      "0000018995100000"
+    ]
+  },
+"llama_pattern_brown": {
+    "name": "Llama Pattern Brown",
+    "category": "Overworld Mobs",
+    "pixelSize": 16,
+    "colors": {
+      "0": "#00000000",
+      "1": "#813e00ff",
+      "2": "#703100ff",
+      "3": "#783500ff",
+      "4": "#13a500ff",
+      "5": "#d16e00ff",
+      "6": "#ffe31eff",
+      "7": "#1db500ff",
+      "8": "#d16500ff"
+    },
+    "data": [
+      "0000000000000000",
+      "0000000000000000",
+      "0000000120000000",
+      "0000232001120000",
+      "0001000000002000",
+      "0002000000001000",
+      "0004000000004000",
+      "0005000000005000",
+      "0006000000006000",
+      "0005000000005000",
+      "0004000000004000",
+      "0000000000000000",
+      "0001321321221000",
+      "0000031003100000",
+      "0000047007400000",
+      "0000085005800000"
+    ]
+  },
+"llama_pattern_cyan": {
+    "name": "Llama Pattern Cyan",
+    "category": "Overworld Mobs",
+    "pixelSize": 16,
+    "colors": {
+      "0": "#00000000",
+      "1": "#005060ff",
+      "2": "#005766ff",
+      "3": "#00ccd8ff",
+      "4": "#008b97ff",
+      "5": "#8dff5dff"
+    },
+    "data": [
+      "0000000000000000",
+      "0000000000000000",
+      "0000000120000000",
+      "0000212002120000",
+      "0002000000001000",
+      "0003000000003000",
+      "0004000000004000",
+      "0005000000005000",
+      "0003000000003000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0002122122112000",
+      "0004055004405000",
+      "0004055004405000",
+      "0000000000000000"
+    ]
+  },
+"llama_pattern_gray": {
+    "name": "Llama Pattern Gray",
+    "category": "Overworld Mobs",
+    "pixelSize": 16,
+    "colors": {
+      "0": "#00000000",
+      "1": "#242424ff",
+      "2": "#1c1c1cff",
+      "3": "#161616ff",
+      "4": "#aa2b2bff",
+      "5": "#c93c3cff",
+      "6": "#bc3535ff"
+    },
+    "data": [
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0001231123121000",
+      "0002000320001000",
+      "0003320000322000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0003232131323000",
+      "0000314456130000",
+      "0000021651200000",
+      "0000003223000000"
+    ]
+  },
+"llama_pattern_green": {
+    "name": "Llama Pattern Green",
+    "category": "Overworld Mobs",
+    "pixelSize": 16,
+    "colors": {
+      "0": "#00000000",
+      "1": "#055e00ff",
+      "2": "#044e00ff",
+      "3": "#004001ff",
+      "4": "#024300ff",
+      "5": "#032a00ff",
+      "6": "#005305ff"
+    },
+    "data": [
+      "0000000000000000",
+      "0000000000000000",
+      "0000000120000000",
+      "0000213001310000",
+      "0001000000001000",
+      "0002000000002000",
+      "0004000000004000",
+      "0005000000005000",
+      "0004000000004000",
+      "0002000000002000",
+      "0001000000001000",
+      "0000000000000000",
+      "0001261616216000",
+      "0000011001100000",
+      "0000044004400000",
+      "0000055005500000"
+    ]
+  },
+"llama_pattern_light_blue": {
+    "name": "Llama Pattern Light Blue",
+    "category": "Overworld Mobs",
+    "pixelSize": 16,
+    "colors": {
+      "0": "#00000000",
+      "1": "#37bfffff",
+      "2": "#58c9ffff",
+      "3": "#0f9dffff"
+    },
+    "data": [
+      "0000000000000000",
+      "0000000000000000",
+      "0000000120000000",
+      "0000212001220000",
+      "0002000000001000",
+      "0003000000003000",
+      "0001000000001000",
+      "0003000000003000",
+      "0001000000001000",
+      "0003000000003000",
+      "0001000000001000",
+      "0000000000000000",
+      "0001212212121000",
+      "0000022001200000",
+      "0000033003300000",
+      "0000022002200000"
+    ]
+  },
+"llama_pattern_light_gray": {
+    "name": "Llama Pattern Light Gray",
+    "category": "Overworld Mobs",
+    "pixelSize": 16,
+    "colors": {
+      "0": "#00000000",
+      "1": "#3d0b0dff",
+      "2": "#4b0e1eff",
+      "3": "#410c13ff",
+      "4": "#4b0e13ff",
+      "5": "#4b0e18ff",
+      "6": "#5f1129ff",
+      "7": "#c5617fff",
+      "8": "#3b3f4aff",
+      "9": "#8092a6ff",
+      "A": "#766e6bff",
+      "B": "#5f7ca6ff",
+      "C": "#d9d2c9ff",
+      "D": "#360a14ff",
+      "E": "#63739eff",
+      "F": "#440c18ff",
+      "G": "#33090dff"
+    },
+    "data": [
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0001213443121000",
+      "00056789ABC62000",
+      "00005DEA78550000",
+      "000001F9CG100000"
+    ]
+  },
+"llama_pattern_lime": {
+    "name": "Llama Pattern Lime",
+    "category": "Overworld Mobs",
+    "pixelSize": 16,
+    "colors": {
+      "0": "#00000000",
+      "1": "#00f76bff",
+      "2": "#00e162ff",
+      "3": "#00d169ff",
+      "4": "#ff5aaaff",
+      "5": "#ffda30ff",
+      "6": "#1edfffff",
+      "7": "#ffcd12ff",
+      "8": "#ff61b5ff",
+      "9": "#ffe43bff"
+    },
+    "data": [
+      "0000000000000000",
+      "0000000000000000",
+      "0000000120000000",
+      "0000321001210000",
+      "0002000000002000",
+      "0004000000004000",
+      "0005000000005000",
+      "0006000000006000",
+      "0004000000004000",
+      "0007000000007000",
+      "0003000000003000",
+      "0000000000000000",
+      "0003211321221000",
+      "0000021003100000",
+      "0000048008400000",
+      "0000059009500000"
+    ]
+  },
+"llama_pattern_magenta": {
+    "name": "Llama Pattern Magenta",
+    "category": "Overworld Mobs",
+    "pixelSize": 16,
+    "colors": {
+      "0": "#00000000",
+      "1": "#a30065ff",
+      "2": "#98005fff",
+      "3": "#ffad27ff",
+      "4": "#ffb82cff",
+      "5": "#2eefffff",
+      "6": "#8a004cff",
+      "7": "#ffc037ff"
+    },
+    "data": [
+      "0000000000000000",
+      "0000000000000000",
+      "0000000120000000",
+      "0000121002120000",
+      "0001000000001000",
+      "0002000000002000",
+      "0003000000003000",
+      "0004000000004000",
+      "0005000000005000",
+      "0004000000004000",
+      "0003000000003000",
+      "0000000000000000",
+      "0002611262162000",
+      "0000074747400000",
+      "0000037434300000",
+      "0000004373000000"
+    ]
+  },
+"llama_pattern_orange": {
+    "name": "Llama Pattern Orange",
+    "category": "Overworld Mobs",
+    "pixelSize": 16,
+    "colors": {
+      "0": "#00000000",
+      "1": "#e86c00ff",
+      "2": "#d56700ff",
+      "3": "#dc6600ff",
+      "4": "#d45e00ff",
+      "5": "#dd6a00ff",
+      "6": "#e9ad00ff",
+      "7": "#ffcd12ff"
+    },
+    "data": [
+      "0000000000000000",
+      "0000000000000000",
+      "0000000120000000",
+      "0000343004150000",
+      "0001000000001000",
+      "0005000000002000",
+      "0006000000006000",
+      "0003000000001000",
+      "0005000000002000",
+      "0007000000007000",
+      "0004000000001000",
+      "0000000000000000",
+      "0002431343413000",
+      "0000041003400000",
+      "0000067007600000",
+      "0000014004100000"
+    ]
+  },
+"llama_pattern_pink": {
+    "name": "Llama Pattern Pink",
+    "category": "Overworld Mobs",
+    "pixelSize": 16,
+    "colors": {
+      "0": "#00000000",
+      "1": "#ff85b3ff",
+      "2": "#ff7ca8ff",
+      "3": "#ffc5ceff",
+      "4": "#f2ff67ff",
+      "5": "#a4ff85ff",
+      "6": "#7cffc4ff",
+      "7": "#ffa6bcff"
+    },
+    "data": [
+      "0000000000000000",
+      "0000000000000000",
+      "0000000110000000",
+      "0000121002120000",
+      "0001000000001000",
+      "0003000000004000",
+      "0004000000005000",
+      "0001000000003000",
+      "0005000000006000",
+      "0003000000004000",
+      "0006000000001000",
+      "0000000000000000",
+      "0002111221112000",
+      "0000035003600000",
+      "0000043004700000",
+      "0000056006300000"
+    ]
+  },
+"llama_pattern_purple": {
+    "name": "Llama Pattern Purple",
+    "category": "Overworld Mobs",
+    "pixelSize": 16,
+    "colors": {
+      "0": "#00000000",
+      "1": "#2c001dff",
+      "2": "#450037ff",
+      "3": "#1d0015ff"
+    },
+    "data": [
+      "0000000000000000",
+      "0000000000000000",
+      "0000000120000000",
+      "0000121001320000",
+      "0001000000003000",
+      "0003000000003000",
+      "0002000000001000",
+      "0001000000002000",
+      "0003000000001000",
+      "0002000000003000",
+      "0001000000002000",
+      "0000000000000000",
+      "0002112131213000",
+      "0000031002100000",
+      "0000021003100000",
+      "0000013001200000"
+    ]
+  },
+"llama_pattern_red": {
+    "name": "Llama Pattern Red",
+    "category": "Overworld Mobs",
+    "pixelSize": 16,
+    "colors": {
+      "0": "#00000000",
+      "1": "#a90f00ff",
+      "2": "#b91000ff",
+      "3": "#990d00ff",
+      "4": "#e9ad00ff",
+      "5": "#ffcd12ff",
+      "6": "#cd1200ff"
+    },
+    "data": [
+      "0000000000000000",
+      "0000000000000000",
+      "0000000120000000",
+      "0000323001320000",
+      "0002000000003000",
+      "0003000000002000",
+      "0004000000004000",
+      "0002000000002000",
+      "0005000000005000",
+      "0002000000002000",
+      "0004000000004000",
+      "0000000000000000",
+      "0002212132132000",
+      "0000023001200000",
+      "0000045005400000",
+      "0000016006100000"
+    ]
+  },
+"llama_pattern_trader": {
+    "name": "Llama Pattern Trader",
+    "category": "Overworld Mobs",
+    "pixelSize": 16,
+    "colors": {
+      "0": "#00000000",
+      "1": "#085087ff",
+      "2": "#095b99ff",
+      "3": "#05385eff",
+      "4": "#f7ca0eff",
+      "5": "#063f6aff",
+      "6": "#d99e0dff",
+      "7": "#681806ff",
+      "8": "#edb300ff",
+      "9": "#012540ff",
+      "A": "#023154ff"
+    },
+    "data": [
+      "0000000000000000",
+      "0000000000000000",
+      "0000000120000000",
+      "0000312001230000",
+      "0003000000003000",
+      "0004000000004000",
+      "0005000000005000",
+      "0006000000006000",
+      "0007000000007000",
+      "0008000000008000",
+      "0007000000007000",
+      "0000000000000000",
+      "0009AA3553AA9000",
+      "0000031001300000",
+      "0000064004600000",
+      "000001A00A100000"
+    ]
+  },
+"llama_pattern_white": {
+    "name": "Llama Pattern White",
+    "category": "Overworld Mobs",
+    "pixelSize": 16,
+    "colors": {
+      "0": "#00000000",
+      "1": "#b9b9b9ff",
+      "2": "#c1c1c1ff",
+      "3": "#a1a1a1ff",
+      "4": "#abababff",
+      "5": "#b1b1b1ff",
+      "6": "#999999ff",
+      "7": "#878787ff",
+      "8": "#dc3d3dff",
+      "9": "#afafafff",
+      "A": "#23c642ff",
+      "B": "#6e6e6eff",
+      "C": "#939393ff",
+      "D": "#b3b3b3ff",
+      "E": "#de4b4bff",
+      "F": "#b5b5b5ff"
+    },
+    "data": [
+      "0000000000000000",
+      "0000000000000000",
+      "0000000120000000",
+      "0000345005430000",
+      "0006000000006000",
+      "0007000000007000",
+      "0008000000008000",
+      "0009000000009000",
+      "000A00000000A000",
+      "0007000000007000",
+      "000B00000000B000",
+      "0000000000000000",
+      "000C66C666C66000",
+      "000009D00D900000",
+      "00000E800E800000",
+      "000009F009F00000"
+    ]
+  },
+"llama_pattern_yellow": {
+    "name": "Llama Pattern Yellow",
+    "category": "Overworld Mobs",
+    "pixelSize": 16,
+    "colors": {
+      "0": "#00000000",
+      "1": "#f5b800ff",
+      "2": "#e9ad00ff",
+      "3": "#ffcd12ff",
+      "4": "#ffda30ff",
+      "5": "#ffea67ff",
+      "6": "#ffd017ff",
+      "7": "#ffd61aff",
+      "8": "#ffe43bff"
+    },
+    "data": [
+      "0000000000000000",
+      "0000000000000000",
+      "0000000120000000",
+      "0000122001120000",
+      "0002000000002000",
+      "0003000000003000",
+      "0004000000004000",
+      "0005000000005000",
+      "0004000000004000",
+      "0003000000003000",
+      "0002000000002000",
+      "0000000000000000",
+      "0002211212122000",
+      "0000012001200000",
+      "0000067003700000",
+      "0000048008400000"
+    ]
+  },
+"llama_white": {
+    "name": "Llama White",
+    "category": "Overworld Mobs",
+    "pixelSize": 16,
+    "colors": {
+      "0": "#00000000",
+      "1": "#efefefff",
+      "2": "#aba6a1ff",
+      "3": "#a9885dff",
+      "4": "#302511ff",
+      "5": "#ffffffff",
+      "6": "#edededff",
+      "7": "#f1f1f1ff",
+      "8": "#6a5b3eff",
+      "9": "#f9f9f9ff",
+      "A": "#997f54ff",
+      "B": "#7c6844ff",
+      "C": "#e9e9e9ff",
+      "D": "#e3e3e3ff",
+      "E": "#dbdbdbff",
+      "F": "#cfcfcfff"
+    },
+    "data": [
+      "0000111001110000",
+      "0000121001210000",
+      "0000121001210000",
+      "0000111111110000",
+      "0000133113310000",
+      "0000145555460000",
+      "0000678998760000",
+      "0000679339760000",
+      "000067ABBA760000",
+      "0000CC7CC7CC0000",
+      "0000CDECD7DD0000",
+      "0000DEDCEFCF0000",
+      "0000EEFEDDED0000",
+      "0000EFDFEFFF0000",
+      "0000FFEFEFED0000",
+      "0000FFEFFFEF0000"
+    ]
+  },
+"log_acacia": {
     name: "Log Acacia",
     category: "Blocks",
     pixelSize: 16,
@@ -5733,8 +8738,7 @@ window.PICTURES = {
       "2012102101001204"
     ]
   },
-
-  "log_big_oak": {
+"log_big_oak": {
     name: "Log Big Oak",
     category: "Blocks",
     pixelSize: 16,
@@ -5765,8 +8769,7 @@ window.PICTURES = {
       "2012102101001204"
     ]
   },
-
-  "log_birch": {
+"log_birch": {
     name: "Log Birch",
     category: "Blocks",
     pixelSize: 16,
@@ -5799,8 +8802,7 @@ window.PICTURES = {
       "0225033301220220"
     ]
   },
-
-  "log_jungle": {
+"log_jungle": {
     name: "Log Jungle",
     category: "Blocks",
     pixelSize: 16,
@@ -5834,8 +8836,7 @@ window.PICTURES = {
       "0110433300003333"
     ]
   },
-
-  "log_oak": {
+"log_oak": {
     name: "Log Oak",
     category: "Blocks",
     pixelSize: 16,
@@ -5866,8 +8867,7 @@ window.PICTURES = {
       "2012102101001204"
     ]
   },
-
-  "log_spruce": {
+"log_spruce": {
     name: "Log Spruce",
     category: "Blocks",
     pixelSize: 16,
@@ -5898,8 +8898,7 @@ window.PICTURES = {
       "2012102101001204"
     ]
   },
-
-  "mace": {
+"mace": {
     name: "Mace",
     category: "Weapons",
     pixelSize: 16,
@@ -5937,8 +8936,7 @@ window.PICTURES = {
       "5550000000000000"
     ]
   },
-
-  "magma_cream": {
+"magma_cream": {
     name: "Magma Cream",
     category: "Nether",
     pixelSize: 16,
@@ -5977,8 +8975,7 @@ window.PICTURES = {
       "0000000000000000"
     ]
   },
-
-  "melon_speckled": {
+"melon_speckled": {
     name: "Melon Speckled",
     category: "Food",
     pixelSize: 16,
@@ -6018,8 +9015,7 @@ window.PICTURES = {
       "0000000000000000"
     ]
   },
-
-  "melon_top": {
+"melon_top": {
     name: "Melon Top",
     category: "Plants",
     pixelSize: 16,
@@ -6049,8 +9045,7 @@ window.PICTURES = {
       "0122100210012210"
     ]
   },
-
-  "minecart_chest": {
+"minecart_chest": {
     name: "Minecart Chest",
     category: "Transportation",
     pixelSize: 16,
@@ -6095,8 +9090,7 @@ window.PICTURES = {
       "0000000000000000"
     ]
   },
-
-  "minecart_normal": {
+"minecart_normal": {
     name: "Minecart Normal",
     category: "Transportation",
     pixelSize: 16,
@@ -6134,8 +9128,7 @@ window.PICTURES = {
       "0000000000000000"
     ]
   },
-
-  "minecart_tnt": {
+"minecart_tnt": {
     name: "Minecart Tnt",
     category: "Transportation",
     pixelSize: 16,
@@ -6177,8 +9170,7 @@ window.PICTURES = {
       "0000000000000000"
     ]
   },
-
-  "mob_spawner": {
+"mob_spawner": {
     name: "Mob Spawner",
     category: "Blocks",
     pixelSize: 16,
@@ -6210,8 +9202,7 @@ window.PICTURES = {
       "0111233322221110"
     ]
   },
-
-  "moss_block": {
+"moss_block": {
     name: "Moss Block",
     category: "Blocks",
     pixelSize: 16,
@@ -6242,8 +9233,7 @@ window.PICTURES = {
       "4000544335443041"
     ]
   },
-
-  "mushroom_block_skin_brown": {
+"mushroom_block_skin_brown": {
     name: "Mushroom Block Skin Brown",
     category: "Plants",
     pixelSize: 16,
@@ -6272,8 +9262,7 @@ window.PICTURES = {
       "1102113011111100"
     ]
   },
-
-  "mushroom_block_skin_red": {
+"mushroom_block_skin_red": {
     name: "Mushroom Block Skin Red",
     category: "Plants",
     pixelSize: 16,
@@ -6304,8 +9293,7 @@ window.PICTURES = {
       "1100001100000220"
     ]
   },
-
-  "mushroom_block_skin_stem": {
+"mushroom_block_skin_stem": {
     name: "Mushroom Block Skin Stem",
     category: "Plants",
     pixelSize: 16,
@@ -6334,8 +9322,7 @@ window.PICTURES = {
       "1000002131120002"
     ]
   },
-
-  "mushroom_brown": {
+"mushroom_brown": {
     name: "Mushroom Brown",
     category: "Plants",
     pixelSize: 16,
@@ -6368,8 +9355,7 @@ window.PICTURES = {
       "0000000170000000"
     ]
   },
-
-  "mushroom_red": {
+"mushroom_red": {
     name: "Mushroom Red",
     category: "Plants",
     pixelSize: 16,
@@ -6405,8 +9391,7 @@ window.PICTURES = {
       "00000009A0000000"
     ]
   },
-
-  "mushroom_stew": {
+"mushroom_stew": {
     name: "Mushroom Stew",
     category: "Food",
     pixelSize: 16,
@@ -6442,8 +9427,7 @@ window.PICTURES = {
       "0000000000000000"
     ]
   },
-
-  "music_disc_lava_chicken": {
+"music_disc_lava_chicken": {
     name: "Music Disc Lava Chicken",
     category: "Decoration",
     pixelSize: 16,
@@ -6479,8 +9463,7 @@ window.PICTURES = {
       "0000000000000000"
     ]
   },
-
-  "mutton_cooked": {
+"mutton_cooked": {
     name: "Mutton Cooked",
     category: "Food",
     pixelSize: 16,
@@ -6515,8 +9498,7 @@ window.PICTURES = {
       "0008888880000000"
     ]
   },
-
-  "mycelium_side": {
+"mycelium_side": {
     name: "Mycelium Side",
     category: "Blocks",
     pixelSize: 16,
@@ -6559,8 +9541,7 @@ window.PICTURES = {
       "CBECCBHBCCBBCCBD"
     ]
   },
-
-  "name_tag": {
+"name_tag": {
     name: "Name Tag",
     category: "Miscellaneous",
     pixelSize: 16,
@@ -6597,8 +9578,7 @@ window.PICTURES = {
       "0088800000000000"
     ]
   },
-
-  "nautilus": {
+"nautilus": {
     name: "Nautilus",
     category: "Miscellaneous",
     pixelSize: 16,
@@ -6634,8 +9614,7 @@ window.PICTURES = {
       "0000000000000000"
     ]
   },
-
-  "nether_brick": {
+"nether_brick": {
     name: "Nether Brick",
     category: "Nether",
     pixelSize: 16,
@@ -6667,8 +9646,7 @@ window.PICTURES = {
       "6666666666666666"
     ]
   },
-
-  "nether_gold_ore": {
+"nether_gold_ore": {
     name: "Nether Gold Ore",
     category: "Ores",
     pixelSize: 16,
@@ -6705,8 +9683,7 @@ window.PICTURES = {
       "2234423415234433"
     ]
   },
-
-  "nether_star": {
+"nether_star": {
     name: "Nether Star",
     category: "Nether",
     pixelSize: 16,
@@ -6741,8 +9718,7 @@ window.PICTURES = {
       "0000000000000000"
     ]
   },
-
-  "nether_wart": {
+"nether_wart": {
     name: "Nether Wart",
     category: "Nether",
     pixelSize: 16,
@@ -6772,8 +9748,7 @@ window.PICTURES = {
       "0000000000000000"
     ]
   },
-
-  "nether_wart_block": {
+"nether_wart_block": {
     name: "Nether Wart Block",
     category: "Nether",
     pixelSize: 16,
@@ -6804,8 +9779,7 @@ window.PICTURES = {
       "2203220422022402"
     ]
   },
-
-  "nether_wart_stage_2": {
+"nether_wart_stage_2": {
     name: "Nether Wart Stage 2",
     category: "Nether",
     pixelSize: 16,
@@ -6837,8 +9811,7 @@ window.PICTURES = {
       "0221120212021200"
     ]
   },
-
-  "netherite_axe": {
+"netherite_axe": {
     name: "Netherite Axe",
     category: "Weapons",
     pixelSize: 16,
@@ -6876,8 +9849,7 @@ window.PICTURES = {
       "0000000000000000"
     ]
   },
-
-  "netherite_block": {
+"netherite_block": {
     name: "Netherite Block",
     category: "Nether",
     pixelSize: 16,
@@ -6912,8 +9884,7 @@ window.PICTURES = {
       "1222211222112222"
     ]
   },
-
-  "netherite_boots": {
+"netherite_boots": {
     name: "Netherite Boots",
     category: "Armor",
     pixelSize: 16,
@@ -6947,8 +9918,7 @@ window.PICTURES = {
       "0000000000000000"
     ]
   },
-
-  "netherite_chestplate": {
+"netherite_chestplate": {
     name: "Netherite Chestplate",
     category: "Armor",
     pixelSize: 16,
@@ -6983,8 +9953,7 @@ window.PICTURES = {
       "0000000000000000"
     ]
   },
-
-  "netherite_helmet": {
+"netherite_helmet": {
     name: "Netherite Helmet",
     category: "Armor",
     pixelSize: 16,
@@ -7017,8 +9986,7 @@ window.PICTURES = {
       "0000000000000000"
     ]
   },
-
-  "netherite_leggings": {
+"netherite_leggings": {
     name: "Netherite Leggings",
     category: "Armor",
     pixelSize: 16,
@@ -7051,8 +10019,7 @@ window.PICTURES = {
       "0000000000000000"
     ]
   },
-
-  "netherite_pickaxe": {
+"netherite_pickaxe": {
     name: "Netherite Pickaxe",
     category: "Tools",
     pixelSize: 16,
@@ -7089,8 +10056,7 @@ window.PICTURES = {
       "0000000000000000"
     ]
   },
-
-  "netherite_scrap": {
+"netherite_scrap": {
     name: "Netherite Scrap",
     category: "Ores",
     pixelSize: 16,
@@ -7123,8 +10089,7 @@ window.PICTURES = {
       "0000000000000000"
     ]
   },
-
-  "netherite_shovel": {
+"netherite_shovel": {
     name: "Netherite Shovel",
     category: "Tools",
     pixelSize: 16,
@@ -7161,8 +10126,7 @@ window.PICTURES = {
       "0000000000000000"
     ]
   },
-
-  "netherite_sword": {
+"netherite_sword": {
     name: "Netherite Sword",
     category: "Weapons",
     pixelSize: 16,
@@ -7201,8 +10165,7 @@ window.PICTURES = {
       "D330000000000000"
     ]
   },
-
-  "netherite_upgrade_smithing_template": {
+"netherite_upgrade_smithing_template": {
     name: "Netherite Upgrade Smithing Template",
     category: "Nether",
     pixelSize: 16,
@@ -7236,8 +10199,7 @@ window.PICTURES = {
       "0000000000000000"
     ]
   },
-
-  "netherrack": {
+"netherrack": {
     name: "Netherrack",
     category: "Nether",
     pixelSize: 16,
@@ -7269,8 +10231,7 @@ window.PICTURES = {
       "2234423415234433"
     ]
   },
-
-  "noteblock": {
+"noteblock": {
     name: "Noteblock",
     category: "Tables",
     pixelSize: 16,
@@ -7301,8 +10262,7 @@ window.PICTURES = {
       "0000000000000000"
     ]
   },
-
-  "observer_front": {
+"observer_front": {
     name: "Observer",
     category: "Tables",
     pixelSize: 16,
@@ -7345,8 +10305,7 @@ window.PICTURES = {
       "1111001011111011"
     ]
   },
-
-  "obsidian": {
+"obsidian": {
     name: "Obsidian",
     category: "Blocks",
     pixelSize: 16,
@@ -7376,8 +10335,7 @@ window.PICTURES = {
       "2012102421000000"
     ]
   },
-
-  "packed_mud": {
+"packed_mud": {
     name: "Packed Mud",
     category: "Blocks",
     pixelSize: 16,
@@ -7408,8 +10366,7 @@ window.PICTURES = {
       "4004403340344103"
     ]
   },
-
-  "painting": {
+"painting": {
     name: "Painting",
     category: "Decoration",
     pixelSize: 16,
@@ -7447,8 +10404,732 @@ window.PICTURES = {
       "0000000000000000"
     ]
   },
-
-  "piston_side": {
+"panda": {
+    "name": "Panda",
+    "category": "Overworld Mobs",
+    "pixelSize": 16,
+    "colors": {
+      "0": "#00000000",
+      "1": "#303030ff",
+      "2": "#282828ff",
+      "3": "#0b0b0bff",
+      "4": "#161616ff",
+      "5": "#f5f5f5ff",
+      "6": "#dadadaff",
+      "7": "#a2a2a2ff",
+      "8": "#858585ff"
+    },
+    "data": [
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "1112200000011122",
+      "1334200000013342",
+      "2344200000023442",
+      "4455555555555542",
+      "0053446556443500",
+      "0034444554444300",
+      "0044334664334400",
+      "0043513773153400",
+      "0044355225534400",
+      "0043855445583400",
+      "0038755665578300",
+      "0067767777677600",
+      "0077766666677700"
+    ]
+  },
+"panda_aggressive_panda": {
+    "name": "Panda Aggressive Panda",
+    "category": "Overworld Mobs",
+    "pixelSize": 16,
+    "colors": {
+      "0": "#00000000",
+      "1": "#303030ff",
+      "2": "#282828ff",
+      "3": "#0b0b0bff",
+      "4": "#161616ff",
+      "5": "#f5f5f5ff",
+      "6": "#abababff",
+      "7": "#dadadaff",
+      "8": "#c8c8c8ff",
+      "9": "#a2a2a2ff",
+      "A": "#858585ff",
+      "B": "#959595ff"
+    },
+    "data": [
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "1112200000011122",
+      "1334200000013342",
+      "2344200000023442",
+      "4455555555555542",
+      "0066447557446600",
+      "0068844554488600",
+      "0046884774886400",
+      "0043513993153400",
+      "0044355225534400",
+      "0043A554455A3400",
+      "003A95577559A300",
+      "0079977BB7799700",
+      "009997B77B799900"
+    ]
+  },
+"panda_brown_panda": {
+    "name": "Panda Brown Panda",
+    "category": "Overworld Mobs",
+    "pixelSize": 16,
+    "colors": {
+      "0": "#00000000",
+      "1": "#7c5b46ff",
+      "2": "#594132ff",
+      "3": "#281d16ff",
+      "4": "#423025ff",
+      "5": "#6a4e3cff",
+      "6": "#f5f5f5ff",
+      "7": "#dadadaff",
+      "8": "#000000ff",
+      "9": "#a2a2a2ff",
+      "A": "#858585ff"
+    },
+    "data": [
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "1112200000011122",
+      "1334200000013342",
+      "5344200000053442",
+      "4466666666666642",
+      "0062557667552600",
+      "0025555665555200",
+      "0055225775225500",
+      "0052682992862500",
+      "0055266556625500",
+      "0052A664466A2500",
+      "002A96677669A200",
+      "0079976996799700",
+      "0099979779799900"
+    ]
+  },
+"panda_lazy_panda": {
+    "name": "Panda Lazy Panda",
+    "category": "Overworld Mobs",
+    "pixelSize": 16,
+    "colors": {
+      "0": "#00000000",
+      "1": "#303030ff",
+      "2": "#282828ff",
+      "3": "#0b0b0bff",
+      "4": "#161616ff",
+      "5": "#f5f5f5ff",
+      "6": "#dadadaff",
+      "7": "#a2a2a2ff",
+      "8": "#858585ff"
+    },
+    "data": [
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "1112200000011122",
+      "1334200000013342",
+      "2344200000023442",
+      "4455555555555542",
+      "0053446556443500",
+      "0034444554444300",
+      "0044334664334400",
+      "0043513773153400",
+      "0044355225534400",
+      "0043855445583400",
+      "0038755665578300",
+      "0067767667677600",
+      "0077766776677700"
+    ]
+  },
+"panda_playful_panda": {
+    "name": "Panda Playful Panda",
+    "category": "Overworld Mobs",
+    "pixelSize": 16,
+    "colors": {
+      "0": "#00000000",
+      "1": "#303030ff",
+      "2": "#282828ff",
+      "3": "#0b0b0bff",
+      "4": "#161616ff",
+      "5": "#f5f5f5ff",
+      "6": "#dadadaff",
+      "7": "#a2a2a2ff",
+      "8": "#858585ff",
+      "9": "#d39898ff",
+      "A": "#c78e8eff",
+      "B": "#c9c9c9ff"
+    },
+    "data": [
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "1112200000011122",
+      "1334200000013342",
+      "2344200000023442",
+      "4455555555555542",
+      "0053446556443500",
+      "0034444554444300",
+      "0044334664334400",
+      "0043513773153400",
+      "0044355225534400",
+      "0043855445583400",
+      "0038755665578300",
+      "00677679AAB77600",
+      "0077766BA9677700"
+    ]
+  },
+"panda_weak_panda": {
+    "name": "Panda Weak Panda",
+    "category": "Overworld Mobs",
+    "pixelSize": 16,
+    "colors": {
+      "0": "#00000000",
+      "1": "#303030ff",
+      "2": "#282828ff",
+      "3": "#0b0b0bff",
+      "4": "#161616ff",
+      "5": "#f5f5f5ff",
+      "6": "#dadadaff",
+      "7": "#a2a2a2ff",
+      "8": "#8cc4a9ff",
+      "9": "#40574bff",
+      "A": "#858585ff",
+      "B": "#7ae94eff",
+      "C": "#7aa16aff",
+      "D": "#87cf6cff"
+    },
+    "data": [
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "1112200000011122",
+      "1334200000013342",
+      "2344200000023442",
+      "4455555555555542",
+      "0053446556443500",
+      "0034444554444300",
+      "0044334664334400",
+      "0043513773153400",
+      "0048955225598400",
+      "0043A554B55A3400",
+      "003A755CB557A300",
+      "00677667C6677600",
+      "00777676D7677700"
+    ]
+  },
+"panda_worried_panda": {
+    "name": "Panda Worried Panda",
+    "category": "Overworld Mobs",
+    "pixelSize": 16,
+    "colors": {
+      "0": "#00000000",
+      "1": "#303030ff",
+      "2": "#282828ff",
+      "3": "#0b0b0bff",
+      "4": "#161616ff",
+      "5": "#f5f5f5ff",
+      "6": "#dadadaff",
+      "7": "#ffffffff",
+      "8": "#a2a2a2ff",
+      "9": "#858585ff",
+      "A": "#abababff",
+      "B": "#bfbfbfff"
+    },
+    "data": [
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "1112200000011122",
+      "1334200000013342",
+      "2344200000023442",
+      "4455555555555542",
+      "0053446556443500",
+      "0034444554444300",
+      "0044374664734400",
+      "0043513883153400",
+      "0044355225534400",
+      "0043955445593400",
+      "0039855665589300",
+      "0068866AA6688600",
+      "00888BA88AB88800"
+    ]
+  },
+"parrot_blue": {
+    "name": "Parrot Blue",
+    "category": "Overworld Mobs",
+    "pixelSize": 16,
+    "colors": {
+      "0": "#00000000",
+      "1": "#002a74ff",
+      "2": "#0041b5ff",
+      "3": "#003da7ff",
+      "4": "#002360ff",
+      "5": "#001c4eff",
+      "6": "#000000ff",
+      "7": "#121212ff",
+      "8": "#ffd900ff",
+      "9": "#363636ff"
+    },
+    "data": [
+      "0001100220000000",
+      "0001100220000000",
+      "0001100330000000",
+      "0001100330000000",
+      "0000044002200000",
+      "0000044002200000",
+      "0000000553300000",
+      "0000000553300000",
+      "0000002222222200",
+      "0000002222222200",
+      "0000002266777700",
+      "0000002266777700",
+      "0000002288997700",
+      "0000002288990000",
+      "0000002222000000",
+      "0000002222000000"
+    ]
+  },
+"parrot_gray": {
+    "name": "Parrot Gray",
+    "category": "Overworld Mobs",
+    "pixelSize": 16,
+    "colors": {
+      "0": "#00000000",
+      "1": "#ffe132ff",
+      "2": "#ffe75eff",
+      "3": "#b9b9b9ff",
+      "4": "#ffe134ff",
+      "5": "#000000ff",
+      "6": "#121212ff",
+      "7": "#ff8500ff",
+      "8": "#363636ff"
+    },
+    "data": [
+      "0001100220000000",
+      "0001100220000000",
+      "0001100220000000",
+      "0001100220000000",
+      "0000011002200000",
+      "0000011002200000",
+      "0000000112200000",
+      "0000000112200000",
+      "0000003333442200",
+      "0000003333442200",
+      "0000003355666600",
+      "0000003355666600",
+      "0000003377886600",
+      "0000003377880000",
+      "0000003311000000",
+      "0000003311000000"
+    ]
+  },
+"parrot_green": {
+    "name": "Parrot Green",
+    "category": "Overworld Mobs",
+    "pixelSize": 16,
+    "colors": {
+      "0": "#00000000",
+      "1": "#4fa123ff",
+      "2": "#6ad72fff",
+      "3": "#4a9721ff",
+      "4": "#60c32bff",
+      "5": "#40831cff",
+      "6": "#64cf2cff",
+      "7": "#000000ff",
+      "8": "#121212ff",
+      "9": "#e5efe0ff",
+      "A": "#363636ff"
+    },
+    "data": [
+      "0001100220000000",
+      "0001100220000000",
+      "0003300440000000",
+      "0003300440000000",
+      "0000055002200000",
+      "0000055002200000",
+      "0000000556600000",
+      "0000000556600000",
+      "0000006666666600",
+      "0000006666666600",
+      "0000006677888800",
+      "0000006677888800",
+      "0000006699AA8800",
+      "0000006699AA0000",
+      "0000006666000000",
+      "0000006666000000"
+    ]
+  },
+"parrot_red_blue": {
+    "name": "Parrot Red Blue",
+    "category": "Overworld Mobs",
+    "pixelSize": 16,
+    "colors": {
+      "0": "#00000000",
+      "1": "#af0000ff",
+      "2": "#d50000ff",
+      "3": "#000000ff",
+      "4": "#121212ff",
+      "5": "#d59a9aff",
+      "6": "#363636ff"
+    },
+    "data": [
+      "0001100220000000",
+      "0001100220000000",
+      "0001100220000000",
+      "0001100220000000",
+      "0000011002200000",
+      "0000011002200000",
+      "0000000112200000",
+      "0000000112200000",
+      "0000002222222200",
+      "0000002222222200",
+      "0000002233444400",
+      "0000002233444400",
+      "0000002255664400",
+      "0000002255660000",
+      "0000002222000000",
+      "0000002222000000"
+    ]
+  },
+"parrot_yellow_blue": {
+    "name": "Parrot Yellow Blue",
+    "category": "Overworld Mobs",
+    "pixelSize": 16,
+    "colors": {
+      "0": "#00000000",
+      "1": "#00ddedff",
+      "2": "#00ed3fff",
+      "3": "#00eb6bff",
+      "4": "#00eb98ff",
+      "5": "#00ebdaff",
+      "6": "#00eb60ff",
+      "7": "#000000ff",
+      "8": "#121212ff",
+      "9": "#ffffffff",
+      "A": "#363636ff",
+      "B": "#ffb500ff"
+    },
+    "data": [
+      "0001100220000000",
+      "0001100220000000",
+      "0001100220000000",
+      "0001100220000000",
+      "0000011003300000",
+      "0000011003300000",
+      "0000000114400000",
+      "0000000114400000",
+      "0000001111556600",
+      "0000001111556600",
+      "0000001177888800",
+      "0000001177888800",
+      "0000001199AA8800",
+      "0000001199AA0000",
+      "00000011BB000000",
+      "00000011BB000000"
+    ]
+  },
+"phantom": {
+    "name": "Phantom",
+    "category": "Overworld Mobs",
+    "pixelSize": 16,
+    "colors": {
+      "0": "#00000000",
+      "1": "#4c64aaff",
+      "2": "#5069b3ff",
+      "3": "#526bb7ff",
+      "4": "#0ee900ff",
+      "5": "#0bbd00ff",
+      "6": "#556fbdff"
+    },
+    "data": [
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0112233333322110",
+      "0112233333322110",
+      "0445566666655440",
+      "0445566666655440",
+      "0221133333311220",
+      "0221133333311220",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000"
+    ]
+  },
+"pig_cold_pig": {
+    "name": "Pig Cold Pig",
+    "category": "Overworld Mobs",
+    "pixelSize": 16,
+    "colors": {
+      "0": "#00000000",
+      "1": "#dda471ff",
+      "2": "#d69867ff",
+      "3": "#cd8d61ff",
+      "4": "#000000ff",
+      "5": "#ffffffff",
+      "6": "#b97754ff",
+      "7": "#774226ff",
+      "8": "#40210bff",
+      "9": "#5e3119ff",
+      "A": "#98583bff"
+    },
+    "data": [
+      "0000000000000000",
+      "0000111211220000",
+      "0000212221120000",
+      "0000332222330000",
+      "0001453663541000",
+      "0001227777223000",
+      "0003328778233000",
+      "0001369999631000",
+      "00016AA77AA61000",
+      "0003666666623000",
+      "0003366366336000",
+      "0006632002366000",
+      "0006322002236000",
+      "00077A6006A77000",
+      "0007777007777000",
+      "0008989009898000"
+    ]
+  },
+"pig_temperate_pig": {
+    "name": "Pig Temperate Pig",
+    "category": "Overworld Mobs",
+    "pixelSize": 16,
+    "colors": {
+      "0": "#00000000",
+      "1": "#ff9d9dff",
+      "2": "#ff9595ff",
+      "3": "#ff8d8dff",
+      "4": "#fe8080ff",
+      "5": "#000000ff",
+      "6": "#ffffffff",
+      "7": "#ff7d7dff",
+      "8": "#ffaeaeff",
+      "9": "#ff7171ff",
+      "A": "#4d1c1cff",
+      "B": "#fd6565ff"
+    },
+    "data": [
+      "0000000000000000",
+      "0000111111110000",
+      "0000221111220000",
+      "0000332222330000",
+      "0004563773654000",
+      "0004118888114000",
+      "000921A31A129000",
+      "0009328888239000",
+      "000B33333333B000",
+      "000B94444449B000",
+      "000BB994499BB000",
+      "0001112002111000",
+      "0003211001123000",
+      "0003322002233000",
+      "0001111001111000",
+      "000A1A1001A1A000"
+    ]
+  },
+"pig_warm_pig": {
+    "name": "Pig Warm Pig",
+    "category": "Overworld Mobs",
+    "pixelSize": 16,
+    "colors": {
+      "0": "#00000000",
+      "1": "#ca682dff",
+      "2": "#d67338ff",
+      "3": "#b14e22ff",
+      "4": "#bc5823ff",
+      "5": "#000000ff",
+      "6": "#ffffffff",
+      "7": "#e09466ff",
+      "8": "#da8957ff",
+      "9": "#93401cff",
+      "A": "#a8471bff",
+      "B": "#d17d4bff",
+      "C": "#522206ff",
+      "D": "#7b3313ff",
+      "E": "#9e421aff",
+      "F": "#6b3a21ff",
+      "G": "#774226ff",
+      "H": "#5e3119ff",
+      "I": "#40210bff"
+    },
+    "data": [
+      "0000000000000000",
+      "0000121221120000",
+      "0000111121220000",
+      "0000334114330000",
+      "0003563333653000",
+      "0003789999873000",
+      "000A4BC99CB4A000",
+      "000A34DDDD43A000",
+      "000E33333333E000",
+      "0009AE999EAA9000",
+      "0009EAAEEAAE9000",
+      "000A33300333A000",
+      "000FGA3003AGF000",
+      "000HHFF00FFHH000",
+      "000GGGG00GGGG000",
+      "000IHIH00HIHI000"
+    ]
+  },
+"piglin": {
+    "name": "Piglin",
+    "category": "Nether Mobs",
+    "pixelSize": 16,
+    "colors": {
+      "0": "#00000000",
+      "1": "#d59474ff",
+      "2": "#dca18bff",
+      "3": "#dca58bff",
+      "4": "#d49474ff",
+      "5": "#c58465ff",
+      "6": "#d19e85ff",
+      "7": "#c28062ff",
+      "8": "#ffffffff",
+      "9": "#e5a486ff",
+      "A": "#d58d6dff",
+      "B": "#af603fff",
+      "C": "#e3ba92ff",
+      "D": "#ebb196ff",
+      "E": "#c1795aff",
+      "F": "#601b18ff",
+      "G": "#bf8972ff",
+      "H": "#ebd694ff",
+      "I": "#762622ff",
+      "J": "#a7694fff",
+      "K": "#9b5538ff",
+      "L": "#ebdbaaff",
+      "M": "#e1cd8eff",
+      "N": "#b9795cff"
+    },
+    "data": [
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0001211331331000",
+      "0003411311113000",
+      "0013331111333100",
+      "0056787117876500",
+      "009AABCCCCBAA900",
+      "00D6BEF33FEB6D00",
+      "00DGBHI33IHBGD00",
+      "000JKLMNNLMKJ000"
+    ]
+  },
+"piglin_piglin_brute": {
+    "name": "Piglin Piglin Brute",
+    "category": "Nether Mobs",
+    "pixelSize": 16,
+    "colors": {
+      "0": "#00000000",
+      "1": "#d59474ff",
+      "2": "#dca18bff",
+      "3": "#dca58bff",
+      "4": "#d49474ff",
+      "5": "#762622ff",
+      "6": "#601b18ff",
+      "7": "#c58465ff",
+      "8": "#d19e85ff",
+      "9": "#c28062ff",
+      "A": "#ffffffff",
+      "B": "#e5a486ff",
+      "C": "#d58d6dff",
+      "D": "#af603fff",
+      "E": "#e3ba92ff",
+      "F": "#ebb196ff",
+      "G": "#c1795aff",
+      "H": "#bf8972ff",
+      "I": "#ebd694ff",
+      "J": "#a7694fff",
+      "K": "#9b5538ff",
+      "L": "#ebdbaaff",
+      "M": "#e1cd8eff",
+      "N": "#b9795cff"
+    },
+    "data": [
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0001211331331000",
+      "0003411311513000",
+      "0013331111633100",
+      "00789A9119A98700",
+      "00BCCDEEEEDCCB00",
+      "00F8DG6336GD8F00",
+      "00FHDI5335IDHF00",
+      "000JKLMNNLMKJ000"
+    ]
+  },
+"piglin_zombified_piglin": {
+    "name": "Piglin Zombified Piglin",
+    "category": "Nether Mobs",
+    "pixelSize": 16,
+    "colors": {
+      "0": "#00000000",
+      "1": "#bdbdbdff",
+      "2": "#a4a4a4ff",
+      "3": "#466a33ff",
+      "4": "#3a582aff",
+      "5": "#f08a85ff",
+      "6": "#f09c99ff",
+      "7": "#f1473eff",
+      "8": "#cfcfcfff",
+      "9": "#dadadaff",
+      "A": "#4d872eff",
+      "B": "#b5b5b5ff",
+      "C": "#f25e56ff",
+      "D": "#f06761ff",
+      "E": "#474747ff",
+      "F": "#1a1a1aff",
+      "G": "#c68361ff",
+      "H": "#ffffffff",
+      "I": "#f79b96ff",
+      "J": "#c86560ff",
+      "K": "#78231fff",
+      "L": "#edeae6ff",
+      "M": "#9b9b9bff",
+      "N": "#832622ff",
+      "O": "#dddad6ff"
+    },
+    "data": [
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0001112345667000",
+      "0008999A47665000",
+      "0009BB89ACD55D00",
+      "0009EF94G5H55C00",
+      "0008EEBAIIIAJ500",
+      "00088BFAJK5G4600",
+      "00088LEM3NL4A600",
+      "000BB99MAOOA8000"
+    ]
+  },
+"piston_side": {
     name: "Piston Side",
     category: "Decoration",
     pixelSize: 16,
@@ -7492,8 +11173,7 @@ window.PICTURES = {
       "CCDCCBBBBBBBCCBB"
     ]
   },
-
-  "piston_top_sticky": {
+"piston_top_sticky": {
     name: "Piston Top Decoration",
     category: "Blocks",
     pixelSize: 16,
@@ -7532,8 +11212,7 @@ window.PICTURES = {
       "1127733113372711"
     ]
   },
-
-  "planks_acacia": {
+"planks_acacia": {
     name: "Planks Acacia",
     category: "Blocks",
     pixelSize: 16,
@@ -7565,8 +11244,7 @@ window.PICTURES = {
       "6556653335656666"
     ]
   },
-
-  "planks_big_oak": {
+"planks_big_oak": {
     name: "Planks Big Oak",
     category: "Blocks",
     pixelSize: 16,
@@ -7598,8 +11276,7 @@ window.PICTURES = {
       "6556653335656666"
     ]
   },
-
-  "planks_birch": {
+"planks_birch": {
     name: "Planks Birch",
     category: "Blocks",
     pixelSize: 16,
@@ -7631,8 +11308,7 @@ window.PICTURES = {
       "6556653335656666"
     ]
   },
-
-  "planks_jungle": {
+"planks_jungle": {
     name: "Planks Jungle",
     category: "Blocks",
     pixelSize: 16,
@@ -7664,8 +11340,7 @@ window.PICTURES = {
       "6556653335656666"
     ]
   },
-
-  "planks_oak": {
+"planks_oak": {
     name: "Planks Oak",
     category: "Blocks",
     pixelSize: 16,
@@ -7697,8 +11372,7 @@ window.PICTURES = {
       "6556653335656666"
     ]
   },
-
-  "planks_spruce": {
+"planks_spruce": {
     name: "Planks Spruce",
     category: "Blocks",
     pixelSize: 16,
@@ -7731,8 +11405,7 @@ window.PICTURES = {
       "7667763336767777"
     ]
   },
-
-  "pointed_dripstone_down_merge": {
+"pointed_dripstone_down_merge": {
     name: "Pointed Dripstone",
     category: "Miscellaneous",
     pixelSize: 16,
@@ -7762,8 +11435,7 @@ window.PICTURES = {
       "0000004430000000"
     ]
   },
-
-  "polished_basalt_side": {
+"polished_basalt_side": {
     name: "Polished Basalt Side",
     category: "Blocks",
     pixelSize: 16,
@@ -7794,8 +11466,7 @@ window.PICTURES = {
       "1243442343444421"
     ]
   },
-
-  "porkchop_cooked": {
+"porkchop_cooked": {
     name: "Porkchop Cooked",
     category: "Food",
     pixelSize: 16,
@@ -7831,8 +11502,7 @@ window.PICTURES = {
       "0000000000000000"
     ]
   },
-
-  "potato_poisonous": {
+"potato_poisonous": {
     name: "Potato Poisonous",
     category: "Food",
     pixelSize: 16,
@@ -7870,8 +11540,7 @@ window.PICTURES = {
       "0000000000000000"
     ]
   },
-
-  "potion_bottle_fireResistance": {
+"potion_bottle_fireResistance": {
     name: "Potion Bottle Fireresistance",
     category: "Brewing",
     pixelSize: 16,
@@ -7912,8 +11581,7 @@ window.PICTURES = {
       "0000000000000000"
     ]
   },
-
-  "potion_bottle_invisibility": {
+"potion_bottle_invisibility": {
     name: "Potion Bottle Invisibility",
     category: "Brewing",
     pixelSize: 16,
@@ -7954,8 +11622,7 @@ window.PICTURES = {
       "0000000000000000"
     ]
   },
-
-  "potion_bottle_nightVision": {
+"potion_bottle_nightVision": {
     name: "Potion Bottle Nightvision",
     category: "Brewing",
     pixelSize: 16,
@@ -7996,8 +11663,7 @@ window.PICTURES = {
       "0000000000000000"
     ]
   },
-
-  "potion_bottle_splash_weakness": {
+"potion_bottle_splash_weakness": {
     name: "Potion Bottle Splash Weakness",
     category: "Brewing",
     pixelSize: 16,
@@ -8037,8 +11703,7 @@ window.PICTURES = {
       "0000000000000000"
     ]
   },
-
-  "powder_snow": {
+"powder_snow": {
     name: "Powder Snow",
     category: "Blocks",
     pixelSize: 16,
@@ -8066,8 +11731,7 @@ window.PICTURES = {
       "0001001011112200"
     ]
   },
-
-  "prismarine_bricks": {
+"prismarine_bricks": {
     name: "Prismarine Bricks",
     category: "Blocks",
     pixelSize: 16,
@@ -8100,8 +11764,7 @@ window.PICTURES = {
       "3355335535335533"
     ]
   },
-
-  "prismarine_dark": {
+"prismarine_dark": {
     name: "Prismarine Dark",
     category: "Blocks",
     pixelSize: 16,
@@ -8132,8 +11795,7 @@ window.PICTURES = {
       "2442244224422442"
     ]
   },
-
-  "pumpkin_face_off": {
+"pumpkin_face_off": {
     name: "Pumpkin Face Off",
     category: "Blocks",
     pixelSize: 16,
@@ -8166,8 +11828,7 @@ window.PICTURES = {
       "7117101171177117"
     ]
   },
-
-  "pumpkin_face_on": {
+"pumpkin_face_on": {
     name: "Pumpkin Face On",
     category: "Blocks",
     pixelSize: 16,
@@ -8202,8 +11863,7 @@ window.PICTURES = {
       "9229202292299229"
     ]
   },
-
-  "pumpkin_pie": {
+"pumpkin_pie": {
     name: "Pumpkin Pie",
     category: "Food",
     pixelSize: 16,
@@ -8241,8 +11901,7 @@ window.PICTURES = {
       "0000000000000000"
     ]
   },
-
-  "purpur_pillar": {
+"purpur_pillar": {
     name: "Purpur Pillar",
     category: "Blocks",
     pixelSize: 16,
@@ -8274,8 +11933,7 @@ window.PICTURES = {
       "4113666366634113"
     ]
   },
-
-  "quartz": {
+"quartz": {
     name: "Quartz",
     category: "Ores",
     pixelSize: 16,
@@ -8310,8 +11968,7 @@ window.PICTURES = {
       "0000000000000000"
     ]
   },
-
-  "quartz_block_chiseled_top": {
+"quartz_block_chiseled_top": {
     name: "Quartz Block Chiseled Top",
     category: "Nether",
     pixelSize: 16,
@@ -8341,8 +11998,7 @@ window.PICTURES = {
       "0444132444311240"
     ]
   },
-
-  "quartz_ore": {
+"quartz_ore": {
     name: "Quartz Ore",
     category: "Ores",
     pixelSize: 16,
@@ -8379,8 +12035,305 @@ window.PICTURES = {
       "2234423415234433"
     ]
   },
-
-  "rail_activator_powered": {
+"rabbit_black": {
+    "name": "Rabbit Black",
+    "category": "Overworld Mobs",
+    "pixelSize": 16,
+    "colors": {
+      "0": "#00000000",
+      "1": "#1e1e1eff",
+      "2": "#2e2e2eff",
+      "3": "#282828ff",
+      "4": "#1a1a1aff",
+      "5": "#181818ff",
+      "6": "#464646ff",
+      "7": "#161616ff",
+      "8": "#363636ff",
+      "9": "#ffc5deff"
+    },
+    "data": [
+      "0001111001111000",
+      "0001111001111000",
+      "0001122003311000",
+      "0001122003311000",
+      "0004433003344000",
+      "0004433003344000",
+      "0005533003355000",
+      "0005533003355000",
+      "0005566776655000",
+      "0005566776655000",
+      "0005588558811000",
+      "0005588998811000",
+      "0005555995555000",
+      "0005555555555000",
+      "0001111111111000",
+      "0001111111111000"
+    ]
+  },
+"rabbit_brown": {
+    "name": "Rabbit Brown",
+    "category": "Overworld Mobs",
+    "pixelSize": 16,
+    "colors": {
+      "0": "#00000000",
+      "1": "#ab8e6fff",
+      "2": "#cdbeabff",
+      "3": "#a5896bff",
+      "4": "#c5b7a5ff",
+      "5": "#665642ff",
+      "6": "#bd9d7bff",
+      "7": "#544637ff",
+      "8": "#a3876aff",
+      "9": "#ffc5deff",
+      "A": "#9d8366ff"
+    },
+    "data": [
+      "0001111001111000",
+      "0001111001111000",
+      "0001122002211000",
+      "0001122002211000",
+      "0003344002233000",
+      "0003344002233000",
+      "0001122002211000",
+      "0001122002211000",
+      "0001155665511000",
+      "0001155665511000",
+      "0001177117788000",
+      "0001177997788000",
+      "0001111991111000",
+      "0001111111111000",
+      "000AAAAAAAAAA000",
+      "000AAAAAAAAAA000"
+    ]
+  },
+"rabbit_caerbannog": {
+    "name": "Rabbit Caerbannog",
+    "category": "Overworld Mobs",
+    "pixelSize": 16,
+    "colors": {
+      "0": "#00000000",
+      "1": "#ecececff",
+      "2": "#f9f9f9ff",
+      "3": "#dbbbc6ff",
+      "4": "#e3e3e3ff",
+      "5": "#e7dde1ff",
+      "6": "#dbdbdbff",
+      "7": "#e7d1d9ff",
+      "8": "#bcbcbcff",
+      "9": "#f1f1f1ff",
+      "A": "#ef6f6fff",
+      "B": "#bd3b3bff",
+      "C": "#ffc5deff",
+      "D": "#e7e7e7ff"
+    },
+    "data": [
+      "0001111002222000",
+      "0001111002222000",
+      "0001133003311000",
+      "0001133003311000",
+      "0004455005544000",
+      "0004455005544000",
+      "0006677007766000",
+      "0006677007766000",
+      "0008888998888000",
+      "0008888998888000",
+      "000AABB99BBAA000",
+      "000AABBCCBBAA000",
+      "0009999CC9999000",
+      "0009999999999000",
+      "000DDDDDDDDDD000",
+      "000DDDDDDDDDD000"
+    ]
+  },
+"rabbit_gold": {
+    "name": "Rabbit Gold",
+    "category": "Overworld Mobs",
+    "pixelSize": 16,
+    "colors": {
+      "0": "#00000000",
+      "1": "#f5eec1ff",
+      "2": "#efebd5ff",
+      "3": "#f5f1daff",
+      "4": "#efe9bdff",
+      "5": "#6c4108ff",
+      "6": "#563306ff",
+      "7": "#ffc5deff"
+    },
+    "data": [
+      "0001111001111000",
+      "0001111001111000",
+      "0001122002211000",
+      "0001122002211000",
+      "0001133003311000",
+      "0001133003311000",
+      "0004433003344000",
+      "0004433003344000",
+      "0001155335511000",
+      "0001155335511000",
+      "0001166116611000",
+      "0001166776611000",
+      "0001111771111000",
+      "0001111111111000",
+      "0001111111111000",
+      "0001111111111000"
+    ]
+  },
+"rabbit_salt": {
+    "name": "Rabbit Salt",
+    "category": "Overworld Mobs",
+    "pixelSize": 16,
+    "colors": {
+      "0": "#00000000",
+      "1": "#b1997fff",
+      "2": "#b8a591ff",
+      "3": "#b5a08aff",
+      "4": "#cdc1b1ff",
+      "5": "#cdbeabff",
+      "6": "#b4a28eff",
+      "7": "#c5b7a5ff",
+      "8": "#cec3b5ff",
+      "9": "#cec4b8ff",
+      "A": "#b19d87ff",
+      "B": "#665642ff",
+      "C": "#c3af99ff",
+      "D": "#544637ff",
+      "E": "#b09b86ff",
+      "F": "#ffc5deff",
+      "G": "#af9e8bff",
+      "H": "#ab9984ff"
+    },
+    "data": [
+      "0001111002233000",
+      "0001111002233000",
+      "0003344005522000",
+      "0003344005522000",
+      "00066770089AA000",
+      "00066770088AA000",
+      "0003399005533000",
+      "0003399005533000",
+      "00022BBCCBB33000",
+      "00022BBCCBB33000",
+      "00033DD22DDEE000",
+      "00033DDFFDDEE000",
+      "0003322FF2233000",
+      "0003322222233000",
+      "000GGGGHHHHGG000",
+      "000GGGGHHHHGG000"
+    ]
+  },
+"rabbit_toast": {
+    "name": "Rabbit Toast",
+    "category": "Overworld Mobs",
+    "pixelSize": 16,
+    "colors": {
+      "0": "#00000000",
+      "1": "#ffffffff",
+      "2": "#101010ff",
+      "3": "#5c5c5cff",
+      "4": "#1d1d1dff",
+      "5": "#242424ff",
+      "6": "#181818ff",
+      "7": "#3c3c3cff",
+      "8": "#f1f1f1ff",
+      "9": "#303030ff",
+      "A": "#ffc5deff",
+      "B": "#e7e7e7ff"
+    },
+    "data": [
+      "0001111001111000",
+      "0001111001111000",
+      "0002233003344000",
+      "0002233003344000",
+      "0005533003355000",
+      "0005533003355000",
+      "0006633003366000",
+      "0006633003366000",
+      "0005577887755000",
+      "0005577887755000",
+      "0004499889944000",
+      "0004499AA9944000",
+      "0008888AA8888000",
+      "0008888888888000",
+      "000BBBBBBBBBB000",
+      "000BBBBBBBBBB000"
+    ]
+  },
+"rabbit_white": {
+    "name": "Rabbit White",
+    "category": "Overworld Mobs",
+    "pixelSize": 16,
+    "colors": {
+      "0": "#00000000",
+      "1": "#f1f1f1ff",
+      "2": "#ffffffff",
+      "3": "#debac7ff",
+      "4": "#e7e7e7ff",
+      "5": "#ebe0e4ff",
+      "6": "#dededeff",
+      "7": "#ebd3dcff",
+      "8": "#ef6f6fff",
+      "9": "#bd3b3bff",
+      "A": "#ffc5deff"
+    },
+    "data": [
+      "0001111002222000",
+      "0001111002222000",
+      "0001133003311000",
+      "0001133003311000",
+      "0004455005544000",
+      "0004455005544000",
+      "0006677007766000",
+      "0006677007766000",
+      "0001188118811000",
+      "0001188118811000",
+      "0001199119911000",
+      "0001199AA9911000",
+      "0001111AA1111000",
+      "0001111111111000",
+      "0004444444444000",
+      "0004444444444000"
+    ]
+  },
+"rabbit_white_splotched": {
+    "name": "Rabbit White Splotched",
+    "category": "Overworld Mobs",
+    "pixelSize": 16,
+    "colors": {
+      "0": "#00000000",
+      "1": "#242424ff",
+      "2": "#1f1f1fff",
+      "3": "#ffffffff",
+      "4": "#101010ff",
+      "5": "#debac7ff",
+      "6": "#f1f1f1ff",
+      "7": "#ebe0e4ff",
+      "8": "#e7e7e7ff",
+      "9": "#ebd3dcff",
+      "A": "#dededeff",
+      "B": "#3c3c3cff",
+      "C": "#303030ff",
+      "D": "#ffc5deff"
+    },
+    "data": [
+      "0001122003333000",
+      "0001122003333000",
+      "0004455005566000",
+      "0004455005566000",
+      "0006677007788000",
+      "0006677007788000",
+      "00088990099AA000",
+      "00088990099AA000",
+      "00066BB66BB66000",
+      "00066BB66BB66000",
+      "00066CC66CC66000",
+      "00066CCDDCC66000",
+      "0006666DD6666000",
+      "0006666666666000",
+      "0008888888888000",
+      "0008888888888000"
+    ]
+  },
+"rail_activator_powered": {
     name: "Rail Activator Powered",
     category: "Transportation",
     pixelSize: 16,
@@ -8418,8 +12371,7 @@ window.PICTURES = {
       "0012000000002100"
     ]
   },
-
-  "rail_detector_powered": {
+"rail_detector_powered": {
     name: "Rail Detector Powered",
     category: "Transportation",
     pixelSize: 16,
@@ -8460,8 +12412,7 @@ window.PICTURES = {
       "0012000000002100"
     ]
   },
-
-  "rail_golden": {
+"rail_golden": {
     name: "Rail Golden",
     category: "Transportation",
     pixelSize: 16,
@@ -8502,8 +12453,7 @@ window.PICTURES = {
       "0012300000032100"
     ]
   },
-
-  "rail_golden_powered": {
+"rail_golden_powered": {
     name: "Rail Golden Powered",
     category: "Transportation",
     pixelSize: 16,
@@ -8544,8 +12494,7 @@ window.PICTURES = {
       "0012300000032100"
     ]
   },
-
-  "rail_normal": {
+"rail_normal": {
     name: "Rail Normal",
     category: "Transportation",
     pixelSize: 16,
@@ -8580,8 +12529,7 @@ window.PICTURES = {
       "0012000000002100"
     ]
   },
-
-  "raw_copper_block": {
+"raw_copper_block": {
     name: "Raw Copper Block",
     category: "Blocks",
     pixelSize: 16,
@@ -8623,8 +12571,7 @@ window.PICTURES = {
       "5718716GF3566BGG"
     ]
   },
-
-  "raw_gold_block": {
+"raw_gold_block": {
     name: "Raw Gold Block",
     category: "Ores",
     pixelSize: 16,
@@ -8655,8 +12602,7 @@ window.PICTURES = {
       "1221122112340003"
     ]
   },
-
-  "raw_iron_block": {
+"raw_iron_block": {
     name: "Raw Iron Block",
     category: "Ores",
     pixelSize: 16,
@@ -8688,8 +12634,7 @@ window.PICTURES = {
       "0014422111323331"
     ]
   },
-
-  "record_cat": {
+"record_cat": {
     name: "Record Cat",
     category: "Decoration",
     pixelSize: 16,
@@ -8722,8 +12667,7 @@ window.PICTURES = {
       "0000000000000000"
     ]
   },
-
-  "red_nether_brick": {
+"red_nether_brick": {
     name: "Red Nether Brick",
     category: "Nether",
     pixelSize: 16,
@@ -8755,8 +12699,7 @@ window.PICTURES = {
       "6666666666666666"
     ]
   },
-
-  "red_sandstone_normal": {
+"red_sandstone_normal": {
     name: "Red Sandstone Normal",
     category: "Blocks",
     pixelSize: 16,
@@ -8788,8 +12731,7 @@ window.PICTURES = {
       "3366621662164466"
     ]
   },
-
-  "redstone_block": {
+"redstone_block": {
     name: "Redstone Block",
     category: "Blocks",
     pixelSize: 16,
@@ -8819,8 +12761,7 @@ window.PICTURES = {
       "0000000000000000"
     ]
   },
-
-  "redstone_dust": {
+"redstone_dust": {
     name: "Redstone Dust",
     category: "Ores",
     pixelSize: 16,
@@ -8853,8 +12794,7 @@ window.PICTURES = {
       "0000000000000000"
     ]
   },
-
-  "redstone_lamp_on": {
+"redstone_lamp_on": {
     name: "Redstone Lamp On",
     category: "Blocks",
     pixelSize: 16,
@@ -8885,8 +12825,7 @@ window.PICTURES = {
       "0000000000000000"
     ]
   },
-
-  "redstone_ore": {
+"redstone_ore": {
     name: "Redstone Ore",
     category: "Ores",
     pixelSize: 16,
@@ -8925,8 +12864,7 @@ window.PICTURES = {
       "1111112210011211"
     ]
   },
-
-  "redstone_torch_on": {
+"redstone_torch_on": {
     name: "Redstone Torch On",
     category: "Decoration",
     pixelSize: 16,
@@ -8965,8 +12903,7 @@ window.PICTURES = {
       "0000000AD0000000"
     ]
   },
-
-  "reeds": {
+"reeds": {
     name: "Reeds",
     category: "Plants",
     pixelSize: 16,
@@ -8998,8 +12935,7 @@ window.PICTURES = {
       "0000000000000000"
     ]
   },
-
-  "rotten_flesh": {
+"rotten_flesh": {
     name: "Rotten Flesh",
     category: "Food",
     pixelSize: 16,
@@ -9036,8 +12972,7 @@ window.PICTURES = {
       "0000000000000000"
     ]
   },
-
-  "saddle": {
+"saddle": {
     name: "Saddle",
     category: "Transportation",
     pixelSize: 16,
@@ -9072,8 +13007,7 @@ window.PICTURES = {
       "0000000000000000"
     ]
   },
-
-  "sand": {
+"sand": {
     name: "Sand",
     category: "Blocks",
     pixelSize: 16,
@@ -9104,8 +13038,7 @@ window.PICTURES = {
       "2121221213112121"
     ]
   },
-
-  "sandstone_bottom": {
+"sandstone_bottom": {
     name: "Sandstone Bottom",
     category: "Blocks",
     pixelSize: 16,
@@ -9136,8 +13069,7 @@ window.PICTURES = {
       "4433325332531130"
     ]
   },
-
-  "sandstone_carved": {
+"sandstone_carved": {
     name: "Sandstone Carved",
     category: "Blocks",
     pixelSize: 16,
@@ -9169,8 +13101,7 @@ window.PICTURES = {
       "5555555556566666"
     ]
   },
-
-  "sandstone_normal": {
+"sandstone_normal": {
     name: "Sandstone Normal",
     category: "Blocks",
     pixelSize: 16,
@@ -9202,8 +13133,7 @@ window.PICTURES = {
       "3366621662164466"
     ]
   },
-
-  "sculk_catalyst_side": {
+"sculk_catalyst_side": {
     name: "Sculk Catalyst Side",
     category: "Blocks",
     pixelSize: 16,
@@ -9240,8 +13170,7 @@ window.PICTURES = {
       "9AB5B55AA5B5BBA9"
     ]
   },
-
-  "shears": {
+"shears": {
     name: "Shears",
     category: "Items",
     pixelSize: 16,
@@ -9275,8 +13204,1120 @@ window.PICTURES = {
       "0000000000000000"
     ]
   },
-
-  "shulker_shell": {
+"sheep_black": {
+    "name": "Sheep Black",
+    "category": "Overworld Mobs",
+    "pixelSize": 16,
+    "colors": {
+      "0": "#00000000",
+      "1": "#000000ff",
+      "2": "#262626ff",
+      "3": "#bf9678ff",
+      "4": "#f8f8f8ff",
+      "5": "#b58d6fff",
+      "6": "#fabcbcff",
+      "7": "#ae876bff",
+      "8": "#f9ababff"
+    },
+    "data": [
+      "0000000000000000",
+      "0111111111111110",
+      "0122222222222210",
+      "0122222222222210",
+      "0133333333333310",
+      "0133333333333310",
+      "0111443333441110",
+      "0111443333441110",
+      "0155333333335510",
+      "0155333333335510",
+      "0122556666552210",
+      "0122556666552210",
+      "0122778888772210",
+      "0122778888772210",
+      "0111111111111110",
+      "0000000000000000"
+    ]
+  },
+"sheep_blue": {
+    "name": "Sheep Blue",
+    "category": "Overworld Mobs",
+    "pixelSize": 16,
+    "colors": {
+      "0": "#00000000",
+      "1": "#1c4397ff",
+      "2": "#335bb1ff",
+      "3": "#bf9678ff",
+      "4": "#000000ff",
+      "5": "#f8f8f8ff",
+      "6": "#b58d6fff",
+      "7": "#fabcbcff",
+      "8": "#ae876bff",
+      "9": "#f9ababff"
+    },
+    "data": [
+      "0000000000000000",
+      "0111111111111110",
+      "0122222222222210",
+      "0122222222222210",
+      "0133333333333310",
+      "0133333333333310",
+      "0144553333554410",
+      "0144553333554410",
+      "0166333333336610",
+      "0166333333336610",
+      "0122667777662210",
+      "0122667777662210",
+      "0122889999882210",
+      "0122889999882210",
+      "0111111111111110",
+      "0000000000000000"
+    ]
+  },
+"sheep_brown": {
+    "name": "Sheep Brown",
+    "category": "Overworld Mobs",
+    "pixelSize": 16,
+    "colors": {
+      "0": "#00000000",
+      "1": "#582e15ff",
+      "2": "#6e391aff",
+      "3": "#bf9678ff",
+      "4": "#000000ff",
+      "5": "#f8f8f8ff",
+      "6": "#b58d6fff",
+      "7": "#fabcbcff",
+      "8": "#ae876bff",
+      "9": "#f9ababff"
+    },
+    "data": [
+      "0000000000000000",
+      "0111111111111110",
+      "0122222222222210",
+      "0122222222222210",
+      "0133333333333310",
+      "0133333333333310",
+      "0144553333554410",
+      "0144553333554410",
+      "0166333333336610",
+      "0166333333336610",
+      "0122667777662210",
+      "0122667777662210",
+      "0122889999882210",
+      "0122889999882210",
+      "0111111111111110",
+      "0000000000000000"
+    ]
+  },
+"sheep_cyan": {
+    "name": "Sheep Cyan",
+    "category": "Overworld Mobs",
+    "pixelSize": 16,
+    "colors": {
+      "0": "#00000000",
+      "1": "#009397ff",
+      "2": "#00a7abff",
+      "3": "#bf9678ff",
+      "4": "#000000ff",
+      "5": "#f8f8f8ff",
+      "6": "#b58d6fff",
+      "7": "#fabcbcff",
+      "8": "#ae876bff",
+      "9": "#f9ababff"
+    },
+    "data": [
+      "0000000000000000",
+      "0111111111111110",
+      "0122222222222210",
+      "0122222222222210",
+      "0133333333333310",
+      "0133333333333310",
+      "0144553333554410",
+      "0144553333554410",
+      "0166333333336610",
+      "0166333333336610",
+      "0122667777662210",
+      "0122667777662210",
+      "0122889999882210",
+      "0122889999882210",
+      "0111111111111110",
+      "0000000000000000"
+    ]
+  },
+"sheep_gray": {
+    "name": "Sheep Gray",
+    "category": "Overworld Mobs",
+    "pixelSize": 16,
+    "colors": {
+      "0": "#00000000",
+      "1": "#5c5c5cff",
+      "2": "#6a6a6aff",
+      "3": "#bf9678ff",
+      "4": "#000000ff",
+      "5": "#f8f8f8ff",
+      "6": "#b58d6fff",
+      "7": "#fabcbcff",
+      "8": "#ae876cff",
+      "9": "#f9ababff"
+    },
+    "data": [
+      "0000000000000000",
+      "0111111111111110",
+      "0122222222222210",
+      "0122222222222210",
+      "0133333333333310",
+      "0133333333333310",
+      "0144553333554410",
+      "0144553333554410",
+      "0166333333336610",
+      "0166333333336610",
+      "0122667777662210",
+      "0122667777662210",
+      "0122889999882210",
+      "0122889999882210",
+      "0111111111111110",
+      "0000000000000000"
+    ]
+  },
+"sheep_green": {
+    "name": "Sheep Green",
+    "category": "Overworld Mobs",
+    "pixelSize": 16,
+    "colors": {
+      "0": "#00000000",
+      "1": "#446c00ff",
+      "2": "#5e7832ff",
+      "3": "#bf9678ff",
+      "4": "#000000ff",
+      "5": "#f8f8f8ff",
+      "6": "#b58d6fff",
+      "7": "#fabcbcff",
+      "8": "#ae876bff",
+      "9": "#f9ababff"
+    },
+    "data": [
+      "0000000000000000",
+      "0111111111111110",
+      "0122222222222210",
+      "0122222222222210",
+      "0133333333333310",
+      "0133333333333310",
+      "0144553333554410",
+      "0144553333554410",
+      "0166333333336610",
+      "0166333333336610",
+      "0122667777662210",
+      "0122667777662210",
+      "0122889999882210",
+      "0122889999882210",
+      "0111111111111110",
+      "0000000000000000"
+    ]
+  },
+"sheep_light_blue": {
+    "name": "Sheep Light Blue",
+    "category": "Overworld Mobs",
+    "pixelSize": 16,
+    "colors": {
+      "0": "#00000000",
+      "1": "#00b9ebff",
+      "2": "#35c5ebff",
+      "3": "#bf9678ff",
+      "4": "#000000ff",
+      "5": "#f8f8f8ff",
+      "6": "#b58d6fff",
+      "7": "#fabcbcff",
+      "8": "#ae876bff",
+      "9": "#f9ababff"
+    },
+    "data": [
+      "0000000000000000",
+      "0111111111111110",
+      "0122222222222210",
+      "0122222222222210",
+      "0133333333333310",
+      "0133333333333310",
+      "0144553333554410",
+      "0144553333554410",
+      "0166333333336610",
+      "0166333333336610",
+      "0122667777662210",
+      "0122667777662210",
+      "0122889999882210",
+      "0122889999882210",
+      "0111111111111110",
+      "0000000000000000"
+    ]
+  },
+"sheep_light_gray": {
+    "name": "Sheep Light Gray",
+    "category": "Overworld Mobs",
+    "pixelSize": 16,
+    "colors": {
+      "0": "#00000000",
+      "1": "#9d9d9dff",
+      "2": "#afafafff",
+      "3": "#bf9678ff",
+      "4": "#000000ff",
+      "5": "#f8f8f8ff",
+      "6": "#b58d6fff",
+      "7": "#fabcbcff",
+      "8": "#ae876bff",
+      "9": "#f9ababff"
+    },
+    "data": [
+      "0000000000000000",
+      "0111111111111110",
+      "0122222222222210",
+      "0122222222222210",
+      "0133333333333310",
+      "0133333333333310",
+      "0144553333554410",
+      "0144553333554410",
+      "0166333333336610",
+      "0166333333336610",
+      "0122667777662210",
+      "0122667777662210",
+      "0122889999882210",
+      "0122889999882210",
+      "0111111111111110",
+      "0000000000000000"
+    ]
+  },
+"sheep_lime": {
+    "name": "Sheep Lime",
+    "category": "Overworld Mobs",
+    "pixelSize": 16,
+    "colors": {
+      "0": "#00000000",
+      "1": "#7edf06ff",
+      "2": "#aadf69ff",
+      "3": "#bf9678ff",
+      "4": "#000000ff",
+      "5": "#f8f8f8ff",
+      "6": "#b58d6fff",
+      "7": "#fabcbcff",
+      "8": "#ae876bff",
+      "9": "#f9ababff"
+    },
+    "data": [
+      "0000000000000000",
+      "0111111111111110",
+      "0122222222222210",
+      "0122222222222210",
+      "0133333333333310",
+      "0133333333333310",
+      "0144553333554410",
+      "0144553333554410",
+      "0166333333336610",
+      "0166333333336610",
+      "0122667777662210",
+      "0122667777662210",
+      "0122889999882210",
+      "0122889999882210",
+      "0111111111111110",
+      "0000000000000000"
+    ]
+  },
+"sheep_magenta": {
+    "name": "Sheep Magenta",
+    "category": "Overworld Mobs",
+    "pixelSize": 16,
+    "colors": {
+      "0": "#00000000",
+      "1": "#bb2a8bff",
+      "2": "#d148a3ff",
+      "3": "#bf9678ff",
+      "4": "#000000ff",
+      "5": "#f8f8f8ff",
+      "6": "#b58d6fff",
+      "7": "#fabcbcff",
+      "8": "#ae876bff",
+      "9": "#f9ababff"
+    },
+    "data": [
+      "0000000000000000",
+      "0111111111111110",
+      "0122222222222210",
+      "0122222222222210",
+      "0133333333333310",
+      "0133333333333310",
+      "0144553333554410",
+      "0144553333554410",
+      "0166333333336610",
+      "0166333333336610",
+      "0122667777662210",
+      "0122667777662210",
+      "0122889999882210",
+      "0122889999882210",
+      "0111111111111110",
+      "0000000000000000"
+    ]
+  },
+"sheep_orange": {
+    "name": "Sheep Orange",
+    "category": "Overworld Mobs",
+    "pixelSize": 16,
+    "colors": {
+      "0": "#00000000",
+      "1": "#e97219ff",
+      "2": "#e98942ff",
+      "3": "#bf9678ff",
+      "4": "#000000ff",
+      "5": "#f8f8f8ff",
+      "6": "#b58d6fff",
+      "7": "#fabcbcff",
+      "8": "#ae876bff",
+      "9": "#f9ababff"
+    },
+    "data": [
+      "0000000000000000",
+      "0111111111111110",
+      "0122222222222210",
+      "0122222222222210",
+      "0133333333333310",
+      "0133333333333310",
+      "0144553333554410",
+      "0144553333554410",
+      "0166333333336610",
+      "0166333333336610",
+      "0122667777662210",
+      "0122667777662210",
+      "0122889999882210",
+      "0122889999882210",
+      "0111111111111110",
+      "0000000000000000"
+    ]
+  },
+"sheep_pink": {
+    "name": "Sheep Pink",
+    "category": "Overworld Mobs",
+    "pixelSize": 16,
+    "colors": {
+      "0": "#00000000",
+      "1": "#ff8dadff",
+      "2": "#ffadc4ff",
+      "3": "#bf9678ff",
+      "4": "#000000ff",
+      "5": "#f8f8f8ff",
+      "6": "#b58d6fff",
+      "7": "#fabcbcff",
+      "8": "#ae876bff",
+      "9": "#f9ababff"
+    },
+    "data": [
+      "0000000000000000",
+      "0111111111111110",
+      "0122222222222210",
+      "0122222222222210",
+      "0133333333333310",
+      "0133333333333310",
+      "0144553333554410",
+      "0144553333554410",
+      "0166333333336610",
+      "0166333333336610",
+      "0122667777662210",
+      "0122667777662210",
+      "0122889999882210",
+      "0122889999882210",
+      "0111111111111110",
+      "0000000000000000"
+    ]
+  },
+"sheep_purple": {
+    "name": "Sheep Purple",
+    "category": "Overworld Mobs",
+    "pixelSize": 16,
+    "colors": {
+      "0": "#00000000",
+      "1": "#79179fff",
+      "2": "#9c3bc1ff",
+      "3": "#bf9678ff",
+      "4": "#000000ff",
+      "5": "#f8f8f8ff",
+      "6": "#b58d6fff",
+      "7": "#fabcbcff",
+      "8": "#ae876bff",
+      "9": "#f9ababff"
+    },
+    "data": [
+      "0000000000000000",
+      "0111111111111110",
+      "0122222222222210",
+      "0122222222222210",
+      "0133333333333310",
+      "0133333333333310",
+      "0144553333554410",
+      "0144553333554410",
+      "0166333333336610",
+      "0166333333336610",
+      "0122667777662210",
+      "0122667777662210",
+      "0122889999882210",
+      "0122889999882210",
+      "0111111111111110",
+      "0000000000000000"
+    ]
+  },
+"sheep_red": {
+    "name": "Sheep Red",
+    "category": "Overworld Mobs",
+    "pixelSize": 16,
+    "colors": {
+      "0": "#00000000",
+      "1": "#ad1414ff",
+      "2": "#d34c4cff",
+      "3": "#bf9678ff",
+      "4": "#000000ff",
+      "5": "#f8f8f8ff",
+      "6": "#b58d6fff",
+      "7": "#fabcbcff",
+      "8": "#ae876bff",
+      "9": "#f9ababff"
+    },
+    "data": [
+      "0000000000000000",
+      "0111111111111110",
+      "0122222222222210",
+      "0122222222222210",
+      "0133333333333310",
+      "0133333333333310",
+      "0144553333554410",
+      "0144553333554410",
+      "0166333333336610",
+      "0166333333336610",
+      "0122667777662210",
+      "0122667777662210",
+      "0122889999882210",
+      "0122889999882210",
+      "0111111111111110",
+      "0000000000000000"
+    ]
+  },
+"sheep_white": {
+    "name": "Sheep White",
+    "category": "Overworld Mobs",
+    "pixelSize": 16,
+    "colors": {
+      "0": "#00000000",
+      "1": "#ffffffff",
+      "2": "#e6e5e4ff",
+      "3": "#bf9678ff",
+      "4": "#000000ff",
+      "5": "#f8f8f8ff",
+      "6": "#b58d6fff",
+      "7": "#fabcbcff",
+      "8": "#ae876cff",
+      "9": "#f9ababff"
+    },
+    "data": [
+      "0000000000000000",
+      "0111111111111110",
+      "0122222222222210",
+      "0122222222222210",
+      "0133333333333310",
+      "0133333333333310",
+      "0144553333554410",
+      "0144553333554410",
+      "0166333333336610",
+      "0166333333336610",
+      "0122667777662210",
+      "0122667777662210",
+      "0122889999882210",
+      "0122889999882210",
+      "0111111111111110",
+      "0000000000000000"
+    ]
+  },
+"sheep_yellow": {
+    "name": "Sheep Yellow",
+    "category": "Overworld Mobs",
+    "pixelSize": 16,
+    "colors": {
+      "0": "#00000000",
+      "1": "#e8ca1bff",
+      "2": "#e8d358ff",
+      "3": "#bf9678ff",
+      "4": "#000000ff",
+      "5": "#f8f8f8ff",
+      "6": "#b58d6fff",
+      "7": "#fabcbcff",
+      "8": "#ae876bff",
+      "9": "#f9ababff"
+    },
+    "data": [
+      "0000000000000000",
+      "0111111111111110",
+      "0122222222222210",
+      "0122222222222210",
+      "0133333333333310",
+      "0133333333333310",
+      "0144553333554410",
+      "0144553333554410",
+      "0166333333336610",
+      "0166333333336610",
+      "0122667777662210",
+      "0122667777662210",
+      "0122889999882210",
+      "0122889999882210",
+      "0111111111111110",
+      "0000000000000000"
+    ]
+  },
+"shulker": {
+    "name": "Shulker",
+    "category": "End Mobs",
+    "pixelSize": 16,
+    "colors": {
+      "0": "#8b6298ff",
+      "1": "#835c8eff",
+      "2": "#9468a1ff",
+      "3": "#8d6399ff",
+      "4": "#00000000",
+      "5": "#f9efb7ff",
+      "6": "#7c5787ff",
+      "7": "#875f93ff",
+      "8": "#cdc596ff",
+      "9": "#ffffffff",
+      "A": "#000000ff",
+      "B": "#e1d8a7ff"
+    },
+    "data": [
+      "0101010101010101",
+      "1010101010101010",
+      "0122222222222201",
+      "1022222222222210",
+      "0123333333333201",
+      "1023444444443210",
+      "0123455555543201",
+      "1023455555543210",
+      "6673488888843766",
+      "444449A55A944444",
+      "44444BB55BB44444",
+      "4444455555544444",
+      "6673333333333766",
+      "1022222222222210",
+      "0101010101010101",
+      "1010101010101010"
+    ]
+  },
+"shulker_black": {
+    "name": "Shulker Black",
+    "category": "End Mobs",
+    "pixelSize": 16,
+    "colors": {
+      "0": "#242424ff",
+      "1": "#222222ff",
+      "2": "#262626ff",
+      "3": "#00000000",
+      "4": "#f9efb7ff",
+      "5": "#202020ff",
+      "6": "#232323ff",
+      "7": "#cdc596ff",
+      "8": "#ffffffff",
+      "9": "#000000ff",
+      "A": "#e1d8a7ff"
+    },
+    "data": [
+      "0101010101010101",
+      "1010101010101010",
+      "0122222222222201",
+      "1022222222222210",
+      "0120000000000201",
+      "1020333333330210",
+      "0120344444430201",
+      "1020344444430210",
+      "5560377777730655",
+      "3333389449833333",
+      "33333AA44AA33333",
+      "3333344444433333",
+      "5560000000000655",
+      "1022222222222210",
+      "0101010101010101",
+      "1010101010101010"
+    ]
+  },
+"shulker_blue": {
+    "name": "Shulker Blue",
+    "category": "End Mobs",
+    "pixelSize": 16,
+    "colors": {
+      "0": "#1a3f8fff",
+      "1": "#193c86ff",
+      "2": "#1c4397ff",
+      "3": "#1b4090ff",
+      "4": "#00000000",
+      "5": "#f9efb7ff",
+      "6": "#183980ff",
+      "7": "#1a3e8bff",
+      "8": "#cdc596ff",
+      "9": "#ffffffff",
+      "A": "#000000ff",
+      "B": "#e1d8a7ff"
+    },
+    "data": [
+      "0101010101010101",
+      "1010101010101010",
+      "0122222222222201",
+      "1022222222222210",
+      "0123333333333201",
+      "1023444444443210",
+      "0123455555543201",
+      "1023455555543210",
+      "6673488888843766",
+      "444449A55A944444",
+      "44444BB55BB44444",
+      "4444455555544444",
+      "6673333333333766",
+      "1022222222222210",
+      "0101010101010101",
+      "1010101010101010"
+    ]
+  },
+"shulker_brown": {
+    "name": "Shulker Brown",
+    "category": "End Mobs",
+    "pixelSize": 16,
+    "colors": {
+      "0": "#532b14ff",
+      "1": "#4e2913ff",
+      "2": "#582e15ff",
+      "3": "#542c14ff",
+      "4": "#00000000",
+      "5": "#f9efb7ff",
+      "6": "#4b2712ff",
+      "7": "#512a13ff",
+      "8": "#cdc596ff",
+      "9": "#ffffffff",
+      "A": "#000000ff",
+      "B": "#e1d8a7ff"
+    },
+    "data": [
+      "0101010101010101",
+      "1010101010101010",
+      "0122222222222201",
+      "1022222222222210",
+      "0123333333333201",
+      "1023444444443210",
+      "0123455555543201",
+      "1023455555543210",
+      "6673488888843766",
+      "444449A55A944444",
+      "44444BB55BB44444",
+      "4444455555544444",
+      "6673333333333766",
+      "1022222222222210",
+      "0101010101010101",
+      "1010101010101010"
+    ]
+  },
+"shulker_cyan": {
+    "name": "Shulker Cyan",
+    "category": "End Mobs",
+    "pixelSize": 16,
+    "colors": {
+      "0": "#009ea2ff",
+      "1": "#009598ff",
+      "2": "#00a7abff",
+      "3": "#009fa3ff",
+      "4": "#00000000",
+      "5": "#f9efb7ff",
+      "6": "#008d91ff",
+      "7": "#00999dff",
+      "8": "#cdc596ff",
+      "9": "#ffffffff",
+      "A": "#000000ff",
+      "B": "#e1d8a7ff"
+    },
+    "data": [
+      "0101010101010101",
+      "1010101010101010",
+      "0122222222222201",
+      "1022222222222210",
+      "0123333333333201",
+      "1023444444443210",
+      "0123455555543201",
+      "1023455555543210",
+      "6673488888843766",
+      "444449A55A944444",
+      "44444BB55BB44444",
+      "4444455555544444",
+      "6673333333333766",
+      "1022222222222210",
+      "0101010101010101",
+      "1010101010101010"
+    ]
+  },
+"shulker_gray": {
+    "name": "Shulker Gray",
+    "category": "End Mobs",
+    "pixelSize": 16,
+    "colors": {
+      "0": "#575757ff",
+      "1": "#525252ff",
+      "2": "#5c5c5cff",
+      "3": "#585858ff",
+      "4": "#00000000",
+      "5": "#f9efb7ff",
+      "6": "#4e4e4eff",
+      "7": "#545454ff",
+      "8": "#cdc596ff",
+      "9": "#ffffffff",
+      "A": "#000000ff",
+      "B": "#e1d8a7ff"
+    },
+    "data": [
+      "0101010101010101",
+      "1010101010101010",
+      "0122222222222201",
+      "1022222222222210",
+      "0123333333333201",
+      "1023444444443210",
+      "0123455555543201",
+      "1023455555543210",
+      "6673488888843766",
+      "444449A55A944444",
+      "44444BB55BB44444",
+      "4444455555544444",
+      "6673333333333766",
+      "1022222222222210",
+      "0101010101010101",
+      "1010101010101010"
+    ]
+  },
+"shulker_green": {
+    "name": "Shulker Green",
+    "category": "End Mobs",
+    "pixelSize": 16,
+    "colors": {
+      "0": "#406600ff",
+      "1": "#3d6000ff",
+      "2": "#446c00ff",
+      "3": "#416700ff",
+      "4": "#00000000",
+      "5": "#f9efb7ff",
+      "6": "#3a5c00ff",
+      "7": "#3e6300ff",
+      "8": "#cdc596ff",
+      "9": "#ffffffff",
+      "A": "#000000ff",
+      "B": "#e1d8a7ff"
+    },
+    "data": [
+      "0101010101010101",
+      "1010101010101010",
+      "0122222222222201",
+      "1022222222222210",
+      "0123333333333201",
+      "1023444444443210",
+      "0123455555543201",
+      "1023455555543210",
+      "6673488888843766",
+      "444449A55A944444",
+      "44444BB55BB44444",
+      "4444455555544444",
+      "6673333333333766",
+      "1022222222222210",
+      "0101010101010101",
+      "1010101010101010"
+    ]
+  },
+"shulker_light_blue": {
+    "name": "Shulker Light Blue",
+    "category": "End Mobs",
+    "pixelSize": 16,
+    "colors": {
+      "0": "#00afdeff",
+      "1": "#00a5d1ff",
+      "2": "#00b9ebff",
+      "3": "#00b0e0ff",
+      "4": "#00000000",
+      "5": "#f9efb7ff",
+      "6": "#009dc7ff",
+      "7": "#00aad8ff",
+      "8": "#cdc596ff",
+      "9": "#ffffffff",
+      "A": "#000000ff",
+      "B": "#e1d8a7ff"
+    },
+    "data": [
+      "0101010101010101",
+      "1010101010101010",
+      "0122222222222201",
+      "1022222222222210",
+      "0123333333333201",
+      "1023444444443210",
+      "0123455555543201",
+      "1023455555543210",
+      "6673488888843766",
+      "444449A55A944444",
+      "44444BB55BB44444",
+      "4444455555544444",
+      "6673333333333766",
+      "1022222222222210",
+      "0101010101010101",
+      "1010101010101010"
+    ]
+  },
+"shulker_light_gray": {
+    "name": "Shulker Light Gray",
+    "category": "End Mobs",
+    "pixelSize": 16,
+    "colors": {
+      "0": "#949494ff",
+      "1": "#8c8c8cff",
+      "2": "#9d9d9dff",
+      "3": "#969696ff",
+      "4": "#00000000",
+      "5": "#f9efb7ff",
+      "6": "#858585ff",
+      "7": "#909090ff",
+      "8": "#cdc596ff",
+      "9": "#ffffffff",
+      "A": "#000000ff",
+      "B": "#e1d8a7ff"
+    },
+    "data": [
+      "0101010101010101",
+      "1010101010101010",
+      "0122222222222201",
+      "1022222222222210",
+      "0123333333333201",
+      "1023444444443210",
+      "0123455555543201",
+      "1023455555543210",
+      "6673488888843766",
+      "444449A55A944444",
+      "44444BB55BB44444",
+      "4444455555544444",
+      "6673333333333766",
+      "1022222222222210",
+      "0101010101010101",
+      "1010101010101010"
+    ]
+  },
+"shulker_lime": {
+    "name": "Shulker Lime",
+    "category": "End Mobs",
+    "pixelSize": 16,
+    "colors": {
+      "0": "#4dd206ff",
+      "1": "#48c605ff",
+      "2": "#51de06ff",
+      "3": "#4dd406ff",
+      "4": "#00000000",
+      "5": "#f9efb7ff",
+      "6": "#45bc05ff",
+      "7": "#4acc06ff",
+      "8": "#cdc596ff",
+      "9": "#ffffffff",
+      "A": "#000000ff",
+      "B": "#e1d8a7ff"
+    },
+    "data": [
+      "0101010101010101",
+      "1010101010101010",
+      "0122222222222201",
+      "1022222222222210",
+      "0123333333333201",
+      "1023444444443210",
+      "0123455555543201",
+      "1023455555543210",
+      "6673488888843766",
+      "444449A55A944444",
+      "44444BB55BB44444",
+      "4444455555544444",
+      "6673333333333766",
+      "1022222222222210",
+      "0101010101010101",
+      "1010101010101010"
+    ]
+  },
+"shulker_magenta": {
+    "name": "Shulker Magenta",
+    "category": "End Mobs",
+    "pixelSize": 16,
+    "colors": {
+      "0": "#b12883ff",
+      "1": "#a6257cff",
+      "2": "#bb2a8bff",
+      "3": "#b22884ff",
+      "4": "#00000000",
+      "5": "#f9efb7ff",
+      "6": "#9e2476ff",
+      "7": "#ac2780ff",
+      "8": "#cdc596ff",
+      "9": "#ffffffff",
+      "A": "#000000ff",
+      "B": "#e1d8a7ff"
+    },
+    "data": [
+      "0101010101010101",
+      "1010101010101010",
+      "0122222222222201",
+      "1022222222222210",
+      "0123333333333201",
+      "1023444444443210",
+      "0123455555543201",
+      "1023455555543210",
+      "6673488888843766",
+      "444449A55A944444",
+      "44444BB55BB44444",
+      "4444455555544444",
+      "6673333333333766",
+      "1022222222222210",
+      "0101010101010101",
+      "1010101010101010"
+    ]
+  },
+"shulker_orange": {
+    "name": "Shulker Orange",
+    "category": "End Mobs",
+    "pixelSize": 16,
+    "colors": {
+      "0": "#dc6c18ff",
+      "1": "#cf6516ff",
+      "2": "#e97219ff",
+      "3": "#de6d18ff",
+      "4": "#00000000",
+      "5": "#f9efb7ff",
+      "6": "#c56115ff",
+      "7": "#d66917ff",
+      "8": "#cdc596ff",
+      "9": "#ffffffff",
+      "A": "#000000ff",
+      "B": "#e1d8a7ff"
+    },
+    "data": [
+      "0101010101010101",
+      "1010101010101010",
+      "0122222222222201",
+      "1022222222222210",
+      "0123333333333201",
+      "1023444444443210",
+      "0123455555543201",
+      "1023455555543210",
+      "6673488888843766",
+      "444449A55A944444",
+      "44444BB55BB44444",
+      "4444455555544444",
+      "6673333333333766",
+      "1022222222222210",
+      "0101010101010101",
+      "1010101010101010"
+    ]
+  },
+"shulker_pink": {
+    "name": "Shulker Pink",
+    "category": "End Mobs",
+    "pixelSize": 16,
+    "colors": {
+      "0": "#f185a4ff",
+      "1": "#e37e9aff",
+      "2": "#ff8dadff",
+      "3": "#f386a5ff",
+      "4": "#00000000",
+      "5": "#f9efb7ff",
+      "6": "#d87793ff",
+      "7": "#ea819fff",
+      "8": "#cdc596ff",
+      "9": "#ffffffff",
+      "A": "#000000ff",
+      "B": "#e1d8a7ff"
+    },
+    "data": [
+      "0101010101010101",
+      "1010101010101010",
+      "0122222222222201",
+      "1022222222222210",
+      "0123333333333201",
+      "1023444444443210",
+      "0123455555543201",
+      "1023455555543210",
+      "6673488888843766",
+      "444449A55A944444",
+      "44444BB55BB44444",
+      "4444455555544444",
+      "6673333333333766",
+      "1022222222222210",
+      "0101010101010101",
+      "1010101010101010"
+    ]
+  },
+"shulker_purple": {
+    "name": "Shulker Purple",
+    "category": "End Mobs",
+    "pixelSize": 16,
+    "colors": {
+      "0": "#721696ff",
+      "1": "#6c148eff",
+      "2": "#79179fff",
+      "3": "#731698ff",
+      "4": "#00000000",
+      "5": "#f9efb7ff",
+      "6": "#671387ff",
+      "7": "#6f1592ff",
+      "8": "#cdc596ff",
+      "9": "#ffffffff",
+      "A": "#000000ff",
+      "B": "#e1d8a7ff"
+    },
+    "data": [
+      "0101010101010101",
+      "1010101010101010",
+      "0122222222222201",
+      "1022222222222210",
+      "0123333333333201",
+      "1023444444443210",
+      "0123455555543201",
+      "1023455555543210",
+      "6673488888843766",
+      "444449A55A944444",
+      "44444BB55BB44444",
+      "4444455555544444",
+      "6673333333333766",
+      "1022222222222210",
+      "0101010101010101",
+      "1010101010101010"
+    ]
+  },
+"shulker_red": {
+    "name": "Shulker Red",
+    "category": "End Mobs",
+    "pixelSize": 16,
+    "colors": {
+      "0": "#a41313ff",
+      "1": "#9a1212ff",
+      "2": "#ad1414ff",
+      "3": "#a51313ff",
+      "4": "#00000000",
+      "5": "#f9efb7ff",
+      "6": "#931111ff",
+      "7": "#9f1212ff",
+      "8": "#cdc596ff",
+      "9": "#ffffffff",
+      "A": "#000000ff",
+      "B": "#e1d8a7ff"
+    },
+    "data": [
+      "0101010101010101",
+      "1010101010101010",
+      "0122222222222201",
+      "1022222222222210",
+      "0123333333333201",
+      "1023444444443210",
+      "0123455555543201",
+      "1023455555543210",
+      "6673488888843766",
+      "444449A55A944444",
+      "44444BB55BB44444",
+      "4444455555544444",
+      "6673333333333766",
+      "1022222222222210",
+      "0101010101010101",
+      "1010101010101010"
+    ]
+  },
+"shulker_shell": {
     name: "Shulker Shell",
     category: "Blocks",
     pixelSize: 16,
@@ -9309,8 +14350,81 @@ window.PICTURES = {
       "0000000000000000"
     ]
   },
-
-  "sign_warped": {
+"shulker_white": {
+    "name": "Shulker White",
+    "category": "End Mobs",
+    "pixelSize": 16,
+    "colors": {
+      "0": "#d8d8d7ff",
+      "1": "#cbcac9ff",
+      "2": "#e6e5e4ff",
+      "3": "#dbdad9ff",
+      "4": "#00000000",
+      "5": "#f9efb7ff",
+      "6": "#c1c0bfff",
+      "7": "#d2d1d0ff",
+      "8": "#cdc596ff",
+      "9": "#ffffffff",
+      "A": "#000000ff",
+      "B": "#e1d8a7ff"
+    },
+    "data": [
+      "0101010101010101",
+      "1010101010101010",
+      "0122222222222201",
+      "1022222222222210",
+      "0123333333333201",
+      "1023444444443210",
+      "0123455555543201",
+      "1023455555543210",
+      "6673488888843766",
+      "444449A55A944444",
+      "44444BB55BB44444",
+      "4444455555544444",
+      "6673333333333766",
+      "1022222222222210",
+      "0101010101010101",
+      "1010101010101010"
+    ]
+  },
+"shulker_yellow": {
+    "name": "Shulker Yellow",
+    "category": "End Mobs",
+    "pixelSize": 16,
+    "colors": {
+      "0": "#e0c31aff",
+      "1": "#d7bc19ff",
+      "2": "#e8ca1bff",
+      "3": "#ddc11aff",
+      "4": "#00000000",
+      "5": "#f9efb7ff",
+      "6": "#cdb318ff",
+      "7": "#d8bc19ff",
+      "8": "#cdc596ff",
+      "9": "#ffffffff",
+      "A": "#000000ff",
+      "B": "#e1d8a7ff"
+    },
+    "data": [
+      "0101010101010101",
+      "1010101010101010",
+      "0122222222222201",
+      "1022222222222210",
+      "0123333333333201",
+      "1023444444443210",
+      "0123455555543201",
+      "1023455555543210",
+      "6673488888843766",
+      "444449A55A944444",
+      "44444BB55BB44444",
+      "4444455555544444",
+      "6673333333333766",
+      "1022222222222210",
+      "0101010101010101",
+      "1010101010101010"
+    ]
+  },
+"sign_warped": {
     name: "Sign Warped",
     category: "Nether",
     pixelSize: 16,
@@ -9352,39 +14466,373 @@ window.PICTURES = {
       "0000000EBC000000"
     ]
   },
-
-  "slime": {
-    name: "Slime",
-    category: "Blocks",
-    pixelSize: 16,
-    colors: {
-      "0": "#73c262",
-      "1": "#62b64a",
-      "2": "#7bca62",
-      "3": "#7bce6a",
-      "4": "#5aaa43"
+"silverfish_silver_fish": {
+    "name": "Silverfish Silver Fish",
+    "category": "Overworld Mobs",
+    "pixelSize": 16,
+    "colors": {
+      "0": "#00000000",
+      "1": "#a3ad9bff",
+      "2": "#9fadb2ff",
+      "3": "#a0a4b1ff",
+      "4": "#a8a8a8ff",
+      "5": "#a0a0a0ff",
+      "6": "#979797ff",
+      "7": "#000000ff",
+      "8": "#9a9a9aff",
+      "9": "#959595ff",
+      "A": "#a0a3acff",
+      "B": "#939393ff"
     },
-    data: [
-      "0012201100012230",
-      "0333330020000043",
-      "2320100111020102",
-      "1301412000000101",
-      "0314400010440100",
-      "0201110023410000",
-      "0201000022000100",
-      "0210140000000120",
-      "0210440000000420",
-      "0010002000411020",
-      "1001000001110201",
-      "1020000000144201",
-      "2003200401141230",
-      "2441101110002230",
-      "3410222233333330",
-      "0320001100000100"
+    "data": [
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0011000011001100",
+      "0011000011001100",
+      "0000220033003300",
+      "0000220033003300",
+      "0011445566550000",
+      "0011445566550000",
+      "0000577887791100",
+      "0000577887791100",
+      "00AA65544BB50000",
+      "00AA65544BB50000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000"
     ]
   },
-
-  "slimeball": {
+"skeleton": {
+    "name": "Skeleton",
+    "category": "Overworld Mobs",
+    "pixelSize": 16,
+    "colors": {
+      "0": "#b0b0b0ff",
+      "1": "#919191ff",
+      "2": "#abababff",
+      "3": "#848484ff",
+      "4": "#b9b9b9ff",
+      "5": "#c0c0c0ff",
+      "6": "#b5b5b5ff",
+      "7": "#bfbfbfff",
+      "8": "#c5c5c5ff",
+      "9": "#3e3e3eff",
+      "A": "#b3b3b3ff",
+      "B": "#3d3d3dff",
+      "C": "#bebebeff",
+      "D": "#727272ff",
+      "E": "#adadadff",
+      "F": "#a8a8a8ff",
+      "G": "#c3c3c3ff"
+    },
+    "data": [
+      "0000110000000000",
+      "0222332222222220",
+      "0244553344446620",
+      "0244553344446620",
+      "7444882244444447",
+      "7444882244444447",
+      "7444444444444447",
+      "7444444444444447",
+      "74999944AA999947",
+      "74999944AABB9947",
+      "4AAACCDDDDAAAAA4",
+      "4AAACCDDDDAAAAA4",
+      "EF999999999999FE",
+      "EF999999999999FE",
+      "7444CCCCCCCC4447",
+      "7777GGGGGGGG7777"
+    ]
+  },
+"skeleton_bogged": {
+    "name": "Skeleton Bogged",
+    "category": "Overworld Mobs",
+    "pixelSize": 16,
+    "colors": {
+      "0": "#00000000",
+      "1": "#d30a0aff",
+      "2": "#f30000ff",
+      "3": "#8f734eff",
+      "4": "#bb0c0cff",
+      "5": "#afafafff",
+      "6": "#9b1212ff",
+      "7": "#664f2fff",
+      "8": "#5e4727ff",
+      "9": "#760000ff",
+      "A": "#600303ff",
+      "B": "#7c1f1fff",
+      "C": "#3c4e29ff",
+      "D": "#765e3eff",
+      "E": "#c9d3abff",
+      "F": "#e0e9c5ff",
+      "G": "#687e4cff",
+      "H": "#969f79ff",
+      "I": "#445a2eff",
+      "J": "#9aa382ff",
+      "K": "#4e5448ff",
+      "L": "#364824ff",
+      "M": "#6e7a61ff",
+      "N": "#bec99fff",
+      "O": "#27341aff",
+      "P": "#fbffd3ff",
+      "Q": "#b1bd8eff",
+      "R": "#22281aff",
+      "S": "#2d3c1dff"
+    },
+    "data": [
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000121000",
+      "0000030004565600",
+      "0000787009ABA900",
+      "0000CDCEFFGH0000",
+      "0000ICEFFECG0000",
+      "0000JKFFLMLC0000",
+      "0000NNJELLOO0000",
+      "0000NPPMLPPO0000",
+      "0000QQMIIOOO0000",
+      "0000MRRRRRRL0000",
+      "0000NNFFILSS0000"
+    ]
+  },
+"skeleton_stray": {
+    "name": "Skeleton Stray",
+    "category": "Overworld Mobs",
+    "pixelSize": 16,
+    "colors": {
+      "0": "#46625cff",
+      "1": "#4d6a64ff",
+      "2": "#44615cff",
+      "3": "#3f5b56ff",
+      "4": "#3e5a54ff",
+      "5": "#cedcd9ff",
+      "6": "#3a5650ff",
+      "7": "#36504aff",
+      "8": "#c8d5d2ff",
+      "9": "#c2cfccff",
+      "A": "#eafffbff",
+      "B": "#bac8c4ff",
+      "C": "#93a39fff",
+      "D": "#b6c3bfff",
+      "E": "#5e7671ff",
+      "F": "#b1bebbff",
+      "G": "#b7c3c1ff",
+      "H": "#bbc7c4ff"
+    },
+    "data": [
+      "0011221111223333",
+      "0011221111223333",
+      "4422332211335566",
+      "4422332211335566",
+      "7733663322338877",
+      "7733663322338877",
+      "9999996633999999",
+      "9999996633999999",
+      "99AAAA99BBAAAA99",
+      "99AAAA99BBAAAA99",
+      "BBBB99CCCC999999",
+      "BBBB99CCCC999999",
+      "DDEEEEEEEEEEEEBB",
+      "DDEEEEEEEEEEEEBB",
+      "FFGGHH9999BBDDFF",
+      "FFGGHH9999BBDDFF"
+    ]
+  },
+"skeleton_wither_skeleton": {
+    "name": "Skeleton Wither Skeleton",
+    "category": "Overworld Mobs",
+    "pixelSize": 16,
+    "colors": {
+      "0": "#282828ff",
+      "1": "#262626ff",
+      "2": "#222222ff",
+      "3": "#202020ff",
+      "4": "#1e1e1eff",
+      "5": "#1d1d1dff",
+      "6": "#232323ff",
+      "7": "#404040ff",
+      "8": "#333333ff",
+      "9": "#2f2f2fff",
+      "A": "#353535ff",
+      "B": "#2e2e2eff",
+      "C": "#414141ff",
+      "D": "#373737ff",
+      "E": "#3b3b3bff",
+      "F": "#383838ff",
+      "G": "#121212ff",
+      "H": "#444444ff",
+      "I": "#252525ff",
+      "J": "#313131ff",
+      "K": "#484848ff"
+    },
+    "data": [
+      "0011223344553366",
+      "0011223344553366",
+      "7788996600AABBCC",
+      "7788996600AABBCC",
+      "3300000000BBBBBB",
+      "3300000000BBBBBB",
+      "88999900BB88DDEE",
+      "88999900BB88DDEE",
+      "FFGGGG0000GGGGHH",
+      "FFGGGG0000GGGGHH",
+      "77FF00II00JJDDEE",
+      "77FF00II00JJDDEE",
+      "3300GGGGGGGGII66",
+      "3300GGGGGGGGII66",
+      "77FF9900008877KK",
+      "77FF9900008877KK"
+    ]
+  },
+"slime": {
+    "name": "Slime",
+    "category": "Overworld Mobs",
+    "pixelSize": 16,
+    "colors": {
+      "0": "#1cb9009c",
+      "1": "#1cba0090",
+      "2": "#1db9008b",
+      "3": "#5eba4cff",
+      "4": "#1db80094",
+      "5": "#65bd54ff",
+      "6": "#6bc05cff",
+      "7": "#72c362ff",
+      "8": "#4aa23eff",
+      "9": "#4ea443ff",
+      "A": "#4aa040ff",
+      "B": "#4da144ff",
+      "C": "#50a347ff",
+      "D": "#56a84bff",
+      "E": "#47a03cff",
+      "F": "#4ba141ff",
+      "G": "#3b9036ff",
+      "H": "#3d9138ff",
+      "I": "#4fa345ff",
+      "J": "#398f34ff",
+      "K": "#368028ff",
+      "L": "#5bb349ff",
+      "M": "#59af48ff",
+      "N": "#5bb248ff",
+      "O": "#1db90098"
+    },
+    "data": [
+      "0011222211112222",
+      "0011222211112222",
+      "1133333333333344",
+      "1135535566777344",
+      "4489AA3356BCD800",
+      "4489AA5335ABD800",
+      "22EFGG3333GHIE11",
+      "22EEJJ3333JHIE11",
+      "2235533333336322",
+      "2233333333336322",
+      "22333333KK333344",
+      "22LLL333KK333L44",
+      "11MNLL33333LLL00",
+      "11MMMLLLLLLLMM00",
+      "00OO221100112211",
+      "00OO221100112211"
+    ]
+  },
+"slime_magma_cube": {
+    "name": "Slime Magma Cube",
+    "category": "Overworld Mobs",
+    "pixelSize": 16,
+    "colors": {
+      "0": "#4c1000ff",
+      "1": "#220700ff",
+      "2": "#601500ff",
+      "3": "#410e00ff",
+      "4": "#340b00ff",
+      "5": "#1c0600ff",
+      "6": "#2b0900ff",
+      "7": "#5a1300ff",
+      "8": "#672000ff",
+      "9": "#3b0d00ff",
+      "A": "#db2f00ff",
+      "B": "#561200ff",
+      "C": "#ff9e46ff",
+      "D": "#ffdb81ff",
+      "E": "#470f00ff",
+      "F": "#380c00ff",
+      "G": "#762300ff",
+      "H": "#6d2100ff",
+      "I": "#350b00ff"
+    },
+    "data": [
+      "0011002200334455",
+      "0011002200334455",
+      "6600778822000099",
+      "6600778822000099",
+      "99AAAA2222AAAA33",
+      "99AAAA2222AAAA33",
+      "BBCCDD22EEDDCC00",
+      "BBCCDD22EEDDCC00",
+      "BBBBBBBBBB220055",
+      "BBBBBBBBBB220055",
+      "FF22BB2222GG2244",
+      "FF22BB2222GG2244",
+      "FF0022HHGG00II00",
+      "FF0022HHGG00II00",
+      "55FF002222IIBB22",
+      "55FF002222IIBB22"
+    ]
+  },
+"slime_slime_opaque": {
+    "name": "Slime Slime Opaque",
+    "category": "Overworld Mobs",
+    "pixelSize": 16,
+    "colors": {
+      "0": "#74d463ff",
+      "1": "#7fd86fff",
+      "2": "#84d974ff",
+      "3": "#5eba4cff",
+      "4": "#7cd66bff",
+      "5": "#65bd54ff",
+      "6": "#6bc05cff",
+      "7": "#72c362ff",
+      "8": "#4aa23eff",
+      "9": "#4ea443ff",
+      "A": "#4aa040ff",
+      "B": "#4da144ff",
+      "C": "#50a347ff",
+      "D": "#56a84bff",
+      "E": "#47a03cff",
+      "F": "#4ba141ff",
+      "G": "#3b9036ff",
+      "H": "#3d9138ff",
+      "I": "#4fa345ff",
+      "J": "#398f34ff",
+      "K": "#368028ff",
+      "L": "#5bb349ff",
+      "M": "#59af48ff",
+      "N": "#5bb248ff",
+      "O": "#78d567ff"
+    },
+    "data": [
+      "0011222211112222",
+      "0011222211112222",
+      "1133333333333344",
+      "1135535566777344",
+      "4489AA3356BCD800",
+      "4489AA5335ABD800",
+      "22EFGG3333GHIE11",
+      "22EEJJ3333JHIE11",
+      "2235533333336322",
+      "2233333333336322",
+      "22333333KK333344",
+      "22LLL333KK333L44",
+      "11MNLL33333LLL00",
+      "11MMMLLLLLLLMM00",
+      "00OO221100112211",
+      "00OO221100112211"
+    ]
+  },
+"slimeball": {
     name: "Slimeball",
     category: "Miscellaneous",
     pixelSize: 16,
@@ -9418,8 +14866,7 @@ window.PICTURES = {
       "0000000000000000"
     ]
   },
-
-  "smithing_table_front": {
+"smithing_table_front": {
     name: "Smithing Table Front",
     category: "Tables",
     pixelSize: 16,
@@ -9459,8 +14906,51 @@ window.PICTURES = {
       "55CCCCCCCCCCCC55"
     ]
   },
-
-  "snow": {
+"sniffer": {
+    "name": "Sniffer",
+    "category": "Overworld Mobs",
+    "pixelSize": 16,
+    "colors": {
+      "0": "#0e5621ff",
+      "1": "#116627ff",
+      "2": "#0c471bff",
+      "3": "#0e5520ff",
+      "4": "#093514ff",
+      "5": "#d3ad23ff",
+      "6": "#5c3a11ff",
+      "7": "#100800ff",
+      "8": "#d1b550ff",
+      "9": "#3c2100ff",
+      "A": "#d59c16ff",
+      "B": "#5e140fff",
+      "C": "#c9870eff",
+      "D": "#4c100dff",
+      "E": "#6b1612ff",
+      "F": "#d7900eff",
+      "G": "#bc7f0eff",
+      "H": "#6a4909ff",
+      "I": "#996305ff"
+    },
+    "data": [
+      "0101100010011010",
+      "2202212212200201",
+      "2342344342114040",
+      "3242234232420242",
+      "2355567586758520",
+      "4255569586955504",
+      "2355566556655540",
+      "43AAA885A885A542",
+      "44AAAA5A55AAAA44",
+      "4BACCACCC5CAAABD",
+      "EDCCCCCCFCCCCAED",
+      "DBFCGCFCCFFCFCBD",
+      "DBCGGGCCCCCGCFDB",
+      "BEHHIIIIIIIIHHDE",
+      "EDFGFFFGFFGFFFBD",
+      "DB555F5F55FF55ED"
+    ]
+  },
+"snow": {
     name: "Snow",
     category: "Blocks",
     pixelSize: 16,
@@ -9488,8 +14978,7 @@ window.PICTURES = {
       "0001000011112200"
     ]
   },
-
-  "soul_campfire": {
+"soul_campfire": {
     name: "Soul Campfire",
     category: "Nether",
     pixelSize: 16,
@@ -9531,8 +15020,7 @@ window.PICTURES = {
       "0000000000000000"
     ]
   },
-
-  "soul_sand": {
+"soul_sand": {
     name: "Soul Sand",
     category: "Nether",
     pixelSize: 16,
@@ -9563,8 +15051,7 @@ window.PICTURES = {
       "4323403120313415"
     ]
   },
-
-  "soul_soil": {
+"soul_soil": {
     name: "Soul Soil",
     category: "Nether",
     pixelSize: 16,
@@ -9594,8 +15081,93 @@ window.PICTURES = {
       "4112321112321004"
     ]
   },
-
-  "spider_eye": {
+"spider": {
+    "name": "Spider",
+    "category": "Overworld Mobs",
+    "pixelSize": 16,
+    "colors": {
+      "0": "#433631ff",
+      "1": "#4e1010ff",
+      "2": "#4e3f39ff",
+      "3": "#493b36ff",
+      "4": "#3e0404ff",
+      "5": "#5b0404ff",
+      "6": "#574841ff",
+      "7": "#af0000ff",
+      "8": "#3c0707ff",
+      "9": "#463934ff",
+      "A": "#300707ff",
+      "B": "#52433dff",
+      "C": "#d1c1b4ff",
+      "D": "#160606ff",
+      "E": "#4f413bff",
+      "F": "#423530ff",
+      "G": "#b0a398ff",
+      "H": "#130505ff"
+    },
+    "data": [
+      "0011223333224400",
+      "0011223333224400",
+      "2233442222113322",
+      "2233442222113322",
+      "5522336666332277",
+      "5522336666332277",
+      "4466778877886644",
+      "4466778877886644",
+      "992288AA88AA2200",
+      "992288AA88AA2200",
+      "22BB33333333BB22",
+      "22BB33333333BB22",
+      "66CCDDEE22DDCC66",
+      "66CCDDEE22DDCC66",
+      "FFGGHH22EEHHGGFF",
+      "FFGGHH22EEHHGGFF"
+    ]
+  },
+"spider_cave_spider": {
+    "name": "Spider Cave Spider",
+    "category": "Overworld Mobs",
+    "pixelSize": 16,
+    "colors": {
+      "0": "#003a31ff",
+      "1": "#4e1010ff",
+      "2": "#004439ff",
+      "3": "#004036ff",
+      "4": "#3e0404ff",
+      "5": "#5b0404ff",
+      "6": "#0d4c41ff",
+      "7": "#af0000ff",
+      "8": "#540000ff",
+      "9": "#043d34ff",
+      "A": "#2d0000ff",
+      "B": "#06473dff",
+      "C": "#c0c2b4ff",
+      "D": "#160606ff",
+      "E": "#02453bff",
+      "F": "#003930ff",
+      "G": "#a2a398ff",
+      "H": "#130505ff"
+    },
+    "data": [
+      "0011223333224400",
+      "0011223333224400",
+      "2233442222113322",
+      "2233442222113322",
+      "5522336666332277",
+      "5522336666332277",
+      "4466778877886644",
+      "4466778877886644",
+      "992288AA88AA2200",
+      "992288AA88AA2200",
+      "22BB33333333BB22",
+      "22BB33333333BB22",
+      "66CCDDEE22DDCC66",
+      "66CCDDEE22DDCC66",
+      "FFGGHH22EEHHGGFF",
+      "FFGGHH22EEHHGGFF"
+    ]
+  },
+"spider_eye": {
     name: "Spider Eye",
     category: "Food",
     pixelSize: 16,
@@ -9629,8 +15201,7 @@ window.PICTURES = {
       "0000000000000000"
     ]
   },
-
-  "spider_eye_fermented": {
+"spider_eye_fermented": {
     name: "Spider Eye Fermented",
     category: "Brewing",
     pixelSize: 16,
@@ -9666,8 +15237,7 @@ window.PICTURES = {
       "0000000000000000"
     ]
   },
-
-  "sponge": {
+"sponge": {
     name: "Sponge",
     category: "Blocks",
     pixelSize: 16,
@@ -9697,8 +15267,7 @@ window.PICTURES = {
       "0443124022122223"
     ]
   },
-
-  "sponge_wet": {
+"sponge_wet": {
     name: "Sponge Wet",
     category: "Blocks",
     pixelSize: 16,
@@ -9727,8 +15296,7 @@ window.PICTURES = {
       "0003210011311113"
     ]
   },
-
-  "spruce_trapdoor": {
+"spruce_trapdoor": {
     name: "Spruce Trapdoor",
     category: "Decoration",
     pixelSize: 16,
@@ -9762,8 +15330,90 @@ window.PICTURES = {
       "0123154053523520"
     ]
   },
-
-  "stone": {
+"squid": {
+    "name": "Squid",
+    "category": "Overworld Mobs",
+    "pixelSize": 16,
+    "colors": {
+      "0": "#00000000",
+      "1": "#0c2634ff",
+      "2": "#304e5eff",
+      "3": "#365768ff",
+      "4": "#3c5e71ff",
+      "5": "#43687dff",
+      "6": "#000000ff",
+      "7": "#ffffffff"
+    },
+    "data": [
+      "0011111111111100",
+      "0012333443322100",
+      "0012355555322100",
+      "0012355555532100",
+      "0012355555532100",
+      "0013555555532100",
+      "0013675555762100",
+      "0013775555772100",
+      "0013555555552100",
+      "0012355555552100",
+      "0012355555532100",
+      "0012355555532100",
+      "0012355555532100",
+      "0012355555532100",
+      "0012335555332100",
+      "0012233533222100"
+    ]
+  },
+"squid_glow_squid": {
+    "name": "Squid Glow Squid",
+    "category": "Overworld Mobs",
+    "pixelSize": 16,
+    "colors": {
+      "0": "#00000000",
+      "1": "#086e70ff",
+      "2": "#0c7e81ff",
+      "3": "#177575ff",
+      "4": "#0c8c8cff",
+      "5": "#2faaa5ff",
+      "6": "#0d9193ff",
+      "7": "#0f9699ff",
+      "8": "#31b1aeff",
+      "9": "#198686ff",
+      "A": "#188989ff",
+      "B": "#004b4cff",
+      "C": "#199a9aff",
+      "D": "#189593ff",
+      "E": "#2e9d9aff",
+      "F": "#89f5c5ff",
+      "G": "#1b9e9fff",
+      "H": "#45b5aeff",
+      "I": "#56cdc2ff",
+      "J": "#57cfc5ff",
+      "K": "#30aeabff",
+      "L": "#2eaba7ff",
+      "M": "#47c2bbff",
+      "N": "#178382ff",
+      "O": "#177f7dff"
+    },
+    "data": [
+      "0011222223331100",
+      "0012454444422100",
+      "0032666666662300",
+      "0036677677862300",
+      "0026797776764300",
+      "00ABB777677CD200",
+      "00EFFG6776GBBA00",
+      "00HFFG7777GFFA00",
+      "00HIJC7797KFFH00",
+      "00ELG77677KJIA00",
+      "002677777GCGCA00",
+      "00168776GFFGCA00",
+      "00366677GFFM4200",
+      "003246N7GJJDO300",
+      "0012246666642300",
+      "0011332211212100"
+    ]
+  },
+"stone": {
     name: "Stone",
     category: "Blocks",
     pixelSize: 16,
@@ -9792,8 +15442,7 @@ window.PICTURES = {
       "1111112210011211"
     ]
   },
-
-  "stone_andesite": {
+"stone_andesite": {
     name: "Stone Andesite",
     category: "Blocks",
     pixelSize: 16,
@@ -9824,8 +15473,7 @@ window.PICTURES = {
       "1301300303032230"
     ]
   },
-
-  "stone_axe": {
+"stone_axe": {
     name: "Stone Axe",
     category: "Weapons",
     pixelSize: 16,
@@ -9861,8 +15509,7 @@ window.PICTURES = {
       "0000000000000000"
     ]
   },
-
-  "stone_diorite": {
+"stone_diorite": {
     name: "Stone Diorite",
     category: "Blocks",
     pixelSize: 16,
@@ -9893,8 +15540,7 @@ window.PICTURES = {
       "3123334014410133"
     ]
   },
-
-  "stone_granite": {
+"stone_granite": {
     name: "Stone Granite",
     category: "Blocks",
     pixelSize: 16,
@@ -9929,8 +15575,7 @@ window.PICTURES = {
       "6611022231311136"
     ]
   },
-
-  "stone_pickaxe": {
+"stone_pickaxe": {
     name: "Stone Pickaxe",
     category: "Tools",
     pixelSize: 16,
@@ -9965,8 +15610,7 @@ window.PICTURES = {
       "0000000000000000"
     ]
   },
-
-  "stone_shovel": {
+"stone_shovel": {
     name: "Stone Shovel",
     category: "Tools",
     pixelSize: 16,
@@ -10001,8 +15645,7 @@ window.PICTURES = {
       "0000000000000000"
     ]
   },
-
-  "stone_sword": {
+"stone_sword": {
     name: "Stone Sword",
     category: "Weapons",
     pixelSize: 16,
@@ -10038,8 +15681,7 @@ window.PICTURES = {
       "4440000000000000"
     ]
   },
-
-  "stonebrick": {
+"stonebrick": {
     name: "Stonebrick",
     category: "Blocks",
     pixelSize: 16,
@@ -10071,8 +15713,7 @@ window.PICTURES = {
       "6666662222666666"
     ]
   },
-
-  "stonebrick_mossy": {
+"stonebrick_mossy": {
     name: "Stonebrick Mossy",
     category: "Blocks",
     pixelSize: 16,
@@ -10109,8 +15750,100 @@ window.PICTURES = {
       "B5555B888555BB55"
     ]
   },
-
-  "suspicious_gravel_3": {
+"strider_strider_cold": {
+    "name": "Strider Strider Cold",
+    "category": "Nether Mobs",
+    "pixelSize": 16,
+    "colors": {
+      "0": "#00000000",
+      "1": "#69476aff",
+      "2": "#404040ff",
+      "3": "#323232ff",
+      "4": "#523853ff",
+      "5": "#674768ff",
+      "6": "#5d3f5eff",
+      "7": "#634564ff",
+      "8": "#5a425aff",
+      "9": "#784d73ff",
+      "A": "#724b73ff",
+      "B": "#785076ff",
+      "C": "#7f577cff",
+      "D": "#764d73ff",
+      "E": "#ffffffff",
+      "F": "#000000ff",
+      "G": "#462929ff",
+      "H": "#472831ff",
+      "I": "#3a1e1eff",
+      "J": "#734f78ff",
+      "K": "#5b3a54ff",
+      "L": "#644161ff",
+      "M": "#7f5075ff"
+    },
+    "data": [
+      "0000000000000000",
+      "1111111111122341",
+      "5111111111116411",
+      "7711111111115777",
+      "8777719111115558",
+      "7777111111111157",
+      "51111A1111A11117",
+      "11AAAAAAAAAA1111",
+      "1AAAAABBBAABAAA1",
+      "CCBABBAABBBBADCC",
+      "AEFABBBCCBBBBFEA",
+      "AAABGHIIIIHGBBBB",
+      "ACGIIIIIIIIIIGCB",
+      "JGIKLLKLLKLLKIGM",
+      "IKLLALAAALALLLKI",
+      "0000000000000000"
+    ]
+  },
+"strider_warm_strider": {
+    "name": "Strider Warm Strider",
+    "category": "Nether Mobs",
+    "pixelSize": 16,
+    "colors": {
+      "0": "#00000000",
+      "1": "#792626ff",
+      "2": "#404040ff",
+      "3": "#323232ff",
+      "4": "#5e1e1eff",
+      "5": "#762626ff",
+      "6": "#692222ff",
+      "7": "#5c1e1eff",
+      "8": "#6f2121ff",
+      "9": "#742323ff",
+      "A": "#631d1dff",
+      "B": "#852c2cff",
+      "C": "#802929ff",
+      "D": "#8b3131ff",
+      "E": "#842c2cff",
+      "F": "#ffffffff",
+      "G": "#000000ff",
+      "H": "#3a1e1eff",
+      "I": "#662020ff",
+      "J": "#712424ff"
+    },
+    "data": [
+      "0000000000000000",
+      "1111111111122345",
+      "5115511111156755",
+      "8855111555559888",
+      "A88881B55511999A",
+      "8888111111111198",
+      "91111C1111C11118",
+      "11CCCCCCCCCC1111",
+      "1CCCCCBBBCCBCCC1",
+      "DDECBBCCBBBBCEDD",
+      "CFGCBBBDDBBBBGFC",
+      "CCCBDBDDDDBDBBBB",
+      "CDDHHHHHHHHHHDDB",
+      "DHHIJ1IJJI1JIHHD",
+      "HIJ1C1CCC1C11JIH",
+      "0000000000000000"
+    ]
+  },
+"suspicious_gravel_3": {
     name: "Suspicious Gravel 3",
     category: "Blocks",
     pixelSize: 16,
@@ -10145,8 +15878,7 @@ window.PICTURES = {
       "3372355515353535"
     ]
   },
-
-  "suspicious_sand_3": {
+"suspicious_sand_3": {
     name: "Suspicious Sand 3",
     category: "Blocks",
     pixelSize: 16,
@@ -10179,8 +15911,7 @@ window.PICTURES = {
       "2421221213412121"
     ]
   },
-
-  "suspicious_stew": {
+"suspicious_stew": {
     name: "Suspicious Stew",
     category: "Food",
     pixelSize: 16,
@@ -10220,8 +15951,7 @@ window.PICTURES = {
       "0000000000000000"
     ]
   },
-
-  "sweet_berries": {
+"sweet_berries": {
     name: "Sweet Berries",
     category: "Food",
     pixelSize: 16,
@@ -10256,8 +15986,7 @@ window.PICTURES = {
       "0000000000000000"
     ]
   },
-
-  "sweet_berry_bush_stage3": {
+"sweet_berry_bush_stage3": {
     name: "Sweet Berry Bush Stage3",
     category: "Plants",
     pixelSize: 16,
@@ -10293,8 +16022,45 @@ window.PICTURES = {
       "0000004030030000"
     ]
   },
-
-  "target_side": {
+"tadpole": {
+    "name": "Tadpole",
+    "category": "Overworld Mobs",
+    "pixelSize": 16,
+    "colors": {
+      "0": "#00000000",
+      "1": "#56452cff",
+      "2": "#46361fff",
+      "3": "#524128ff",
+      "4": "#3b2f1fff",
+      "5": "#332116ff",
+      "6": "#554226ff",
+      "7": "#5e4d35ff",
+      "8": "#241d14ff",
+      "9": "#453825ff",
+      "A": "#33291aff",
+      "B": "#2e1d12ff",
+      "C": "#4c3b23ff"
+    },
+    "data": [
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "1122331145667788",
+      "1122331145667788",
+      "00009944ABCC6677",
+      "00009944ABCC6677",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000"
+    ]
+  },
+"target_side": {
     name: "Target Side",
     category: "Blocks",
     pixelSize: 16,
@@ -10329,8 +16095,7 @@ window.PICTURES = {
       "0421032103432323"
     ]
   },
-
-  "tnt_side": {
+"tnt_side": {
     name: "Tnt Side",
     category: "Blocks",
     pixelSize: 16,
@@ -10365,8 +16130,7 @@ window.PICTURES = {
       "2223222322232223"
     ]
   },
-
-  "torch_on": {
+"torch_on": {
     name: "Torch On",
     category: "Decoration",
     pixelSize: 16,
@@ -10403,8 +16167,7 @@ window.PICTURES = {
       "00000005B0000000"
     ]
   },
-
-  "totem": {
+"totem": {
     name: "Totem",
     category: "Miscellaneous",
     pixelSize: 16,
@@ -10439,8 +16202,7 @@ window.PICTURES = {
       "0000003333000000"
     ]
   },
-
-  "trial_spawner_side_active_ominous": {
+"trial_spawner_side_active_ominous": {
     name: "Trial Spawner Side Active Ominous",
     category: "Blocks",
     pixelSize: 16,
@@ -10476,8 +16238,7 @@ window.PICTURES = {
       "6636322233336366"
     ]
   },
-
-  "trident": {
+"trident": {
     name: "Trident",
     category: "Weapons",
     pixelSize: 16,
@@ -10510,8 +16271,7 @@ window.PICTURES = {
       "7700000000000000"
     ]
   },
-
-  "trip_wire_source": {
+"trip_wire_source": {
     name: "Trip Wire Source",
     category: "Miscellaneous",
     pixelSize: 16,
@@ -10546,8 +16306,7 @@ window.PICTURES = {
       "0000000770000000"
     ]
   },
-
-  "tuff_bricks": {
+"tuff_bricks": {
     name: "Tuff Bricks",
     category: "Blocks",
     pixelSize: 16,
@@ -10582,8 +16341,46 @@ window.PICTURES = {
       "4488844448888444"
     ]
   },
-
-  "turtle_helmet": {
+"turtle": {
+    "name": "Turtle",
+    "category": "Overworld Mobs",
+    "pixelSize": 16,
+    "colors": {
+      "0": "#1e8c3cff",
+      "1": "#00000000",
+      "2": "#247740ff",
+      "3": "#20863dff",
+      "4": "#20833eff",
+      "5": "#189a2fff",
+      "6": "#18a037ff",
+      "7": "#1dad2fff",
+      "8": "#c9cd9fff",
+      "9": "#fefdffff",
+      "A": "#000000ff",
+      "B": "#c2c09bff",
+      "C": "#c6c79cff",
+      "D": "#d9d4adff"
+    },
+    "data": [
+      "0011111111111111",
+      "0011111111111111",
+      "2211111111111111",
+      "2211111111111111",
+      "3344556666777711",
+      "3344556666777711",
+      "8844555566667711",
+      "8844555566667711",
+      "8844445599AA6611",
+      "8844445599AA6611",
+      "BB22445555555511",
+      "BB22445555555511",
+      "BB222244CCCCDD11",
+      "BB222244CCCCDD11",
+      "8811111111111111",
+      "8811111111111111"
+    ]
+  },
+"turtle_helmet": {
     name: "Turtle Helmet",
     category: "Armor",
     pixelSize: 16,
@@ -10614,8 +16411,7 @@ window.PICTURES = {
       "0000000000000000"
     ]
   },
-
-  "villagebell": {
+"villagebell": {
     name: "Villagebell",
     category: "Miscellaneous",
     pixelSize: 16,
@@ -10653,8 +16449,657 @@ window.PICTURES = {
       "0000000000000000"
     ]
   },
-
-  "warped_fungus": {
+"villager": {
+    "name": "Villager",
+    "category": "Overworld Mobs",
+    "pixelSize": 16,
+    "colors": {
+      "0": "#00000000",
+      "1": "#cc8a70ff",
+      "2": "#bd7c62ff",
+      "3": "#c38268ff",
+      "4": "#221611ff",
+      "5": "#ffffffff",
+      "6": "#3da113ff",
+      "7": "#b77459ff",
+      "8": "#8b5743ff",
+      "9": "#6f3117ff"
+    },
+    "data": [
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000111111120000",
+      "0000111111110000",
+      "0000111111110000",
+      "0000311111130000",
+      "0000331111330000",
+      "0000344444430000",
+      "0000356116530000",
+      "0000731881370000",
+      "0000739889370000",
+      "0000733883370000",
+      "0000000880000000"
+    ]
+  },
+"villager_armorer": {
+    "name": "Villager Armorer",
+    "category": "Overworld Mobs",
+    "pixelSize": 16,
+    "colors": {
+      "0": "#00000000",
+      "1": "#565656ff",
+      "2": "#686868ff",
+      "3": "#878787ff",
+      "4": "#767676ff",
+      "5": "#422519ff",
+      "6": "#464646ff",
+      "7": "#404040ff",
+      "8": "#a5684fff",
+      "9": "#221611ff",
+      "A": "#c38268ff",
+      "B": "#ffffffff",
+      "C": "#3da113ff",
+      "D": "#cc8a70ff",
+      "E": "#b77459ff",
+      "F": "#8b5743ff",
+      "G": "#6f3117ff"
+    },
+    "data": [
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000123333210000",
+      "0000112442110000",
+      "0000155225510000",
+      "0000144664410000",
+      "0000777887770000",
+      "0000899999980000",
+      "0000ABCDDCBA0000",
+      "0000EADFFDAE0000",
+      "0000EAGFFGAE0000",
+      "0000EAAFFAAE0000",
+      "0000000FF0000000"
+    ]
+  },
+"villager_butcher": {
+    "name": "Villager Butcher",
+    "category": "Overworld Mobs",
+    "pixelSize": 16,
+    "colors": {
+      "0": "#00000000",
+      "1": "#cc8a70ff",
+      "2": "#bd7c62ff",
+      "3": "#994949ff",
+      "4": "#7c3535ff",
+      "5": "#c38268ff",
+      "6": "#221611ff",
+      "7": "#ffffffff",
+      "8": "#3da113ff",
+      "9": "#b77459ff",
+      "A": "#8b5743ff",
+      "B": "#6f3117ff"
+    },
+    "data": [
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000111111120000",
+      "0000111111110000",
+      "0000333333330000",
+      "0000433333340000",
+      "0000551111550000",
+      "0000566666650000",
+      "0000578118750000",
+      "0000951AA1590000",
+      "000095BAAB590000",
+      "0000955AA5590000",
+      "0000000AA0000000"
+    ]
+  },
+"villager_cleric": {
+    "name": "Villager Cleric",
+    "category": "Overworld Mobs",
+    "pixelSize": 16,
+    "colors": {
+      "0": "#00000000",
+      "1": "#cc8a70ff",
+      "2": "#bd7c62ff",
+      "3": "#c38268ff",
+      "4": "#221611ff",
+      "5": "#ffffffff",
+      "6": "#3da113ff",
+      "7": "#b77459ff",
+      "8": "#8b5743ff",
+      "9": "#af6808ff",
+      "A": "#cd7805ff",
+      "B": "#6f3117ff",
+      "C": "#895207ff"
+    },
+    "data": [
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000111111120000",
+      "0000111111110000",
+      "0000111111110000",
+      "0000311111130000",
+      "0000331111330000",
+      "0000344444430000",
+      "0000356116530000",
+      "0000731881370000",
+      "0009A3B88B3A9000",
+      "0000C338833C0000",
+      "0000000880000000"
+    ]
+  },
+"villager_desert": {
+    "name": "Villager Desert",
+    "category": "Overworld Mobs",
+    "pixelSize": 16,
+    "colors": {
+      "0": "#00000000",
+      "1": "#b19063ff",
+      "2": "#bb9b6fff",
+      "3": "#cdab7eff",
+      "4": "#ab8653ff",
+      "5": "#cb5100ff",
+      "6": "#bb4b00ff",
+      "7": "#a74300ff",
+      "8": "#c38268ff",
+      "9": "#221611ff",
+      "A": "#ffffffff",
+      "B": "#3da113ff",
+      "C": "#cc8a70ff",
+      "D": "#b77459ff",
+      "E": "#8b5743ff",
+      "F": "#6f3117ff"
+    },
+    "data": [
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000123333210000",
+      "0000111221110000",
+      "0000444444440000",
+      "0005555555555000",
+      "0006666666666000",
+      "0007879797970000",
+      "00008ABCCBA80000",
+      "0000D8CEEC8D0000",
+      "0000D8FEEF8D0000",
+      "0000D88EE88D0000",
+      "0000000EE0000000"
+    ]
+  },
+"villager_farmer": {
+    "name": "Villager Farmer",
+    "category": "Overworld Mobs",
+    "pixelSize": 16,
+    "colors": {
+      "0": "#00000000",
+      "1": "#edb546ff",
+      "2": "#f3c05aff",
+      "3": "#f9c96bff",
+      "4": "#dda73dff",
+      "5": "#bf8e2dff",
+      "6": "#48301dff",
+      "7": "#563922ff",
+      "8": "#765032ff",
+      "9": "#c38268ff",
+      "A": "#221611ff",
+      "B": "#ffffffff",
+      "C": "#3da113ff",
+      "D": "#cc8a70ff",
+      "E": "#b77459ff",
+      "F": "#8b5743ff",
+      "G": "#6f3117ff"
+    },
+    "data": [
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000123232310000",
+      "0000412121240000",
+      "0000541414450000",
+      "0000677888760000",
+      "0045454545454500",
+      "00009AAAAAA90000",
+      "00009BCDDCB90000",
+      "0000E9DFFD9E0000",
+      "0000E9GFFG9E0000",
+      "0000E99FF99E0000",
+      "0000000FF0000000"
+    ]
+  },
+"villager_fisherman": {
+    "name": "Villager Fisherman",
+    "category": "Overworld Mobs",
+    "pixelSize": 16,
+    "colors": {
+      "0": "#00000000",
+      "1": "#9d6e2dff",
+      "2": "#724f1dff",
+      "3": "#5e4118ff",
+      "4": "#48301dff",
+      "5": "#563922ff",
+      "6": "#765032ff",
+      "7": "#c38268ff",
+      "8": "#cc8a70ff",
+      "9": "#221611ff",
+      "A": "#ffffffff",
+      "B": "#3da113ff",
+      "C": "#b77459ff",
+      "D": "#8b5743ff",
+      "E": "#6f3117ff"
+    },
+    "data": [
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000112211110000",
+      "0000222322220000",
+      "0001121111111000",
+      "0004455666544000",
+      "0000778888770000",
+      "0000799999970000",
+      "00007AB88BA70000",
+      "0000C78DD87C0000",
+      "0000C7EDDE7C0000",
+      "0000C77DD77C0000",
+      "0000000DD0000000"
+    ]
+  },
+"villager_fletcher": {
+    "name": "Villager Fletcher",
+    "category": "Overworld Mobs",
+    "pixelSize": 16,
+    "colors": {
+      "0": "#00000000",
+      "1": "#543f2bff",
+      "2": "#6a523bff",
+      "3": "#4c3825ff",
+      "4": "#5c4733ff",
+      "5": "#70553aff",
+      "6": "#58422dff",
+      "7": "#c38268ff",
+      "8": "#221611ff",
+      "9": "#ffffffff",
+      "A": "#3da113ff",
+      "B": "#cc8a70ff",
+      "C": "#b77459ff",
+      "D": "#8b5743ff",
+      "E": "#6f3117ff"
+    },
+    "data": [
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000112222110000",
+      "0000314224130000",
+      "0000331441330000",
+      "0000551111550000",
+      "0000665335660000",
+      "0000788888870000",
+      "000079ABBA970000",
+      "0000C7BDDB7C0000",
+      "0000C7EDDE7C0000",
+      "0000C77DD77C0000",
+      "0000000DD0000000"
+    ]
+  },
+"villager_librarian": {
+    "name": "Villager Librarian",
+    "category": "Overworld Mobs",
+    "pixelSize": 16,
+    "colors": {
+      "0": "#00000000",
+      "1": "#8b0000ff",
+      "2": "#640000ff",
+      "3": "#4e0000ff",
+      "4": "#c7c6c1ff",
+      "5": "#edebe2ff",
+      "6": "#870000ff",
+      "7": "#c38268ff",
+      "8": "#cc8a70ff",
+      "9": "#9f0000ff",
+      "A": "#221611ff",
+      "B": "#ffffffff",
+      "C": "#3da113ff",
+      "D": "#b77459ff",
+      "E": "#9bd9ffff",
+      "F": "#8b5743ff",
+      "G": "#6f3117ff"
+    },
+    "data": [
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000111111220000",
+      "0000342245450000",
+      "0000336622220000",
+      "0000789988870000",
+      "0000779888770000",
+      "00007AAAAAA70000",
+      "00007BC88CB70000",
+      "0000DEEFFEED0000",
+      "0000D7GFFG7D0000",
+      "0000D77FF77D0000",
+      "0000000FF0000000"
+    ]
+  },
+"villager_savanna": {
+    "name": "Villager Savanna",
+    "category": "Overworld Mobs",
+    "pixelSize": 16,
+    "colors": {
+      "0": "#00000000",
+      "1": "#cc8a70ff",
+      "2": "#bd7c62ff",
+      "3": "#303805ff",
+      "4": "#546014ff",
+      "5": "#c38268ff",
+      "6": "#221611ff",
+      "7": "#ffffffff",
+      "8": "#3da113ff",
+      "9": "#b77459ff",
+      "A": "#8b5743ff",
+      "B": "#6f3117ff"
+    },
+    "data": [
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000111111120000",
+      "0000111111110000",
+      "0000111111110000",
+      "0003344433444000",
+      "0000551111550000",
+      "0000566666650000",
+      "0000578118750000",
+      "0000951AA1590000",
+      "000095BAAB590000",
+      "0000955AA5590000",
+      "0000000AA0000000"
+    ]
+  },
+"villager_shepherd": {
+    "name": "Villager Shepherd",
+    "category": "Overworld Mobs",
+    "pixelSize": 16,
+    "colors": {
+      "0": "#00000000",
+      "1": "#643c33ff",
+      "2": "#74453bff",
+      "3": "#5a362eff",
+      "4": "#4e2e27ff",
+      "5": "#4a2a23ff",
+      "6": "#40231cff",
+      "7": "#c38268ff",
+      "8": "#221611ff",
+      "9": "#ffffffff",
+      "A": "#3da113ff",
+      "B": "#cc8a70ff",
+      "C": "#b77459ff",
+      "D": "#8b5743ff",
+      "E": "#6f3117ff"
+    },
+    "data": [
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000112322110000",
+      "0000112321110000",
+      "0004411551144000",
+      "0004446216444000",
+      "0006444644446000",
+      "0000788888870000",
+      "000079ABBA970000",
+      "0000C7BDDB7C0000",
+      "0000C7EDDE7C0000",
+      "0000C77DD77C0000",
+      "0000000DD0000000"
+    ]
+  },
+"villager_swamp": {
+    "name": "Villager Swamp",
+    "category": "Overworld Mobs",
+    "pixelSize": 16,
+    "colors": {
+      "0": "#00000000",
+      "1": "#2e4820ff",
+      "2": "#405e30ff",
+      "3": "#588b3cff",
+      "4": "#936651ff",
+      "5": "#cc8a70ff",
+      "6": "#c38268ff",
+      "7": "#221611ff",
+      "8": "#ffffffff",
+      "9": "#3da113ff",
+      "A": "#b77459ff",
+      "B": "#8b5743ff",
+      "C": "#6f3117ff"
+    },
+    "data": [
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0001122132211000",
+      "0000444324440000",
+      "0000555425550000",
+      "0000655545560000",
+      "0000665555660000",
+      "0000677777760000",
+      "0000689559860000",
+      "0000A65BB56A0000",
+      "0000A6CBBC6A0000",
+      "0000A66BB66A0000",
+      "0000000BB0000000"
+    ]
+  },
+"villager_tundra": {
+    "name": "Villager Tundra",
+    "category": "Overworld Mobs",
+    "pixelSize": 16,
+    "colors": {
+      "0": "#00000000",
+      "1": "#e7e5d8ff",
+      "2": "#f7f5e8ff",
+      "3": "#d1cfc3ff",
+      "4": "#418693ff",
+      "5": "#34737eff",
+      "6": "#1a4a52ff",
+      "7": "#c38268ff",
+      "8": "#221611ff",
+      "9": "#ffffffff",
+      "A": "#3da113ff",
+      "B": "#cc8a70ff",
+      "C": "#b77459ff",
+      "D": "#8b5743ff",
+      "E": "#6f3117ff"
+    },
+    "data": [
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000122213310000",
+      "0004455555544000",
+      "0005422222144000",
+      "0006122221336000",
+      "0003312222222000",
+      "0000788888870000",
+      "000079ABBA970000",
+      "0000C7BDDB7C0000",
+      "0000C7EDDE7C0000",
+      "0000C77DD77C0000",
+      "0000000DD0000000"
+    ]
+  },
+"villager_weaponsmith": {
+    "name": "Villager Weaponsmith",
+    "category": "Overworld Mobs",
+    "pixelSize": 16,
+    "colors": {
+      "0": "#00000000",
+      "1": "#cc8a70ff",
+      "2": "#bd7c62ff",
+      "3": "#c38268ff",
+      "4": "#3a2b23ff",
+      "5": "#b77459ff",
+      "6": "#221611ff",
+      "7": "#2c1c19ff",
+      "8": "#ffffffff",
+      "9": "#3da113ff",
+      "A": "#261815ff",
+      "B": "#8b5743ff",
+      "C": "#6f3117ff"
+    },
+    "data": [
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000111111120000",
+      "0000111111110000",
+      "0000113111110000",
+      "0000445111130000",
+      "0000354451330000",
+      "0000366647730000",
+      "00003891A77A0000",
+      "0000531BBAA50000",
+      "000053CBBC350000",
+      "0000533BB3350000",
+      "0000000BB0000000"
+    ]
+  },
+"wandering_trader": {
+    "name": "Wandering Trader",
+    "category": "Overworld Mobs",
+    "pixelSize": 16,
+    "colors": {
+      "0": "#00000000",
+      "1": "#1c3462ff",
+      "2": "#233c6cff",
+      "3": "#182e56ff",
+      "4": "#bd8600ff",
+      "5": "#d9a400ff",
+      "6": "#680000ff",
+      "7": "#810000ff",
+      "8": "#cf9c00ff",
+      "9": "#3e2a22ff",
+      "A": "#e9bb00ff",
+      "B": "#ffffffff",
+      "C": "#3da113ff",
+      "D": "#c18b79ff",
+      "E": "#ab7666ff",
+      "F": "#d19987ff",
+      "G": "#7e4f3cff",
+      "H": "#4e0000ff",
+      "I": "#284481ff",
+      "J": "#23421cff"
+    },
+    "data": [
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000012222200000",
+      "0000133113310000",
+      "0000333333330000",
+      "0000144554410000",
+      "0000446776440000",
+      "0000899999980000",
+      "0000ABCDECBA0000",
+      "0000AFDGGEEA0000",
+      "0000866GG6680000",
+      "00004HHGGHH40000",
+      "0000I4JGGJ4I0000"
+    ]
+  },
+"warden": {
+    "name": "Warden",
+    "category": "Overworld Mobs",
+    "pixelSize": 16,
+    "colors": {
+      "0": "#003a4eff",
+      "1": "#003f55ff",
+      "2": "#003547ff",
+      "3": "#002f3fff",
+      "4": "#002b39ff",
+      "5": "#003243ff",
+      "6": "#00222eff",
+      "7": "#002634ff",
+      "8": "#002938ff",
+      "9": "#002837ff",
+      "A": "#00212dff",
+      "B": "#002533ff",
+      "C": "#001f2aff",
+      "D": "#002736ff",
+      "E": "#001f2bff",
+      "F": "#00202bff",
+      "G": "#001a24ff",
+      "H": "#001d28ff",
+      "I": "#001c27ff",
+      "J": "#00212cff",
+      "K": "#002937ff",
+      "L": "#003041ff",
+      "M": "#002e3eff",
+      "N": "#001a23ff",
+      "O": "#00080cff",
+      "P": "#00151dff",
+      "Q": "#00151cff",
+      "R": "#002430ff",
+      "S": "#00202cff",
+      "T": "#001d29ff"
+    },
+    "data": [
+      "0100100001101000",
+      "2022020220223022",
+      "4554643442233443",
+      "789667A64B7BB746",
+      "CCDEFFCGGEEEE676",
+      "HHGGGGGGGGIIEEIF",
+      "GGGGHJKKKKJHIGIG",
+      "GGGJKKL00LKKGGGG",
+      "GGGMNOOOOOOPMGGG",
+      "JGMOOOOOOOOOOMGG",
+      "JGKOOQQQQQQOORGG",
+      "GSOOQQIIIIQQOOSG",
+      "GSKQQ000000QQKSG",
+      "GGTL0JTTTTJ0LJGG",
+      "GGTTTGGGGGGJJJGG",
+      "GGGTTGGGGGGGJGGG"
+    ]
+  },
+"warped_fungus": {
     name: "Warped Fungus",
     category: "Nether",
     pixelSize: 16,
@@ -10691,8 +17136,7 @@ window.PICTURES = {
       "0000000BA0000000"
     ]
   },
-
-  "warped_fungus_on_a_stick": {
+"warped_fungus_on_a_stick": {
     name: "Warped Fungus On A Stick",
     category: "Nether",
     pixelSize: 16,
@@ -10737,8 +17181,7 @@ window.PICTURES = {
       "0000000000000000"
     ]
   },
-
-  "warped_nylium_side": {
+"warped_nylium_side": {
     name: "Warped Nylium Side",
     category: "Nether",
     pixelSize: 16,
@@ -10776,8 +17219,7 @@ window.PICTURES = {
       "BB8AAB8A79B8AA88"
     ]
   },
-
-  "wheat_stage_7": {
+"wheat_stage_7": {
     name: "Wheat Stage 7",
     category: "Plants",
     pixelSize: 16,
@@ -10809,8 +17251,1039 @@ window.PICTURES = {
       "6034604606036060"
     ]
   },
-
-  "wood_axe": {
+"witch": {
+    "name": "Witch",
+    "category": "Overworld Mobs",
+    "pixelSize": 16,
+    "colors": {
+      "0": "#00000000",
+      "1": "#060606ff",
+      "2": "#0e0e0eff",
+      "3": "#1c1c1cff",
+      "4": "#364435ff",
+      "5": "#1c7e17ff",
+      "6": "#2e2e2eff",
+      "7": "#484848ff",
+      "8": "#3bbb35ff",
+      "9": "#4e4e4eff",
+      "A": "#222222ff",
+      "B": "#bda9a1ff",
+      "C": "#b39f99ff",
+      "D": "#38261fff",
+      "E": "#ffffffff",
+      "F": "#7b608bff",
+      "G": "#9f8d88ff",
+      "H": "#ab9b95ff",
+      "I": "#b7a49cff",
+      "J": "#996049ff",
+      "K": "#a56c55ff"
+    },
+    "data": [
+      "0000001233000000",
+      "0000001112000000",
+      "0000011454300000",
+      "0000067585900000",
+      "0000011454200000",
+      "00122222333AAA00",
+      "0011111222233A00",
+      "0000BBBCBCBB0000",
+      "0000BCCCCCCB0000",
+      "0000BCCCCCCB0000",
+      "0000BDDDDDDB0000",
+      "0000BEFBBFEB0000",
+      "0000GHIJJIHG0000",
+      "0000GHHJJHHG0000",
+      "0000GHHJKHHG0000",
+      "0000000JJ0000000"
+    ]
+  },
+"wither": {
+    "name": "Wither",
+    "category": "Nether Mobs",
+    "pixelSize": 16,
+    "colors": {
+      "0": "#00000000",
+      "1": "#363636ff",
+      "2": "#282828ff",
+      "3": "#2e2e2eff",
+      "4": "#484848ff",
+      "5": "#2d2d2dff",
+      "6": "#202020ff",
+      "7": "#040404ff",
+      "8": "#080808ff",
+      "9": "#dcdcdcff",
+      "A": "#363b3aff",
+      "B": "#242424ff",
+      "C": "#060707ff",
+      "D": "#373737ff",
+      "E": "#000000ff",
+      "F": "#141414ff",
+      "G": "#dedfdfff",
+      "H": "#d8d8d8ff"
+    },
+    "data": [
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "1213100000012131",
+      "2454612113624546",
+      "7848721211178487",
+      "99499A4544A99499",
+      "B6666C84D8CB6666",
+      "0EEF4G9D49G4FEE0",
+      "00EEAA4444AAEE00",
+      "00006BHHHHBB0000",
+      "0000B66666BB0000"
+    ]
+  },
+"wither_blue_wither_skull": {
+    "name": "Wither Blue Wither Skull",
+    "category": "Nether Mobs",
+    "pixelSize": 16,
+    "colors": {
+      "0": "#4b8fbdff",
+      "1": "#366788ff",
+      "2": "#519bccff",
+      "3": "#386b8cff",
+      "4": "#9fc5deff",
+      "5": "#80b4d7ff",
+      "6": "#86b2cfff",
+      "7": "#54a0d3ff",
+      "8": "#73a6c9ff",
+      "9": "#7ab3daff",
+      "A": "#a0c7e1ff",
+      "B": "#dde5eaff",
+      "C": "#2d5571ff",
+      "D": "#dee7edff",
+      "E": "#dde6ecff",
+      "F": "#2b536dff",
+      "G": "#77afd4ff"
+    },
+    "data": [
+      "0000110000223300",
+      "0000110000223300",
+      "4455001100000066",
+      "4455001100000066",
+      "2277002200007777",
+      "2277002200007777",
+      "77770000228899AA",
+      "77770000228899AA",
+      "00BBBB2200BBBB00",
+      "00BBBB2200BBBB00",
+      "7777000000007777",
+      "7777000000007777",
+      "CC11DDEEEEDD11FF",
+      "CC11DDEEEEDD11FF",
+      "GG77DDDDDDDD22GG",
+      "GG77DDDDDDDD22GG"
+    ]
+  },
+"wither_wither_skull": {
+    "name": "Wither Wither Skull",
+    "category": "Nether Mobs",
+    "pixelSize": 16,
+    "colors": {
+      "0": "#2d2d2dff",
+      "1": "#363636ff",
+      "2": "#282828ff",
+      "3": "#667673ff",
+      "4": "#576462ff",
+      "5": "#dde5eaff",
+      "6": "#dee7edff",
+      "7": "#dde6ecff",
+      "8": "#616867ff",
+      "9": "#61726fff"
+    },
+    "data": [
+      "0011221111110011",
+      "0011221111110011",
+      "3344112211111144",
+      "3344112211111144",
+      "0011001122221111",
+      "0011001122221111",
+      "1100111111444433",
+      "1100111111444433",
+      "2255551111555522",
+      "2255551111555522",
+      "3344000011112244",
+      "3344000011112244",
+      "2200667777660022",
+      "2200667777660022",
+      "8822666666664499",
+      "8822666666664499"
+    ]
+  },
+"wolf_ashen": {
+    "name": "Wolf Ashen",
+    "category": "Overworld Mobs",
+    "pixelSize": 16,
+    "colors": {
+      "0": "#00000000",
+      "1": "#9c929fff",
+      "2": "#948b93ff",
+      "3": "#89848eff",
+      "4": "#7f7c8bff",
+      "5": "#a4a3b2ff",
+      "6": "#bbc0c8ff",
+      "7": "#ffffffff",
+      "8": "#181f26ff",
+      "9": "#d6dfe0ff",
+      "A": "#151313ff",
+      "B": "#121416ff",
+      "C": "#f2f7edff",
+      "D": "#393c3fff"
+    },
+    "data": [
+      "0011220000221100",
+      "0011220000221100",
+      "0022330000332200",
+      "0022330000332200",
+      "0044111111114400",
+      "0044111111114400",
+      "0033556666553300",
+      "0033556666553300",
+      "0077889999AA7700",
+      "0077889999AA7700",
+      "0099677BB7769900",
+      "0099677BB7769900",
+      "00665CCCCCC56600",
+      "00665CCCCCC56600",
+      "00555DDDDDD55500",
+      "00555DDDDDD55500"
+    ]
+  },
+"wolf_black": {
+    "name": "Wolf Black",
+    "category": "Overworld Mobs",
+    "pixelSize": 16,
+    "colors": {
+      "0": "#00000000",
+      "1": "#242126ff",
+      "2": "#1c1719ff",
+      "3": "#2a2930ff",
+      "4": "#39363cff",
+      "5": "#454044ff",
+      "6": "#302f39ff",
+      "7": "#ffffffff",
+      "8": "#000000ff"
+    },
+    "data": [
+      "0011110000111100",
+      "0011110000111100",
+      "0022220000222200",
+      "0022220000222200",
+      "0033445555443300",
+      "0033445555443300",
+      "0066334444336600",
+      "0066334444336600",
+      "0077881166887700",
+      "0077881166887700",
+      "0033355885533300",
+      "0033355885533300",
+      "0011244444421100",
+      "0011244444421100",
+      "0022288888822200",
+      "0022288888822200"
+    ]
+  },
+"wolf_chestnut": {
+    "name": "Wolf Chestnut",
+    "category": "Overworld Mobs",
+    "pixelSize": 16,
+    "colors": {
+      "0": "#00000000",
+      "1": "#c7a597ff",
+      "2": "#bf9d8fff",
+      "3": "#9b8278ff",
+      "4": "#8d7870ff",
+      "5": "#c2a594ff",
+      "6": "#e1c0aeff",
+      "7": "#88716aff",
+      "8": "#5c4a4cff",
+      "9": "#d0b09eff",
+      "A": "#ffffffff",
+      "B": "#030405ff",
+      "C": "#433538ff",
+      "D": "#020101ff",
+      "E": "#010202ff",
+      "F": "#3a2e31ff",
+      "G": "#33282bff",
+      "H": "#504143ff"
+    },
+    "data": [
+      "0011220000221100",
+      "0011220000221100",
+      "0033440000334400",
+      "0033440000334400",
+      "0055667733665500",
+      "0055667733665500",
+      "0055338888339900",
+      "0055338888339900",
+      "00AABBCCCCDDAA00",
+      "00AABBCCCCDDAA00",
+      "0033C88EE88C3300",
+      "0033C88EE88C3300",
+      "00FFGHHHHHHGFF00",
+      "00FFGHHHHHHGFF00",
+      "00GGGEEEEEEGGG00",
+      "00GGGEEEEEEGGG00"
+    ]
+  },
+"wolf_pale": {
+    "name": "Wolf Pale",
+    "category": "Overworld Mobs",
+    "pixelSize": 16,
+    "colors": {
+      "0": "#00000000",
+      "1": "#ddddddff",
+      "2": "#cfcfcfff",
+      "3": "#d8d8d8ff",
+      "4": "#d4d4d4ff",
+      "5": "#cdccccff",
+      "6": "#ffffffff",
+      "7": "#000000ff",
+      "8": "#a58c72ff",
+      "9": "#978a7cff",
+      "A": "#d5c9bcff",
+      "B": "#1a1816ff",
+      "C": "#916f4aff",
+      "D": "#44403cff"
+    },
+    "data": [
+      "0011110000111100",
+      "0011110000111100",
+      "0022220000222200",
+      "0022220000222200",
+      "0011113333111100",
+      "0011113333111100",
+      "0044553333554400",
+      "0044553333554400",
+      "0066778888776600",
+      "0066778888776600",
+      "00889AABBAAC8800",
+      "00889AABBAAC8800",
+      "00CC9AAAAAA9CC00",
+      "00CC9AAAAAA9CC00",
+      "0099ADDDDDDA9900",
+      "0099ADDDDDDA9900"
+    ]
+  },
+"wolf_rusty": {
+    "name": "Wolf Rusty",
+    "category": "Overworld Mobs",
+    "pixelSize": 16,
+    "colors": {
+      "0": "#00000000",
+      "1": "#f1ece6ff",
+      "2": "#e5dfdaff",
+      "3": "#dfd4c8ff",
+      "4": "#6b4234ff",
+      "5": "#7a4b3cff",
+      "6": "#875237ff",
+      "7": "#a8624aff",
+      "8": "#ffffffff",
+      "9": "#121416ff",
+      "A": "#613a2bff",
+      "B": "#d2874fff",
+      "C": "#c8a892ff",
+      "D": "#f6f2eaff"
+    },
+    "data": [
+      "0011220000221100",
+      "0011220000221100",
+      "0033330000333300",
+      "0033330000333300",
+      "0044555566554400",
+      "0044555566554400",
+      "0066775555776600",
+      "0066775555776600",
+      "008899AA44998800",
+      "008899AA44998800",
+      "00777BB99BB77700",
+      "00777BB99BB77700",
+      "0033CDDDDDDC3300",
+      "0033CDDDDDDC3300",
+      "00CCC999999CCC00",
+      "00CCC999999CCC00"
+    ]
+  },
+"wolf_snowy": {
+    "name": "Wolf Snowy",
+    "category": "Overworld Mobs",
+    "pixelSize": 16,
+    "colors": {
+      "0": "#00000000",
+      "1": "#f5f5ebff",
+      "2": "#fffffaff",
+      "3": "#d0d9daff",
+      "4": "#b6bbc2ff",
+      "5": "#a6abb4ff",
+      "6": "#e4ebe4ff",
+      "7": "#ffffffff",
+      "8": "#181f26ff",
+      "9": "#151313ff",
+      "A": "#121416ff",
+      "B": "#9f9eadff"
+    },
+    "data": [
+      "0011220000222200",
+      "0011220000222200",
+      "0011110000111100",
+      "0011110000111100",
+      "0033334444333300",
+      "0033334444333300",
+      "0033444455446600",
+      "0033444455446600",
+      "0077885555997700",
+      "0077885555997700",
+      "0033444AA4443300",
+      "0033444AA4443300",
+      "0044B555555B4400",
+      "0044B555555B4400",
+      "00BBBAAAAAABBB00",
+      "00BBBAAAAAABBB00"
+    ]
+  },
+"wolf_spotted": {
+    "name": "Wolf Spotted",
+    "category": "Overworld Mobs",
+    "pixelSize": 16,
+    "colors": {
+      "0": "#00000000",
+      "1": "#fffffaff",
+      "2": "#f5f5ebff",
+      "3": "#dfd4c8ff",
+      "4": "#b0672bff",
+      "5": "#905e2eff",
+      "6": "#393843ff",
+      "7": "#41404dff",
+      "8": "#775230ff",
+      "9": "#302f37ff",
+      "A": "#ffffffff",
+      "B": "#000000ff",
+      "C": "#2a282fff",
+      "D": "#232126ff"
+    },
+    "data": [
+      "0011220000221100",
+      "0011220000221100",
+      "0022330000332200",
+      "0022330000332200",
+      "0044556677554400",
+      "0044556677554400",
+      "0088996666998800",
+      "0088996666998800",
+      "00AABBCC99BBAA00",
+      "00AABBCC99BBAA00",
+      "0099C77BB77C9900",
+      "0099C77BB77C9900",
+      "0099D666666D9900",
+      "0099D666666D9900",
+      "00DDDBBBBBBDDD00",
+      "00DDDBBBBBBDDD00"
+    ]
+  },
+"wolf_state_angry": {
+    "name": "Wolf State Angry",
+    "category": "Overworld Mobs",
+    "pixelSize": 16,
+    "colors": {
+      "0": "#00000000",
+      "1": "#000000ce",
+      "2": "#151313ff",
+      "3": "#970000ff",
+      "4": "#ff3737ff"
+    },
+    "data": [
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0011000000001100",
+      "0011000000001100",
+      "0022220000222200",
+      "0022220000222200",
+      "0033440000443300",
+      "0033440000443300",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000"
+    ]
+  },
+"wolf_state_tamed_black": {
+    "name": "Wolf State Tamed Black",
+    "category": "Overworld Mobs",
+    "pixelSize": 16,
+    "colors": {
+      "0": "#00000000",
+      "1": "#ffffffff",
+      "2": "#121212ff",
+      "3": "#202020ff",
+      "4": "#323232ff"
+    },
+    "data": [
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000110000110000",
+      "0000110000110000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0200000000000020",
+      "0300000000000030",
+      "0400000000000040"
+    ]
+  },
+"wolf_state_tamed_blue": {
+    "name": "Wolf State Tamed Blue",
+    "category": "Overworld Mobs",
+    "pixelSize": 16,
+    "colors": {
+      "0": "#00000000",
+      "1": "#ffffffff",
+      "2": "#001559ff",
+      "3": "#001f5eff",
+      "4": "#002e7dff"
+    },
+    "data": [
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000110000110000",
+      "0000110000110000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0200000000000020",
+      "0300000000000030",
+      "0400000000000040"
+    ]
+  },
+"wolf_state_tamed_brown": {
+    "name": "Wolf State Tamed Brown",
+    "category": "Overworld Mobs",
+    "pixelSize": 16,
+    "colors": {
+      "0": "#00000000",
+      "1": "#ffffffff",
+      "2": "#4c2900ff",
+      "3": "#573000ff",
+      "4": "#6f4200ff"
+    },
+    "data": [
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000110000110000",
+      "0000110000110000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0200000000000020",
+      "0300000000000030",
+      "0400000000000040"
+    ]
+  },
+"wolf_state_tamed_cyan": {
+    "name": "Wolf State Tamed Cyan",
+    "category": "Overworld Mobs",
+    "pixelSize": 16,
+    "colors": {
+      "0": "#00000000",
+      "1": "#ffffffff",
+      "2": "#00545bff",
+      "3": "#00626dff",
+      "4": "#007083ff"
+    },
+    "data": [
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000110000110000",
+      "0000110000110000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0200000000000020",
+      "0300000000000030",
+      "0400000000000040"
+    ]
+  },
+"wolf_state_tamed_dark_green": {
+    "name": "Wolf State Tamed Dark Green",
+    "category": "Overworld Mobs",
+    "pixelSize": 16,
+    "colors": {
+      "0": "#00000000",
+      "1": "#ffffffff",
+      "2": "#085300ff",
+      "3": "#0b6000ff",
+      "4": "#266f00ff"
+    },
+    "data": [
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000110000110000",
+      "0000110000110000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0200000000000020",
+      "0300000000000030",
+      "0400000000000040"
+    ]
+  },
+"wolf_state_tamed_gray": {
+    "name": "Wolf State Tamed Gray",
+    "category": "Overworld Mobs",
+    "pixelSize": 16,
+    "colors": {
+      "0": "#00000000",
+      "1": "#ffffffff",
+      "2": "#4a4a4aff",
+      "3": "#575757ff",
+      "4": "#666666ff"
+    },
+    "data": [
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000110000110000",
+      "0000110000110000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0200000000000020",
+      "0300000000000030",
+      "0400000000000040"
+    ]
+  },
+"wolf_state_tamed_light_blue": {
+    "name": "Wolf State Tamed Light Blue",
+    "category": "Overworld Mobs",
+    "pixelSize": 16,
+    "colors": {
+      "0": "#00000000",
+      "1": "#ffffffff",
+      "2": "#0076b4ff",
+      "3": "#0083d6ff",
+      "4": "#1193ffff"
+    },
+    "data": [
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000110000110000",
+      "0000110000110000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0200000000000020",
+      "0300000000000030",
+      "0400000000000040"
+    ]
+  },
+"wolf_state_tamed_light_gray": {
+    "name": "Wolf State Tamed Light Gray",
+    "category": "Overworld Mobs",
+    "pixelSize": 16,
+    "colors": {
+      "0": "#00000000",
+      "1": "#ffffffff",
+      "2": "#868686ff",
+      "3": "#979797ff",
+      "4": "#a9a9a9ff"
+    },
+    "data": [
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000110000110000",
+      "0000110000110000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0200000000000020",
+      "0300000000000030",
+      "0400000000000040"
+    ]
+  },
+"wolf_state_tamed_lime": {
+    "name": "Wolf State Tamed Lime",
+    "category": "Overworld Mobs",
+    "pixelSize": 16,
+    "colors": {
+      "0": "#00000000",
+      "1": "#ffffffff",
+      "2": "#38cd00ff",
+      "3": "#6fe100ff",
+      "4": "#80ff29ff"
+    },
+    "data": [
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000110000110000",
+      "0000110000110000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0200000000000020",
+      "0300000000000030",
+      "0400000000000040"
+    ]
+  },
+"wolf_state_tamed_magenta": {
+    "name": "Wolf State Tamed Magenta",
+    "category": "Overworld Mobs",
+    "pixelSize": 16,
+    "colors": {
+      "0": "#00000000",
+      "1": "#ffffffff",
+      "2": "#9a216fff",
+      "3": "#a9247fff",
+      "4": "#c42a9aff"
+    },
+    "data": [
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000110000110000",
+      "0000110000110000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0200000000000020",
+      "0300000000000030",
+      "0400000000000040"
+    ]
+  },
+"wolf_state_tamed_orange": {
+    "name": "Wolf State Tamed Orange",
+    "category": "Overworld Mobs",
+    "pixelSize": 16,
+    "colors": {
+      "0": "#00000000",
+      "1": "#ffffffff",
+      "2": "#bf3300ff",
+      "3": "#d54c00ff",
+      "4": "#f57200ff"
+    },
+    "data": [
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000110000110000",
+      "0000110000110000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0200000000000020",
+      "0300000000000030",
+      "0400000000000040"
+    ]
+  },
+"wolf_state_tamed_pink": {
+    "name": "Wolf State Tamed Pink",
+    "category": "Overworld Mobs",
+    "pixelSize": 16,
+    "colors": {
+      "0": "#00000000",
+      "1": "#ffffffff",
+      "2": "#ff4a8aff",
+      "3": "#ff6897ff",
+      "4": "#ff89abff"
+    },
+    "data": [
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000110000110000",
+      "0000110000110000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0200000000000020",
+      "0300000000000030",
+      "0400000000000040"
+    ]
+  },
+"wolf_state_tamed_purple": {
+    "name": "Wolf State Tamed Purple",
+    "category": "Overworld Mobs",
+    "pixelSize": 16,
+    "colors": {
+      "0": "#00000000",
+      "1": "#ffffffff",
+      "2": "#3d0055ff",
+      "3": "#4a0067ff",
+      "4": "#57007aff"
+    },
+    "data": [
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000110000110000",
+      "0000110000110000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0200000000000020",
+      "0300000000000030",
+      "0400000000000040"
+    ]
+  },
+"wolf_state_tamed_red": {
+    "name": "Wolf State Tamed Red",
+    "category": "Overworld Mobs",
+    "pixelSize": 16,
+    "colors": {
+      "0": "#00000000",
+      "1": "#ffffffff",
+      "2": "#9b0900ff",
+      "3": "#b70b00ff",
+      "4": "#c3160bff"
+    },
+    "data": [
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000110000110000",
+      "0000110000110000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0200000000000020",
+      "0300000000000030",
+      "0400000000000040"
+    ]
+  },
+"wolf_state_tamed_white": {
+    "name": "Wolf State Tamed White",
+    "category": "Overworld Mobs",
+    "pixelSize": 16,
+    "colors": {
+      "0": "#00000000",
+      "1": "#ffffffff",
+      "2": "#dadadaff",
+      "3": "#e2e2e2ff",
+      "4": "#f4f4f4ff"
+    },
+    "data": [
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000110000110000",
+      "0000110000110000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0200000000000020",
+      "0300000000000030",
+      "0400000000000040"
+    ]
+  },
+"wolf_state_tamed_yellow": {
+    "name": "Wolf State Tamed Yellow",
+    "category": "Overworld Mobs",
+    "pixelSize": 16,
+    "colors": {
+      "0": "#00000000",
+      "1": "#ffffffff",
+      "2": "#ff9c0aff",
+      "3": "#ffbb17ff",
+      "4": "#ffd237ff"
+    },
+    "data": [
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000110000110000",
+      "0000110000110000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0200000000000020",
+      "0300000000000030",
+      "0400000000000040"
+    ]
+  },
+"wolf_striped": {
+    "name": "Wolf Striped",
+    "category": "Overworld Mobs",
+    "pixelSize": 16,
+    "colors": {
+      "0": "#00000000",
+      "1": "#cf9469ff",
+      "2": "#dda67eff",
+      "3": "#b77d54ff",
+      "4": "#bfa779ff",
+      "5": "#dcc191ff",
+      "6": "#998662ff",
+      "7": "#ae986fff",
+      "8": "#5c503fff",
+      "9": "#ccb282ff",
+      "A": "#ffffffff",
+      "B": "#030405ff",
+      "C": "#3c342aff",
+      "D": "#443c2fff",
+      "E": "#020101ff",
+      "F": "#857456ff",
+      "G": "#010202ff",
+      "H": "#2e2821ff",
+      "I": "#514738ff"
+    },
+    "data": [
+      "0011220000221100",
+      "0011220000221100",
+      "0033110000113300",
+      "0033110000113300",
+      "0044556677554400",
+      "0044556677554400",
+      "0044668888669900",
+      "0044668888669900",
+      "00AABBCCDDEEAA00",
+      "00AABBCCDDEEAA00",
+      "00FFD88GG88DFF00",
+      "00FFD88GG88DFF00",
+      "00CCHIIIIIIHCC00",
+      "00CCHIIIIIIHCC00",
+      "00HHHGGGGGGHHH00",
+      "00HHHGGGGGGHHH00"
+    ]
+  },
+"wolf_woods": {
+    "name": "Wolf Woods",
+    "category": "Overworld Mobs",
+    "pixelSize": 16,
+    "colors": {
+      "0": "#00000000",
+      "1": "#fffffaff",
+      "2": "#f5f5ebff",
+      "3": "#dfd4c8ff",
+      "4": "#e1dcd1ff",
+      "5": "#493b2aff",
+      "6": "#58472fff",
+      "7": "#665232ff",
+      "8": "#a97e56ff",
+      "9": "#98724dff",
+      "A": "#ffffffff",
+      "B": "#121416ff",
+      "C": "#3e3122ff",
+      "D": "#bc8b5fff",
+      "E": "#a89b88ff",
+      "F": "#948978ff",
+      "G": "#ddd0baff"
+    },
+    "data": [
+      "0011220000221100",
+      "0011220000221100",
+      "0033440000443300",
+      "0033440000443300",
+      "0055666677665500",
+      "0055666677665500",
+      "0088996666998800",
+      "0088996666998800",
+      "00AABBCC55BBAA00",
+      "00AABBCC55BBAA00",
+      "00889DDBBDD98800",
+      "00889DDBBDD98800",
+      "00EEFGGGGGGFEE00",
+      "00EEFGGGGGGFEE00",
+      "00FFFBBBBBBFFF00",
+      "00FFFBBBBBBFFF00"
+    ]
+  },
+"wood_axe": {
     name: "Wood Axe",
     category: "Weapons",
     pixelSize: 16,
@@ -10846,8 +18319,7 @@ window.PICTURES = {
       "0000000000000000"
     ]
   },
-
-  "wood_hoe": {
+"wood_hoe": {
     name: "Wood Hoe",
     category: "Tools",
     pixelSize: 16,
@@ -10880,8 +18352,7 @@ window.PICTURES = {
       "0000000000000000"
     ]
   },
-
-  "wood_pickaxe": {
+"wood_pickaxe": {
     name: "Wood Pickaxe",
     category: "Tools",
     pixelSize: 16,
@@ -10914,8 +18385,7 @@ window.PICTURES = {
       "0000000000000000"
     ]
   },
-
-  "wood_shovel": {
+"wood_shovel": {
     name: "Wood Shovel",
     category: "Tools",
     pixelSize: 16,
@@ -10950,8 +18420,7 @@ window.PICTURES = {
       "0000000000000000"
     ]
   },
-
-  "wood_sword": {
+"wood_sword": {
     name: "Wood Sword",
     category: "Weapons",
     pixelSize: 16,
@@ -10986,5 +18455,797 @@ window.PICTURES = {
       "1640000000000000",
       "4440000000000000"
     ]
-  }
+  },
+"zombie": {
+    "name": "Zombie",
+    "category": "Overworld Mobs",
+    "pixelSize": 16,
+    "colors": {
+      "0": "#336123ff",
+      "1": "#366725ff",
+      "2": "#2e5920ff",
+      "3": "#305c22ff",
+      "4": "#427c2eff",
+      "5": "#498135ff",
+      "6": "#4f843bff",
+      "7": "#14250eff",
+      "8": "#213e16ff",
+      "9": "#3a7128ff",
+      "A": "#336223ff",
+      "B": "#396e27ff",
+      "C": "#346323ff",
+      "D": "#356524ff",
+      "E": "#386a26ff"
+    },
+    "data": [
+      "0011110022333333",
+      "0011110022333333",
+      "1111004444442222",
+      "1111004444442222",
+      "1144444455444444",
+      "1144444455444444",
+      "4466665566555544",
+      "4466665566555544",
+      "4477776666777744",
+      "4477776666777744",
+      "4455558888554499",
+      "4455558888554499",
+      "4444AA4444AA44BB",
+      "4444AA4444AA44BB",
+      "1111CCCCDDAA11EE",
+      "1111CCCCDDAA11EE"
+    ]
+  },
+"zombie_drowned": {
+    "name": "Zombie Drowned",
+    "category": "Overworld Mobs",
+    "pixelSize": 16,
+    "colors": {
+      "0": "#06880aff",
+      "1": "#057d08ff",
+      "2": "#5eb997ff",
+      "3": "#5fad95ff",
+      "4": "#56a28cff",
+      "5": "#037507ff",
+      "6": "#5ca78fff",
+      "7": "#59c096ff",
+      "8": "#84efd8ff",
+      "9": "#6ed8c8ff"
+    },
+    "data": [
+      "0011002233223311",
+      "0011002233223311",
+      "0044556677662244",
+      "0044556677662244",
+      "5533442266776633",
+      "5533442266776633",
+      "4422336677663333",
+      "4422336677663333",
+      "3388883366888833",
+      "3388883366888833",
+      "3322449999444433",
+      "3322449999444433",
+      "3333888888883333",
+      "3333888888883333",
+      "4433444444443344",
+      "4433444444443344"
+    ]
+  },
+"zombie_husk": {
+    "name": "Zombie Husk",
+    "category": "Overworld Mobs",
+    "pixelSize": 16,
+    "colors": {
+      "0": "#b39d68ff",
+      "1": "#594e3dff",
+      "2": "#635744ff",
+      "3": "#c2ad7bff",
+      "4": "#b9a46fff",
+      "5": "#b7a26eff",
+      "6": "#6a5d49ff",
+      "7": "#bda775ff",
+      "8": "#b59f6aff",
+      "9": "#675943ff",
+      "A": "#5f5442ff",
+      "B": "#2e261cff",
+      "C": "#6c604cff",
+      "D": "#5b4e3cff",
+      "E": "#706451ff",
+      "F": "#615442ff",
+      "G": "#665844ff",
+      "H": "#5c5140ff",
+      "I": "#605542ff"
+    },
+    "data": [
+      "0011223333444400",
+      "0011223333444400",
+      "5522661177770088",
+      "5522661177770088",
+      "2299996622AA11AA",
+      "2299996622AA11AA",
+      "9966666666669999",
+      "9966666666669999",
+      "66BBBB6666BBBBCC",
+      "66BBBB6666BBBBCC",
+      "CCCC66DDDD6666CC",
+      "CCCC66DDDD6666CC",
+      "EE66FFGGGGDDCC66",
+      "EE66FFGGGGDDCC66",
+      "HHHHHHHHIIDDIIHH",
+      "HHHHHHHHIIDDIIHH"
+    ]
+  },
+"zombie_villager": {
+    "name": "Zombie Villager",
+    "category": "Overworld Mobs",
+    "pixelSize": 16,
+    "colors": {
+      "0": "#00000000",
+      "1": "#6c953bff",
+      "2": "#79a940ff",
+      "3": "#5f8334ff",
+      "4": "#5d8330ff",
+      "5": "#52702cff",
+      "6": "#6a8946ff",
+      "7": "#536839ff",
+      "8": "#476227ff",
+      "9": "#5f7446ff",
+      "A": "#3e5621ff",
+      "B": "#260c00ff",
+      "C": "#4e7025ff",
+      "D": "#ffffffff",
+      "E": "#830c00ff",
+      "F": "#24360eff",
+      "G": "#34481cff",
+      "H": "#2c3215ff",
+      "I": "#313621ff",
+      "J": "#314814ff",
+      "K": "#1d2c0aff",
+      "L": "#3a3420ff"
+    },
+    "data": [
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000121121230000",
+      "0000411224150000",
+      "0000414167180000",
+      "0000544476280000",
+      "00008914121A0000",
+      "0000ABBBBBBA0000",
+      "0000CDEAAEDC0000",
+      "0000FAGHIGAF0000",
+      "0000FJKIHKJF0000",
+      "0000FJJHHJJF0000",
+      "0000000LL0000000"
+    ]
+  },
+"zombie_villager_armorer": {
+    "name": "Zombie Villager Armorer",
+    "category": "Overworld Mobs",
+    "pixelSize": 16,
+    "colors": {
+      "0": "#00000000",
+      "1": "#565656ff",
+      "2": "#686868ff",
+      "3": "#878787ff",
+      "4": "#767676ff",
+      "5": "#192906ff",
+      "6": "#172805ff",
+      "7": "#162505ff",
+      "8": "#464646ff",
+      "9": "#404040ff",
+      "A": "#283d0fff",
+      "B": "#2c4212ff",
+      "C": "#1e2f0aff",
+      "D": "#260c00ff",
+      "E": "#4e7025ff",
+      "F": "#ffffffff",
+      "G": "#830c00ff",
+      "H": "#3e5621ff",
+      "I": "#24360eff",
+      "J": "#34481cff",
+      "K": "#2c3215ff",
+      "L": "#313621ff",
+      "M": "#314814ff",
+      "N": "#1d2c0aff",
+      "O": "#3a3420ff"
+    },
+    "data": [
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000123333210000",
+      "0000112442110000",
+      "0000156227510000",
+      "0000144884410000",
+      "0000999AB9990000",
+      "0000CDDDDDDC0000",
+      "0000EFGHHGFE0000",
+      "0000IHJKLJHI0000",
+      "0000IMNLKNMI0000",
+      "0000IMMKKMMI0000",
+      "0000000OO0000000"
+    ]
+  },
+"zombie_villager_butcher": {
+    "name": "Zombie Villager Butcher",
+    "category": "Overworld Mobs",
+    "pixelSize": 16,
+    "colors": {
+      "0": "#00000000",
+      "1": "#6c953bff",
+      "2": "#79a940ff",
+      "3": "#5f8334ff",
+      "4": "#5d8330ff",
+      "5": "#52702cff",
+      "6": "#994949ff",
+      "7": "#7c3535ff",
+      "8": "#476227ff",
+      "9": "#5f7446ff",
+      "A": "#3e5621ff",
+      "B": "#260c00ff",
+      "C": "#4e7025ff",
+      "D": "#ffffffff",
+      "E": "#830c00ff",
+      "F": "#24360eff",
+      "G": "#34481cff",
+      "H": "#2c3215ff",
+      "I": "#313621ff",
+      "J": "#314814ff",
+      "K": "#1d2c0aff",
+      "L": "#3a3420ff"
+    },
+    "data": [
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000121121230000",
+      "0000411224150000",
+      "0000666666660000",
+      "0000766666670000",
+      "00008914121A0000",
+      "0000ABBBBBBA0000",
+      "0000CDEAAEDC0000",
+      "0000FAGHIGAF0000",
+      "0000FJKIHKJF0000",
+      "0000FJJHHJJF0000",
+      "0000000LL0000000"
+    ]
+  },
+"zombie_villager_cleric": {
+    "name": "Zombie Villager Cleric",
+    "category": "Overworld Mobs",
+    "pixelSize": 16,
+    "colors": {
+      "0": "#00000000",
+      "1": "#6c953bff",
+      "2": "#79a940ff",
+      "3": "#5f8334ff",
+      "4": "#5d8330ff",
+      "5": "#52702cff",
+      "6": "#6a8946ff",
+      "7": "#536839ff",
+      "8": "#476227ff",
+      "9": "#5f7446ff",
+      "A": "#3e5621ff",
+      "B": "#260c00ff",
+      "C": "#4e7025ff",
+      "D": "#ffffffff",
+      "E": "#830c00ff",
+      "F": "#24360eff",
+      "G": "#34481cff",
+      "H": "#2c3215ff",
+      "I": "#313621ff",
+      "J": "#af6808ff",
+      "K": "#cd7805ff",
+      "L": "#314814ff",
+      "M": "#1d2c0aff",
+      "N": "#895207ff",
+      "O": "#3a3420ff"
+    },
+    "data": [
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000121121230000",
+      "0000411224150000",
+      "0000414167180000",
+      "0000544476280000",
+      "00008914121A0000",
+      "0000ABBBBBBA0000",
+      "0000CDEAAEDC0000",
+      "0000FAGHIGAF0000",
+      "000JKLMIHMLKJ000",
+      "0000NLLHHLLN0000",
+      "0000000OO0000000"
+    ]
+  },
+"zombie_villager_desert": {
+    "name": "Zombie Villager Desert",
+    "category": "Overworld Mobs",
+    "pixelSize": 16,
+    "colors": {
+      "0": "#00000000",
+      "1": "#b19063ff",
+      "2": "#bb9b6fff",
+      "3": "#cdab7eff",
+      "4": "#ab8653ff",
+      "5": "#cb5100ff",
+      "6": "#bb4b00ff",
+      "7": "#a74300ff",
+      "8": "#3e5621ff",
+      "9": "#260c00ff",
+      "A": "#4e7025ff",
+      "B": "#ffffffff",
+      "C": "#830c00ff",
+      "D": "#24360eff",
+      "E": "#34481cff",
+      "F": "#2c3215ff",
+      "G": "#313621ff",
+      "H": "#314814ff",
+      "I": "#1d2c0aff",
+      "J": "#3a3420ff"
+    },
+    "data": [
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000123333210000",
+      "0000111221110000",
+      "0000444444440000",
+      "0005555555555000",
+      "0006666666666000",
+      "0007879797970000",
+      "0000ABC88CBA0000",
+      "0000D8EFGE8D0000",
+      "0000DHIGFIHD0000",
+      "0000DHHFFHHD0000",
+      "0000000JJ0000000"
+    ]
+  },
+"zombie_villager_farmer": {
+    "name": "Zombie Villager Farmer",
+    "category": "Overworld Mobs",
+    "pixelSize": 16,
+    "colors": {
+      "0": "#00000000",
+      "1": "#edb546ff",
+      "2": "#f3c05aff",
+      "3": "#f9c96bff",
+      "4": "#dda73dff",
+      "5": "#bf8e2dff",
+      "6": "#48301dff",
+      "7": "#563922ff",
+      "8": "#765032ff",
+      "9": "#3e5621ff",
+      "A": "#260c00ff",
+      "B": "#4e7025ff",
+      "C": "#ffffffff",
+      "D": "#830c00ff",
+      "E": "#24360eff",
+      "F": "#34481cff",
+      "G": "#2c3215ff",
+      "H": "#313621ff",
+      "I": "#314814ff",
+      "J": "#1d2c0aff",
+      "K": "#3a3420ff"
+    },
+    "data": [
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000123232310000",
+      "0000412121240000",
+      "0000541414450000",
+      "0000677888760000",
+      "0045454545454500",
+      "00009AAAAAA90000",
+      "0000BCD99DCB0000",
+      "0000E9FGHF9E0000",
+      "0000EIJHGJIE0000",
+      "0000EIIGGIIE0000",
+      "0000000KK0000000"
+    ]
+  },
+"zombie_villager_fisherman": {
+    "name": "Zombie Villager Fisherman",
+    "category": "Overworld Mobs",
+    "pixelSize": 16,
+    "colors": {
+      "0": "#00000000",
+      "1": "#9d6e2dff",
+      "2": "#724f1dff",
+      "3": "#5e4118ff",
+      "4": "#48301dff",
+      "5": "#563922ff",
+      "6": "#765032ff",
+      "7": "#476227ff",
+      "8": "#5f7446ff",
+      "9": "#6c953bff",
+      "A": "#5d8330ff",
+      "B": "#79a940ff",
+      "C": "#3e5621ff",
+      "D": "#260c00ff",
+      "E": "#4e7025ff",
+      "F": "#ffffffff",
+      "G": "#830c00ff",
+      "H": "#24360eff",
+      "I": "#34481cff",
+      "J": "#2c3215ff",
+      "K": "#313621ff",
+      "L": "#314814ff",
+      "M": "#1d2c0aff",
+      "N": "#3a3420ff"
+    },
+    "data": [
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000112211110000",
+      "0000222322220000",
+      "0001121111111000",
+      "0004455666544000",
+      "0000789A9B9C0000",
+      "0000CDDDDDDC0000",
+      "0000EFGCCGFE0000",
+      "0000HCIJKICH0000",
+      "0000HLMKJMLH0000",
+      "0000HLLJJLLH0000",
+      "0000000NN0000000"
+    ]
+  },
+"zombie_villager_fletcher": {
+    "name": "Zombie Villager Fletcher",
+    "category": "Overworld Mobs",
+    "pixelSize": 16,
+    "colors": {
+      "0": "#00000000",
+      "1": "#543f2bff",
+      "2": "#6a523bff",
+      "3": "#4c3825ff",
+      "4": "#5c4733ff",
+      "5": "#70553aff",
+      "6": "#58422dff",
+      "7": "#3e5621ff",
+      "8": "#260c00ff",
+      "9": "#4e7025ff",
+      "A": "#ffffffff",
+      "B": "#830c00ff",
+      "C": "#24360eff",
+      "D": "#34481cff",
+      "E": "#2c3215ff",
+      "F": "#313621ff",
+      "G": "#314814ff",
+      "H": "#1d2c0aff",
+      "I": "#3a3420ff"
+    },
+    "data": [
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000112222110000",
+      "0000314224130000",
+      "0000331441330000",
+      "0000551111550000",
+      "0000665335660000",
+      "0000788888870000",
+      "00009AB77BA90000",
+      "0000C7DEFD7C0000",
+      "0000CGHFEHGC0000",
+      "0000CGGEEGGC0000",
+      "0000000II0000000"
+    ]
+  },
+"zombie_villager_librarian": {
+    "name": "Zombie Villager Librarian",
+    "category": "Overworld Mobs",
+    "pixelSize": 16,
+    "colors": {
+      "0": "#00000000",
+      "1": "#8b0000ff",
+      "2": "#640000ff",
+      "3": "#4e0000ff",
+      "4": "#c7c6c1ff",
+      "5": "#edebe2ff",
+      "6": "#870000ff",
+      "7": "#52702cff",
+      "8": "#5d8330ff",
+      "9": "#9f0000ff",
+      "A": "#536839ff",
+      "B": "#6a8946ff",
+      "C": "#79a940ff",
+      "D": "#476227ff",
+      "E": "#5f7446ff",
+      "F": "#6c953bff",
+      "G": "#3e5621ff",
+      "H": "#260c00ff",
+      "I": "#4e7025ff",
+      "J": "#ffffffff",
+      "K": "#830c00ff",
+      "L": "#24360eff",
+      "M": "#9bd9ffff",
+      "N": "#2c3215ff",
+      "O": "#313621ff",
+      "P": "#314814ff",
+      "Q": "#1d2c0aff",
+      "R": "#3a3420ff"
+    },
+    "data": [
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000111111220000",
+      "0000342245450000",
+      "0000336622220000",
+      "00007899ABCD0000",
+      "0000DE98FCFG0000",
+      "0000GHHHHHHG0000",
+      "0000IJKGGKJI0000",
+      "0000LMMNOMML0000",
+      "0000LPQONQPL0000",
+      "0000LPPNNPPL0000",
+      "0000000RR0000000"
+    ]
+  },
+"zombie_villager_savanna": {
+    "name": "Zombie Villager Savanna",
+    "category": "Overworld Mobs",
+    "pixelSize": 16,
+    "colors": {
+      "0": "#00000000",
+      "1": "#6c953bff",
+      "2": "#79a940ff",
+      "3": "#5f8334ff",
+      "4": "#5d8330ff",
+      "5": "#52702cff",
+      "6": "#6a8946ff",
+      "7": "#536839ff",
+      "8": "#476227ff",
+      "9": "#303805ff",
+      "A": "#546014ff",
+      "B": "#5f7446ff",
+      "C": "#3e5621ff",
+      "D": "#260c00ff",
+      "E": "#4e7025ff",
+      "F": "#ffffffff",
+      "G": "#830c00ff",
+      "H": "#24360eff",
+      "I": "#34481cff",
+      "J": "#2c3215ff",
+      "K": "#313621ff",
+      "L": "#314814ff",
+      "M": "#1d2c0aff",
+      "N": "#3a3420ff"
+    },
+    "data": [
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000121121230000",
+      "0000411224150000",
+      "0000414167180000",
+      "00099AAA99AAA000",
+      "00008B14121C0000",
+      "0000CDDDDDDC0000",
+      "0000EFGCCGFE0000",
+      "0000HCIJKICH0000",
+      "0000HLMKJMLH0000",
+      "0000HLLJJLLH0000",
+      "0000000NN0000000"
+    ]
+  },
+"zombie_villager_shepherd": {
+    "name": "Zombie Villager Shepherd",
+    "category": "Overworld Mobs",
+    "pixelSize": 16,
+    "colors": {
+      "0": "#00000000",
+      "1": "#643c33ff",
+      "2": "#74453bff",
+      "3": "#5a362eff",
+      "4": "#4e2e27ff",
+      "5": "#4a2a23ff",
+      "6": "#40231cff",
+      "7": "#3e5621ff",
+      "8": "#260c00ff",
+      "9": "#4e7025ff",
+      "A": "#ffffffff",
+      "B": "#830c00ff",
+      "C": "#24360eff",
+      "D": "#34481cff",
+      "E": "#2c3215ff",
+      "F": "#313621ff",
+      "G": "#314814ff",
+      "H": "#1d2c0aff",
+      "I": "#3a3420ff"
+    },
+    "data": [
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000112322110000",
+      "0000112321110000",
+      "0004411551144000",
+      "0004446216444000",
+      "0006444644446000",
+      "0000788888870000",
+      "00009AB77BA90000",
+      "0000C7DEFD7C0000",
+      "0000CGHFEHGC0000",
+      "0000CGGEEGGC0000",
+      "0000000II0000000"
+    ]
+  },
+"zombie_villager_swamp": {
+    "name": "Zombie Villager Swamp",
+    "category": "Overworld Mobs",
+    "pixelSize": 16,
+    "colors": {
+      "0": "#00000000",
+      "1": "#2e4820ff",
+      "2": "#405e30ff",
+      "3": "#588b3cff",
+      "4": "#4c6128ff",
+      "5": "#556d2fff",
+      "6": "#445526ff",
+      "7": "#5d8330ff",
+      "8": "#6c953bff",
+      "9": "#536839ff",
+      "A": "#476227ff",
+      "B": "#52702cff",
+      "C": "#45502eff",
+      "D": "#6a8946ff",
+      "E": "#79a940ff",
+      "F": "#5f7446ff",
+      "G": "#3e5621ff",
+      "H": "#260c00ff",
+      "I": "#4e7025ff",
+      "J": "#ffffffff",
+      "K": "#830c00ff",
+      "L": "#24360eff",
+      "M": "#34481cff",
+      "N": "#2c3215ff",
+      "O": "#313621ff",
+      "P": "#314814ff",
+      "Q": "#1d2c0aff",
+      "R": "#3a3420ff"
+    },
+    "data": [
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0001122132211000",
+      "0000455324560000",
+      "00007875298A0000",
+      "0000B777CDEA0000",
+      "0000AF878E8G0000",
+      "0000GHHHHHHG0000",
+      "0000IJKGGKJI0000",
+      "0000LGMNOMGL0000",
+      "0000LPQONQPL0000",
+      "0000LPPNNPPL0000",
+      "0000000RR0000000"
+    ]
+  },
+"zombie_villager_tundra": {
+    "name": "Zombie Villager Tundra",
+    "category": "Overworld Mobs",
+    "pixelSize": 16,
+    "colors": {
+      "0": "#00000000",
+      "1": "#e7e5d8ff",
+      "2": "#f7f5e8ff",
+      "3": "#d1cfc3ff",
+      "4": "#418693ff",
+      "5": "#34737eff",
+      "6": "#1a4a52ff",
+      "7": "#3e5621ff",
+      "8": "#260c00ff",
+      "9": "#4e7025ff",
+      "A": "#ffffffff",
+      "B": "#830c00ff",
+      "C": "#24360eff",
+      "D": "#34481cff",
+      "E": "#2c3215ff",
+      "F": "#313621ff",
+      "G": "#314814ff",
+      "H": "#1d2c0aff",
+      "I": "#3a3420ff"
+    },
+    "data": [
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000122213310000",
+      "0004455555544000",
+      "0005422222144000",
+      "0006122221336000",
+      "0003312222222000",
+      "0000788888870000",
+      "00009AB77BA90000",
+      "0000C7DEFD7C0000",
+      "0000CGHFEHGC0000",
+      "0000CGGEEGGC0000",
+      "0000000II0000000"
+    ]
+  },
+"zombie_villager_weaponsmith": {
+    "name": "Zombie Villager Weaponsmith",
+    "category": "Overworld Mobs",
+    "pixelSize": 16,
+    "colors": {
+      "0": "#00000000",
+      "1": "#6c953bff",
+      "2": "#79a940ff",
+      "3": "#5f8334ff",
+      "4": "#5d8330ff",
+      "5": "#2c4212ff",
+      "6": "#52702cff",
+      "7": "#283d0fff",
+      "8": "#6a8946ff",
+      "9": "#536839ff",
+      "A": "#476227ff",
+      "B": "#3a2b23ff",
+      "C": "#283815ff",
+      "D": "#3e5621ff",
+      "E": "#260c00ff",
+      "F": "#2c1c19ff",
+      "G": "#4e7025ff",
+      "H": "#ffffffff",
+      "I": "#830c00ff",
+      "J": "#261815ff",
+      "K": "#24360eff",
+      "L": "#34481cff",
+      "M": "#2c3215ff",
+      "N": "#313621ff",
+      "O": "#314814ff",
+      "P": "#1d2c0aff",
+      "Q": "#3a3420ff"
+    },
+    "data": [
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000000000000000",
+      "0000121121230000",
+      "0000415224160000",
+      "00004171891A0000",
+      "0000BB74982A0000",
+      "0000ACBB521D0000",
+      "0000DEEEBFFD0000",
+      "0000GHIDJFFJ0000",
+      "0000KDLMNJJK0000",
+      "0000KOPNMPOK0000",
+      "0000KOOMMOOK0000",
+      "0000000QQ0000000"
+    ]
+  },
 };
