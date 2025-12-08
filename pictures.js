@@ -4236,8 +4236,8 @@ window.PICTURES = {
     ]
   },
 "enderdragon_ender_dragon": {
-    "name": "Enderdragon Ender Dragon",
-    "category": "Overworld Mobs",
+    "name": "Ender Dragon",
+    "category": "End Mobs",
     "pixelSize": 16,
     "colors": {
       "0": "#00000000",
