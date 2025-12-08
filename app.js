@@ -81,8 +81,10 @@ function setupColoring(pictureName, PICTURES) {
     progressText.textContent = pct + "%";
     if (pct === 100) {
       localStorage.setItem("completed_" + pictureName, "true");
-}
-
+      progressBar.classList.add("complete");
+    } else {
+        progressBar.classList.remove("complete");
+    }
   }
 
   // === CHECKMARK FOR COMPLETED COLORS ===
