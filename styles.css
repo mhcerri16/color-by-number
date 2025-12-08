@@ -209,11 +209,7 @@ h1, h2 {
     max-width: 95vw;
   }
 }
-@media (min-width: 900px) {
-  #pixel-canvas {
-    transform: scale(1.7);
-  }
-}
+
 #pixel-canvas.complete-picture {
   border: 4px solid #4caf50;
   border-radius: 8px;
