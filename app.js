@@ -20,7 +20,6 @@ function setupColoring(pictureName, PICTURES) {
 
   const rows = currentPicture.data.length;
   const cols = currentPicture.data[0].length;
-
   const basePixelSize = currentPicture.pixelSize;
 
   // ------------------------------
@@ -57,7 +56,6 @@ function setupColoring(pictureName, PICTURES) {
       const sizeByHeight = Math.floor(maxCanvasHeight / rows);
 
       const candidate = Math.min(sizeByWidth, sizeByHeight);
-
       size = Math.max(basePixelSize, Math.min(candidate, basePixelSize * 2));
     }
 
@@ -109,16 +107,13 @@ function setupColoring(pictureName, PICTURES) {
 
   function selectColor(num, swatchElement) {
     currentColor = num;
-
-    document.querySelectorAll(".color-swatch")
-      .forEach(s => s.classList.remove("selected"));
-
+    document.querySelectorAll(".color-swatch").forEach(s => s.classList.remove("selected"));
     swatchElement.classList.add("selected");
     drawPixels();
   }
 
   // ------------------------------
-  // SPARKLE ANIMATION
+  // SPARKLE ON PICTURE COMPLETE
   // ------------------------------
   function playCompletionSparkle() {
     canvas.classList.add("sparkle");
@@ -132,11 +127,9 @@ function setupColoring(pictureName, PICTURES) {
     let count = 0;
     const total = rows * cols;
 
-    for (let r = 0; r < rows; r++) {
-      for (let c = 0; c < cols; c++) {
+    for (let r = 0; r < rows; r++)
+      for (let c = 0; c < cols; c++)
         if (userGrid[r][c] !== null) count++;
-      }
-    }
 
     const pct = Math.floor((count / total) * 100);
     progressBar.style.width = pct + "%";
@@ -149,14 +142,13 @@ function setupColoring(pictureName, PICTURES) {
       canvas.classList.add("complete-picture");
 
       if (!already) playCompletionSparkle();
-
     } else {
       canvas.classList.remove("complete-picture");
     }
   }
 
   // ------------------------------
-  // CHECKMARKS + COLOR JIGGLE
+  // CHECKMARKS + SWATCH JIGGLE
   // ------------------------------
   function updateColorChecks() {
     for (const num in currentPicture.colors) {
@@ -168,14 +160,12 @@ function setupColoring(pictureName, PICTURES) {
       let needed = 0;
       let filled = 0;
 
-      for (let r = 0; r < rows; r++) {
-        for (let c = 0; c < cols; c++) {
+      for (let r = 0; r < rows; r++)
+        for (let c = 0; c < cols; c++)
           if (String(currentPicture.data[r][c]) === String(num)) {
             needed++;
             if (userGrid[r][c] === num) filled++;
           }
-        }
-      }
 
       const wasCompleted = label.textContent === "✔";
       const isCompleted = needed > 0 && needed === filled;
@@ -185,9 +175,9 @@ function setupColoring(pictureName, PICTURES) {
         label.style.fontSize = "22px";
 
         if (!wasCompleted) {
-          canvas.classList.remove("canvas-jiggle");
-          void canvas.offsetWidth;
-          canvas.classList.add("canvas-jiggle");
+          swatch.classList.remove("swatch-jiggle");
+          void swatch.offsetWidth;
+          swatch.classList.add("swatch-jiggle");
         }
 
       } else {
@@ -217,10 +207,9 @@ function setupColoring(pictureName, PICTURES) {
         ctx.fillStyle = paintedVal === null ? "#ffffff" : currentPicture.colors[paintedVal];
         ctx.fillRect(c * size, r * size, size, size);
 
-        const isTarget =
-          paintedVal === null &&
-          currentColor !== null &&
-          String(pixelVal) === String(currentColor);
+        const isTarget = paintedVal === null &&
+                         currentColor !== null &&
+                         String(pixelVal) === String(currentColor);
 
         if (isTarget) {
           ctx.fillStyle = "rgba(250, 204, 21, 0.35)";
@@ -230,14 +219,10 @@ function setupColoring(pictureName, PICTURES) {
         if (paintedVal === null) {
           ctx.textAlign = "center";
           ctx.textBaseline = "middle";
-
-          if (isTarget) {
-            ctx.font = `bold ${size * 0.65}px Courier New`;
-            ctx.fillStyle = "#000";
-          } else {
-            ctx.font = `${size * 0.5}px Courier New`;
-            ctx.fillStyle = "#000";
-          }
+          ctx.font = (isTarget ?
+            `bold ${size * 0.65}px Courier New` :
+            `${size * 0.5}px Courier New`);
+          ctx.fillStyle = "#000";
 
           ctx.fillText(
             pixelVal,
@@ -250,7 +235,7 @@ function setupColoring(pictureName, PICTURES) {
   }
 
   // ------------------------------
-  // BRUSH (clean - no jiggle here)
+  // BRUSH (no jiggle here)
   // ------------------------------
   const BRUSH_RADIUS = 1;
 
@@ -355,7 +340,6 @@ function setupColoring(pictureName, PICTURES) {
     if (!confirm("Reset this picture and clear all progress?")) return;
 
     userGrid = Array.from({ length: rows }, () => Array(cols).fill(null));
-
     localStorage.removeItem("progress_" + pictureName);
     localStorage.removeItem("completed_" + pictureName);
 
