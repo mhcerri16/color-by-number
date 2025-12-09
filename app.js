@@ -243,7 +243,7 @@ function setupColoring(pictureName, PICTURES) {
   }
 
   // ------------------------------
-  // BRUSH (clean version, no haptics)
+  // BRUSH (with jiggle animation)
   // ------------------------------
   const BRUSH_RADIUS = 1;
 
@@ -254,6 +254,8 @@ function setupColoring(pictureName, PICTURES) {
     const col = Math.floor(x / size);
     const row = Math.floor(y / size);
 
+    let filledSomething = false;
+
     for (let dr = -BRUSH_RADIUS; dr <= BRUSH_RADIUS; dr++) {
       for (let dc = -BRUSH_RADIUS; dc <= BRUSH_RADIUS; dc++) {
         const rr = row + dr;
@@ -262,9 +264,19 @@ function setupColoring(pictureName, PICTURES) {
         if (rr < 0 || rr >= rows || cc < 0 || cc >= cols) continue;
 
         if (String(currentPicture.data[rr][cc]) === String(currentColor)) {
+          if (userGrid[rr][cc] !== currentColor) {
+            filledSomething = true;
+          }
           userGrid[rr][cc] = currentColor;
         }
       }
+    }
+
+    // Jiggle effect
+    if (filledSomething) {
+      canvas.classList.remove("canvas-jiggle");
+      void canvas.offsetWidth; 
+      canvas.classList.add("canvas-jiggle");
     }
 
     drawPixels();
