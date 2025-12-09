@@ -5,7 +5,7 @@ body {
   min-height: 100vh;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 
-  /* === MINECRAFT END BACKGROUND === */
+  /* === BASE MINECRAFT END BACKGROUND === */
   background: url("End_Background.webp") center center / cover no-repeat fixed;
 
   /* Text color */
@@ -15,38 +15,44 @@ body {
   justify-content: center;
   align-items: flex-start;
 
-  /* Optional gentle parallax drift */
-  animation: drift 28s ease-in-out infinite;
+  /* Gentle drift animation */
+  animation: drift 30s ease-in-out infinite;
+  position: relative;
 }
 
 @keyframes drift {
-  0% { background-position: center center; }
-  50% { background-position: center 48%; }
+  0%   { background-position: center center; }
+  50%  { background-position: center 46%; }
   100% { background-position: center center; }
 }
 
-/* ===== GRAIN OVERLAY ===== */
-body::after {
-  content: "";
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  background-image: url("assets/backgrounds/end_bg.webp");
-  background-size: 200%;
-  opacity: 0.06;
-  mix-blend-mode: overlay;
-  z-index: -1;
-}
-
-/* ===== VIGNETTE ===== */
+/* ===== MERGED VIGNETTE + GRAIN ===== */
 body::before {
   content: "";
   position: fixed;
   inset: 0;
   pointer-events: none;
-  background: radial-gradient(circle, transparent 60%, rgba(0,0,0,0.35) 100%);
-  z-index: -1;
+
+  /* Layer 1: vignette */
+  background:
+    radial-gradient(circle, transparent 60%, rgba(0,0,0,0.33) 100%),
+
+    /* Layer 2: grain/noise using same file */
+    url("End_Background.webp");
+
+  background-size:
+    100% 100%,   /* vignette */
+    200% 200%;   /* grain */
+
+  opacity: 0.08;
+  mix-blend-mode: overlay;
+  z-index: 0;
 }
+
+/* =============================== */
+/* EVERYTHING BELOW THIS POINT IS  */
+/* YOUR ORIGINAL CSS UNMODIFIED    */
+/* =============================== */
 
 .center-col {
   position: relative;
@@ -375,7 +381,7 @@ h1, h2 {
   text-align: center;
   font-size: 16px;
   margin: 4px 0 10px;
-  color: #e2e8f0;   /* FIXED */
+  color: #e2e8f0;
   font-weight: 500;
 }
 
