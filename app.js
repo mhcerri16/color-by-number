@@ -20,6 +20,32 @@ function setupColoring(pictureName, PICTURES) {
   const rows = currentPicture.data.length;
   const cols = currentPicture.data[0].length;
 
+  const basePixelSize = currentPicture.pixelSize;
+
+  // === SMART SCALING FOR LARGE SCREENS ===
+  function computePixelSize() {
+    const viewportWidth = window.innerWidth;
+    const viewportHeight = window.innerHeight;
+
+    let size = basePixelSize;
+
+    // Scale up ONLY on iPads, laptops, desktops
+    if (viewportWidth >= 768) {
+      const maxCanvasWidth = viewportWidth * 0.70;
+      const maxCanvasHeight = viewportHeight * 0.60;
+
+      const sizeByWidth = Math.floor(maxCanvasWidth / cols);
+      const sizeByHeight = Math.floor(maxCanvasHeight / rows);
+
+      const candidate = Math.min(sizeByWidth, sizeByHeight);
+
+      // Prevent ridiculous scaling
+      size = Math.max(basePixelSize, Math.min(candidate, basePixelSize * 2));
+    }
+
+    return size;
+  }
+
   // === USER GRID (null = white/unpainted) ===
   const userGrid = Array.from({ length: rows }, () => Array(cols).fill(null));
 
@@ -79,11 +105,12 @@ function setupColoring(pictureName, PICTURES) {
     const pct = Math.floor((count / total) * 100);
     progressBar.style.width = pct + "%";
     progressText.textContent = pct + "%";
+
     if (pct === 100) {
       localStorage.setItem("completed_" + pictureName, "true");
       canvas.classList.add("complete-picture");
     } else {
-        canvas.classList.remove("complete-picture");
+      canvas.classList.remove("complete-picture");
     }
   }
 
@@ -121,9 +148,8 @@ function setupColoring(pictureName, PICTURES) {
 
   // === MAIN DRAW FUNCTION ===
   function drawPixels() {
-    const size = currentPicture.pixelSize;
+    const size = computePixelSize();
 
-    // Resize canvas to exact pixel grid
     canvas.width = cols * size;
     canvas.height = rows * size;
     positionOverlay();
@@ -136,14 +162,12 @@ function setupColoring(pictureName, PICTURES) {
         const pixelVal = currentPicture.data[r][c];
         const paintedVal = userGrid[r][c];
 
-        // WHITE if not painted yet
         ctx.fillStyle = paintedVal === null
           ? "#ffffff"
           : currentPicture.colors[paintedVal];
 
         ctx.fillRect(c * size, r * size, size, size);
 
-        // Highlight if this pixel matches the selected color
         const isTarget =
           paintedVal === null &&
           currentColor !== null &&
@@ -154,7 +178,6 @@ function setupColoring(pictureName, PICTURES) {
           ctx.fillRect(c * size, r * size, size, size);
         }
 
-        // Draw number
         if (paintedVal === null) {
           ctx.textAlign = "center";
           ctx.textBaseline = "middle";
@@ -183,7 +206,7 @@ function setupColoring(pictureName, PICTURES) {
   function paintPixel(x, y) {
     if (!currentColor) return;
 
-    const size = currentPicture.pixelSize;
+    const size = computePixelSize();
     const col = Math.floor(x / size);
     const row = Math.floor(y / size);
 
@@ -212,7 +235,7 @@ function setupColoring(pictureName, PICTURES) {
 
     if (!isDragging) return;
 
-    const size = currentPicture.pixelSize;
+    const size = computePixelSize();
     const radius = BRUSH_RADIUS * size + size / 2;
 
     octx.beginPath();
@@ -244,7 +267,6 @@ function setupColoring(pictureName, PICTURES) {
     drawIndicator(e.offsetX, e.offsetY);
   });
 
-  // Touch
   canvas.addEventListener("touchstart", e => {
     const rect = canvas.getBoundingClientRect();
     const x = e.touches[0].clientX - rect.left;
@@ -268,14 +290,16 @@ function setupColoring(pictureName, PICTURES) {
     overlay.getContext("2d").clearRect(0, 0, overlay.width, overlay.height);
   });
 
-  // Back button
   backBtn.onclick = () => (window.location.href = "index.html");
 
   // Initialize
   drawPixels();
   updateProgress();
   updateColorChecks();
-  window.addEventListener("resize", positionOverlay);
+
+  window.addEventListener("resize", () => {
+    drawPixels();   // recalc size
+  });
 }
 
 window.setupColoring = setupColoring;
