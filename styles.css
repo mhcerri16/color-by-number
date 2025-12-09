@@ -333,3 +333,11 @@ h1, h2 {
   60%  { transform: scale(0.93); }
   100% { transform: scale(1); }
 }
+
+.summary-text {
+  text-align: center;
+  font-size: 16px;
+  margin: 4px 0 10px;
+  color: #374151; /* dark gray */
+  font-weight: 500;
+}
