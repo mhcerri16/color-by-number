@@ -348,7 +348,7 @@ h1, h2 {
   font-size: 22px;
   position: relative;
   left: 140px; /* shifts right, adjust to taste */
-  transform: rotate(-12deg);
+  transform: rotate(-10deg);
   text-shadow: 2px 2px 0 #000000;
   margin-top: -10px; 
   margin-bottom: 20px;
