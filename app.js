@@ -15,8 +15,6 @@ function setupColoring(pictureName, PICTURES) {
   let currentColor = null;
   let isDragging = false;
 
-  let frame = 0;   // <--- NEW FOR ANIMATION
-
   title.textContent = currentPicture.name || pictureName;
 
   const rows = currentPicture.data.length;
@@ -28,6 +26,7 @@ function setupColoring(pictureName, PICTURES) {
   function computePixelSize() {
     const viewportWidth = window.innerWidth;
     const viewportHeight = window.innerHeight;
+
     let size = basePixelSize;
 
     if (viewportWidth >= 768) {
@@ -38,12 +37,14 @@ function setupColoring(pictureName, PICTURES) {
       const sizeByHeight = Math.floor(maxCanvasHeight / rows);
 
       const candidate = Math.min(sizeByWidth, sizeByHeight);
+
       size = Math.max(basePixelSize, Math.min(candidate, basePixelSize * 2));
     }
+
     return size;
   }
 
-  // === USER GRID ===
+  // === USER GRID (null = white/unpainted) ===
   const userGrid = Array.from({ length: rows }, () => Array(cols).fill(null));
 
   // === OVERLAY CANVAS FOR BRUSH CIRCLE ===
@@ -80,9 +81,12 @@ function setupColoring(pictureName, PICTURES) {
 
   function selectColor(num, swatchElement) {
     currentColor = num;
+
     document.querySelectorAll(".color-swatch")
       .forEach(s => s.classList.remove("selected"));
+
     swatchElement.classList.add("selected");
+    drawPixels();
   }
 
   // === PROGRESS BAR ===
@@ -116,7 +120,8 @@ function setupColoring(pictureName, PICTURES) {
 
       const label = swatch.querySelector(".swatch-number");
 
-      let needed = 0, filled = 0;
+      let needed = 0;
+      let filled = 0;
 
       for (let r = 0; r < rows; r++) {
         for (let c = 0; c < cols; c++) {
@@ -137,11 +142,10 @@ function setupColoring(pictureName, PICTURES) {
     }
   }
 
-  // === MAIN DRAW FUNCTION WITH SHIMMER ===
+  // === MAIN DRAW FUNCTION ===
   function drawPixels() {
-    frame++;   // <--- ANIMATION PROGRESSION
-
     const size = computePixelSize();
+
     canvas.width = cols * size;
     canvas.height = rows * size;
     positionOverlay();
@@ -150,36 +154,12 @@ function setupColoring(pictureName, PICTURES) {
 
     for (let r = 0; r < rows; r++) {
       for (let c = 0; c < cols; c++) {
-
         const pixelVal = currentPicture.data[r][c];
         const paintedVal = userGrid[r][c];
 
-        let baseColor = paintedVal === null
-          ? "#ffffff"
-          : currentPicture.colors[paintedVal];
-
-        let color = baseColor;
-
-        // === MYSTICAL SHIMMER ONLY FOR PAINTED PIXELS ===
-        if (paintedVal !== null) {
-          const noise = Math.sin((r * 12.9898 + c * 78.233 + frame * 0.15)) * 0.5 + 0.5;
-          const factor = 0.90 + noise * 0.20;
-
-          const rHex = parseInt(baseColor.substr(1, 2), 16);
-          const gHex = parseInt(baseColor.substr(3, 2), 16);
-          const bHex = parseInt(baseColor.substr(5, 2), 16);
-
-          const nr = Math.min(255, Math.floor(rHex * factor));
-          const ng = Math.min(255, Math.floor(gHex * factor));
-          const nb = Math.min(255, Math.floor(bHex * factor));
-
-          color = `rgb(${nr}, ${ng}, ${nb})`;
-        }
-
-        ctx.fillStyle = color;
+        ctx.fillStyle = paintedVal === null ? "#ffffff" : currentPicture.colors[paintedVal];
         ctx.fillRect(c * size, r * size, size, size);
 
-        // === TARGET HIGHLIGHT ===
         const isTarget =
           paintedVal === null &&
           currentColor !== null &&
@@ -190,26 +170,26 @@ function setupColoring(pictureName, PICTURES) {
           ctx.fillRect(c * size, r * size, size, size);
         }
 
-        // === NUMBER DRAWING (only unpainted) ===
         if (paintedVal === null) {
           ctx.textAlign = "center";
           ctx.textBaseline = "middle";
+
           if (isTarget) {
             ctx.font = `bold ${size * 0.65}px Courier New`;
+            ctx.fillStyle = "#000";
           } else {
             ctx.font = `${size * 0.5}px Courier New`;
+            ctx.fillStyle = "#000";
           }
-          ctx.fillStyle = "#000";
-          ctx.fillText(pixelVal, c * size + size / 2, r * size + size / 2);
+
+          ctx.fillText(
+            pixelVal,
+            c * size + size / 2,
+            r * size + size / 2
+          );
         }
       }
     }
-  }
-
-  // === ANIMATION LOOP ===
-  function animate() {
-    drawPixels();
-    requestAnimationFrame(animate);
   }
 
   // === BRUSH (3×3) ===
@@ -217,6 +197,7 @@ function setupColoring(pictureName, PICTURES) {
 
   function paintPixel(x, y) {
     if (!currentColor) return;
+
     const size = computePixelSize();
     const col = Math.floor(x / size);
     const row = Math.floor(y / size);
@@ -225,21 +206,25 @@ function setupColoring(pictureName, PICTURES) {
       for (let dc = -BRUSH_RADIUS; dc <= BRUSH_RADIUS; dc++) {
         const rr = row + dr;
         const cc = col + dc;
+
         if (rr < 0 || rr >= rows || cc < 0 || cc >= cols) continue;
+
         if (String(currentPicture.data[rr][cc]) === String(currentColor)) {
           userGrid[rr][cc] = currentColor;
         }
       }
     }
 
+    drawPixels();
     updateProgress();
     updateColorChecks();
   }
 
-  // === BRUSH INDICATOR ===
+  // === DRAW BRUSH OVERLAY CIRCLE ===
   function drawIndicator(x, y) {
     const octx = overlay.getContext("2d");
     octx.clearRect(0, 0, overlay.width, overlay.height);
+
     if (!isDragging) return;
 
     const size = computePixelSize();
@@ -299,13 +284,13 @@ function setupColoring(pictureName, PICTURES) {
 
   backBtn.onclick = () => (window.location.href = "index.html");
 
-  // === START EVERYTHING ===
-  animate();
+  // Initialize
+  drawPixels();
   updateProgress();
   updateColorChecks();
 
   window.addEventListener("resize", () => {
-    // scaling changes automatically, animation keeps running
+    drawPixels();
   });
 }
 
