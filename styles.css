@@ -344,15 +344,20 @@ h1, h2 {
 
 .splash-text {
   font-family: 'Arial Black', 'Impact', sans-serif;
-  color: #fff200; /* Minecraft bright yellow */
+  color: #fff200;
   font-size: 22px;
+  position: relative;
+  left: 140px; /* shifts right, adjust to taste */
   transform: rotate(-12deg);
   text-shadow: 2px 2px 0 #000000;
-  margin-bottom: 10px;
+  margin-top: -10px; 
+  margin-bottom: 20px;
   pointer-events: none;
   user-select: none;
   animation: splashFloat 3s ease-in-out infinite alternate;
+  max-width: 280px; /* prevents overlap */
 }
+
 
 @keyframes splashFloat {
   from { transform: rotate(-12deg) translateY(0px); }
