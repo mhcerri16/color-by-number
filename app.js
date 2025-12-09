@@ -183,10 +183,10 @@ function setupColoring(pictureName, PICTURES) {
           ctx.textBaseline = "middle";
 
           if (isTarget) {
-            ctx.font = `bold ${size * 0.65}px Consolas`;
+            ctx.font = `bold ${size * 0.65}px Courier New`;
             ctx.fillStyle = "#000";
           } else {
-            ctx.font = `${size * 0.5}px Consolas`;
+            ctx.font = `${size * 0.5}px Courier New`;
             ctx.fillStyle = "#000";
           }
 
