@@ -7,7 +7,7 @@ function setupColoring(pictureName, PICTURES) {
 
   const colorBar = document.getElementById("color-bar");
   const backBtn = document.getElementById("back-btn");
-  const resetBtn = document.getElementById("reset-btn");   // NEW
+  const resetBtn = document.getElementById("reset-btn");
   const title = document.getElementById("picture-title");
 
   const progressBar = document.getElementById("progress-bar");
@@ -23,9 +23,9 @@ function setupColoring(pictureName, PICTURES) {
 
   const basePixelSize = currentPicture.pixelSize;
 
-  // ===============================
-  //  SAVE / LOAD PROGRESS (NEW)
-  // ===============================
+  // ------------------------------
+  // SAVE / LOAD PROGRESS
+  // ------------------------------
   function loadUserGrid() {
     const saved = localStorage.getItem("progress_" + pictureName);
     if (!saved) return null;
@@ -40,9 +40,9 @@ function setupColoring(pictureName, PICTURES) {
     localStorage.setItem("progress_" + pictureName, JSON.stringify(userGrid));
   }
 
-  // ===============================
-  // SMART SCALING FOR LARGE SCREENS
-  // ===============================
+  // ------------------------------
+  // SMART SCALING
+  // ------------------------------
   function computePixelSize() {
     const viewportWidth = window.innerWidth;
     const viewportHeight = window.innerHeight;
@@ -64,19 +64,16 @@ function setupColoring(pictureName, PICTURES) {
     return size;
   }
 
-  // ============================================
-  // USER GRID (null = white/unpainted) + RESTORE
-  // ============================================
+  // ------------------------------
+  // USER GRID (with restore)
+  // ------------------------------
   let userGrid = Array.from({ length: rows }, () => Array(cols).fill(null));
-
   const restored = loadUserGrid();
-  if (restored && restored.length === rows) {
-    userGrid = restored;
-  }
+  if (restored && restored.length === rows) userGrid = restored;
 
-  // ===============================
+  // ------------------------------
   // OVERLAY CANVAS
-  // ===============================
+  // ------------------------------
   const overlay = document.createElement("canvas");
   overlay.id = "paint-overlay";
   overlay.style.position = "absolute";
@@ -90,9 +87,9 @@ function setupColoring(pictureName, PICTURES) {
     overlay.height = canvas.height;
   }
 
-  // ===============================
+  // ------------------------------
   // BUILD PALETTE
-  // ===============================
+  // ------------------------------
   colorBar.innerHTML = "";
   Object.entries(currentPicture.colors).forEach(([num, hex]) => {
     const swatch = document.createElement("div");
@@ -120,17 +117,17 @@ function setupColoring(pictureName, PICTURES) {
     drawPixels();
   }
 
-  // ===============================
-  // COMPLETION SPARKLE (NEW)
-  // ===============================
+  // ------------------------------
+  // SPARKLE ANIMATION
+  // ------------------------------
   function playCompletionSparkle() {
     canvas.classList.add("sparkle");
     setTimeout(() => canvas.classList.remove("sparkle"), 900);
   }
 
-  // ===============================
+  // ------------------------------
   // PROGRESS BAR
-  // ===============================
+  // ------------------------------
   function updateProgress() {
     let count = 0;
     const total = rows * cols;
@@ -151,15 +148,20 @@ function setupColoring(pictureName, PICTURES) {
       localStorage.setItem("completed_" + pictureName, "true");
       canvas.classList.add("complete-picture");
 
-      if (!already) playCompletionSparkle();  // NEW
+      // 🎉 Picture complete haptic
+      if (!already) {
+        navigator.vibrate?.([20, 40, 20, 40, 20]);
+        playCompletionSparkle();
+      }
+
     } else {
       canvas.classList.remove("complete-picture");
     }
   }
 
-  // ===============================
-  // COLOR CHECKMARKS
-  // ===============================
+  // ------------------------------
+  // CHECKMARKS + COLOR-COMPLETE HAPTIC
+  // ------------------------------
   function updateColorChecks() {
     for (const num in currentPicture.colors) {
       const swatch = document.querySelector(`.color-swatch[data-value="${num}"]`);
@@ -179,9 +181,15 @@ function setupColoring(pictureName, PICTURES) {
         }
       }
 
+      const wasCompleted = label.textContent === "✔";
+
       if (needed > 0 && needed === filled) {
         label.textContent = "✔";
         label.style.fontSize = "22px";
+
+        // 🎉 Color complete haptic (only once)
+        if (!wasCompleted) navigator.vibrate?.([10, 40, 10]);
+
       } else {
         label.textContent = num;
         label.style.fontSize = "20px";
@@ -189,9 +197,9 @@ function setupColoring(pictureName, PICTURES) {
     }
   }
 
-  // ===============================
-  // DRAW PIXELS
-  // ===============================
+  // ------------------------------
+  // DRAWING
+  // ------------------------------
   function drawPixels() {
     const size = computePixelSize();
 
@@ -241,9 +249,9 @@ function setupColoring(pictureName, PICTURES) {
     }
   }
 
-  // ===============================
-  // BRUSH (3x3)
-  // ===============================
+  // ------------------------------
+  // BRUSH (with pixel-fill haptics)
+  // ------------------------------
   const BRUSH_RADIUS = 1;
 
   function paintPixel(x, y) {
@@ -261,6 +269,12 @@ function setupColoring(pictureName, PICTURES) {
         if (rr < 0 || rr >= rows || cc < 0 || cc >= cols) continue;
 
         if (String(currentPicture.data[rr][cc]) === String(currentColor)) {
+
+          // 🔔 Tiny fill haptic (only if newly filled)
+          if (userGrid[rr][cc] !== currentColor) {
+            navigator.vibrate?.(10);
+          }
+
           userGrid[rr][cc] = currentColor;
         }
       }
@@ -269,12 +283,12 @@ function setupColoring(pictureName, PICTURES) {
     drawPixels();
     updateProgress();
     updateColorChecks();
-    saveUserGrid();   // NEW
+    saveUserGrid();
   }
 
-  // ===============================
+  // ------------------------------
   // BRUSH INDICATOR
-  // ===============================
+  // ------------------------------
   function drawIndicator(x, y) {
     const octx = overlay.getContext("2d");
     octx.clearRect(0, 0, overlay.width, overlay.height);
@@ -291,9 +305,9 @@ function setupColoring(pictureName, PICTURES) {
     octx.stroke();
   }
 
-  // ===============================
+  // ------------------------------
   // INPUT EVENTS
-  // ===============================
+  // ------------------------------
   canvas.addEventListener("mousedown", e => {
     isDragging = true;
     paintPixel(e.offsetX, e.offsetY);
@@ -338,9 +352,9 @@ function setupColoring(pictureName, PICTURES) {
     overlay.getContext("2d").clearRect(0, 0, overlay.width, overlay.height);
   });
 
-  // ===============================
+  // ------------------------------
   // BUTTONS
-  // ===============================
+  // ------------------------------
   backBtn.onclick = () => (window.location.href = "index.html");
 
   resetBtn.onclick = () => {
@@ -358,9 +372,9 @@ function setupColoring(pictureName, PICTURES) {
     updateColorChecks();
   };
 
-  // ===============================
+  // ------------------------------
   // INIT
-  // ===============================
+  // ------------------------------
   drawPixels();
   updateProgress();
   updateColorChecks();
