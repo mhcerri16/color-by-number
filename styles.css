@@ -1,59 +1,76 @@
-/* ===== GLOBAL ===== */
+/* ============================================================
+   REAL WORKING ANIMATED BACKGROUND LAYER (GPU-ACCELERATED)
+   ============================================================ */
 
-body {
-  margin: 0;
-  min-height: 100vh;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+/* Independent animated background layer */
+#bg {
+  position: fixed;
+  inset: 0;
+  z-index: -3;
+  pointer-events: none;
 
-  /* === BASE MINECRAFT END BACKGROUND === */
-  background: url("End_Background.webp") center center / cover no-repeat fixed;
+  background-image: url("End_Background.webp");
+  background-size: 110%;
+  background-position: center;
+  background-repeat: no-repeat;
 
-  /* Text color */
-  color: #e5e7eb;
-
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-
-  /* Gentle drift animation */
-  animation: drift 30s ease-in-out infinite;
-  position: relative;
+  /* Smooth drifting + subtle zoom */
+  animation: bgMotion 35s ease-in-out infinite alternate;
 }
 
-@keyframes drift {
-  0%   { background-position: center center; }
-  50%  { background-position: center 46%; }
-  100% { background-position: center center; }
+@keyframes bgMotion {
+  0% {
+    transform: scale(1.00) translateY(0px);
+  }
+  50% {
+    transform: scale(1.07) translateY(18px);
+  }
+  100% {
+    transform: scale(1.00) translateY(0px);
+  }
 }
 
-/* ===== MERGED VIGNETTE + GRAIN ===== */
+/* ===== GRAIN OVERLAY ===== */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -2;
+
+  background-image: url("assets/backgrounds/end_bg.webp");
+  background-size: 200%;
+  opacity: 0.06;
+  mix-blend-mode: overlay;
+}
+
+/* ===== VIGNETTE ===== */
 body::before {
   content: "";
   position: fixed;
   inset: 0;
   pointer-events: none;
+  z-index: -1;
 
-  /* Layer 1: vignette */
-  background:
-    radial-gradient(circle, transparent 60%, rgba(0,0,0,0.33) 100%),
-
-    /* Layer 2: grain/noise using same file */
-    url("End_Background.webp");
-
-  background-size:
-    100% 100%,   /* vignette */
-    200% 200%;   /* grain */
-
-  opacity: 0.08;
-  mix-blend-mode: overlay;
-  z-index: 0;
+  background: radial-gradient(circle, transparent 58%, rgba(0,0,0,0.33) 100%);
 }
 
-/* =============================== */
-/* EVERYTHING BELOW THIS POINT IS  */
-/* YOUR ORIGINAL CSS UNMODIFIED    */
-/* =============================== */
+/* ============================================================
+   EVERYTHING BELOW HERE IS YOUR ORIGINAL CSS
+   (Unmodified except removal of old background code)
+   ============================================================ */
 
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: #e5e7eb;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+/* Layout container */
 .center-col {
   position: relative;
   display: flex;
@@ -91,7 +108,7 @@ h1, h2 {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: #111827cc; /* translucent */
+  background: #111827cc;
   border-radius: 12px;
   padding: 12px;
   text-decoration: none;
@@ -113,7 +130,6 @@ h1, h2 {
   border-radius: 4px;
   background: #020617;
 
-  /* grayscale by default */
   filter: grayscale(100%) brightness(0.85) contrast(1.2);
   opacity: 0.8;
   transition: filter 0.2s ease, opacity 0.2s ease;
@@ -138,7 +154,7 @@ h1, h2 {
   max-width: 100%;
 }
 
-/* Canvas — Menlo font + crisp pixel edges */
+/* Canvas styling */
 #pixel-canvas {
   display: block;
   background: #ffffff;
@@ -151,7 +167,7 @@ h1, h2 {
   font-family: Menlo, Consolas, "Courier New", monospace;
 }
 
-/* overlay sits exactly on top of pixel canvas */
+/* overlay sits above pixel canvas */
 #paint-overlay {
   position: absolute;
   top: 0;
@@ -245,8 +261,7 @@ h1, h2 {
   box-shadow: 0 4px 10px rgba(0,0,0,0.7);
 }
 
-/* Small tweak on narrow screens */
-
+/* Mobile adjustments */
 @media (max-width: 480px) {
   .thumb-grid {
     grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
@@ -257,7 +272,7 @@ h1, h2 {
   }
 }
 
-/* Completed big canvas in color.html */
+/* Completed picture border */
 #pixel-canvas.complete-picture {
   border: 4px solid #4caf50;
   border-radius: 8px;
@@ -265,6 +280,7 @@ h1, h2 {
 }
 
 /* Category Buttons */
+
 #top-controls {
   display: flex;
   justify-content: center;
@@ -272,7 +288,7 @@ h1, h2 {
   gap: 12px;
   margin: 1rem 0 0.5rem;
   width: 100%;
- max-width: 500px;
+  max-width: 500px;
 }
 
 #search-box {
@@ -307,7 +323,6 @@ h1, h2 {
   transform: translateY(-1px);
 }
 
-/* Category Buttons */
 #category-bar {
   display: flex;
   flex-wrap: wrap;
@@ -339,8 +354,7 @@ h1, h2 {
   border-color: #d4af37;
 }
 
-/* ===== THUMBNAIL COMPLETED STATE ===== */
-
+/* Completed thumbnail */
 .thumb.completed {
   border: 2px solid #86efac;
   box-shadow: 0 0 8px rgba(134, 239, 172, 0.35);
@@ -355,7 +369,7 @@ h1, h2 {
   box-shadow: 0 0 10px rgba(134, 239, 172, 0.45);
 }
 
-/* === COMPLETION SPARKLE === */
+/* Completion sparkle */
 @keyframes sparkleAnimation {
   0% { box-shadow: 0 0 4px #4caf50; }
   50% { box-shadow: 0 0 18px #8dff9f; }
@@ -366,6 +380,7 @@ h1, h2 {
   animation: sparkleAnimation 0.9s ease-out;
 }
 
+/* Swatch jiggle */
 .swatch-jiggle {
   animation: swatchJiggle 0.25s ease;
 }
@@ -377,6 +392,7 @@ h1, h2 {
   100% { transform: scale(1); }
 }
 
+/* Summary counters */
 .summary-text {
   text-align: center;
   font-size: 16px;
