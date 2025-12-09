@@ -12,9 +12,10 @@
 
     <h1>🎨 Minecraft Color-by-Number</h1>
 
+    <!-- Summary counters -->
     <div id="completion-summary" class="summary-text"></div>
-    <div id="category-summary" class="summary-text"></div>
-    
+    <div id="category-summary" class="summary-text" style="display:none;"></div>
+
     <!-- Search + Random -->
     <div id="top-controls">
       <input id="search-box" type="text" placeholder="Search blocks...">
@@ -50,12 +51,19 @@
 
   <script src="pictures.js"></script>
   <script>
+    // ===============================
+    // ELEMENTS
+    // ===============================
     const grid = document.getElementById("thumb-grid");
     const searchBox = document.getElementById("search-box");
     const randomBtn = document.getElementById("random-btn");
     const catBtns = document.querySelectorAll(".cat-btn");
+    const completionSummary = document.getElementById("completion-summary");
+    const categorySummary = document.getElementById("category-summary");
 
-    // Convert PICTURES → easy structure
+    let activeCategory = "all";
+
+    // Convert PICTURES → list of objects
     let entries = Object.entries(window.PICTURES).map(([id, pic]) => ({
       id,
       name: pic.name || id,
@@ -66,6 +74,9 @@
 
     entries.sort((a, b) => a.name.localeCompare(b.name));
 
+    // ===============================
+    // RENDER GALLERY
+    // ===============================
     function render(list) {
       grid.innerHTML = "";
 
@@ -74,24 +85,24 @@
         tile.className = "thumb";
         tile.href = `color.html?name=${encodeURIComponent(pic.id)}`;
 
-        if (localStorage.getItem("completed_" + pic.id)) {
+        if (localStorage.getItem("completed_" + pic.id) === "true") {
           tile.classList.add("completed");
         }
-        
+
         const previewCanvas = document.createElement("canvas");
-        const pctx = previewCanvas.getContext("2d");
+        const ctx = previewCanvas.getContext("2d");
 
         const rows = pic.data.length;
         const cols = pic.data[0].length;
+
         const scale = Math.floor(64 / Math.max(rows, cols)) || 4;
         previewCanvas.width = cols * scale;
         previewCanvas.height = rows * scale;
 
         for (let r = 0; r < rows; r++) {
           for (let c = 0; c < cols; c++) {
-            const val = pic.data[r][c];
-            pctx.fillStyle = pic.colors[val];
-            pctx.fillRect(c * scale, r * scale, scale, scale);
+            ctx.fillStyle = pic.colors[pic.data[r][c]];
+            ctx.fillRect(c * scale, r * scale, scale, scale);
           }
         }
 
@@ -103,27 +114,57 @@
         tile.appendChild(label);
         grid.appendChild(tile);
       });
+
+      updateSummaries(list);
     }
 
-    // === INITIAL RENDER ===
-    render(entries);
+    // ===============================
+    // SUMMARY COUNTERS
+    // ===============================
+    function updateSummaries(currentList) {
+      const allPics = entries;
+      const totalCount = allPics.length;
 
-    // === SEARCH + CATEGORY FILTER COMBINED ===
-    let activeCategory = "all";
+      const totalCompleted = allPics.filter(p =>
+        localStorage.getItem("completed_" + p.id) === "true"
+      ).length;
 
+      // Always show total completed
+      completionSummary.textContent =
+        `Completed: ${totalCompleted} / ${totalCount}`;
+
+      // Hide category summary for ALL
+      if (activeCategory === "all") {
+        categorySummary.style.display = "none";
+        return;
+      }
+
+      const picsInCat = allPics.filter(p => p.category === activeCategory);
+      const completedInCat = picsInCat.filter(p =>
+        localStorage.getItem("completed_" + p.id) === "true"
+      ).length;
+
+      categorySummary.style.display = "block";
+      categorySummary.textContent =
+        `${activeCategory}: ${completedInCat} / ${picsInCat.length} completed`;
+    }
+
+    // ===============================
+    // APPLY FILTERS
+    // ===============================
     function applyFilters() {
       const q = searchBox.value.trim().toLowerCase();
 
       const filtered = entries.filter(p => {
-        const matchesSearch =
-          p.id.toLowerCase().includes(q) ||
-          p.name.toLowerCase().includes(q);
+        const matchSearch =
+          p.name.toLowerCase().includes(q) ||
+          p.id.toLowerCase().includes(q);
 
-        const matchesCategory =
+        const matchCategory =
           activeCategory === "all" ||
           p.category === activeCategory;
 
-        return matchesSearch && matchesCategory;
+        return matchSearch && matchCategory;
       });
 
       render(filtered);
@@ -135,12 +176,15 @@
       btn.addEventListener("click", () => {
         catBtns.forEach(b => b.classList.remove("selected"));
         btn.classList.add("selected");
+
         activeCategory = btn.dataset.cat;
         applyFilters();
       })
     );
 
-    // === RANDOM BUTTON ===
+    // ===============================
+    // RANDOM BUTTON
+    // ===============================
     randomBtn.addEventListener("click", () => {
       const filtered = entries.filter(p =>
         activeCategory === "all" ? true : p.category === activeCategory
@@ -148,6 +192,9 @@
       const choice = filtered[Math.floor(Math.random() * filtered.length)];
       window.location.href = `color.html?name=${choice.id}`;
     });
+
+    // Initial load
+    render(entries);
   </script>
 </body>
 </html>
