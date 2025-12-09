@@ -148,11 +148,7 @@ function setupColoring(pictureName, PICTURES) {
       localStorage.setItem("completed_" + pictureName, "true");
       canvas.classList.add("complete-picture");
 
-      // 🎉 Picture complete haptic
-      if (!already) {
-        navigator.vibrate?.([20, 40, 20, 40, 20]);
-        playCompletionSparkle();
-      }
+      if (!already) playCompletionSparkle();
 
     } else {
       canvas.classList.remove("complete-picture");
@@ -160,7 +156,7 @@ function setupColoring(pictureName, PICTURES) {
   }
 
   // ------------------------------
-  // CHECKMARKS + COLOR-COMPLETE HAPTIC
+  // CHECKMARKS
   // ------------------------------
   function updateColorChecks() {
     for (const num in currentPicture.colors) {
@@ -186,9 +182,6 @@ function setupColoring(pictureName, PICTURES) {
       if (needed > 0 && needed === filled) {
         label.textContent = "✔";
         label.style.fontSize = "22px";
-
-        // 🎉 Color complete haptic (only once)
-        if (!wasCompleted) navigator.vibrate?.([10, 40, 10]);
 
       } else {
         label.textContent = num;
@@ -250,7 +243,7 @@ function setupColoring(pictureName, PICTURES) {
   }
 
   // ------------------------------
-  // BRUSH (with pixel-fill haptics)
+  // BRUSH (clean version, no haptics)
   // ------------------------------
   const BRUSH_RADIUS = 1;
 
@@ -269,12 +262,6 @@ function setupColoring(pictureName, PICTURES) {
         if (rr < 0 || rr >= rows || cc < 0 || cc >= cols) continue;
 
         if (String(currentPicture.data[rr][cc]) === String(currentColor)) {
-
-          // 🔔 Tiny fill haptic (only if newly filled)
-          if (userGrid[rr][cc] !== currentColor) {
-            navigator.vibrate?.(10);
-          }
-
           userGrid[rr][cc] = currentColor;
         }
       }
