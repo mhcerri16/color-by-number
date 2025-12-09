@@ -322,3 +322,14 @@ h1, h2 {
 #pixel-canvas.sparkle {
   animation: sparkleAnimation 0.9s ease-out;
 }
+
+@keyframes jiggle {
+  0%   { transform: scale(1); }
+  30%  { transform: scale(1.03, 0.97); }
+  60%  { transform: scale(0.97, 1.03); }
+  100% { transform: scale(1); }
+}
+
+.canvas-jiggle {
+  animation: jiggle 120ms ease-out;
+}
