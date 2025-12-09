@@ -4,7 +4,7 @@ window.PICTURES = {
     "category": "Overworld Mobs",
     "pixelSize": 16,
     "colors": {
-      "0": "#00000000",
+      "0": "#ffffff",
       "1": "#8bebffff",
       "2": "#70e9ffff",
       "3": "#1fdcffff",
@@ -103,7 +103,7 @@ window.PICTURES = {
     "category": "Overworld Mobs",
     "pixelSize": 16,
     "colors": {
-      "0": "#00000000",
+      "0": "#ffffff",
       "1": "#b5746fff",
       "2": "#bd7c77ff",
       "3": "#834141ff",
@@ -177,7 +177,7 @@ window.PICTURES = {
     "category": "Overworld Mobs",
     "pixelSize": 16,
     "colors": {
-      "0": "#00000000",
+      "0": "#ffffff",
       "1": "#fe8502ff",
       "2": "#d76701ff",
       "3": "#b2a1f1ff",
@@ -213,7 +213,7 @@ window.PICTURES = {
     "category": "Overworld Mobs",
     "pixelSize": 16,
     "colors": {
-      "0": "#00000000",
+      "0": "#ffffff",
       "1": "#fb367fff",
       "2": "#fc578dff",
       "3": "#cc94c4ff",
@@ -249,7 +249,7 @@ window.PICTURES = {
     "category": "Overworld Mobs",
     "pixelSize": 16,
     "colors": {
-      "0": "#00000000",
+      "0": "#ffffff",
       "1": "#e2a701ff",
       "2": "#e6b901ff",
       "3": "#fdd72eff",
@@ -283,7 +283,7 @@ window.PICTURES = {
     "category": "Overworld Mobs",
     "pixelSize": 16,
     "colors": {
-      "0": "#00000000",
+      "0": "#ffffff",
       "1": "#fb367fff",
       "2": "#fc578dff",
       "3": "#fd9fbfff",
@@ -318,7 +318,7 @@ window.PICTURES = {
     "category": "Overworld Mobs",
     "pixelSize": 16,
     "colors": {
-      "0": "#00000000",
+      "0": "#ffffff",
       "1": "#2a1d17ff",
       "2": "#3f2b23ff",
       "3": "#956950ff",
@@ -501,7 +501,7 @@ window.PICTURES = {
     "category": "Overworld Mobs",
     "pixelSize": 16,
     "colors": {
-      "0": "#00000000",
+      "0": "#ffffff",
       "1": "#453a33ff",
       "2": "#815f7eff",
       "3": "#342c27ff",
@@ -534,7 +534,7 @@ window.PICTURES = {
     "category": "Overworld Mobs",
     "pixelSize": 16,
     "colors": {
-      "0": "#00000000",
+      "0": "#ffffff",
       "1": "#bfbea7ff",
       "2": "#cdccb9ff",
       "3": "#a3a28cff",
@@ -598,7 +598,7 @@ window.PICTURES = {
     "category": "Overworld Mobs",
     "pixelSize": 16,
     "colors": {
-      "0": "#00000000",
+      "0": "#ffffff",
       "1": "#ffcb4dff",
       "2": "#000000ff",
       "3": "#ffc945ff",
@@ -679,7 +679,7 @@ window.PICTURES = {
     "category": "Overworld Mobs",
     "pixelSize": 16,
     "colors": {
-      "0": "#00000000",
+      "0": "#ffffff",
       "1": "#ffcb4dff",
       "2": "#000000ff",
       "3": "#ffc945ff",
@@ -1228,7 +1228,7 @@ window.PICTURES = {
     "category": "Overworld Mobs",
     "pixelSize": 16,
     "colors": {
-      "0": "#00000000",
+      "0": "#ffffff",
       "1": "#baa4d7ff",
       "2": "#c5afe1ff",
       "3": "#a99bcfff",
@@ -1495,7 +1495,7 @@ window.PICTURES = {
     "category": "Overworld Mobs",
     "pixelSize": 16,
     "colors": {
-      "0": "#00000000",
+      "0": "#ffffff",
       "1": "#8f7350ff",
       "2": "#a5845cff",
       "3": "#e7a651ff",
@@ -1904,7 +1904,7 @@ window.PICTURES = {
     "category": "Overworld Mobs",
     "pixelSize": 16,
     "colors": {
-      "0": "#00000000",
+      "0": "#ffffff",
       "1": "#36373aff",
       "2": "#303134ff",
       "3": "#28292cff",
@@ -1986,7 +1986,7 @@ window.PICTURES = {
     "category": "Overworld Mobs",
     "pixelSize": 16,
     "colors": {
-      "0": "#00000000",
+      "0": "#ffffff",
       "1": "#ffffffff",
       "2": "#000000ff",
       "3": "#e4e4e4ff",
@@ -2027,7 +2027,7 @@ window.PICTURES = {
     "category": "Overworld Mobs",
     "pixelSize": 16,
     "colors": {
-      "0": "#00000000",
+      "0": "#ffffff",
       "1": "#e9a25bff",
       "2": "#000000ff",
       "3": "#e49343ff",
@@ -2475,7 +2475,7 @@ window.PICTURES = {
     "category": "Overworld Mobs",
     "pixelSize": 16,
     "colors": {
-      "0": "#00000000",
+      "0": "#ffffff",
       "1": "#9f745cff",
       "2": "#7e5d4aff",
       "3": "#8f6953ff",
@@ -2519,7 +2519,7 @@ window.PICTURES = {
     "category": "Overworld Mobs",
     "pixelSize": 16,
     "colors": {
-      "0": "#00000000",
+      "0": "#ffffff",
       "1": "#615955ff",
       "2": "#4e4844ff",
       "3": "#ab511bff",
@@ -2558,7 +2558,7 @@ window.PICTURES = {
     "category": "Overworld Mobs",
     "pixelSize": 16,
     "colors": {
-      "0": "#00000000",
+      "0": "#ffffff",
       "1": "#d1d1d1ff",
       "2": "#971f1fff",
       "3": "#d12b2bff",
@@ -2609,7 +2609,7 @@ window.PICTURES = {
     "category": "Overworld Mobs",
     "pixelSize": 16,
     "colors": {
-      "0": "#00000000",
+      "0": "#ffffff",
       "1": "#727272ff",
       "2": "#525252ff",
       "3": "#341f0dff",
@@ -2648,7 +2648,7 @@ window.PICTURES = {
     "category": "Overworld Mobs",
     "pixelSize": 16,
     "colors": {
-      "0": "#00000000",
+      "0": "#ffffff",
       "1": "#5f5c5bff",
       "2": "#565352ff",
       "3": "#7b321aff",
@@ -2766,7 +2766,7 @@ window.PICTURES = {
   category: "Overworld Mobs",
   pixelSize: 16,
   colors: {
-    "0": "#00000000",
+    "0": "#ffffff",
     "1": "#b7d8afff",
     "2": "#3c9d19ff",
     "3": "#4faf2cff",
@@ -2809,7 +2809,7 @@ window.PICTURES = {
   category: "Overworld Mobs",
   pixelSize: 16,
   colors: {
-    "0": "#00000000",
+    "0": "#ffffff",
     "1": "#54dcffff",
     "2": "#42b8ffff",
     "3": "#83e6ffff",
@@ -3556,7 +3556,7 @@ window.PICTURES = {
     "category": "Overworld Mobs",
     "pixelSize": 16,
     "colors": {
-      "0": "#00000000",
+      "0": "#ffffff",
       "1": "#bacbdcff",
       "2": "#bccedfff",
       "3": "#c0d1e1ff",
@@ -4137,7 +4137,7 @@ window.PICTURES = {
     "category": "End",
     "pixelSize": 16,
     "colors": {
-      "0": "#00000000",
+      "0": "#ffffff",
       "1": "#d3f3feff",
       "2": "#e2f8ffff",
       "3": "#c6eefbff",
@@ -4327,7 +4327,7 @@ window.PICTURES = {
     "category": "End Mobs",
     "pixelSize": 16,
     "colors": {
-      "0": "#00000000",
+      "0": "#ffffff",
       "1": "#7c7c7cff",
       "2": "#747474ff",
       "3": "#656565ff",
@@ -4397,7 +4397,7 @@ window.PICTURES = {
     "category": "End Mobs",
     "pixelSize": 16,
     "colors": {
-      "0": "#00000000",
+      "0": "#ffffff",
       "1": "#4c336cff",
       "2": "#700000ff",
       "3": "#920300ff",
@@ -4684,7 +4684,7 @@ window.PICTURES = {
     "category": "Overworld Mobs",
     "pixelSize": 16,
     "colors": {
-      "0": "#00000000",
+      "0": "#ffffff",
       "1": "#cfb694ff",
       "2": "#d6bc99ff",
       "3": "#a3855fff",
@@ -4796,7 +4796,7 @@ window.PICTURES = {
     "category": "Overworld Mobs",
     "pixelSize": 16,
     "colors": {
-      "0": "#00000000",
+      "0": "#ffffff",
       "1": "#ad2d2dff",
       "2": "#852323ff",
       "3": "#858f25ff",
@@ -4840,7 +4840,7 @@ window.PICTURES = {
     "category": "Overworld Mobs",
     "pixelSize": 16,
     "colors": {
-      "0": "#00000000",
+      "0": "#ffffff",
       "1": "#d08a7100",
       "2": "#bf330000",
       "3": "#d87b5100",
@@ -5655,7 +5655,7 @@ window.PICTURES = {
     "category": "Overworld Mobs",
     "pixelSize": 16,
     "colors": {
-      "0": "#00000000",
+      "0": "#ffffff",
       "1": "#4f812fff",
       "2": "#48742bff",
       "3": "#1e1b1aff",
@@ -5697,7 +5697,7 @@ window.PICTURES = {
     "category": "Overworld Mobs",
     "pixelSize": 16,
     "colors": {
-      "0": "#00000000",
+      "0": "#ffffff",
       "1": "#c16e45ff",
       "2": "#bb683fff",
       "3": "#b8643cff",
@@ -5742,7 +5742,7 @@ window.PICTURES = {
     "category": "Overworld Mobs",
     "pixelSize": 16,
     "colors": {
-      "0": "#00000000",
+      "0": "#ffffff",
       "1": "#d5d7bcff",
       "2": "#d1d3b8ff",
       "3": "#1e1b1aff",
@@ -5885,7 +5885,7 @@ window.PICTURES = {
     "category": "Nether Mobs",
     "pixelSize": 16,
     "colors": {
-      "0": "#00000000",
+      "0": "#ffffff",
       "1": "#a9a9a9ff",
       "2": "#979797ff",
       "3": "#686969ff",
@@ -6202,7 +6202,7 @@ window.PICTURES = {
     "category": "Overworld Mobs",
     "pixelSize": 16,
     "colors": {
-      "0": "#00000000",
+      "0": "#ffffff",
       "1": "#52504eff",
       "2": "#4b4948ff",
       "3": "#464543ff",
@@ -6592,7 +6592,7 @@ window.PICTURES = {
     "category": "Nether Mobs",
     "pixelSize": 16,
     "colors": {
-      "0": "#00000000",
+      "0": "#ffffff",
       "1": "#ff9d76ff",
       "2": "#e19374ff",
       "3": "#d68260ff",
@@ -6626,7 +6626,7 @@ window.PICTURES = {
     "category": "Nether Mobs",
     "pixelSize": 16,
     "colors": {
-      "0": "#00000000",
+      "0": "#ffffff",
       "1": "#f98aa0ff",
       "2": "#dd8692ff",
       "3": "#b17b69ff",
@@ -6749,7 +6749,7 @@ window.PICTURES = {
     "category": "Overworld Mobs",
     "pixelSize": 16,
     "colors": {
-      "0": "#00000000",
+      "0": "#ffffff",
       "1": "#3c1b1bff",
       "2": "#351918ff",
       "3": "#341917ff",
@@ -6796,7 +6796,7 @@ window.PICTURES = {
     "category": "Overworld Mobs",
     "pixelSize": 16,
     "colors": {
-      "0": "#00000000",
+      "0": "#ffffff",
       "1": "#222222ff",
       "2": "#181818ff",
       "3": "#090909ff",
@@ -6834,7 +6834,7 @@ window.PICTURES = {
     "category": "Overworld Mobs",
     "pixelSize": 16,
     "colors": {
-      "0": "#00000000",
+      "0": "#ffffff",
       "1": "#48251bff",
       "2": "#2e140cff",
       "3": "#1a0e09ff",
@@ -6872,7 +6872,7 @@ window.PICTURES = {
     "category": "Overworld Mobs",
     "pixelSize": 16,
     "colors": {
-      "0": "#00000000",
+      "0": "#ffffff",
       "1": "#44210cff",
       "2": "#3a1b09ff",
       "3": "#d7ab6cff",
@@ -6911,7 +6911,7 @@ window.PICTURES = {
     "category": "Overworld Mobs",
     "pixelSize": 16,
     "colors": {
-      "0": "#00000000",
+      "0": "#ffffff",
       "1": "#7e6239ff",
       "2": "#725833ff",
       "3": "#1a0e09ff",
@@ -6949,7 +6949,7 @@ window.PICTURES = {
     "category": "Overworld Mobs",
     "pixelSize": 16,
     "colors": {
-      "0": "#00000000",
+      "0": "#ffffff",
       "1": "#301912ff",
       "2": "#200e09ff",
       "3": "#0e0604ff",
@@ -6989,7 +6989,7 @@ window.PICTURES = {
     "category": "Overworld Mobs",
     "pixelSize": 16,
     "colors": {
-      "0": "#00000000",
+      "0": "#ffffff",
       "1": "#7b6a5bff",
       "2": "#776556ff",
       "3": "#736152ff",
@@ -7036,7 +7036,7 @@ window.PICTURES = {
     "category": "Overworld Mobs",
     "pixelSize": 16,
     "colors": {
-      "0": "#00000000",
+      "0": "#ffffff",
       "1": "#343434ff",
       "2": "#222222ff",
       "3": "#2c2c2cff",
@@ -7070,7 +7070,7 @@ window.PICTURES = {
     "category": "Overworld Mobs",
     "pixelSize": 16,
     "colors": {
-      "0": "#00000000",
+      "0": "#ffffff",
       "1": "#502f18ff",
       "2": "#4b2912ff",
       "3": "#46230bff",
@@ -7126,7 +7126,7 @@ window.PICTURES = {
     "category": "Overworld Mobs",
     "pixelSize": 16,
     "colors": {
-      "0": "#00000000",
+      "0": "#ffffff",
       "1": "#dbdbdbff",
       "2": "#cdcdcdff",
       "3": "#e0e0e0ff",
@@ -7166,7 +7166,7 @@ window.PICTURES = {
     "category": "Overworld Mobs",
     "pixelSize": 16,
     "colors": {
-      "0": "#00000000",
+      "0": "#ffffff",
       "1": "#a5a5a5ff",
       "2": "#979797ff",
       "3": "#b9b9b9ff",
@@ -7204,7 +7204,7 @@ window.PICTURES = {
     "category": "Overworld Mobs",
     "pixelSize": 16,
     "colors": {
-      "0": "#00000000",
+      "0": "#ffffff",
       "1": "#336c3bff",
       "2": "#2e6134ff",
       "3": "#44864cff",
@@ -7282,7 +7282,7 @@ window.PICTURES = {
     "category": "Overworld Mobs",
     "pixelSize": 16,
     "colors": {
-      "0": "#00000000",
+      "0": "#ffffff",
       "1": "#969e9fff",
       "2": "#8c9293ff",
       "3": "#2f3230ff",
@@ -7325,7 +7325,7 @@ window.PICTURES = {
     "category": "Overworld Mobs",
     "pixelSize": 16,
     "colors": {
-      "0": "#00000000",
+      "0": "#ffffff",
       "1": "#3a599dff",
       "2": "#2a4581ff",
       "3": "#457a9bff",
@@ -7375,7 +7375,7 @@ window.PICTURES = {
     "category": "Overworld Mobs",
     "pixelSize": 16,
     "colors": {
-      "0": "#00000000",
+      "0": "#ffffff",
       "1": "#969e9fff",
       "2": "#8c9293ff",
       "3": "#2f3230ff",
@@ -7414,7 +7414,7 @@ window.PICTURES = {
     "category": "Overworld Mobs",
     "pixelSize": 16,
     "colors": {
-      "0": "#00000000",
+      "0": "#ffffff",
       "1": "#8fb3d5ff",
       "2": "#94b8d9ff",
       "3": "#607283ff",
@@ -7446,7 +7446,7 @@ window.PICTURES = {
     "category": "Overworld Mobs",
     "pixelSize": 16,
     "colors": {
-      "0": "#00000000",
+      "0": "#ffffff",
       "1": "#969e9fff",
       "2": "#8c9293ff",
       "3": "#2f3230ff",
@@ -7615,7 +7615,7 @@ window.PICTURES = {
     "category": "Overworld Mobs",
     "pixelSize": 16,
     "colors": {
-      "0": "#00000000",
+      "0": "#ffffff",
       "1": "#d7d1caff",
       "2": "#e7e3deff",
       "3": "#c9c1b8ff",
@@ -7967,7 +7967,7 @@ window.PICTURES = {
     "category": "Overworld Mobs",
     "pixelSize": 16,
     "colors": {
-      "0": "#00000000",
+      "0": "#ffffff",
       "1": "#a36c33ff",
       "2": "#91602cff",
       "3": "#7c5326ff",
@@ -8011,7 +8011,7 @@ window.PICTURES = {
     "category": "Overworld Mobs",
     "pixelSize": 16,
     "colors": {
-      "0": "#00000000",
+      "0": "#ffffff",
       "1": "#e1ca9cff",
       "2": "#957852ff",
       "3": "#e5d0a5ff",
@@ -8052,7 +8052,7 @@ window.PICTURES = {
     "category": "Overworld Mobs",
     "pixelSize": 16,
     "colors": {
-      "0": "#00000000",
+      "0": "#ffffff",
       "1": "#efefefff",
       "2": "#aba6a1ff",
       "3": "#e1e1e1ff",
@@ -8092,7 +8092,7 @@ window.PICTURES = {
     "category": "Overworld Mobs",
     "pixelSize": 16,
     "colors": {
-      "0": "#00000000",
+      "0": "#ffffff",
       "1": "#efefefff",
       "2": "#aba6a1ff",
       "3": "#a9885dff",
@@ -9830,7 +9830,7 @@ window.PICTURES = {
     "category": "Overworld Mobs",
     "pixelSize": 16,
     "colors": {
-      "0": "#00000000",
+      "0": "#ffffff",
       "1": "#303030ff",
       "2": "#282828ff",
       "3": "#0b0b0bff",
@@ -9864,7 +9864,7 @@ window.PICTURES = {
     "category": "Overworld Mobs",
     "pixelSize": 16,
     "colors": {
-      "0": "#00000000",
+      "0": "#ffffff",
       "1": "#303030ff",
       "2": "#282828ff",
       "3": "#0b0b0bff",
@@ -9901,7 +9901,7 @@ window.PICTURES = {
     "category": "Overworld Mobs",
     "pixelSize": 16,
     "colors": {
-      "0": "#00000000",
+      "0": "#ffffff",
       "1": "#7c5b46ff",
       "2": "#594132ff",
       "3": "#281d16ff",
@@ -9937,7 +9937,7 @@ window.PICTURES = {
     "category": "Overworld Mobs",
     "pixelSize": 16,
     "colors": {
-      "0": "#00000000",
+      "0": "#ffffff",
       "1": "#303030ff",
       "2": "#282828ff",
       "3": "#0b0b0bff",
@@ -9971,7 +9971,7 @@ window.PICTURES = {
     "category": "Overworld Mobs",
     "pixelSize": 16,
     "colors": {
-      "0": "#00000000",
+      "0": "#ffffff",
       "1": "#303030ff",
       "2": "#282828ff",
       "3": "#0b0b0bff",
@@ -10008,7 +10008,7 @@ window.PICTURES = {
     "category": "Overworld Mobs",
     "pixelSize": 16,
     "colors": {
-      "0": "#00000000",
+      "0": "#ffffff",
       "1": "#303030ff",
       "2": "#282828ff",
       "3": "#0b0b0bff",
@@ -10047,7 +10047,7 @@ window.PICTURES = {
     "category": "Overworld Mobs",
     "pixelSize": 16,
     "colors": {
-      "0": "#00000000",
+      "0": "#ffffff",
       "1": "#303030ff",
       "2": "#282828ff",
       "3": "#0b0b0bff",
@@ -10084,7 +10084,7 @@ window.PICTURES = {
     "category": "Overworld Mobs",
     "pixelSize": 16,
     "colors": {
-      "0": "#00000000",
+      "0": "#ffffff",
       "1": "#002a74ff",
       "2": "#0041b5ff",
       "3": "#003da7ff",
@@ -10119,7 +10119,7 @@ window.PICTURES = {
     "category": "Overworld Mobs",
     "pixelSize": 16,
     "colors": {
-      "0": "#00000000",
+      "0": "#ffffff",
       "1": "#ffe132ff",
       "2": "#ffe75eff",
       "3": "#b9b9b9ff",
@@ -10153,7 +10153,7 @@ window.PICTURES = {
     "category": "Overworld Mobs",
     "pixelSize": 16,
     "colors": {
-      "0": "#00000000",
+      "0": "#ffffff",
       "1": "#4fa123ff",
       "2": "#6ad72fff",
       "3": "#4a9721ff",
@@ -10189,7 +10189,7 @@ window.PICTURES = {
     "category": "Overworld Mobs",
     "pixelSize": 16,
     "colors": {
-      "0": "#00000000",
+      "0": "#ffffff",
       "1": "#af0000ff",
       "2": "#d50000ff",
       "3": "#000000ff",
@@ -10221,7 +10221,7 @@ window.PICTURES = {
     "category": "Overworld Mobs",
     "pixelSize": 16,
     "colors": {
-      "0": "#00000000",
+      "0": "#ffffff",
       "1": "#00ddedff",
       "2": "#00ed3fff",
       "3": "#00eb6bff",
@@ -10258,7 +10258,7 @@ window.PICTURES = {
     "category": "Overworld Mobs",
     "pixelSize": 16,
     "colors": {
-      "0": "#00000000",
+      "0": "#ffffff",
       "1": "#4c64aaff",
       "2": "#5069b3ff",
       "3": "#526bb7ff",
@@ -10290,7 +10290,7 @@ window.PICTURES = {
     "category": "Overworld Mobs",
     "pixelSize": 16,
     "colors": {
-      "0": "#00000000",
+      "0": "#ffffff",
       "1": "#dda471ff",
       "2": "#d69867ff",
       "3": "#cd8d61ff",
@@ -10326,7 +10326,7 @@ window.PICTURES = {
     "category": "Overworld Mobs",
     "pixelSize": 16,
     "colors": {
-      "0": "#00000000",
+      "0": "#ffffff",
       "1": "#ff9d9dff",
       "2": "#ff9595ff",
       "3": "#ff8d8dff",
@@ -10363,7 +10363,7 @@ window.PICTURES = {
     "category": "Overworld Mobs",
     "pixelSize": 16,
     "colors": {
-      "0": "#00000000",
+      "0": "#ffffff",
       "1": "#ca682dff",
       "2": "#d67338ff",
       "3": "#b14e22ff",
@@ -10407,7 +10407,7 @@ window.PICTURES = {
     "category": "Nether Mobs",
     "pixelSize": 16,
     "colors": {
-      "0": "#00000000",
+      "0": "#ffffff",
       "1": "#d59474ff",
       "2": "#dca18bff",
       "3": "#dca58bff",
@@ -10456,7 +10456,7 @@ window.PICTURES = {
     "category": "Nether Mobs",
     "pixelSize": 16,
     "colors": {
-      "0": "#00000000",
+      "0": "#ffffff",
       "1": "#d59474ff",
       "2": "#dca18bff",
       "3": "#dca58bff",
@@ -10505,7 +10505,7 @@ window.PICTURES = {
     "category": "Nether Mobs",
     "pixelSize": 16,
     "colors": {
-      "0": "#00000000",
+      "0": "#ffffff",
       "1": "#bdbdbdff",
       "2": "#a4a4a4ff",
       "3": "#466a33ff",
@@ -11461,7 +11461,7 @@ window.PICTURES = {
     "category": "Overworld Mobs",
     "pixelSize": 16,
     "colors": {
-      "0": "#00000000",
+      "0": "#ffffff",
       "1": "#1e1e1eff",
       "2": "#2e2e2eff",
       "3": "#282828ff",
@@ -11496,7 +11496,7 @@ window.PICTURES = {
     "category": "Overworld Mobs",
     "pixelSize": 16,
     "colors": {
-      "0": "#00000000",
+      "0": "#ffffff",
       "1": "#ab8e6fff",
       "2": "#cdbeabff",
       "3": "#a5896bff",
@@ -11532,7 +11532,7 @@ window.PICTURES = {
     "category": "Overworld Mobs",
     "pixelSize": 16,
     "colors": {
-      "0": "#00000000",
+      "0": "#ffffff",
       "1": "#ecececff",
       "2": "#f9f9f9ff",
       "3": "#dbbbc6ff",
@@ -11571,7 +11571,7 @@ window.PICTURES = {
     "category": "Overworld Mobs",
     "pixelSize": 16,
     "colors": {
-      "0": "#00000000",
+      "0": "#ffffff",
       "1": "#f5eec1ff",
       "2": "#efebd5ff",
       "3": "#f5f1daff",
@@ -11604,7 +11604,7 @@ window.PICTURES = {
     "category": "Overworld Mobs",
     "pixelSize": 16,
     "colors": {
-      "0": "#00000000",
+      "0": "#ffffff",
       "1": "#b1997fff",
       "2": "#b8a591ff",
       "3": "#b5a08aff",
@@ -11647,7 +11647,7 @@ window.PICTURES = {
     "category": "Overworld Mobs",
     "pixelSize": 16,
     "colors": {
-      "0": "#00000000",
+      "0": "#ffffff",
       "1": "#ffffffff",
       "2": "#101010ff",
       "3": "#5c5c5cff",
@@ -11684,7 +11684,7 @@ window.PICTURES = {
     "category": "Overworld Mobs",
     "pixelSize": 16,
     "colors": {
-      "0": "#00000000",
+      "0": "#ffffff",
       "1": "#f1f1f1ff",
       "2": "#ffffffff",
       "3": "#debac7ff",
@@ -11720,7 +11720,7 @@ window.PICTURES = {
     "category": "Overworld Mobs",
     "pixelSize": 16,
     "colors": {
-      "0": "#00000000",
+      "0": "#ffffff",
       "1": "#242424ff",
       "2": "#1f1f1fff",
       "3": "#ffffffff",
@@ -12630,7 +12630,7 @@ window.PICTURES = {
     "category": "Overworld Mobs",
     "pixelSize": 16,
     "colors": {
-      "0": "#00000000",
+      "0": "#ffffff",
       "1": "#000000ff",
       "2": "#262626ff",
       "3": "#bf9678ff",
@@ -12664,7 +12664,7 @@ window.PICTURES = {
     "category": "Overworld Mobs",
     "pixelSize": 16,
     "colors": {
-      "0": "#00000000",
+      "0": "#ffffff",
       "1": "#1c4397ff",
       "2": "#335bb1ff",
       "3": "#bf9678ff",
@@ -12699,7 +12699,7 @@ window.PICTURES = {
     "category": "Overworld Mobs",
     "pixelSize": 16,
     "colors": {
-      "0": "#00000000",
+      "0": "#ffffff",
       "1": "#582e15ff",
       "2": "#6e391aff",
       "3": "#bf9678ff",
@@ -12734,7 +12734,7 @@ window.PICTURES = {
     "category": "Overworld Mobs",
     "pixelSize": 16,
     "colors": {
-      "0": "#00000000",
+      "0": "#ffffff",
       "1": "#009397ff",
       "2": "#00a7abff",
       "3": "#bf9678ff",
@@ -12769,7 +12769,7 @@ window.PICTURES = {
     "category": "Overworld Mobs",
     "pixelSize": 16,
     "colors": {
-      "0": "#00000000",
+      "0": "#ffffff",
       "1": "#5c5c5cff",
       "2": "#6a6a6aff",
       "3": "#bf9678ff",
@@ -12804,7 +12804,7 @@ window.PICTURES = {
     "category": "Overworld Mobs",
     "pixelSize": 16,
     "colors": {
-      "0": "#00000000",
+      "0": "#ffffff",
       "1": "#446c00ff",
       "2": "#5e7832ff",
       "3": "#bf9678ff",
@@ -12839,7 +12839,7 @@ window.PICTURES = {
     "category": "Overworld Mobs",
     "pixelSize": 16,
     "colors": {
-      "0": "#00000000",
+      "0": "#ffffff",
       "1": "#00b9ebff",
       "2": "#35c5ebff",
       "3": "#bf9678ff",
@@ -12874,7 +12874,7 @@ window.PICTURES = {
     "category": "Overworld Mobs",
     "pixelSize": 16,
     "colors": {
-      "0": "#00000000",
+      "0": "#ffffff",
       "1": "#9d9d9dff",
       "2": "#afafafff",
       "3": "#bf9678ff",
@@ -12909,7 +12909,7 @@ window.PICTURES = {
     "category": "Overworld Mobs",
     "pixelSize": 16,
     "colors": {
-      "0": "#00000000",
+      "0": "#ffffff",
       "1": "#7edf06ff",
       "2": "#aadf69ff",
       "3": "#bf9678ff",
@@ -12944,7 +12944,7 @@ window.PICTURES = {
     "category": "Overworld Mobs",
     "pixelSize": 16,
     "colors": {
-      "0": "#00000000",
+      "0": "#ffffff",
       "1": "#bb2a8bff",
       "2": "#d148a3ff",
       "3": "#bf9678ff",
@@ -12979,7 +12979,7 @@ window.PICTURES = {
     "category": "Overworld Mobs",
     "pixelSize": 16,
     "colors": {
-      "0": "#00000000",
+      "0": "#ffffff",
       "1": "#e97219ff",
       "2": "#e98942ff",
       "3": "#bf9678ff",
@@ -13014,7 +13014,7 @@ window.PICTURES = {
     "category": "Overworld Mobs",
     "pixelSize": 16,
     "colors": {
-      "0": "#00000000",
+      "0": "#ffffff",
       "1": "#ff8dadff",
       "2": "#ffadc4ff",
       "3": "#bf9678ff",
@@ -13049,7 +13049,7 @@ window.PICTURES = {
     "category": "Overworld Mobs",
     "pixelSize": 16,
     "colors": {
-      "0": "#00000000",
+      "0": "#ffffff",
       "1": "#79179fff",
       "2": "#9c3bc1ff",
       "3": "#bf9678ff",
@@ -13084,7 +13084,7 @@ window.PICTURES = {
     "category": "Overworld Mobs",
     "pixelSize": 16,
     "colors": {
-      "0": "#00000000",
+      "0": "#ffffff",
       "1": "#ad1414ff",
       "2": "#d34c4cff",
       "3": "#bf9678ff",
@@ -13119,7 +13119,7 @@ window.PICTURES = {
     "category": "Overworld Mobs",
     "pixelSize": 16,
     "colors": {
-      "0": "#00000000",
+      "0": "#ffffff",
       "1": "#ffffffff",
       "2": "#e6e5e4ff",
       "3": "#bf9678ff",
@@ -13154,7 +13154,7 @@ window.PICTURES = {
     "category": "Overworld Mobs",
     "pixelSize": 16,
     "colors": {
-      "0": "#00000000",
+      "0": "#ffffff",
       "1": "#e8ca1bff",
       "2": "#e8d358ff",
       "3": "#bf9678ff",
@@ -13268,7 +13268,7 @@ window.PICTURES = {
     "category": "Overworld Mobs",
     "pixelSize": 16,
     "colors": {
-      "0": "#00000000",
+      "0": "#ffffff",
       "1": "#a3ad9bff",
       "2": "#9fadb2ff",
       "3": "#a0a4b1ff",
@@ -13347,7 +13347,7 @@ window.PICTURES = {
     "category": "Overworld Mobs",
     "pixelSize": 16,
     "colors": {
-      "0": "#00000000",
+      "0": "#ffffff",
       "1": "#d30a0aff",
       "2": "#f30000ff",
       "3": "#8f734eff",
@@ -14132,7 +14132,7 @@ window.PICTURES = {
     "category": "Overworld Mobs",
     "pixelSize": 16,
     "colors": {
-      "0": "#00000000",
+      "0": "#ffffff",
       "1": "#0c2634ff",
       "2": "#304e5eff",
       "3": "#365768ff",
@@ -14165,7 +14165,7 @@ window.PICTURES = {
     "category": "Overworld Mobs",
     "pixelSize": 16,
     "colors": {
-      "0": "#00000000",
+      "0": "#ffffff",
       "1": "#086e70ff",
       "2": "#0c7e81ff",
       "3": "#177575ff",
@@ -14552,7 +14552,7 @@ window.PICTURES = {
     "category": "Nether Mobs",
     "pixelSize": 16,
     "colors": {
-      "0": "#00000000",
+      "0": "#ffffff",
       "1": "#69476aff",
       "2": "#404040ff",
       "3": "#323232ff",
@@ -14600,7 +14600,7 @@ window.PICTURES = {
     "category": "Nether Mobs",
     "pixelSize": 16,
     "colors": {
-      "0": "#00000000",
+      "0": "#ffffff",
       "1": "#792626ff",
       "2": "#404040ff",
       "3": "#323232ff",
@@ -14824,7 +14824,7 @@ window.PICTURES = {
     "category": "Overworld Mobs",
     "pixelSize": 16,
     "colors": {
-      "0": "#00000000",
+      "0": "#ffffff",
       "1": "#56452cff",
       "2": "#46361fff",
       "3": "#524128ff",
@@ -15251,7 +15251,7 @@ window.PICTURES = {
     "category": "Overworld Mobs",
     "pixelSize": 16,
     "colors": {
-      "0": "#00000000",
+      "0": "#ffffff",
       "1": "#cc8a70ff",
       "2": "#bd7c62ff",
       "3": "#c38268ff",
@@ -15286,7 +15286,7 @@ window.PICTURES = {
     "category": "Overworld Mobs",
     "pixelSize": 16,
     "colors": {
-      "0": "#00000000",
+      "0": "#ffffff",
       "1": "#565656ff",
       "2": "#686868ff",
       "3": "#878787ff",
@@ -15328,7 +15328,7 @@ window.PICTURES = {
     "category": "Overworld Mobs",
     "pixelSize": 16,
     "colors": {
-      "0": "#00000000",
+      "0": "#ffffff",
       "1": "#cc8a70ff",
       "2": "#bd7c62ff",
       "3": "#994949ff",
@@ -15365,7 +15365,7 @@ window.PICTURES = {
     "category": "Overworld Mobs",
     "pixelSize": 16,
     "colors": {
-      "0": "#00000000",
+      "0": "#ffffff",
       "1": "#cc8a70ff",
       "2": "#bd7c62ff",
       "3": "#c38268ff",
@@ -15403,7 +15403,7 @@ window.PICTURES = {
     "category": "Overworld Mobs",
     "pixelSize": 16,
     "colors": {
-      "0": "#00000000",
+      "0": "#ffffff",
       "1": "#b19063ff",
       "2": "#bb9b6fff",
       "3": "#cdab7eff",
@@ -15444,7 +15444,7 @@ window.PICTURES = {
     "category": "Overworld Mobs",
     "pixelSize": 16,
     "colors": {
-      "0": "#00000000",
+      "0": "#ffffff",
       "1": "#edb546ff",
       "2": "#f3c05aff",
       "3": "#f9c96bff",
@@ -15486,7 +15486,7 @@ window.PICTURES = {
     "category": "Overworld Mobs",
     "pixelSize": 16,
     "colors": {
-      "0": "#00000000",
+      "0": "#ffffff",
       "1": "#9d6e2dff",
       "2": "#724f1dff",
       "3": "#5e4118ff",
@@ -15526,7 +15526,7 @@ window.PICTURES = {
     "category": "Overworld Mobs",
     "pixelSize": 16,
     "colors": {
-      "0": "#00000000",
+      "0": "#ffffff",
       "1": "#543f2bff",
       "2": "#6a523bff",
       "3": "#4c3825ff",
@@ -15566,7 +15566,7 @@ window.PICTURES = {
     "category": "Overworld Mobs",
     "pixelSize": 16,
     "colors": {
-      "0": "#00000000",
+      "0": "#ffffff",
       "1": "#8b0000ff",
       "2": "#640000ff",
       "3": "#4e0000ff",
@@ -15608,7 +15608,7 @@ window.PICTURES = {
     "category": "Overworld Mobs",
     "pixelSize": 16,
     "colors": {
-      "0": "#00000000",
+      "0": "#ffffff",
       "1": "#cc8a70ff",
       "2": "#bd7c62ff",
       "3": "#303805ff",
@@ -15645,7 +15645,7 @@ window.PICTURES = {
     "category": "Overworld Mobs",
     "pixelSize": 16,
     "colors": {
-      "0": "#00000000",
+      "0": "#ffffff",
       "1": "#643c33ff",
       "2": "#74453bff",
       "3": "#5a362eff",
@@ -15685,7 +15685,7 @@ window.PICTURES = {
     "category": "Overworld Mobs",
     "pixelSize": 16,
     "colors": {
-      "0": "#00000000",
+      "0": "#ffffff",
       "1": "#2e4820ff",
       "2": "#405e30ff",
       "3": "#588b3cff",
@@ -15723,7 +15723,7 @@ window.PICTURES = {
     "category": "Overworld Mobs",
     "pixelSize": 16,
     "colors": {
-      "0": "#00000000",
+      "0": "#ffffff",
       "1": "#e7e5d8ff",
       "2": "#f7f5e8ff",
       "3": "#d1cfc3ff",
@@ -15763,7 +15763,7 @@ window.PICTURES = {
     "category": "Overworld Mobs",
     "pixelSize": 16,
     "colors": {
-      "0": "#00000000",
+      "0": "#ffffff",
       "1": "#cc8a70ff",
       "2": "#bd7c62ff",
       "3": "#c38268ff",
@@ -15801,7 +15801,7 @@ window.PICTURES = {
     "category": "Overworld Mobs",
     "pixelSize": 16,
     "colors": {
-      "0": "#00000000",
+      "0": "#ffffff",
       "1": "#1c3462ff",
       "2": "#233c6cff",
       "3": "#182e56ff",
@@ -16053,7 +16053,7 @@ window.PICTURES = {
     "category": "Overworld Mobs",
     "pixelSize": 16,
     "colors": {
-      "0": "#00000000",
+      "0": "#ffffff",
       "1": "#060606ff",
       "2": "#0e0e0eff",
       "3": "#1c1c1cff",
@@ -16099,7 +16099,7 @@ window.PICTURES = {
     "category": "Nether Mobs",
     "pixelSize": 16,
     "colors": {
-      "0": "#00000000",
+      "0": "#ffffff",
       "1": "#363636ff",
       "2": "#282828ff",
       "3": "#2e2e2eff",
@@ -16219,7 +16219,7 @@ window.PICTURES = {
     "category": "Overworld Mobs",
     "pixelSize": 16,
     "colors": {
-      "0": "#00000000",
+      "0": "#ffffff",
       "1": "#9c929fff",
       "2": "#948b93ff",
       "3": "#89848eff",
@@ -16258,7 +16258,7 @@ window.PICTURES = {
     "category": "Overworld Mobs",
     "pixelSize": 16,
     "colors": {
-      "0": "#00000000",
+      "0": "#ffffff",
       "1": "#242126ff",
       "2": "#1c1719ff",
       "3": "#2a2930ff",
@@ -16292,7 +16292,7 @@ window.PICTURES = {
     "category": "Overworld Mobs",
     "pixelSize": 16,
     "colors": {
-      "0": "#00000000",
+      "0": "#ffffff",
       "1": "#c7a597ff",
       "2": "#bf9d8fff",
       "3": "#9b8278ff",
@@ -16335,7 +16335,7 @@ window.PICTURES = {
     "category": "Overworld Mobs",
     "pixelSize": 16,
     "colors": {
-      "0": "#00000000",
+      "0": "#ffffff",
       "1": "#ddddddff",
       "2": "#cfcfcfff",
       "3": "#d8d8d8ff",
@@ -16374,7 +16374,7 @@ window.PICTURES = {
     "category": "Overworld Mobs",
     "pixelSize": 16,
     "colors": {
-      "0": "#00000000",
+      "0": "#ffffff",
       "1": "#f1ece6ff",
       "2": "#e5dfdaff",
       "3": "#dfd4c8ff",
@@ -16413,7 +16413,7 @@ window.PICTURES = {
     "category": "Overworld Mobs",
     "pixelSize": 16,
     "colors": {
-      "0": "#00000000",
+      "0": "#ffffff",
       "1": "#f5f5ebff",
       "2": "#fffffaff",
       "3": "#d0d9daff",
@@ -16450,7 +16450,7 @@ window.PICTURES = {
     "category": "Overworld Mobs",
     "pixelSize": 16,
     "colors": {
-      "0": "#00000000",
+      "0": "#ffffff",
       "1": "#fffffaff",
       "2": "#f5f5ebff",
       "3": "#dfd4c8ff",
@@ -16489,7 +16489,7 @@ window.PICTURES = {
     "category": "Overworld Mobs",
     "pixelSize": 16,
     "colors": {
-      "0": "#00000000",
+      "0": "#ffffff",
       "1": "#fffffaff",
       "2": "#f5f5ebff",
       "3": "#dfd4c8ff",
@@ -16823,7 +16823,7 @@ window.PICTURES = {
     "category": "Overworld Mobs",
     "pixelSize": 16,
     "colors": {
-      "0": "#00000000",
+      "0": "#ffffff",
       "1": "#6c953bff",
       "2": "#79a940ff",
       "3": "#5f8334ff",
