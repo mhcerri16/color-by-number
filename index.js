@@ -6,6 +6,18 @@ const completionSummary = document.getElementById("completion-summary");
 const categorySummary = document.getElementById("category-summary");
 const catBtns = document.querySelectorAll(".cat-btn");
 
+// === Set splash text ===
+(function() {
+  const splashEl = document.getElementById("splash");
+  if (!splashEl) return;
+
+  // Daily deterministic splash
+  const day = Math.floor(Date.now() / (1000 * 60 * 60 * 24));
+  const index = day % window.SPLASHES.length;
+
+  splashEl.textContent = window.SPLASHES[index];
+})();
+
 let activeCategory = "all";
 
 // ===============================
