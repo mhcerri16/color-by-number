@@ -7,6 +7,7 @@ function setupColoring(pictureName, PICTURES) {
 
   const colorBar = document.getElementById("color-bar");
   const backBtn = document.getElementById("back-btn");
+  const resetBtn = document.getElementById("reset-btn");   // NEW
   const title = document.getElementById("picture-title");
 
   const progressBar = document.getElementById("progress-bar");
@@ -22,7 +23,26 @@ function setupColoring(pictureName, PICTURES) {
 
   const basePixelSize = currentPicture.pixelSize;
 
-  // === SMART SCALING FOR LARGE SCREENS ===
+  // ===============================
+  //  SAVE / LOAD PROGRESS (NEW)
+  // ===============================
+  function loadUserGrid() {
+    const saved = localStorage.getItem("progress_" + pictureName);
+    if (!saved) return null;
+    try {
+      return JSON.parse(saved);
+    } catch {
+      return null;
+    }
+  }
+
+  function saveUserGrid() {
+    localStorage.setItem("progress_" + pictureName, JSON.stringify(userGrid));
+  }
+
+  // ===============================
+  // SMART SCALING FOR LARGE SCREENS
+  // ===============================
   function computePixelSize() {
     const viewportWidth = window.innerWidth;
     const viewportHeight = window.innerHeight;
@@ -44,10 +64,19 @@ function setupColoring(pictureName, PICTURES) {
     return size;
   }
 
-  // === USER GRID (null = white/unpainted) ===
-  const userGrid = Array.from({ length: rows }, () => Array(cols).fill(null));
+  // ============================================
+  // USER GRID (null = white/unpainted) + RESTORE
+  // ============================================
+  let userGrid = Array.from({ length: rows }, () => Array(cols).fill(null));
 
-  // === OVERLAY CANVAS FOR BRUSH CIRCLE ===
+  const restored = loadUserGrid();
+  if (restored && restored.length === rows) {
+    userGrid = restored;
+  }
+
+  // ===============================
+  // OVERLAY CANVAS
+  // ===============================
   const overlay = document.createElement("canvas");
   overlay.id = "paint-overlay";
   overlay.style.position = "absolute";
@@ -61,7 +90,9 @@ function setupColoring(pictureName, PICTURES) {
     overlay.height = canvas.height;
   }
 
-  // === BUILD PALETTE ===
+  // ===============================
+  // BUILD PALETTE
+  // ===============================
   colorBar.innerHTML = "";
   Object.entries(currentPicture.colors).forEach(([num, hex]) => {
     const swatch = document.createElement("div");
@@ -89,7 +120,17 @@ function setupColoring(pictureName, PICTURES) {
     drawPixels();
   }
 
-  // === PROGRESS BAR ===
+  // ===============================
+  // COMPLETION SPARKLE (NEW)
+  // ===============================
+  function playCompletionSparkle() {
+    canvas.classList.add("sparkle");
+    setTimeout(() => canvas.classList.remove("sparkle"), 900);
+  }
+
+  // ===============================
+  // PROGRESS BAR
+  // ===============================
   function updateProgress() {
     let count = 0;
     const total = rows * cols;
@@ -105,14 +146,20 @@ function setupColoring(pictureName, PICTURES) {
     progressText.textContent = pct + "%";
 
     if (pct === 100) {
+      const already = localStorage.getItem("completed_" + pictureName);
+
       localStorage.setItem("completed_" + pictureName, "true");
       canvas.classList.add("complete-picture");
+
+      if (!already) playCompletionSparkle();  // NEW
     } else {
       canvas.classList.remove("complete-picture");
     }
   }
 
-  // === CHECKMARK FOR COMPLETED COLORS ===
+  // ===============================
+  // COLOR CHECKMARKS
+  // ===============================
   function updateColorChecks() {
     for (const num in currentPicture.colors) {
       const swatch = document.querySelector(`.color-swatch[data-value="${num}"]`);
@@ -142,7 +189,9 @@ function setupColoring(pictureName, PICTURES) {
     }
   }
 
-  // === MAIN DRAW FUNCTION ===
+  // ===============================
+  // DRAW PIXELS
+  // ===============================
   function drawPixels() {
     const size = computePixelSize();
 
@@ -192,7 +241,9 @@ function setupColoring(pictureName, PICTURES) {
     }
   }
 
-  // === BRUSH (3×3) ===
+  // ===============================
+  // BRUSH (3x3)
+  // ===============================
   const BRUSH_RADIUS = 1;
 
   function paintPixel(x, y) {
@@ -218,9 +269,12 @@ function setupColoring(pictureName, PICTURES) {
     drawPixels();
     updateProgress();
     updateColorChecks();
+    saveUserGrid();   // NEW
   }
 
-  // === DRAW BRUSH OVERLAY CIRCLE ===
+  // ===============================
+  // BRUSH INDICATOR
+  // ===============================
   function drawIndicator(x, y) {
     const octx = overlay.getContext("2d");
     octx.clearRect(0, 0, overlay.width, overlay.height);
@@ -237,7 +291,9 @@ function setupColoring(pictureName, PICTURES) {
     octx.stroke();
   }
 
-  // === INPUT EVENTS ===
+  // ===============================
+  // INPUT EVENTS
+  // ===============================
   canvas.addEventListener("mousedown", e => {
     isDragging = true;
     paintPixel(e.offsetX, e.offsetY);
@@ -282,9 +338,29 @@ function setupColoring(pictureName, PICTURES) {
     overlay.getContext("2d").clearRect(0, 0, overlay.width, overlay.height);
   });
 
+  // ===============================
+  // BUTTONS
+  // ===============================
   backBtn.onclick = () => (window.location.href = "index.html");
 
-  // Initialize
+  resetBtn.onclick = () => {
+    if (!confirm("Reset this picture and clear all progress?")) return;
+
+    userGrid = Array.from({ length: rows }, () => Array(cols).fill(null));
+
+    localStorage.removeItem("progress_" + pictureName);
+    localStorage.removeItem("completed_" + pictureName);
+
+    canvas.classList.remove("complete-picture");
+
+    drawPixels();
+    updateProgress();
+    updateColorChecks();
+  };
+
+  // ===============================
+  // INIT
+  // ===============================
   drawPixels();
   updateProgress();
   updateColorChecks();
