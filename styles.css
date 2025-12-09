@@ -311,3 +311,14 @@ h1, h2 {
 .thumb.completed:hover {
   box-shadow: 0 0 10px rgba(134, 239, 172, 0.45);
 }
+
+/* === COMPLETION SPARKLE === */
+@keyframes sparkleAnimation {
+  0% { box-shadow: 0 0 4px #4caf50; }
+  50% { box-shadow: 0 0 18px #8dff9f; }
+  100% { box-shadow: 0 0 4px #4caf50; }
+}
+
+#pixel-canvas.sparkle {
+  animation: sparkleAnimation 0.9s ease-out;
+}
