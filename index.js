@@ -78,7 +78,8 @@ function updateSummaries() {
 
   // --- category summary ---
   if (activeCategory === "all") {
-    categorySummary.textContent = "";
+    categorySummary.innerHTML = "";
+    categorySummary.style.display = "none";  // hide cleanly
     return;
   }
 
@@ -87,6 +88,7 @@ function updateSummaries() {
     localStorage.getItem("completed_" + id) === "true"
   ).length;
 
+  categorySummary.style.display = ""; // show when needed
   categorySummary.textContent =
     `${activeCategory}: ${completedInCat} / ${picsInCat.length} completed`;
 }
