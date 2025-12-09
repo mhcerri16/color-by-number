@@ -156,7 +156,7 @@ function setupColoring(pictureName, PICTURES) {
   }
 
   // ------------------------------
-  // CHECKMARKS
+  // CHECKMARKS + COLOR JIGGLE
   // ------------------------------
   function updateColorChecks() {
     for (const num in currentPicture.colors) {
@@ -178,10 +178,17 @@ function setupColoring(pictureName, PICTURES) {
       }
 
       const wasCompleted = label.textContent === "✔";
+      const isCompleted = needed > 0 && needed === filled;
 
-      if (needed > 0 && needed === filled) {
+      if (isCompleted) {
         label.textContent = "✔";
         label.style.fontSize = "22px";
+
+        if (!wasCompleted) {
+          canvas.classList.remove("canvas-jiggle");
+          void canvas.offsetWidth;
+          canvas.classList.add("canvas-jiggle");
+        }
 
       } else {
         label.textContent = num;
@@ -243,7 +250,7 @@ function setupColoring(pictureName, PICTURES) {
   }
 
   // ------------------------------
-  // BRUSH (with jiggle animation)
+  // BRUSH (clean - no jiggle here)
   // ------------------------------
   const BRUSH_RADIUS = 1;
 
@@ -254,8 +261,6 @@ function setupColoring(pictureName, PICTURES) {
     const col = Math.floor(x / size);
     const row = Math.floor(y / size);
 
-    let filledSomething = false;
-
     for (let dr = -BRUSH_RADIUS; dr <= BRUSH_RADIUS; dr++) {
       for (let dc = -BRUSH_RADIUS; dc <= BRUSH_RADIUS; dc++) {
         const rr = row + dr;
@@ -264,19 +269,9 @@ function setupColoring(pictureName, PICTURES) {
         if (rr < 0 || rr >= rows || cc < 0 || cc >= cols) continue;
 
         if (String(currentPicture.data[rr][cc]) === String(currentColor)) {
-          if (userGrid[rr][cc] !== currentColor) {
-            filledSomething = true;
-          }
           userGrid[rr][cc] = currentColor;
         }
       }
-    }
-
-    // Jiggle effect
-    if (filledSomething) {
-      canvas.classList.remove("canvas-jiggle");
-      void canvas.offsetWidth; 
-      canvas.classList.add("canvas-jiggle");
     }
 
     drawPixels();
