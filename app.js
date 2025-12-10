@@ -18,6 +18,7 @@ function setupColoring(pictureName, PICTURES) {
 
   let currentColor = null;
   let isDragging = false;
+  let autoSelectPaused = false;
 
   title.textContent = currentPicture.name || pictureName;
 
@@ -33,6 +34,7 @@ function setupColoring(pictureName, PICTURES) {
     if (!saved) return null;
     try { return JSON.parse(saved); } catch { return null; }
   };
+
   const saveUserGrid = () =>
     localStorage.setItem("progress_" + pictureName, JSON.stringify(userGrid));
 
@@ -60,6 +62,25 @@ function setupColoring(pictureName, PICTURES) {
   let userGrid = Array.from({ length: rows }, () => Array(cols).fill(null));
   const restored = loadUserGrid();
   if (restored && restored.length === rows) userGrid = restored;
+
+  // ============================================================================
+  //  GET NEXT UNFINISHED COLOR
+  // ============================================================================
+  function getNextUnfilledColor() {
+    for (const num in currentPicture.colors) {
+      let needed = 0, filled = 0;
+
+      for (let r = 0; r < rows; r++)
+        for (let c = 0; c < cols; c++)
+          if (String(currentPicture.data[r][c]) === String(num)) {
+            needed++;
+            if (userGrid[r][c] === num) filled++;
+          }
+
+      if (filled < needed) return num; // first unfinished color
+    }
+    return null;
+  }
 
   // ============================================================================
   //  OVERLAY CANVAS
@@ -92,17 +113,31 @@ function setupColoring(pictureName, PICTURES) {
     label.textContent = num;
 
     sw.appendChild(label);
-    sw.onclick = () => selectColor(num, sw);
+
+    // manual override
+    sw.onclick = () => {
+      autoSelectPaused = true;
+      selectColor(num, sw, true);
+    };
+
     colorBar.appendChild(sw);
   });
 
-  const selectColor = (num, element) => {
+  // ============================================================================
+  //  SELECT COLOR
+  // ============================================================================
+  function selectColor(num, swatchElement, manual = false) {
     currentColor = num;
+
     document.querySelectorAll(".color-swatch")
       .forEach(s => s.classList.remove("selected"));
-    element.classList.add("selected");
+
+    swatchElement.classList.add("selected");
+
+    if (manual) autoSelectPaused = true;
+
     drawPixels();
-  };
+  }
 
   // ============================================================================
   //  COMPLETION SPARKLE
@@ -116,7 +151,8 @@ function setupColoring(pictureName, PICTURES) {
   //  PROGRESS BAR UPDATES
   // ============================================================================
   const updateProgress = () => {
-    let count = 0, total = rows * cols;
+    let count = 0;
+    const total = rows * cols;
 
     for (let r = 0; r < rows; r++)
       for (let c = 0; c < cols; c++)
@@ -134,6 +170,15 @@ function setupColoring(pictureName, PICTURES) {
     } else {
       canvas.classList.remove("complete-picture");
     }
+
+    // AUTO SELECT NEXT COLOR
+    if (!autoSelectPaused) {
+      const next = getNextUnfilledColor();
+      if (next !== null && next !== currentColor) {
+        const sw = document.querySelector(`.color-swatch[data-value="${next}"]`);
+        if (sw) selectColor(next, sw);
+      }
+    }
   };
 
   // ============================================================================
@@ -142,11 +187,9 @@ function setupColoring(pictureName, PICTURES) {
   const updateColorChecks = () => {
     for (const num in currentPicture.colors) {
       const swatch = document.querySelector(`.color-swatch[data-value="${num}"]`);
-      if (!swatch) continue;
-
       const label = swatch.querySelector(".swatch-number");
-      let needed = 0, filled = 0;
 
+      let needed = 0, filled = 0;
       for (let r = 0; r < rows; r++)
         for (let c = 0; c < cols; c++)
           if (String(currentPicture.data[r][c]) === num) {
@@ -166,6 +209,10 @@ function setupColoring(pictureName, PICTURES) {
           void swatch.offsetWidth;
           swatch.classList.add("swatch-jiggle");
         }
+
+        // once this color finishes, allow auto-select again
+        autoSelectPaused = false;
+
       } else {
         label.textContent = num;
         label.style.fontSize = "20px";
@@ -193,21 +240,21 @@ function setupColoring(pictureName, PICTURES) {
         ctx.fillRect(c * size, r * size, size, size);
 
         const highlight =
-          painted === null && currentColor !== null &&
+          painted === null &&
+          currentColor !== null &&
           String(target) === String(currentColor);
 
         if (highlight) {
-          ctx.fillStyle = "rgba(250, 204, 21, 0.35)";
+          ctx.fillStyle = "rgba(250,204,21,0.35)";
           ctx.fillRect(c * size, r * size, size, size);
         }
 
-        // Draw number
         if (painted === null) {
           ctx.textAlign = "center";
           ctx.textBaseline = "middle";
-          ctx.font = (highlight ?
-            `bold ${size * 0.65}px Courier New`
-            : `${size * 0.5}px Courier New`);
+          ctx.font = highlight ?
+            `bold ${size * 0.65}px Courier New` :
+            `${size * 0.5}px Courier New`;
           ctx.fillStyle = "#000";
           ctx.fillText(target, c * size + size / 2, r * size + size / 2);
         }
@@ -226,7 +273,6 @@ function setupColoring(pictureName, PICTURES) {
     const rect = canvas.getBoundingClientRect();
     const size = computePixelSize();
 
-    // FIX: pixel-perfect coordinate mapping
     const x = (clientX - rect.left) * (canvas.width / rect.width);
     const y = (clientY - rect.top) * (canvas.height / rect.height);
 
@@ -268,13 +314,13 @@ function setupColoring(pictureName, PICTURES) {
 
     octx.beginPath();
     octx.arc(x, y, radius, 0, Math.PI * 2);
-    octx.strokeStyle = "rgba(15, 23, 42, 0.8)";
+    octx.strokeStyle = "rgba(15,23,42,0.8)";
     octx.lineWidth = 2;
     octx.stroke();
   };
 
   // ============================================================================
-  //  POINTER EVENTS (Unified mouse + touch support)
+  //  POINTER EVENTS
   // ============================================================================
   canvas.addEventListener("pointerdown", e => {
     canvas.setPointerCapture(e.pointerId);
@@ -284,9 +330,7 @@ function setupColoring(pictureName, PICTURES) {
   });
 
   canvas.addEventListener("pointermove", e => {
-    if (isDragging) {
-      paintPixel(e.clientX, e.clientY);
-    }
+    if (isDragging) paintPixel(e.clientX, e.clientY);
     drawIndicator(e.clientX, e.clientY);
   });
 
@@ -315,11 +359,18 @@ function setupColoring(pictureName, PICTURES) {
   };
 
   // ============================================================================
-  //  INIT
+  //  INIT (includes AUTO-SELECT FIRST COLOR)
   // ============================================================================
   drawPixels();
   updateProgress();
   updateColorChecks();
+
+  // Auto-select the first unfinished color on load
+  const first = getNextUnfilledColor();
+  if (first !== null) {
+    const sw = document.querySelector(`.color-swatch[data-value="${first}"]`);
+    if (sw) selectColor(first, sw);
+  }
 
   window.addEventListener("resize", drawPixels);
 }
