@@ -28,37 +28,32 @@ function setupColoring(pictureName, PICTURES) {
 
   let isDragging = false;
   let currentColor = null;
-  let manualOverride = false; // stops auto-select if user picks manual color
+  let manualOverride = false;
 
   // ========================================================================
-  // LOAD BREAKING TEXTURES (destroy_stage_0–9)
+  // LOAD BREAKING TEXTURES destroy_stage_0–9
   // ========================================================================
   const BREAK_FRAMES = [];
   for (let i = 0; i < 10; i++) {
     const img = new Image();
-    img.src = `destroy/destroy_stage_${i}.png`; // <-- official textures
+    img.src = `destroy/destroy_stage_${i}.png`;
     BREAK_FRAMES.push(img);
   }
 
   function getBreakingStage() {
     if (!currentColor) return 0;
 
-    let needed = 0;
-    let filled = 0;
+    let needed = 0, filled = 0;
 
-    for (let r = 0; r < rows; r++) {
-      for (let c = 0; c < cols; c++) {
+    for (let r = 0; r < rows; r++)
+      for (let c = 0; c < cols; c++)
         if (String(currentPicture.data[r][c]) === String(currentColor)) {
           needed++;
           if (String(userGrid[r][c]) === String(currentColor)) filled++;
         }
-      }
-    }
 
     if (needed === 0) return 0;
-    const pct = filled / needed;
-
-    return Math.min(9, Math.floor(pct * 10));
+    return Math.min(9, Math.floor((filled / needed) * 10));
   }
 
   // ========================================================================
@@ -66,8 +61,7 @@ function setupColoring(pictureName, PICTURES) {
   // ========================================================================
   const loadUserGrid = () => {
     try {
-      const saved = localStorage.getItem("progress_" + pictureName);
-      return saved ? JSON.parse(saved) : null;
+      return JSON.parse(localStorage.getItem("progress_" + pictureName)) || null;
     } catch {
       return null;
     }
@@ -84,26 +78,25 @@ function setupColoring(pictureName, PICTURES) {
   // SCALING
   // ========================================================================
   const computePixelSize = () => {
-    const vw = window.innerWidth;
-    const vh = window.innerHeight;
+    const vw = window.innerWidth, vh = window.innerHeight;
 
     let size = basePixelSize;
 
     if (vw >= 768) {
       const maxW = vw * 0.70;
       const maxH = vh * 0.60;
-
-      const sizeW = Math.floor(maxW / cols);
-      const sizeH = Math.floor(maxH / rows);
-
-      size = Math.max(basePixelSize, Math.min(sizeW, sizeH, basePixelSize * 2));
+      size = Math.min(
+        Math.floor(maxW / cols),
+        Math.floor(maxH / rows),
+        basePixelSize * 2
+      );
     }
 
-    return size;
+    return Math.max(basePixelSize, size);
   };
 
   // ========================================================================
-  // OVERLAY CANVAS (mouse indicator)
+  // OVERLAY CANVAS (BUBBLE + BREAKING TEXTURES)
   // ========================================================================
   const overlay = document.createElement("canvas");
   overlay.id = "paint-overlay";
@@ -111,12 +104,15 @@ function setupColoring(pictureName, PICTURES) {
   overlay.style.left = "0";
   overlay.style.top = "0";
   overlay.style.pointerEvents = "none";
+  overlay.style.zIndex = "9999"; // <-- FIXED
   canvas.parentNode.appendChild(overlay);
 
-  const positionOverlay = () => {
-    overlay.width = canvas.width;
-    overlay.height = canvas.height;
-  };
+  function positionOverlay() {
+    requestAnimationFrame(() => {
+      overlay.width = canvas.width;
+      overlay.height = canvas.height;
+    });
+  }
 
   // ========================================================================
   // PALETTE
@@ -145,15 +141,15 @@ function setupColoring(pictureName, PICTURES) {
   // ========================================================================
   // SELECT COLOR
   // ========================================================================
-  function selectColor(num, swatchElement, userClicked = true) {
+  function selectColor(num, el, userClicked = true) {
     currentColor = num;
-
     if (userClicked) manualOverride = true;
 
-    document.querySelectorAll(".color-swatch")
-      .forEach(s => s.classList.remove("selected"));
+    document.querySelectorAll(".color-swatch").forEach(s =>
+      s.classList.remove("selected")
+    );
+    el.classList.add("selected");
 
-    swatchElement.classList.add("selected");
     drawPixels();
   }
 
@@ -166,17 +162,17 @@ function setupColoring(pictureName, PICTURES) {
   };
 
   // ========================================================================
-  // PROGRESS BAR
+  // PROGRESS
   // ========================================================================
   const updateProgress = () => {
     let filled = 0;
-    const total = rows * cols;
 
     for (let r = 0; r < rows; r++)
       for (let c = 0; c < cols; c++)
         if (userGrid[r][c] !== null) filled++;
 
-    const pct = Math.floor((filled / total) * 100);
+    const pct = Math.floor((filled / (rows * cols)) * 100);
+
     progressBar.style.width = pct + "%";
     progressText.textContent = pct + "%";
 
@@ -195,16 +191,12 @@ function setupColoring(pictureName, PICTURES) {
   // ========================================================================
   const updateColorChecks = () => {
     Object.keys(currentPicture.colors).forEach(num => {
-      const swatch = document.querySelector(
-        `.color-swatch[data-value="${num}"]`
-      );
+      const swatch = document.querySelector(`.color-swatch[data-value="${num}"]`);
       if (!swatch) return;
 
       const label = swatch.querySelector(".swatch-number");
 
-      let needed = 0;
-      let filled = 0;
-
+      let needed = 0, filled = 0;
       for (let r = 0; r < rows; r++)
         for (let c = 0; c < cols; c++)
           if (String(currentPicture.data[r][c]) === String(num)) {
@@ -228,7 +220,6 @@ function setupColoring(pictureName, PICTURES) {
         if (String(currentColor) === String(num)) {
           manualOverride = false;
         }
-
       } else {
         label.textContent = num;
         label.style.fontSize = "20px";
@@ -242,12 +233,13 @@ function setupColoring(pictureName, PICTURES) {
   const autoSelectNextColorIfReady = () => {
     if (manualOverride) return;
 
-    const nums = Object.keys(currentPicture.colors)
-      .sort((a, b) => parseInt(a, 36) - parseInt(b, 36));
+    const nums = Object.keys(currentPicture.colors).sort(
+      (a, b) => parseInt(a, 36) - parseInt(b, 36)
+    );
 
     for (const num of nums) {
-      let needed = 0;
-      let filled = 0;
+      let needed = 0,
+        filled = 0;
 
       for (let r = 0; r < rows; r++)
         for (let c = 0; c < cols; c++)
@@ -269,7 +261,7 @@ function setupColoring(pictureName, PICTURES) {
   // ========================================================================
   // DRAW PIXELS
   // ========================================================================
-  const drawPixels = () => {
+  function drawPixels() {
     const size = computePixelSize();
     canvas.width = cols * size;
     canvas.height = rows * size;
@@ -299,15 +291,16 @@ function setupColoring(pictureName, PICTURES) {
         if (painted === null) {
           ctx.textAlign = "center";
           ctx.textBaseline = "middle";
-          ctx.font = highlight
-            ? `${size * 0.65}px Courier New`
-            : `${size * 0.50}px Courier New`;
+          ctx.font =
+            highlight
+              ? `${size * 0.65}px Courier New`
+              : `${size * 0.50}px Courier New`;
           ctx.fillStyle = "#000";
           ctx.fillText(target, c * size + size / 2, r * size + size / 2);
         }
       }
     }
-  };
+  }
 
   // ========================================================================
   // PAINTING LOGIC
@@ -323,13 +316,13 @@ function setupColoring(pictureName, PICTURES) {
     const x = (clientX - rect.left) * (canvas.width / rect.width);
     const y = (clientY - rect.top) * (canvas.height / rect.height);
 
-    const baseCol = Math.floor(x / size);
-    const baseRow = Math.floor(y / size);
+    const col = Math.floor(x / size);
+    const row = Math.floor(y / size);
 
-    for (let dr = -BRUSH_RADIUS; dr <= BRUSH_RADIUS; dr++) {
+    for (let dr = -BRUSH_RADIUS; dr <= BRUSH_RADIUS; dr++)
       for (let dc = -BRUSH_RADIUS; dc <= BRUSH_RADIUS; dc++) {
-        const rr = baseRow + dr;
-        const cc = baseCol + dc;
+        const rr = row + dr,
+          cc = col + dc;
 
         if (rr < 0 || rr >= rows || cc < 0 || cc >= cols) continue;
 
@@ -337,7 +330,6 @@ function setupColoring(pictureName, PICTURES) {
           userGrid[rr][cc] = currentColor;
         }
       }
-    }
 
     drawPixels();
     updateProgress();
@@ -347,12 +339,11 @@ function setupColoring(pictureName, PICTURES) {
   };
 
   // ========================================================================
-  // BRUSH INDICATOR (circle + glow + breaking texture)
+  // BRUSH INDICATOR — FIXED VERSION
   // ========================================================================
   function drawIndicator(clientX, clientY) {
     const octx = overlay.getContext("2d");
     octx.clearRect(0, 0, overlay.width, overlay.height);
-
     if (!isDragging || currentColor === null) return;
 
     const rect = canvas.getBoundingClientRect();
@@ -363,13 +354,13 @@ function setupColoring(pictureName, PICTURES) {
 
     const radius = BRUSH_RADIUS * size + size / 2;
 
-    // Swatch color outline
+    // Selected swatch color
     const swatch = document.querySelector(
       `.color-swatch[data-value="${currentColor}"]`
     );
     const brushColor = swatch ? swatch.style.background : "#ffffff";
 
-    // Soft radial gradient
+    // Gradient
     const grad = octx.createRadialGradient(x, y, radius * 0.1, x, y, radius);
     grad.addColorStop(0, brushColor + "30");
     grad.addColorStop(1, "rgba(0,0,0,0)");
@@ -379,7 +370,7 @@ function setupColoring(pictureName, PICTURES) {
     octx.arc(x, y, radius, 0, Math.PI * 2);
     octx.fill();
 
-    // Glow outline
+    // Outline
     octx.strokeStyle = brushColor;
     octx.shadowColor = brushColor;
     octx.shadowBlur = 6;
@@ -389,13 +380,13 @@ function setupColoring(pictureName, PICTURES) {
     octx.stroke();
     octx.shadowBlur = 0;
 
-    // ---------------------------
-    // DRAW BREAKING TEXTURE
-    // ---------------------------
-    const stage = getBreakingStage(); // 0–9
+    // Breaking overlay
+    const stage = getBreakingStage();
     const img = BREAK_FRAMES[stage];
+
     if (img.complete && stage > 0) {
       const d = radius * 2;
+
       octx.save();
       octx.beginPath();
       octx.arc(x, y, radius, 0, Math.PI * 2);
@@ -408,18 +399,20 @@ function setupColoring(pictureName, PICTURES) {
   }
 
   // ========================================================================
-  // POINTER EVENTS
+  // POINTER EVENTS (with overlay sync)
   // ========================================================================
   canvas.addEventListener("pointerdown", e => {
     canvas.setPointerCapture(e.pointerId);
     isDragging = true;
+
     paintPixel(e.clientX, e.clientY);
-    drawIndicator(e.clientX, e.clientY);
+    requestAnimationFrame(() => drawIndicator(e.clientX, e.clientY));
   });
 
   canvas.addEventListener("pointermove", e => {
     if (isDragging) paintPixel(e.clientX, e.clientY);
-    drawIndicator(e.clientX, e.clientY);
+
+    requestAnimationFrame(() => drawIndicator(e.clientX, e.clientY));
   });
 
   canvas.addEventListener("pointerup", e => {
@@ -428,7 +421,7 @@ function setupColoring(pictureName, PICTURES) {
     overlay.getContext("2d").clearRect(0, 0, overlay.width, overlay.height);
   });
 
-  // Prevent scroll on touch
+  // Prevent scroll on mobile
   canvas.addEventListener("touchstart", e => e.preventDefault(), { passive: false });
   canvas.addEventListener("touchmove", e => e.preventDefault(), { passive: false });
 
@@ -443,8 +436,8 @@ function setupColoring(pictureName, PICTURES) {
     userGrid = Array.from({ length: rows }, () => Array(cols).fill(null));
     localStorage.removeItem("progress_" + pictureName);
     localStorage.removeItem("completed_" + pictureName);
-    canvas.classList.remove("complete-picture");
 
+    canvas.classList.remove("complete-picture");
     manualOverride = false;
 
     drawPixels();
@@ -466,6 +459,7 @@ function setupColoring(pictureName, PICTURES) {
   window.addEventListener("resize", () => {
     drawPixels();
     updateColorChecks();
+    positionOverlay();
   });
 }
 
