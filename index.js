@@ -5,9 +5,11 @@ const grid = document.getElementById("thumb-grid");
 const completionSummary = document.getElementById("completion-summary");
 const categorySummary = document.getElementById("category-summary");
 const catBtns = document.querySelectorAll(".cat-btn");
+const searchBox = document.getElementById("search-box");
+const randomBtn = document.getElementById("random-btn");
 
 // ===============================
-// SPLASH TEXT (daily deterministic)
+// SPLASH TEXT
 // ===============================
 (() => {
   const splashEl = document.getElementById("splash");
@@ -20,34 +22,60 @@ const catBtns = document.querySelectorAll(".cat-btn");
 
 let activeCategory = "all";
 
-// Pre-sort entries alphabetically ONCE for consistent gallery order
+// Alphabetize picture list
 const ENTRIES = Object.entries(window.PICTURES).sort((a, b) =>
   (a[1].name || a[0]).localeCompare(b[1].name || b[0])
 );
 
 // ===============================
-// GALLERY RENDERING
+// FUZZY SEARCH
+// ===============================
+function fuzzyMatch(haystack, needle) {
+  haystack = haystack.toLowerCase();
+  needle = needle.toLowerCase();
+  const parts = needle.split(/\s+/).filter(Boolean);
+
+  return parts.every(part => {
+    let hIdx = 0;
+    for (let nIdx = 0; nIdx < part.length; nIdx++) {
+      hIdx = haystack.indexOf(part[nIdx], hIdx);
+      if (hIdx === -1) return false;  
+      hIdx++;
+    }
+    return true;
+  });
+}
+
+// ===============================
+// RENDER GALLERY
 // ===============================
 function renderGallery() {
   grid.innerHTML = "";
+  const searchTerm = searchBox.value.trim().toLowerCase();
 
   ENTRIES.forEach(([id, pic]) => {
-    // Category filter
     if (activeCategory !== "all" && pic.category !== activeCategory) return;
+
+    if (searchTerm) {
+      const nameStr = (pic.name || id).toLowerCase();
+      const idStr   = id.toLowerCase();
+
+      if (
+        !fuzzyMatch(nameStr, searchTerm) &&
+        !fuzzyMatch(idStr, searchTerm)
+      ) return;
+    }
 
     const tile = document.createElement("a");
     tile.className = "thumb";
     tile.href = `color.html?name=${encodeURIComponent(id)}`;
 
-    // Completed state
     if (localStorage.getItem("completed_" + id) === "true") {
       tile.classList.add("completed");
     }
 
-    // --- Thumbnail canvas ---
     const canvas = document.createElement("canvas");
     const ctx = canvas.getContext("2d");
-
     const rows = pic.data.length;
     const cols = pic.data[0].length;
     const scale = 6;
@@ -62,7 +90,6 @@ function renderGallery() {
       }
     }
 
-    // --- Label ---
     const label = document.createElement("div");
     label.className = "thumb-label";
     label.textContent = pic.name || id;
@@ -81,7 +108,6 @@ function renderGallery() {
 function updateSummaries() {
   const totalCount = ENTRIES.length;
 
-  // Total completed across all categories
   const totalCompleted = ENTRIES.filter(([id]) =>
     localStorage.getItem("completed_" + id) === "true"
   ).length;
@@ -89,10 +115,8 @@ function updateSummaries() {
   completionSummary.textContent =
     `Completed: ${totalCompleted} / ${totalCount}`;
 
-  // Category-specific summary
   if (activeCategory === "all") {
     categorySummary.style.display = "none";
-    categorySummary.textContent = "";
     return;
   }
 
@@ -113,10 +137,40 @@ catBtns.forEach(btn => {
   btn.addEventListener("click", () => {
     catBtns.forEach(b => b.classList.remove("selected"));
     btn.classList.add("selected");
-
     activeCategory = btn.dataset.cat;
     renderGallery();
   });
+});
+
+// ===============================
+// SEARCH INPUT HANDLING
+// ===============================
+searchBox.addEventListener("input", () => {
+  renderGallery();
+});
+
+// ===============================
+// RANDOM BUTTON
+// ===============================
+randomBtn.addEventListener("click", () => {
+  let list = ENTRIES;
+
+  if (activeCategory !== "all") {
+    list = list.filter(([_, pic]) => pic.category === activeCategory);
+  }
+
+  const searchTerm = searchBox.value.trim().toLowerCase();
+  if (searchTerm) {
+    list = list.filter(([id, pic]) =>
+      fuzzyMatch((pic.name || id).toLowerCase(), searchTerm) ||
+      fuzzyMatch(id.toLowerCase(), searchTerm)
+    );
+  }
+
+  if (list.length === 0) return;
+
+  const [randomId] = list[Math.floor(Math.random() * list.length)];
+  window.location.href = `color.html?name=${randomId}`;
 });
 
 // ===============================
