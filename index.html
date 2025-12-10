@@ -9,23 +9,13 @@
 </head>
 <body>
   <div id="bg"></div>
+
   <main class="center-col">
 
     <h1>🎨 Minecraft Color-by-Number</h1>
-    
+
     <div id="splash" class="splash-text"></div>
 
-    <!-- BACKGROUND SELECTOR -->
-    <div style="margin-bottom: 10px;">
-      <select id="background-select" class="bg-select">
-        <option value="End">End (Default)</option>
-        <option value="Dirt">Dirt</option>
-        <option value="End Stone">End Stone</option>
-        <option value="Nether">Nether</option>
-        <option value="Portal">Portal</option>
-      </select>
-    </div>
-    
     <!-- Summary counters -->
     <div id="completion-summary" class="summary-text"></div>
     <div id="category-summary" class="summary-text" style="display:none;"></div>
@@ -66,10 +56,8 @@
   <script src="pictures.js"></script>
   <script src="splashes.js"></script>
   <script src="index.js"></script>
+
   <script>
-    // ===============================
-    // ELEMENTS
-    // ===============================
     const grid = document.getElementById("thumb-grid");
     const searchBox = document.getElementById("search-box");
     const randomBtn = document.getElementById("random-btn");
@@ -79,7 +67,7 @@
 
     let activeCategory = "all";
 
-    // Convert PICTURES → list of objects
+    // Convert PICTURES → objects
     let entries = Object.entries(window.PICTURES).map(([id, pic]) => ({
       id,
       name: pic.name || id,
@@ -90,9 +78,7 @@
 
     entries.sort((a, b) => a.name.localeCompare(b.name));
 
-    // ===============================
-    // RENDER GALLERY
-    // ===============================
+    // Render thumbnails
     function render(list) {
       grid.innerHTML = "";
 
@@ -134,9 +120,7 @@
       updateSummaries(list);
     }
 
-    // ===============================
-    // SUMMARY COUNTERS
-    // ===============================
+    // Summary counters
     function updateSummaries(currentList) {
       const allPics = entries;
       const totalCount = allPics.length;
@@ -145,11 +129,9 @@
         localStorage.getItem("completed_" + p.id) === "true"
       ).length;
 
-      // Always show total completed
       completionSummary.textContent =
         `Completed: ${totalCompleted} / ${totalCount}`;
 
-      // Hide category summary for ALL
       if (activeCategory === "all") {
         categorySummary.style.display = "none";
         return;
@@ -165,9 +147,7 @@
         `${activeCategory}: ${completedInCat} / ${picsInCat.length} completed`;
     }
 
-    // ===============================
-    // APPLY FILTERS
-    // ===============================
+    // Filters
     function applyFilters() {
       const q = searchBox.value.trim().toLowerCase();
 
@@ -198,9 +178,6 @@
       })
     );
 
-    // ===============================
-    // RANDOM BUTTON
-    // ===============================
     randomBtn.addEventListener("click", () => {
       const filtered = entries.filter(p =>
         activeCategory === "all" ? true : p.category === activeCategory
@@ -209,7 +186,6 @@
       window.location.href = `color.html?name=${choice.id}`;
     });
 
-    // Initial load
     render(entries);
   </script>
 </body>
