@@ -53,6 +53,7 @@ h1, h2 {
   margin: 0.5rem 0;
 }
 
+/* Summary counters */
 .summary-text {
   text-align: center;
   font-size: 16px;
@@ -126,7 +127,7 @@ h1, h2 {
   font-weight: 600;
 }
 
-/* Completed */
+/* Completed thumbnail */
 .thumb.completed {
   border: 2px solid #86efac;
   box-shadow: 0 0 8px rgba(134, 239, 172, 0.35);
@@ -214,7 +215,45 @@ h1, h2 {
   text-shadow: 0 0 4px rgba(255,255,255,0.8);
 }
 
-/* Buttons */
+/* ========= Category Buttons (restored bluish style) ========= */
+
+#category-bar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  margin: 0.5rem 0 1rem;
+}
+
+.cat-btn {
+  padding: 6px 14px;
+  border-radius: 12px;
+  border: 1px solid #4b5563;
+  background: #1f2937cc;       /* rich bluish slate */
+  color: #e5e7eb;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  transition: background 0.12s ease, transform 0.1s ease, box-shadow 0.15s ease;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.45);
+}
+
+.cat-btn:hover {
+  background: #374151;         /* brighter slate blue */
+  transform: translateY(-1px);
+  box-shadow: 0 5px 10px rgba(0,0,0,0.55);
+}
+
+.cat-btn.selected {
+  background: #facc15;         /* bright yellow */
+  color: #000;
+  font-weight: 700;
+  border-color: #d4af37;
+  box-shadow: 0 3px 8px rgba(250,204,21,0.4);
+}
+
+/* ========= General Buttons ========= */
+
 .back-btn {
   padding: 0.6rem 1.4rem;
   font-size: 1rem;
@@ -226,8 +265,13 @@ h1, h2 {
   cursor: pointer;
 }
 
-/* Mobile */
+/* ========= Mobile ========= */
+
 @media (max-width: 480px) {
-  .thumb-grid { grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); }
-  #pixel-canvas { max-width: 95vw; }
+  .thumb-grid { 
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); 
+  }
+  #pixel-canvas { 
+    max-width: 95vw; 
+  }
 }
