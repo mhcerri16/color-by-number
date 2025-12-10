@@ -7,24 +7,21 @@
   inset: 0;
   z-index: -3;
   pointer-events: none;
-
   background-image: url("background.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-
   width: 100%;
   height: 100%;
 }
 
-/* Remove old overlay effects */
 body::after,
 body::before {
   content: none !important;
 }
 
 /* ============================================================
-   MAIN APP STYLES
+   MAIN APP
    ============================================================ */
 
 body {
@@ -49,11 +46,9 @@ body {
   box-sizing: border-box;
 }
 
-h1, h2 {
-  margin: 0.5rem 0;
-}
+/* Splash */
+h1, h2 { margin: 0.5rem 0; }
 
-/* Summary counters */
 .summary-text {
   text-align: center;
   font-size: 16px;
@@ -62,7 +57,6 @@ h1, h2 {
   font-weight: 500;
 }
 
-/* Splash text */
 .splash-text {
   font-family: 'Arial Black', 'Impact', sans-serif;
   color: #fff200;
@@ -83,7 +77,58 @@ h1, h2 {
   to   { transform: rotate(-12deg) translateY(-4px); }
 }
 
-/* ========= Grid + Thumbnails ========= */
+/* ============================================================
+   CATEGORY BUTTONS WITH ICONS
+   ============================================================ */
+
+.cat-icon {
+  width: 14px;
+  height: 14px;
+  image-rendering: pixelated;
+  margin-right: 6px;
+  vertical-align: middle;
+}
+
+#category-bar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  margin: 0.5rem 0 1rem;
+}
+
+.cat-btn {
+  padding: 6px 14px;
+  border-radius: 12px;
+  border: 1px solid #4b5563;
+  background: #1f2937cc;
+  color: #e5e7eb;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  transition: background 0.12s ease, transform 0.1s ease, box-shadow 0.15s ease;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.45);
+}
+
+.cat-btn:hover {
+  background: #374151;
+  transform: translateY(-1px);
+  box-shadow: 0 5px 10px rgba(0,0,0,0.55);
+}
+
+.cat-btn.selected {
+  background: #facc15;
+  color: #000;
+  font-weight: 700;
+  border-color: #d4af37;
+  box-shadow: 0 3px 8px rgba(250,204,21,0.4);
+}
+
+/* ============================================================
+   THUMBNAILS
+   ============================================================ */
 
 .thumb-grid {
   display: grid;
@@ -127,7 +172,6 @@ h1, h2 {
   font-weight: 600;
 }
 
-/* Completed thumbnail */
 .thumb.completed {
   border: 2px solid #86efac;
   box-shadow: 0 0 8px rgba(134, 239, 172, 0.35);
@@ -138,7 +182,9 @@ h1, h2 {
   opacity: 1;
 }
 
-/* ========= Canvas Page ========= */
+/* ============================================================
+   CANVAS PAGE
+   ============================================================ */
 
 .canvas-container {
   position: relative;
@@ -156,13 +202,11 @@ h1, h2 {
   max-width: 100%;
 }
 
-/* Completion glow */
 #pixel-canvas.complete-picture {
   border: 4px solid #4caf50;
   box-shadow: 0 0 12px #4caf50;
 }
 
-/* Progress bar */
 #progress-container {
   width: 90%;
   max-width: 400px;
@@ -205,55 +249,17 @@ h1, h2 {
   cursor: pointer;
 }
 
-.color-swatch.selected {
-  border-width: 3px;
-  box-shadow: 0 0 0 2px #facc15;
-}
-
 .swatch-number {
   color: #000;
   text-shadow: 0 0 4px rgba(255,255,255,0.8);
 }
 
-/* ========= Category Buttons (restored bluish style) ========= */
-
-#category-bar {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 8px;
-  margin: 0.5rem 0 1rem;
+.color-swatch.selected {
+  border-width: 3px;
+  box-shadow: 0 0 0 2px #facc15;
 }
 
-.cat-btn {
-  padding: 6px 14px;
-  border-radius: 12px;
-  border: 1px solid #4b5563;
-  background: #1f2937cc;       /* rich bluish slate */
-  color: #e5e7eb;
-  cursor: pointer;
-  font-size: 14px;
-  font-weight: 500;
-  transition: background 0.12s ease, transform 0.1s ease, box-shadow 0.15s ease;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.45);
-}
-
-.cat-btn:hover {
-  background: #374151;         /* brighter slate blue */
-  transform: translateY(-1px);
-  box-shadow: 0 5px 10px rgba(0,0,0,0.55);
-}
-
-.cat-btn.selected {
-  background: #facc15;         /* bright yellow */
-  color: #000;
-  font-weight: 700;
-  border-color: #d4af37;
-  box-shadow: 0 3px 8px rgba(250,204,21,0.4);
-}
-
-/* ========= General Buttons ========= */
-
+/* Buttons */
 .back-btn {
   padding: 0.6rem 1.4rem;
   font-size: 1rem;
@@ -265,13 +271,8 @@ h1, h2 {
   cursor: pointer;
 }
 
-/* ========= Mobile ========= */
-
+/* Mobile */
 @media (max-width: 480px) {
-  .thumb-grid { 
-    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); 
-  }
-  #pixel-canvas { 
-    max-width: 95vw; 
-  }
+  .thumb-grid { grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); }
+  #pixel-canvas { max-width: 95vw; }
 }
