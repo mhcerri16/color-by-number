@@ -70,14 +70,16 @@ function setupColoring(pictureName, PICTURES) {
     for (const num in currentPicture.colors) {
       let needed = 0, filled = 0;
 
-      for (let r = 0; r < rows; r++)
-        for (let c = 0; c < cols; c++)
+      for (let r = 0; r < rows; r++) {
+        for (let c = 0; c < cols; c++) {
           if (String(currentPicture.data[r][c]) === String(num)) {
             needed++;
             if (userGrid[r][c] === num) filled++;
           }
+        }
+      }
 
-      if (filled < needed) return num; // first unfinished color
+      if (needed > 0 && filled < needed) return num; // first unfinished color
     }
     return null;
   }
@@ -114,7 +116,7 @@ function setupColoring(pictureName, PICTURES) {
 
     sw.appendChild(label);
 
-    // manual override
+    // manual override: pause auto-select until this color completes
     sw.onclick = () => {
       autoSelectPaused = true;
       selectColor(num, sw, true);
@@ -134,7 +136,9 @@ function setupColoring(pictureName, PICTURES) {
 
     swatchElement.classList.add("selected");
 
-    if (manual) autoSelectPaused = true;
+    if (manual) {
+      autoSelectPaused = true;
+    }
 
     drawPixels();
   }
@@ -154,9 +158,11 @@ function setupColoring(pictureName, PICTURES) {
     let count = 0;
     const total = rows * cols;
 
-    for (let r = 0; r < rows; r++)
-      for (let c = 0; c < cols; c++)
+    for (let r = 0; r < rows; r++) {
+      for (let c = 0; c < cols; c++) {
         if (userGrid[r][c] !== null) count++;
+      }
+    }
 
     const pct = Math.floor((count / total) * 100);
     progressBar.style.width = pct + "%";
@@ -170,52 +176,60 @@ function setupColoring(pictureName, PICTURES) {
     } else {
       canvas.classList.remove("complete-picture");
     }
+  };
 
-    // AUTO SELECT NEXT COLOR
+  // ============================================================================
+  //  CHECKMARK + SWATCH JIGGLE + AUTO-SELECT NEXT COLOR
+  // ============================================================================
+  const updateColorChecks = () => {
+    for (const num in currentPicture.colors) {
+      const swatch = document.querySelector(`.color-swatch[data-value="${num}"]`);
+      if (!swatch) continue;
+
+      const label = swatch.querySelector(".swatch-number");
+      if (!label) continue;
+
+      let needed = 0, filled = 0;
+      for (let r = 0; r < rows; r++) {
+        for (let c = 0; c < cols; c++) {
+          if (String(currentPicture.data[r][c]) === String(num)) {
+            needed++;
+            if (userGrid[r][c] === num) filled++;
+          }
+        }
+      }
+
+      const isCompleted = needed > 0 && filled === needed;
+      const wasCompletedBefore = label.textContent === "✔";
+
+      if (isCompleted) {
+        // set checkmark
+        label.textContent = "✔";
+        label.style.fontSize = "22px";
+
+        // trigger jiggle only on transition to completed
+        if (!wasCompletedBefore) {
+          swatch.classList.remove("swatch-jiggle");
+          void swatch.offsetWidth;  // restart animation
+          swatch.classList.add("swatch-jiggle");
+        }
+
+        // color finished → allow auto-select again
+        autoSelectPaused = false;
+
+      } else {
+        // not complete: reset label
+        label.textContent = num;
+        label.style.fontSize = "20px";
+      }
+    }
+
+    // After updating all swatches, auto-select next color if allowed
     if (!autoSelectPaused) {
       const next = getNextUnfilledColor();
       if (next !== null && next !== currentColor) {
         const sw = document.querySelector(`.color-swatch[data-value="${next}"]`);
         if (sw) selectColor(next, sw);
-      }
-    }
-  };
-
-  // ============================================================================
-  //  CHECKMARK + SWATCH JIGGLE
-  // ============================================================================
-  const updateColorChecks = () => {
-    for (const num in currentPicture.colors) {
-      const swatch = document.querySelector(`.color-swatch[data-value="${num}"]`);
-      const label = swatch.querySelector(".swatch-number");
-
-      let needed = 0, filled = 0;
-      for (let r = 0; r < rows; r++)
-        for (let c = 0; c < cols; c++)
-          if (String(currentPicture.data[r][c]) === num) {
-            needed++;
-            if (userGrid[r][c] === num) filled++;
-          }
-
-      const complete = needed > 0 && needed === filled;
-      const wasCheck = label.textContent === "✔";
-
-      if (complete) {
-        label.textContent = "✔";
-        label.style.fontSize = "22px";
-
-        if (!wasCheck) {
-          swatch.classList.remove("swatch-jiggle");
-          void swatch.offsetWidth;
-          swatch.classList.add("swatch-jiggle");
-        }
-
-        // once this color finishes, allow auto-select again
-        autoSelectPaused = false;
-
-      } else {
-        label.textContent = num;
-        label.style.fontSize = "20px";
       }
     }
   };
@@ -245,16 +259,16 @@ function setupColoring(pictureName, PICTURES) {
           String(target) === String(currentColor);
 
         if (highlight) {
-          ctx.fillStyle = "rgba(250,204,21,0.35)";
+          ctx.fillStyle = "rgba(250, 204, 21, 0.35)";
           ctx.fillRect(c * size, r * size, size, size);
         }
 
         if (painted === null) {
           ctx.textAlign = "center";
           ctx.textBaseline = "middle";
-          ctx.font = highlight ?
-            `bold ${size * 0.65}px Courier New` :
-            `${size * 0.5}px Courier New`;
+          ctx.font = highlight
+            ? `bold ${size * 0.65}px Courier New`
+            : `${size * 0.5}px Courier New`;
           ctx.fillStyle = "#000";
           ctx.fillText(target, c * size + size / 2, r * size + size / 2);
         }
@@ -273,6 +287,7 @@ function setupColoring(pictureName, PICTURES) {
     const rect = canvas.getBoundingClientRect();
     const size = computePixelSize();
 
+    // precise mapping between client coords and canvas coords
     const x = (clientX - rect.left) * (canvas.width / rect.width);
     const y = (clientY - rect.top) * (canvas.height / rect.height);
 
@@ -281,7 +296,8 @@ function setupColoring(pictureName, PICTURES) {
 
     for (let dr = -BRUSH_RADIUS; dr <= BRUSH_RADIUS; dr++) {
       for (let dc = -BRUSH_RADIUS; dc <= BRUSH_RADIUS; dc++) {
-        const rr = row + dr, cc = col + dc;
+        const rr = row + dr;
+        const cc = col + dc;
         if (rr < 0 || rr >= rows || cc < 0 || cc >= cols) continue;
 
         if (String(currentPicture.data[rr][cc]) === String(currentColor)) {
@@ -314,13 +330,13 @@ function setupColoring(pictureName, PICTURES) {
 
     octx.beginPath();
     octx.arc(x, y, radius, 0, Math.PI * 2);
-    octx.strokeStyle = "rgba(15,23,42,0.8)";
+    octx.strokeStyle = "rgba(15, 23, 42, 0.8)";
     octx.lineWidth = 2;
     octx.stroke();
   };
 
   // ============================================================================
-  //  POINTER EVENTS
+  //  POINTER EVENTS (Unified mouse + touch)
   // ============================================================================
   canvas.addEventListener("pointerdown", e => {
     canvas.setPointerCapture(e.pointerId);
@@ -330,7 +346,9 @@ function setupColoring(pictureName, PICTURES) {
   });
 
   canvas.addEventListener("pointermove", e => {
-    if (isDragging) paintPixel(e.clientX, e.clientY);
+    if (isDragging) {
+      paintPixel(e.clientX, e.clientY);
+    }
     drawIndicator(e.clientX, e.clientY);
   });
 
@@ -359,20 +377,16 @@ function setupColoring(pictureName, PICTURES) {
   };
 
   // ============================================================================
-  //  INIT (includes AUTO-SELECT FIRST COLOR)
+  //  INIT
   // ============================================================================
   drawPixels();
   updateProgress();
   updateColorChecks();
 
-  // Auto-select the first unfinished color on load
-  const first = getNextUnfilledColor();
-  if (first !== null) {
-    const sw = document.querySelector(`.color-swatch[data-value="${first}"]`);
-    if (sw) selectColor(first, sw);
-  }
-
-  window.addEventListener("resize", drawPixels);
+  window.addEventListener("resize", () => {
+    drawPixels();
+    updateColorChecks();
+  });
 }
 
 window.setupColoring = setupColoring;
