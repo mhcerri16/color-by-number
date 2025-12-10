@@ -232,7 +232,7 @@ function setupColoring(pictureName, PICTURES) {
   }
 
   // ========================================================================
-  // AUTO-SELECT NEXT COLOR (0–9 → a–z)
+  // AUTO-SELECT NEXT COLOR (0–9 , a–z)
   // ========================================================================
   function autoSelectNextColorIfReady() {
     if (manualOverride) return;
