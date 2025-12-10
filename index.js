@@ -28,22 +28,40 @@ const ENTRIES = Object.entries(window.PICTURES).sort((a, b) =>
 );
 
 // ===============================
-// FUZZY SEARCH
+// SMART FAST SEARCH
 // ===============================
-function fuzzyMatch(haystack, needle) {
+function smartMatch(haystack, needle) {
   haystack = haystack.toLowerCase();
   needle = needle.toLowerCase();
-  const parts = needle.split(/\s+/).filter(Boolean);
 
-  return parts.every(part => {
-    let hIdx = 0;
-    for (let nIdx = 0; nIdx < part.length; nIdx++) {
-      hIdx = haystack.indexOf(part[nIdx], hIdx);
-      if (hIdx === -1) return false;  
-      hIdx++;
-    }
-    return true;
-  });
+  if (!needle) return 100;
+
+  // Exact match
+  if (haystack === needle) return 100;
+
+  // Starts-with strong match
+  if (haystack.startsWith(needle)) return 90;
+
+  // Word-level starts-with (e.g., "gold app" → "Golden Apple")
+  const words = haystack.split(/[^a-z0-9]+/);
+  if (words.some(w => w.startsWith(needle))) return 80;
+
+  // Simple substring match
+  if (haystack.includes(needle)) return 60;
+
+  // Multi-token partial match
+  const tokens = needle.split(/\s+/).filter(Boolean);
+  let matched = 0;
+
+  for (let token of tokens) {
+    if (haystack.includes(token)) matched++;
+  }
+
+  if (matched === tokens.length && matched > 0) {
+    return 40 + matched * 5;
+  }
+
+  return 0; // reject weak matches
 }
 
 // ===============================
@@ -54,26 +72,30 @@ function renderGallery() {
   const searchTerm = searchBox.value.trim().toLowerCase();
 
   ENTRIES.forEach(([id, pic]) => {
+
+    // Category filter
     if (activeCategory !== "all" && pic.category !== activeCategory) return;
 
+    // Search filter
     if (searchTerm) {
-      const nameStr = (pic.name || id).toLowerCase();
-      const idStr   = id.toLowerCase();
+      const scoreName = smartMatch((pic.name || id), searchTerm);
+      const scoreId   = smartMatch(id, searchTerm);
+      const score = Math.max(scoreName, scoreId);
 
-      if (
-        !fuzzyMatch(nameStr, searchTerm) &&
-        !fuzzyMatch(idStr, searchTerm)
-      ) return;
+      if (score < 50) return; // threshold for relevance
     }
 
+    // Create tile
     const tile = document.createElement("a");
     tile.className = "thumb";
     tile.href = `color.html?name=${encodeURIComponent(id)}`;
 
+    // Completed tag
     if (localStorage.getItem("completed_" + id) === "true") {
       tile.classList.add("completed");
     }
 
+    // Thumbnail canvas
     const canvas = document.createElement("canvas");
     const ctx = canvas.getContext("2d");
     const rows = pic.data.length;
@@ -143,7 +165,7 @@ catBtns.forEach(btn => {
 });
 
 // ===============================
-// SEARCH INPUT HANDLING
+// SEARCH INPUT
 // ===============================
 searchBox.addEventListener("input", () => {
   renderGallery();
@@ -153,19 +175,23 @@ searchBox.addEventListener("input", () => {
 // RANDOM BUTTON
 // ===============================
 randomBtn.addEventListener("click", () => {
-  let list = ENTRIES;
-
-  if (activeCategory !== "all") {
-    list = list.filter(([_, pic]) => pic.category === activeCategory);
-  }
-
   const searchTerm = searchBox.value.trim().toLowerCase();
-  if (searchTerm) {
-    list = list.filter(([id, pic]) =>
-      fuzzyMatch((pic.name || id).toLowerCase(), searchTerm) ||
-      fuzzyMatch(id.toLowerCase(), searchTerm)
-    );
-  }
+
+  let list = ENTRIES.filter(([id, pic]) => {
+    // Category match
+    if (activeCategory !== "all" && pic.category !== activeCategory) return false;
+
+    // Smart search match
+    if (searchTerm) {
+      const score = Math.max(
+        smartMatch((pic.name || id), searchTerm),
+        smartMatch(id, searchTerm)
+      );
+      return score >= 50;
+    }
+
+    return true;
+  });
 
   if (list.length === 0) return;
 
