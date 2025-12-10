@@ -31,7 +31,27 @@ function setupColoring(pictureName, PICTURES) {
   let manualOverride = false;
 
   // ========================================================================
-  // LOAD BREAKING TEXTURES destroy_stage_0–9
+  // FIX: SAFE ALPHA APPLY FOR ANY COLOR (#rrggbb OR rgb())
+  // ========================================================================
+  function addAlpha(color, alphaHex) {
+    // Hex format (#RRGGBB)
+    if (color.startsWith("#")) {
+      return color + alphaHex; // → #RRGGBBAA
+    }
+
+    // rgb(r,g,b)
+    const match = color.match(/rgb\((\d+),\s*(\d+),\s*(\d+)\)/);
+    if (match) {
+      const [_, r, g, b] = match;
+      const alpha = parseInt(alphaHex, 16) / 255;
+      return `rgba(${r},${g},${b},${alpha})`;
+    }
+
+    return color;
+  }
+
+  // ========================================================================
+  // BREAKING TEXTURES destroy_stage_0–9
   // ========================================================================
   const BREAK_FRAMES = [];
   for (let i = 0; i < 10; i++) {
@@ -45,26 +65,27 @@ function setupColoring(pictureName, PICTURES) {
 
     let needed = 0, filled = 0;
 
-    for (let r = 0; r < rows; r++)
-      for (let c = 0; c < cols; c++)
+    for (let r = 0; r < rows; r++) {
+      for (let c = 0; c < cols; c++) {
         if (String(currentPicture.data[r][c]) === String(currentColor)) {
           needed++;
-          if (String(userGrid[r][c]) === String(currentColor)) filled++;
+          if (userGrid[r][c] === currentColor) filled++;
         }
+      }
+    }
 
     if (needed === 0) return 0;
+
     return Math.min(9, Math.floor((filled / needed) * 10));
   }
 
   // ========================================================================
-  // LOAD / SAVE GRID
+  // LOAD / SAVE USER GRID
   // ========================================================================
   const loadUserGrid = () => {
-    try {
-      return JSON.parse(localStorage.getItem("progress_" + pictureName)) || null;
-    } catch {
-      return null;
-    }
+    const saved = localStorage.getItem("progress_" + pictureName);
+    if (!saved) return null;
+    try { return JSON.parse(saved); } catch { return null; }
   };
 
   const saveUserGrid = () =>
@@ -72,46 +93,38 @@ function setupColoring(pictureName, PICTURES) {
 
   let userGrid = Array.from({ length: rows }, () => Array(cols).fill(null));
   const restored = loadUserGrid();
-  if (restored && restored.length === rows) userGrid = restored;
+  if (restored) userGrid = restored;
 
   // ========================================================================
   // SCALING
   // ========================================================================
   const computePixelSize = () => {
-    const vw = window.innerWidth, vh = window.innerHeight;
-
+    const vw = window.innerWidth;
+    const vh = window.innerHeight;
     let size = basePixelSize;
 
     if (vw >= 768) {
-      const maxW = vw * 0.70;
-      const maxH = vh * 0.60;
-      size = Math.min(
-        Math.floor(maxW / cols),
-        Math.floor(maxH / rows),
-        basePixelSize * 2
-      );
+      const sizeW = Math.floor((vw * 0.7) / cols);
+      const sizeH = Math.floor((vh * 0.6) / rows);
+      size = Math.max(basePixelSize, Math.min(sizeW, sizeH, basePixelSize * 2));
     }
 
-    return Math.max(basePixelSize, size);
+    return size;
   };
 
   // ========================================================================
-  // OVERLAY CANVAS (BUBBLE + BREAKING TEXTURES)
+  // OVERLAY CANVAS
   // ========================================================================
   const overlay = document.createElement("canvas");
-  overlay.id = "paint-overlay";
   overlay.style.position = "absolute";
   overlay.style.left = "0";
   overlay.style.top = "0";
   overlay.style.pointerEvents = "none";
-  overlay.style.zIndex = "9999"; // <-- FIXED
   canvas.parentNode.appendChild(overlay);
 
   function positionOverlay() {
-    requestAnimationFrame(() => {
-      overlay.width = canvas.width;
-      overlay.height = canvas.height;
-    });
+    overlay.width = canvas.width;
+    overlay.height = canvas.height;
   }
 
   // ========================================================================
@@ -138,41 +151,29 @@ function setupColoring(pictureName, PICTURES) {
     });
   });
 
-  // ========================================================================
-  // SELECT COLOR
-  // ========================================================================
-  function selectColor(num, el, userClicked = true) {
+  function selectColor(num, swatchElement, userClicked = true) {
     currentColor = num;
     if (userClicked) manualOverride = true;
 
-    document.querySelectorAll(".color-swatch").forEach(s =>
-      s.classList.remove("selected")
-    );
-    el.classList.add("selected");
+    document.querySelectorAll(".color-swatch")
+      .forEach(s => s.classList.remove("selected"));
 
+    swatchElement.classList.add("selected");
     drawPixels();
   }
 
   // ========================================================================
-  // COMPLETION SPARKLE
-  // ========================================================================
-  const playCompletionSparkle = () => {
-    canvas.classList.add("sparkle");
-    setTimeout(() => canvas.classList.remove("sparkle"), 900);
-  };
-
-  // ========================================================================
   // PROGRESS
   // ========================================================================
-  const updateProgress = () => {
+  function updateProgress() {
     let filled = 0;
+    const total = rows * cols;
 
     for (let r = 0; r < rows; r++)
       for (let c = 0; c < cols; c++)
         if (userGrid[r][c] !== null) filled++;
 
-    const pct = Math.floor((filled / (rows * cols)) * 100);
-
+    const pct = Math.floor((filled / total) * 100);
     progressBar.style.width = pct + "%";
     progressText.textContent = pct + "%";
 
@@ -180,34 +181,35 @@ function setupColoring(pictureName, PICTURES) {
       const was = localStorage.getItem("completed_" + pictureName);
       localStorage.setItem("completed_" + pictureName, "true");
       canvas.classList.add("complete-picture");
-      if (!was) playCompletionSparkle();
+      if (!was) {
+        canvas.classList.add("sparkle");
+        setTimeout(() => canvas.classList.remove("sparkle"), 900);
+      }
     } else {
       canvas.classList.remove("complete-picture");
     }
-  };
+  }
 
   // ========================================================================
-  // SWATCH CHECKMARK + JIGGLE
+  // SWATCH CHECKMARKS
   // ========================================================================
-  const updateColorChecks = () => {
+  function updateColorChecks() {
     Object.keys(currentPicture.colors).forEach(num => {
       const swatch = document.querySelector(`.color-swatch[data-value="${num}"]`);
-      if (!swatch) return;
-
       const label = swatch.querySelector(".swatch-number");
 
       let needed = 0, filled = 0;
       for (let r = 0; r < rows; r++)
         for (let c = 0; c < cols; c++)
-          if (String(currentPicture.data[r][c]) === String(num)) {
+          if (currentPicture.data[r][c] == num) {
             needed++;
-            if (String(userGrid[r][c]) === String(num)) filled++;
+            if (userGrid[r][c] == num) filled++;
           }
 
-      const isComplete = needed > 0 && filled === needed;
+      const complete = needed > 0 && needed === filled;
       const wasCheck = label.textContent === "✔";
 
-      if (isComplete) {
+      if (complete) {
         label.textContent = "✔";
         label.style.fontSize = "22px";
 
@@ -217,46 +219,39 @@ function setupColoring(pictureName, PICTURES) {
           swatch.classList.add("swatch-jiggle");
         }
 
-        if (String(currentColor) === String(num)) {
-          manualOverride = false;
-        }
+        if (currentColor == num) manualOverride = false;
       } else {
         label.textContent = num;
         label.style.fontSize = "20px";
       }
     });
-  };
+  }
 
   // ========================================================================
-  // AUTO-SELECT NEXT COLOR
+  // AUTO-SELECT 0–9 → a–z
   // ========================================================================
-  const autoSelectNextColorIfReady = () => {
+  function autoSelectNextColorIfReady() {
     if (manualOverride) return;
 
-    const nums = Object.keys(currentPicture.colors).sort(
-      (a, b) => parseInt(a, 36) - parseInt(b, 36)
-    );
+    const nums = Object.keys(currentPicture.colors)
+      .sort((a, b) => parseInt(a, 36) - parseInt(b, 36));
 
     for (const num of nums) {
-      let needed = 0,
-        filled = 0;
+      let needed = 0, filled = 0;
 
       for (let r = 0; r < rows; r++)
         for (let c = 0; c < cols; c++)
-          if (String(currentPicture.data[r][c]) === String(num)) {
+          if (currentPicture.data[r][c] == num) {
             needed++;
-            if (String(userGrid[r][c]) === String(num)) filled++;
+            if (userGrid[r][c] == num) filled++;
           }
 
       if (needed > 0 && filled < needed) {
-        const swatch = document.querySelector(
-          `.color-swatch[data-value="${num}"]`
-        );
-        if (swatch) selectColor(num, swatch, false);
+        selectColor(num, document.querySelector(`.color-swatch[data-value="${num}"]`), false);
         return;
       }
     }
-  };
+  }
 
   // ========================================================================
   // DRAW PIXELS
@@ -274,28 +269,14 @@ function setupColoring(pictureName, PICTURES) {
         const target = currentPicture.data[r][c];
         const painted = userGrid[r][c];
 
-        ctx.fillStyle =
-          painted === null ? "#ffffff" : currentPicture.colors[painted];
+        ctx.fillStyle = painted ? currentPicture.colors[painted] : "#ffffff";
         ctx.fillRect(c * size, r * size, size, size);
 
-        const highlight =
-          painted === null &&
-          currentColor !== null &&
-          String(target) === String(currentColor);
-
-        if (highlight) {
-          ctx.fillStyle = "rgba(250,204,21,0.35)";
-          ctx.fillRect(c * size, r * size, size, size);
-        }
-
-        if (painted === null) {
+        if (!painted) {
+          ctx.fillStyle = "#000";
           ctx.textAlign = "center";
           ctx.textBaseline = "middle";
-          ctx.font =
-            highlight
-              ? `${size * 0.65}px Courier New`
-              : `${size * 0.50}px Courier New`;
-          ctx.fillStyle = "#000";
+          ctx.font = `${size * 0.5}px Courier New`;
           ctx.fillText(target, c * size + size / 2, r * size + size / 2);
         }
       }
@@ -303,12 +284,12 @@ function setupColoring(pictureName, PICTURES) {
   }
 
   // ========================================================================
-  // PAINTING LOGIC
+  // PAINTING
   // ========================================================================
   const BRUSH_RADIUS = 1;
 
-  const paintPixel = (clientX, clientY) => {
-    if (currentColor === null) return;
+  function paintPixel(clientX, clientY) {
+    if (!currentColor) return;
 
     const rect = canvas.getBoundingClientRect();
     const size = computePixelSize();
@@ -319,50 +300,46 @@ function setupColoring(pictureName, PICTURES) {
     const col = Math.floor(x / size);
     const row = Math.floor(y / size);
 
-    for (let dr = -BRUSH_RADIUS; dr <= BRUSH_RADIUS; dr++)
+    for (let dr = -BRUSH_RADIUS; dr <= BRUSH_RADIUS; dr++) {
       for (let dc = -BRUSH_RADIUS; dc <= BRUSH_RADIUS; dc++) {
-        const rr = row + dr,
-          cc = col + dc;
-
-        if (rr < 0 || rr >= rows || cc < 0 || cc >= cols) continue;
-
-        if (String(currentPicture.data[rr][cc]) === String(currentColor)) {
-          userGrid[rr][cc] = currentColor;
+        const rr = row + dr, cc = col + dc;
+        if (rr >= 0 && rr < rows && cc >= 0 && cc < cols) {
+          if (currentPicture.data[rr][cc] == currentColor) {
+            userGrid[rr][cc] = currentColor;
+          }
         }
       }
+    }
 
     drawPixels();
     updateProgress();
     updateColorChecks();
     autoSelectNextColorIfReady();
     saveUserGrid();
-  };
+  }
 
   // ========================================================================
-  // BRUSH INDICATOR — FIXED VERSION
+  // INDICATOR (gradient + glow + destroy texture)
   // ========================================================================
   function drawIndicator(clientX, clientY) {
     const octx = overlay.getContext("2d");
     octx.clearRect(0, 0, overlay.width, overlay.height);
-    if (!isDragging || currentColor === null) return;
+
+    if (!isDragging || !currentColor) return;
 
     const rect = canvas.getBoundingClientRect();
     const size = computePixelSize();
-
     const x = (clientX - rect.left) * (canvas.width / rect.width);
     const y = (clientY - rect.top) * (canvas.height / rect.height);
 
     const radius = BRUSH_RADIUS * size + size / 2;
 
-    // Selected swatch color
-    const swatch = document.querySelector(
-      `.color-swatch[data-value="${currentColor}"]`
-    );
+    const swatch = document.querySelector(`.color-swatch[data-value="${currentColor}"]`);
     const brushColor = swatch ? swatch.style.background : "#ffffff";
 
-    // Gradient
+    // Radial gradient
     const grad = octx.createRadialGradient(x, y, radius * 0.1, x, y, radius);
-    grad.addColorStop(0, brushColor + "30");
+    grad.addColorStop(0, addAlpha(brushColor, "30"));
     grad.addColorStop(1, "rgba(0,0,0,0)");
 
     octx.fillStyle = grad;
@@ -370,7 +347,7 @@ function setupColoring(pictureName, PICTURES) {
     octx.arc(x, y, radius, 0, Math.PI * 2);
     octx.fill();
 
-    // Outline
+    // Glow outline
     octx.strokeStyle = brushColor;
     octx.shadowColor = brushColor;
     octx.shadowBlur = 6;
@@ -380,39 +357,33 @@ function setupColoring(pictureName, PICTURES) {
     octx.stroke();
     octx.shadowBlur = 0;
 
-    // Breaking overlay
+    // Breaking texture
     const stage = getBreakingStage();
     const img = BREAK_FRAMES[stage];
-
     if (img.complete && stage > 0) {
-      const d = radius * 2;
-
       octx.save();
       octx.beginPath();
       octx.arc(x, y, radius, 0, Math.PI * 2);
       octx.clip();
-
       octx.imageSmoothingEnabled = false;
-      octx.drawImage(img, x - radius, y - radius, d, d);
+      octx.drawImage(img, x - radius, y - radius, radius * 2, radius * 2);
       octx.restore();
     }
   }
 
   // ========================================================================
-  // POINTER EVENTS (with overlay sync)
+  // POINTER EVENTS
   // ========================================================================
   canvas.addEventListener("pointerdown", e => {
     canvas.setPointerCapture(e.pointerId);
     isDragging = true;
-
     paintPixel(e.clientX, e.clientY);
-    requestAnimationFrame(() => drawIndicator(e.clientX, e.clientY));
+    drawIndicator(e.clientX, e.clientY);
   });
 
   canvas.addEventListener("pointermove", e => {
     if (isDragging) paintPixel(e.clientX, e.clientY);
-
-    requestAnimationFrame(() => drawIndicator(e.clientX, e.clientY));
+    drawIndicator(e.clientX, e.clientY);
   });
 
   canvas.addEventListener("pointerup", e => {
@@ -421,7 +392,7 @@ function setupColoring(pictureName, PICTURES) {
     overlay.getContext("2d").clearRect(0, 0, overlay.width, overlay.height);
   });
 
-  // Prevent scroll on mobile
+  // Disable scroll on touch
   canvas.addEventListener("touchstart", e => e.preventDefault(), { passive: false });
   canvas.addEventListener("touchmove", e => e.preventDefault(), { passive: false });
 
@@ -431,13 +402,11 @@ function setupColoring(pictureName, PICTURES) {
   backBtn.onclick = () => (window.location.href = "index.html");
 
   resetBtn.onclick = () => {
-    if (!confirm("Reset this picture and clear all progress?")) return;
+    if (!confirm("Reset this picture?")) return;
 
     userGrid = Array.from({ length: rows }, () => Array(cols).fill(null));
     localStorage.removeItem("progress_" + pictureName);
     localStorage.removeItem("completed_" + pictureName);
-
-    canvas.classList.remove("complete-picture");
     manualOverride = false;
 
     drawPixels();
@@ -452,14 +421,11 @@ function setupColoring(pictureName, PICTURES) {
   drawPixels();
   updateProgress();
   updateColorChecks();
-
-  manualOverride = false;
   autoSelectNextColorIfReady();
 
   window.addEventListener("resize", () => {
     drawPixels();
     updateColorChecks();
-    positionOverlay();
   });
 }
 
