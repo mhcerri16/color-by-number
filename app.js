@@ -1,5 +1,5 @@
 // ============================================================================
-//  COLORING ENGINE (Improved for Mobile Precision + Pointer Accuracy)
+//  COLORING ENGINE (Improved for Mobile Precision + Auto-Select + Jiggle Fix)
 // ============================================================================
 
 function setupColoring(pictureName, PICTURES) {
@@ -79,7 +79,7 @@ function setupColoring(pictureName, PICTURES) {
         }
       }
 
-      if (needed > 0 && filled < needed) return num; // first unfinished color
+      if (needed > 0 && filled < needed) return num; 
     }
     return null;
   }
@@ -116,7 +116,7 @@ function setupColoring(pictureName, PICTURES) {
 
     sw.appendChild(label);
 
-    // manual override: pause auto-select until this color completes
+    // manual override
     sw.onclick = () => {
       autoSelectPaused = true;
       selectColor(num, sw, true);
@@ -158,11 +158,9 @@ function setupColoring(pictureName, PICTURES) {
     let count = 0;
     const total = rows * cols;
 
-    for (let r = 0; r < rows; r++) {
-      for (let c = 0; c < cols; c++) {
+    for (let r = 0; r < rows; r++)
+      for (let c = 0; c < cols; c++)
         if (userGrid[r][c] !== null) count++;
-      }
-    }
 
     const pct = Math.floor((count / total) * 100);
     progressBar.style.width = pct + "%";
@@ -179,63 +177,68 @@ function setupColoring(pictureName, PICTURES) {
   };
 
   // ============================================================================
-  //  CHECKMARK + SWATCH JIGGLE + AUTO-SELECT NEXT COLOR
+  //  CHECKMARK + JIGGLE + DELAYED AUTO-SELECT
   // ============================================================================
   const updateColorChecks = () => {
+    let completedThisFrame = false;
+    let lastCompletedColor = null;
+
     for (const num in currentPicture.colors) {
       const swatch = document.querySelector(`.color-swatch[data-value="${num}"]`);
       if (!swatch) continue;
 
       const label = swatch.querySelector(".swatch-number");
-      if (!label) continue;
 
       let needed = 0, filled = 0;
-      for (let r = 0; r < rows; r++) {
-        for (let c = 0; c < cols; c++) {
+      for (let r = 0; r < rows; r++)
+        for (let c = 0; c < cols; c++)
           if (String(currentPicture.data[r][c]) === String(num)) {
             needed++;
             if (userGrid[r][c] === num) filled++;
           }
-        }
-      }
 
       const isCompleted = needed > 0 && filled === needed;
-      const wasCompletedBefore = label.textContent === "✔";
+      const wasCompletedBefore = (label.textContent === "✔");
 
       if (isCompleted) {
-        // set checkmark
         label.textContent = "✔";
         label.style.fontSize = "22px";
 
-        // trigger jiggle only on transition to completed
         if (!wasCompletedBefore) {
+          // JIGGLE FIX
           swatch.classList.remove("swatch-jiggle");
-          void swatch.offsetWidth;  // restart animation
+          void swatch.offsetWidth;
           swatch.classList.add("swatch-jiggle");
+
+          completedThisFrame = true;
+          lastCompletedColor = num;
         }
 
-        // color finished → allow auto-select again
         autoSelectPaused = false;
 
       } else {
-        // not complete: reset label
         label.textContent = num;
         label.style.fontSize = "20px";
       }
     }
 
-    // After updating all swatches, auto-select next color if allowed
+    // ============================================================
+    // DELAYED AUTO-SELECT (Jiggle Fix)
+    // ============================================================
     if (!autoSelectPaused) {
       const next = getNextUnfilledColor();
+
       if (next !== null && next !== currentColor) {
-        const sw = document.querySelector(`.color-swatch[data-value="${next}"]`);
-        if (sw) selectColor(next, sw);
+        setTimeout(() => {
+          const sw = document.querySelector(`.color-swatch[data-value="${next}"]`);
+          if (sw) selectColor(next, sw);
+        }, 120);  // delay ensures jiggle is visible
       }
     }
   };
 
   // ============================================================================
-  //  DRAW PIXELS (with number overlay)
+  //  DRAW PIXELS
   // ============================================================================
   const drawPixels = () => {
     const size = computePixelSize();
@@ -277,7 +280,7 @@ function setupColoring(pictureName, PICTURES) {
   };
 
   // ============================================================================
-  //  PIXEL PAINTING (improved accuracy)
+  //  PIXEL PAINTING (High Accuracy)
   // ============================================================================
   const BRUSH_RADIUS = 1;
 
@@ -287,7 +290,6 @@ function setupColoring(pictureName, PICTURES) {
     const rect = canvas.getBoundingClientRect();
     const size = computePixelSize();
 
-    // precise mapping between client coords and canvas coords
     const x = (clientX - rect.left) * (canvas.width / rect.width);
     const y = (clientY - rect.top) * (canvas.height / rect.height);
 
@@ -296,8 +298,7 @@ function setupColoring(pictureName, PICTURES) {
 
     for (let dr = -BRUSH_RADIUS; dr <= BRUSH_RADIUS; dr++) {
       for (let dc = -BRUSH_RADIUS; dc <= BRUSH_RADIUS; dc++) {
-        const rr = row + dr;
-        const cc = col + dc;
+        const rr = row + dr, cc = col + dc;
         if (rr < 0 || rr >= rows || cc < 0 || cc >= cols) continue;
 
         if (String(currentPicture.data[rr][cc]) === String(currentColor)) {
@@ -336,7 +337,7 @@ function setupColoring(pictureName, PICTURES) {
   };
 
   // ============================================================================
-  //  POINTER EVENTS (Unified mouse + touch)
+  //  POINTER EVENTS
   // ============================================================================
   canvas.addEventListener("pointerdown", e => {
     canvas.setPointerCapture(e.pointerId);
