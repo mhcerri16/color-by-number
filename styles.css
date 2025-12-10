@@ -1,62 +1,31 @@
 /* ============================================================
-   REAL WORKING ANIMATED BACKGROUND LAYER (GPU-ACCELERATED)
+   STATIC FULLSCREEN BACKGROUND
    ============================================================ */
 
-/* Independent animated background layer */
 #bg {
   position: fixed;
   inset: 0;
   z-index: -3;
   pointer-events: none;
 
-  background-image: url("End_Background.webp");
-  background-size: 110%;
+  background-image: url("background.png");
+  background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
 
-  /* Smooth drifting + subtle zoom */
-  animation: bgMotion 35s ease-in-out infinite alternate;
+  width: 100%;
+  height: 100%;
 }
 
-@keyframes bgMotion {
-  0% {
-    transform: scale(1.00) translateY(0px);
-  }
-  50% {
-    transform: scale(1.07) translateY(18px);
-  }
-  100% {
-    transform: scale(1.00) translateY(0px);
-  }
-}
-
-/* ===== GRAIN OVERLAY ===== */
-body::after {
-  content: "";
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  z-index: -2;
-
-  background-image: url("End_Background.webp");
-  background-size: 200%;
-  opacity: 0.06;
-  mix-blend-mode: overlay;
-}
-
-/* ===== VIGNETTE ===== */
+/* Remove old overlays */
+body::after,
 body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  z-index: -1;
-
-  background: radial-gradient(circle, transparent 58%, rgba(0,0,0,0.33) 100%);
+  content: none !important;
 }
+
 
 /* ============================================================
-   EVERYTHING BELOW HERE IS YOUR ORIGINAL CSS
+   MAIN APP STYLES
    ============================================================ */
 
 body {
@@ -69,7 +38,6 @@ body {
   align-items: flex-start;
 }
 
-/* Layout container */
 .center-col {
   position: relative;
   display: flex;
@@ -91,23 +59,6 @@ h1, h2 {
   color: #9ca3af;
 }
 
-/* ===== BACKGROUND COMBOBOX ===== */
-
-.bg-select {
-  padding: 8px 14px;
-  border-radius: 12px;
-  border: 1px solid #4b5563;
-  background: #1f2937cc;
-  color: #e5e7eb;
-  font-size: 15px;
-  outline: none;
-  cursor: pointer;
-  box-shadow: inset 0 1px 2px rgba(0,0,0,0.4);
-}
-
-.bg-select:hover {
-  background: #374151;
-}
 
 /* ===== INDEX PAGE (thumbnails) ===== */
 
@@ -159,13 +110,14 @@ h1, h2 {
   padding-top: 4px;
 }
 
+
 /* ===== COLOR PAGE ===== */
 
 .canvas-container {
   position: relative;
   display: flex;
   justify-content: center;
-  align-items: center;
+ 	align-items: center;
   margin: 1rem auto;
   width: fit-content;
   max-width: 100%;
@@ -189,8 +141,8 @@ h1, h2 {
   pointer-events: none;
 }
 
-/* Progress bar */
 
+/* Progress bar */
 #progress-container {
   width: 90%;
   max-width: 400px;
@@ -215,8 +167,8 @@ h1, h2 {
   font-weight: 600;
 }
 
-/* Palette bar */
 
+/* Palette bar */
 #color-bar {
   display: flex;
   flex-wrap: wrap;
@@ -225,8 +177,8 @@ h1, h2 {
   margin: 0.5rem 0 1rem 0;
 }
 
-/* Color swatches */
 
+/* Swatches */
 .color-swatch {
   position: relative;
   width: 40px;
@@ -255,8 +207,8 @@ h1, h2 {
   text-shadow: 0 0 4px rgba(255,255,255,0.8);
 }
 
-/* Back button */
 
+/* Back button */
 .back-btn {
   padding: 0.6rem 1.4rem;
   font-size: 1rem;
@@ -275,7 +227,8 @@ h1, h2 {
   box-shadow: 0 4px 10px rgba(0,0,0,0.7);
 }
 
-/* Mobile adjustments */
+
+/* Mobile */
 @media (max-width: 480px) {
   .thumb-grid {
     grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
@@ -285,6 +238,7 @@ h1, h2 {
     max-width: 95vw;
   }
 }
+
 
 /* Completed picture border */
 #pixel-canvas.complete-picture {
@@ -368,6 +322,7 @@ h1, h2 {
   border-color: #d4af37;
 }
 
+
 /* Completed thumbnail */
 .thumb.completed {
   border: 2px solid #86efac;
@@ -383,6 +338,7 @@ h1, h2 {
   box-shadow: 0 0 10px rgba(134, 239, 172, 0.45);
 }
 
+
 /* Completion sparkle */
 @keyframes sparkleAnimation {
   0% { box-shadow: 0 0 4px #4caf50; }
@@ -393,6 +349,7 @@ h1, h2 {
 #pixel-canvas.sparkle {
   animation: sparkleAnimation 0.9s ease-out;
 }
+
 
 /* Swatch jiggle */
 .swatch-jiggle {
@@ -406,7 +363,8 @@ h1, h2 {
   100% { transform: scale(1); }
 }
 
-/* Summary counters */
+
+/* Summary */
 .summary-text {
   text-align: center;
   font-size: 16px;
@@ -414,6 +372,7 @@ h1, h2 {
   color: #e2e8f0;
   font-weight: 500;
 }
+
 
 /* Splash text */
 .splash-text {
