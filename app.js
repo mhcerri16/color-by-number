@@ -1,15 +1,18 @@
+// ============================================================================
+//  COLORING ENGINE (Improved for Mobile Precision + Pointer Accuracy)
+// ============================================================================
+
 function setupColoring(pictureName, PICTURES) {
   const currentPicture = PICTURES[pictureName];
   if (!currentPicture) return;
 
+  // --- DOM elements ---
   const canvas = document.getElementById("pixel-canvas");
   const ctx = canvas.getContext("2d");
-
   const colorBar = document.getElementById("color-bar");
   const backBtn = document.getElementById("back-btn");
   const resetBtn = document.getElementById("reset-btn");
   const title = document.getElementById("picture-title");
-
   const progressBar = document.getElementById("progress-bar");
   const progressText = document.getElementById("progress-text");
 
@@ -22,110 +25,98 @@ function setupColoring(pictureName, PICTURES) {
   const cols = currentPicture.data[0].length;
   const basePixelSize = currentPicture.pixelSize;
 
-  // ------------------------------
-  // SAVE / LOAD PROGRESS
-  // ------------------------------
-  function loadUserGrid() {
+  // ============================================================================
+  //  SAVE / LOAD PROGRESS
+  // ============================================================================
+  const loadUserGrid = () => {
     const saved = localStorage.getItem("progress_" + pictureName);
     if (!saved) return null;
-    try {
-      return JSON.parse(saved);
-    } catch {
-      return null;
-    }
-  }
-
-  function saveUserGrid() {
+    try { return JSON.parse(saved); } catch { return null; }
+  };
+  const saveUserGrid = () =>
     localStorage.setItem("progress_" + pictureName, JSON.stringify(userGrid));
-  }
 
-  // ------------------------------
-  // SMART SCALING
-  // ------------------------------
-  function computePixelSize() {
-    const viewportWidth = window.innerWidth;
-    const viewportHeight = window.innerHeight;
-
+  // ============================================================================
+  //  SMART SCALING
+  // ============================================================================
+  const computePixelSize = () => {
+    const vw = window.innerWidth, vh = window.innerHeight;
     let size = basePixelSize;
 
-    if (viewportWidth >= 768) {
-      const maxCanvasWidth = viewportWidth * 0.70;
-      const maxCanvasHeight = viewportHeight * 0.60;
-
-      const sizeByWidth = Math.floor(maxCanvasWidth / cols);
-      const sizeByHeight = Math.floor(maxCanvasHeight / rows);
-
-      const candidate = Math.min(sizeByWidth, sizeByHeight);
-      size = Math.max(basePixelSize, Math.min(candidate, basePixelSize * 2));
+    if (vw >= 768) {
+      const maxW = vw * 0.70;
+      const maxH = vh * 0.60;
+      const sizeW = Math.floor(maxW / cols);
+      const sizeH = Math.floor(maxH / rows);
+      const best = Math.min(sizeW, sizeH);
+      size = Math.max(basePixelSize, Math.min(best, basePixelSize * 2));
     }
-
     return size;
-  }
+  };
 
-  // ------------------------------
-  // USER GRID (with restore)
-  // ------------------------------
+  // ============================================================================
+  //  USER GRID
+  // ============================================================================
   let userGrid = Array.from({ length: rows }, () => Array(cols).fill(null));
   const restored = loadUserGrid();
   if (restored && restored.length === rows) userGrid = restored;
 
-  // ------------------------------
-  // OVERLAY CANVAS
-  // ------------------------------
+  // ============================================================================
+  //  OVERLAY CANVAS
+  // ============================================================================
   const overlay = document.createElement("canvas");
   overlay.id = "paint-overlay";
   overlay.style.position = "absolute";
   overlay.style.pointerEvents = "none";
   canvas.parentNode.appendChild(overlay);
 
-  function positionOverlay() {
-    overlay.style.left = "0px";
-    overlay.style.top = "0px";
+  const positionOverlay = () => {
     overlay.width = canvas.width;
     overlay.height = canvas.height;
-  }
+    overlay.style.left = "0px";
+    overlay.style.top = "0px";
+  };
 
-  // ------------------------------
-  // BUILD PALETTE
-  // ------------------------------
+  // ============================================================================
+  //  BUILD PALETTE
+  // ============================================================================
   colorBar.innerHTML = "";
   Object.entries(currentPicture.colors).forEach(([num, hex]) => {
-    const swatch = document.createElement("div");
-    swatch.className = "color-swatch";
-    swatch.dataset.value = num;
+    const sw = document.createElement("div");
+    sw.className = "color-swatch";
+    sw.dataset.value = num;
+    sw.style.background = hex;
 
     const label = document.createElement("div");
     label.className = "swatch-number";
     label.textContent = num;
 
-    swatch.style.background = hex;
-    swatch.appendChild(label);
-
-    swatch.onclick = () => selectColor(num, swatch);
-    colorBar.appendChild(swatch);
+    sw.appendChild(label);
+    sw.onclick = () => selectColor(num, sw);
+    colorBar.appendChild(sw);
   });
 
-  function selectColor(num, swatchElement) {
+  const selectColor = (num, element) => {
     currentColor = num;
-    document.querySelectorAll(".color-swatch").forEach(s => s.classList.remove("selected"));
-    swatchElement.classList.add("selected");
+    document.querySelectorAll(".color-swatch")
+      .forEach(s => s.classList.remove("selected"));
+    element.classList.add("selected");
     drawPixels();
-  }
+  };
 
-  // ------------------------------
-  // SPARKLE ON PICTURE COMPLETE
-  // ------------------------------
-  function playCompletionSparkle() {
+  // ============================================================================
+  //  COMPLETION SPARKLE
+  // ============================================================================
+  const playCompletionSparkle = () => {
     canvas.classList.add("sparkle");
     setTimeout(() => canvas.classList.remove("sparkle"), 900);
-  }
+  };
 
-  // ------------------------------
-  // PROGRESS BAR
-  // ------------------------------
-  function updateProgress() {
-    let count = 0;
-    const total = rows * cols;
+  // ============================================================================
+  //  PROGRESS BAR UPDATES
+  // ============================================================================
+  const updateProgress = () => {
+    let count = 0, total = rows * cols;
 
     for (let r = 0; r < rows; r++)
       for (let c = 0; c < cols; c++)
@@ -137,62 +128,56 @@ function setupColoring(pictureName, PICTURES) {
 
     if (pct === 100) {
       const already = localStorage.getItem("completed_" + pictureName);
-
       localStorage.setItem("completed_" + pictureName, "true");
       canvas.classList.add("complete-picture");
-
       if (!already) playCompletionSparkle();
     } else {
       canvas.classList.remove("complete-picture");
     }
-  }
+  };
 
-  // ------------------------------
-  // CHECKMARKS + SWATCH JIGGLE
-  // ------------------------------
-  function updateColorChecks() {
+  // ============================================================================
+  //  CHECKMARK + SWATCH JIGGLE
+  // ============================================================================
+  const updateColorChecks = () => {
     for (const num in currentPicture.colors) {
       const swatch = document.querySelector(`.color-swatch[data-value="${num}"]`);
       if (!swatch) continue;
 
       const label = swatch.querySelector(".swatch-number");
-
-      let needed = 0;
-      let filled = 0;
+      let needed = 0, filled = 0;
 
       for (let r = 0; r < rows; r++)
         for (let c = 0; c < cols; c++)
-          if (String(currentPicture.data[r][c]) === String(num)) {
+          if (String(currentPicture.data[r][c]) === num) {
             needed++;
             if (userGrid[r][c] === num) filled++;
           }
 
-      const wasCompleted = label.textContent === "✔";
-      const isCompleted = needed > 0 && needed === filled;
+      const complete = needed > 0 && needed === filled;
+      const wasCheck = label.textContent === "✔";
 
-      if (isCompleted) {
+      if (complete) {
         label.textContent = "✔";
         label.style.fontSize = "22px";
 
-        if (!wasCompleted) {
+        if (!wasCheck) {
           swatch.classList.remove("swatch-jiggle");
           void swatch.offsetWidth;
           swatch.classList.add("swatch-jiggle");
         }
-
       } else {
         label.textContent = num;
         label.style.fontSize = "20px";
       }
     }
-  }
+  };
 
-  // ------------------------------
-  // DRAWING
-  // ------------------------------
-  function drawPixels() {
+  // ============================================================================
+  //  DRAW PIXELS (with number overlay)
+  // ============================================================================
+  const drawPixels = () => {
     const size = computePixelSize();
-
     canvas.width = cols * size;
     canvas.height = rows * size;
     positionOverlay();
@@ -201,56 +186,56 @@ function setupColoring(pictureName, PICTURES) {
 
     for (let r = 0; r < rows; r++) {
       for (let c = 0; c < cols; c++) {
-        const pixelVal = currentPicture.data[r][c];
-        const paintedVal = userGrid[r][c];
+        const target = currentPicture.data[r][c];
+        const painted = userGrid[r][c];
 
-        ctx.fillStyle = paintedVal === null ? "#ffffff" : currentPicture.colors[paintedVal];
+        ctx.fillStyle = painted === null ? "#ffffff" : currentPicture.colors[painted];
         ctx.fillRect(c * size, r * size, size, size);
 
-        const isTarget = paintedVal === null &&
-                         currentColor !== null &&
-                         String(pixelVal) === String(currentColor);
+        const highlight =
+          painted === null && currentColor !== null &&
+          String(target) === String(currentColor);
 
-        if (isTarget) {
+        if (highlight) {
           ctx.fillStyle = "rgba(250, 204, 21, 0.35)";
           ctx.fillRect(c * size, r * size, size, size);
         }
 
-        if (paintedVal === null) {
+        // Draw number
+        if (painted === null) {
           ctx.textAlign = "center";
           ctx.textBaseline = "middle";
-          ctx.font = (isTarget ?
-            `bold ${size * 0.65}px Courier New` :
-            `${size * 0.5}px Courier New`);
+          ctx.font = (highlight ?
+            `bold ${size * 0.65}px Courier New`
+            : `${size * 0.5}px Courier New`);
           ctx.fillStyle = "#000";
-
-          ctx.fillText(
-            pixelVal,
-            c * size + size / 2,
-            r * size + size / 2
-          );
+          ctx.fillText(target, c * size + size / 2, r * size + size / 2);
         }
       }
     }
-  }
+  };
 
-  // ------------------------------
-  // BRUSH (no jiggle here)
-  // ------------------------------
+  // ============================================================================
+  //  PIXEL PAINTING (improved accuracy)
+  // ============================================================================
   const BRUSH_RADIUS = 1;
 
-  function paintPixel(x, y) {
+  const paintPixel = (clientX, clientY) => {
     if (!currentColor) return;
 
+    const rect = canvas.getBoundingClientRect();
     const size = computePixelSize();
+
+    // FIX: pixel-perfect coordinate mapping
+    const x = (clientX - rect.left) * (canvas.width / rect.width);
+    const y = (clientY - rect.top) * (canvas.height / rect.height);
+
     const col = Math.floor(x / size);
     const row = Math.floor(y / size);
 
     for (let dr = -BRUSH_RADIUS; dr <= BRUSH_RADIUS; dr++) {
       for (let dc = -BRUSH_RADIUS; dc <= BRUSH_RADIUS; dc++) {
-        const rr = row + dr;
-        const cc = col + dc;
-
+        const rr = row + dr, cc = col + dc;
         if (rr < 0 || rr >= rows || cc < 0 || cc >= cols) continue;
 
         if (String(currentPicture.data[rr][cc]) === String(currentColor)) {
@@ -263,18 +248,22 @@ function setupColoring(pictureName, PICTURES) {
     updateProgress();
     updateColorChecks();
     saveUserGrid();
-  }
+  };
 
-  // ------------------------------
-  // BRUSH INDICATOR
-  // ------------------------------
-  function drawIndicator(x, y) {
+  // ============================================================================
+  //  BRUSH INDICATOR
+  // ============================================================================
+  const drawIndicator = (clientX, clientY) => {
     const octx = overlay.getContext("2d");
     octx.clearRect(0, 0, overlay.width, overlay.height);
 
     if (!isDragging) return;
 
+    const rect = canvas.getBoundingClientRect();
     const size = computePixelSize();
+    const x = (clientX - rect.left) * (canvas.width / rect.width);
+    const y = (clientY - rect.top) * (canvas.height / rect.height);
+
     const radius = BRUSH_RADIUS * size + size / 2;
 
     octx.beginPath();
@@ -282,58 +271,34 @@ function setupColoring(pictureName, PICTURES) {
     octx.strokeStyle = "rgba(15, 23, 42, 0.8)";
     octx.lineWidth = 2;
     octx.stroke();
-  }
+  };
 
-  // ------------------------------
-  // INPUT EVENTS
-  // ------------------------------
-  canvas.addEventListener("mousedown", e => {
+  // ============================================================================
+  //  POINTER EVENTS (Unified mouse + touch support)
+  // ============================================================================
+  canvas.addEventListener("pointerdown", e => {
+    canvas.setPointerCapture(e.pointerId);
     isDragging = true;
-    paintPixel(e.offsetX, e.offsetY);
-    drawIndicator(e.offsetX, e.offsetY);
+    paintPixel(e.clientX, e.clientY);
+    drawIndicator(e.clientX, e.clientY);
   });
 
-  canvas.addEventListener("mouseup", () => {
+  canvas.addEventListener("pointermove", e => {
+    if (isDragging) {
+      paintPixel(e.clientX, e.clientY);
+    }
+    drawIndicator(e.clientX, e.clientY);
+  });
+
+  canvas.addEventListener("pointerup", e => {
+    canvas.releasePointerCapture(e.pointerId);
     isDragging = false;
     overlay.getContext("2d").clearRect(0, 0, overlay.width, overlay.height);
   });
 
-  canvas.addEventListener("mouseleave", () => {
-    isDragging = false;
-    overlay.getContext("2d").clearRect(0, 0, overlay.width, overlay.height);
-  });
-
-  canvas.addEventListener("mousemove", e => {
-    if (isDragging) paintPixel(e.offsetX, e.offsetY);
-    drawIndicator(e.offsetX, e.offsetY);
-  });
-
-  canvas.addEventListener("touchstart", e => {
-    const rect = canvas.getBoundingClientRect();
-    const x = e.touches[0].clientX - rect.left;
-    const y = e.touches[0].clientY - rect.top;
-    isDragging = true;
-    paintPixel(x, y);
-    drawIndicator(x, y);
-  });
-
-  canvas.addEventListener("touchmove", e => {
-    e.preventDefault();
-    const rect = canvas.getBoundingClientRect();
-    const x = e.touches[0].clientX - rect.left;
-    const y = e.touches[0].clientY - rect.top;
-    if (isDragging) paintPixel(x, y);
-    drawIndicator(x, y);
-  });
-
-  canvas.addEventListener("touchend", () => {
-    isDragging = false;
-    overlay.getContext("2d").clearRect(0, 0, overlay.width, overlay.height);
-  });
-
-  // ------------------------------
-  // BUTTONS
-  // ------------------------------
+  // ============================================================================
+  //  BUTTONS
+  // ============================================================================
   backBtn.onclick = () => (window.location.href = "index.html");
 
   resetBtn.onclick = () => {
@@ -342,7 +307,6 @@ function setupColoring(pictureName, PICTURES) {
     userGrid = Array.from({ length: rows }, () => Array(cols).fill(null));
     localStorage.removeItem("progress_" + pictureName);
     localStorage.removeItem("completed_" + pictureName);
-
     canvas.classList.remove("complete-picture");
 
     drawPixels();
@@ -350,16 +314,14 @@ function setupColoring(pictureName, PICTURES) {
     updateColorChecks();
   };
 
-  // ------------------------------
-  // INIT
-  // ------------------------------
+  // ============================================================================
+  //  INIT
+  // ============================================================================
   drawPixels();
   updateProgress();
   updateColorChecks();
 
-  window.addEventListener("resize", () => {
-    drawPixels();
-  });
+  window.addEventListener("resize", drawPixels);
 }
 
 window.setupColoring = setupColoring;
