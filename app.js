@@ -1,5 +1,5 @@
 // ============================================================================
-//  COLORING ENGINE — Auto-Select Option A + Jiggle + Mobile Precision
+//  COLORING ENGINE — Auto-Select Option A + Jiggle + Mobile Precision + A-Z
 // ============================================================================
 
 function setupColoring(pictureName, PICTURES) {
@@ -27,7 +27,7 @@ function setupColoring(pictureName, PICTURES) {
 
   let isDragging = false;
   let currentColor = null;
-  let manualOverride = false; // when true, auto-select will not override user choice
+  let manualOverride = false; // when true auto-select pauses
 
   // ========================================================================
   // LOAD / SAVE
@@ -73,7 +73,7 @@ function setupColoring(pictureName, PICTURES) {
   };
 
   // ========================================================================
-  // OVERLAY CANVAS (brush indicator)
+  // OVERLAY CANVAS
   // ========================================================================
   const overlay = document.createElement("canvas");
   overlay.id = "paint-overlay";
@@ -106,7 +106,7 @@ function setupColoring(pictureName, PICTURES) {
     sw.appendChild(label);
     colorBar.appendChild(sw);
 
-    // Manual selection: pause auto-select
+    // Manual selection
     sw.addEventListener("click", () => {
       manualOverride = true;
       selectColor(num, sw, true);
@@ -119,9 +119,7 @@ function setupColoring(pictureName, PICTURES) {
   function selectColor(num, swatchElement, userClicked = true) {
     currentColor = num;
 
-    if (userClicked) {
-      manualOverride = true;
-    }
+    if (userClicked) manualOverride = true;
 
     document.querySelectorAll(".color-swatch")
       .forEach(s => s.classList.remove("selected"));
@@ -145,11 +143,9 @@ function setupColoring(pictureName, PICTURES) {
     let filled = 0;
     const total = rows * cols;
 
-    for (let r = 0; r < rows; r++) {
-      for (let c = 0; c < cols; c++) {
+    for (let r = 0; r < rows; r++)
+      for (let c = 0; c < cols; c++)
         if (userGrid[r][c] !== null) filled++;
-      }
-    }
 
     const pct = Math.floor((filled / total) * 100);
     progressBar.style.width = pct + "%";
@@ -180,14 +176,12 @@ function setupColoring(pictureName, PICTURES) {
       let needed = 0;
       let filled = 0;
 
-      for (let r = 0; r < rows; r++) {
-        for (let c = 0; c < cols; c++) {
+      for (let r = 0; r < rows; r++)
+        for (let c = 0; c < cols; c++)
           if (String(currentPicture.data[r][c]) === String(num)) {
             needed++;
             if (String(userGrid[r][c]) === String(num)) filled++;
           }
-        }
-      }
 
       const isComplete = needed > 0 && filled === needed;
       const wasCheck = label.textContent === "✔";
@@ -198,11 +192,11 @@ function setupColoring(pictureName, PICTURES) {
 
         if (!wasCheck) {
           swatch.classList.remove("swatch-jiggle");
-          void swatch.offsetWidth; // force reflow
+          void swatch.offsetWidth;
           swatch.classList.add("swatch-jiggle");
         }
 
-        // If the color that just finished is the current one, let auto-select resume
+        // Allow auto-select to resume if this was the manual color
         if (String(currentColor) === String(num)) {
           manualOverride = false;
         }
@@ -215,29 +209,29 @@ function setupColoring(pictureName, PICTURES) {
   };
 
   // ========================================================================
-  // AUTO-SELECT NEXT COLOR (Option A)
+  // AUTO-SELECT NEXT COLOR (now supports 0–9 then a–z)
   // ========================================================================
   const autoSelectNextColorIfReady = () => {
-    if (manualOverride) return; // do not override a manual choice
+    if (manualOverride) return;
 
     const nums = Object.keys(currentPicture.colors)
-      .map(n => Number(n))
-      .sort((a, b) => a - b);
+      .sort((a, b) => {
+        const ai = parseInt(a, 36);
+        const bi = parseInt(b, 36);
+        return ai - bi;
+      });
 
     for (const num of nums) {
       let needed = 0;
       let filled = 0;
 
-      for (let r = 0; r < rows; r++) {
-        for (let c = 0; c < cols; c++) {
+      for (let r = 0; r < rows; r++)
+        for (let c = 0; c < cols; c++)
           if (String(currentPicture.data[r][c]) === String(num)) {
             needed++;
             if (String(userGrid[r][c]) === String(num)) filled++;
           }
-        }
-      }
 
-      // Pick the first color that has SOME pixels and is not fully complete
       if (needed > 0 && filled < needed) {
         const swatch = document.querySelector(
           `.color-swatch[data-value="${num}"]`
@@ -281,6 +275,7 @@ function setupColoring(pictureName, PICTURES) {
           ctx.fillRect(c * size, r * size, size, size);
         }
 
+        // Number
         if (painted === null) {
           ctx.textAlign = "center";
           ctx.textBaseline = "middle";
@@ -389,7 +384,7 @@ function setupColoring(pictureName, PICTURES) {
     localStorage.removeItem("completed_" + pictureName);
     canvas.classList.remove("complete-picture");
 
-    manualOverride = false; // fresh auto-select allowed
+    manualOverride = false;
 
     drawPixels();
     updateProgress();
@@ -404,7 +399,7 @@ function setupColoring(pictureName, PICTURES) {
   updateProgress();
   updateColorChecks();
 
-  manualOverride = false;      // ensure auto-select is active on load
+  manualOverride = false;
   autoSelectNextColorIfReady();
 
   window.addEventListener("resize", () => {
