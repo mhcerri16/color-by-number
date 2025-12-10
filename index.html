@@ -8,7 +8,6 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <!-- Static fullscreen background -->
   <div id="bg"></div>
 
   <main class="center-col">
@@ -17,7 +16,6 @@
 
     <div id="splash" class="splash-text"></div>
 
-    <!-- Summary counters -->
     <div id="completion-summary" class="summary-text"></div>
     <div id="category-summary" class="summary-text" style="display:none;"></div>
 
@@ -29,29 +27,91 @@
 
     <!-- CATEGORY FILTERS -->
     <div id="category-bar">
-      <button class="cat-btn selected" data-cat="all">All</button>
-      <button class="cat-btn" data-cat="Armor">Armor</button>
-      <button class="cat-btn" data-cat="Blocks">Blocks</button>
-      <button class="cat-btn" data-cat="Brewing">Brewing</button>
-      <button class="cat-btn" data-cat="Decoration">Decoration</button>
-      <button class="cat-btn" data-cat="Enchanting">Enchanting</button>
-      <button class="cat-btn" data-cat="End">End</button>
-      <button class="cat-btn" data-cat="End Mobs">End Mobs</button>
-      <button class="cat-btn" data-cat="Food">Food</button>
-      <button class="cat-btn" data-cat="Items">Items</button>
-      <button class="cat-btn" data-cat="Nether">Nether</button>
-      <button class="cat-btn" data-cat="Nether Mobs">Nether Mobs</button>
-      <button class="cat-btn" data-cat="Ores">Ores</button>
-      <button class="cat-btn" data-cat="Overworld Mobs">Overworld Mobs</button>
-      <button class="cat-btn" data-cat="Plants">Plants</button>
-      <button class="cat-btn" data-cat="Tables">Tables</button>
-      <button class="cat-btn" data-cat="Tools">Tools</button>
-      <button class="cat-btn" data-cat="Transportation">Transportation</button>
-      <button class="cat-btn" data-cat="Weapons">Weapons</button>
-      <button class="cat-btn" data-cat="Miscellaneous">Miscellaneous</button>
+
+      <button class="cat-btn selected" data-cat="all">
+        <img src="icons/Blocks.png" class="cat-icon"> All
+      </button>
+
+      <button class="cat-btn" data-cat="Armor">
+        <img src="icons/Armor.png" class="cat-icon"> Armor
+      </button>
+
+      <button class="cat-btn" data-cat="Blocks">
+        <img src="icons/Blocks.png" class="cat-icon"> Blocks
+      </button>
+
+      <button class="cat-btn" data-cat="Brewing">
+        <img src="icons/Brewing.png" class="cat-icon"> Brewing
+      </button>
+
+      <button class="cat-btn" data-cat="Decoration">
+        <img src="icons/Decoration.png" class="cat-icon"> Decoration
+      </button>
+
+      <button class="cat-btn" data-cat="Enchanting">
+        <img src="icons/Enchanting.png" class="cat-icon"> Enchanting
+      </button>
+
+      <button class="cat-btn" data-cat="End">
+        <img src="icons/End.png" class="cat-icon"> End
+      </button>
+
+      <button class="cat-btn" data-cat="End Mobs">
+        <img src="icons/EndMobs.png" class="cat-icon"> End Mobs
+      </button>
+
+      <button class="cat-btn" data-cat="Food">
+        <img src="icons/Food.png" class="cat-icon"> Food
+      </button>
+
+      <button class="cat-btn" data-cat="Items">
+        <img src="icons/Items.png" class="cat-icon"> Items
+      </button>
+
+      <button class="cat-btn" data-cat="Nether">
+        <img src="icons/Nether.png" class="cat-icon"> Nether
+      </button>
+
+      <button class="cat-btn" data-cat="Nether Mobs">
+        <img src="icons/NetherMobs.png" class="cat-icon"> Nether Mobs
+      </button>
+
+      <button class="cat-btn" data-cat="Ores">
+        <img src="icons/Ores.png" class="cat-icon"> Ores
+      </button>
+
+      <button class="cat-btn" data-cat="Overworld Mobs">
+        <img src="icons/OverworldMobs.png" class="cat-icon"> Overworld Mobs
+      </button>
+
+      <button class="cat-btn" data-cat="Plants">
+        <img src="icons/Plants.png" class="cat-icon"> Plants
+      </button>
+
+      <button class="cat-btn" data-cat="Tables">
+        <img src="icons/Tables.png" class="cat-icon"> Tables
+      </button>
+
+      <button class="cat-btn" data-cat="Tools">
+        <img src="icons/Tools.png" class="cat-icon"> Tools
+      </button>
+
+      <button class="cat-btn" data-cat="Transportation">
+        <img src="icons/Transportation.png" class="cat-icon"> Transportation
+      </button>
+
+      <button class="cat-btn" data-cat="Weapons">
+        <img src="icons/Weapons.png" class="cat-icon"> Weapons
+      </button>
+
+      <button class="cat-btn" data-cat="Miscellaneous">
+        <img src="icons/Miscellaneous.png" class="cat-icon"> Miscellaneous
+      </button>
+
     </div>
 
     <div id="thumb-grid" class="thumb-grid"></div>
+
   </main>
 
   <script src="pictures.js"></script>
