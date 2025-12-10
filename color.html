@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+
   <!-- Static fullscreen background -->
   <div id="bg"></div>
 
@@ -26,7 +27,6 @@
     <!-- Canvas + overlay -->
     <div class="canvas-container">
       <canvas id="pixel-canvas"></canvas>
-      <!-- overlay canvas is added dynamically in app.js -->
     </div>
 
     <button id="back-btn" class="back-btn">Back to list</button>
@@ -40,5 +40,6 @@
     const pictureName = params.get('name');
     setupColoring(pictureName, window.PICTURES);
   </script>
+
 </body>
 </html>
