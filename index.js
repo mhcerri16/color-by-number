@@ -6,56 +6,59 @@ const completionSummary = document.getElementById("completion-summary");
 const categorySummary = document.getElementById("category-summary");
 const catBtns = document.querySelectorAll(".cat-btn");
 
-// === Set splash text ===
-(function() {
+// ===============================
+// SPLASH TEXT (daily deterministic)
+// ===============================
+(() => {
   const splashEl = document.getElementById("splash");
   if (!splashEl) return;
 
-  // Daily deterministic splash
   const day = Math.floor(Date.now() / (1000 * 60 * 60 * 24));
   const index = day % window.SPLASHES.length;
-
   splashEl.textContent = window.SPLASHES[index];
 })();
 
 let activeCategory = "all";
 
+// Pre-sort entries alphabetically ONCE for consistent gallery order
+const ENTRIES = Object.entries(window.PICTURES).sort((a, b) =>
+  (a[1].name || a[0]).localeCompare(b[1].name || b[0])
+);
+
 // ===============================
-// GALLERY RENDERING FUNCTION
+// GALLERY RENDERING
 // ===============================
 function renderGallery() {
   grid.innerHTML = "";
 
-  Object.entries(PICTURES).forEach(([id, pic]) => {
-
-    // Skip non-matching categories
+  ENTRIES.forEach(([id, pic]) => {
+    // Category filter
     if (activeCategory !== "all" && pic.category !== activeCategory) return;
 
     const tile = document.createElement("a");
     tile.className = "thumb";
     tile.href = `color.html?name=${encodeURIComponent(id)}`;
 
-    // Mark completed
-    if (localStorage.getItem("completed_" + id)) {
+    // Completed state
+    if (localStorage.getItem("completed_" + id) === "true") {
       tile.classList.add("completed");
     }
 
-    // --- Create thumbnail canvas ---
+    // --- Thumbnail canvas ---
     const canvas = document.createElement("canvas");
-    const size = 6; // scale factor for thumbnails
-    const rows = pic.data.length;
-    const cols = pic.data[0].length;
-    canvas.width = cols * size;
-    canvas.height = rows * size;
-
     const ctx = canvas.getContext("2d");
 
-    // Draw pixel preview
+    const rows = pic.data.length;
+    const cols = pic.data[0].length;
+    const scale = 6;
+
+    canvas.width = cols * scale;
+    canvas.height = rows * scale;
+
     for (let r = 0; r < rows; r++) {
       for (let c = 0; c < cols; c++) {
-        const val = pic.data[r][c];
-        ctx.fillStyle = pic.colors[val];
-        ctx.fillRect(c * size, r * size, size, size);
+        ctx.fillStyle = pic.colors[pic.data[r][c]];
+        ctx.fillRect(c * scale, r * scale, scale, scale);
       }
     }
 
@@ -64,7 +67,6 @@ function renderGallery() {
     label.className = "thumb-label";
     label.textContent = pic.name || id;
 
-    // Assemble tile
     tile.appendChild(canvas);
     tile.appendChild(label);
     grid.appendChild(tile);
@@ -77,30 +79,29 @@ function renderGallery() {
 // SUMMARY COUNTERS
 // ===============================
 function updateSummaries() {
-  const allPics = Object.entries(PICTURES);
-  const totalCount = allPics.length;
+  const totalCount = ENTRIES.length;
 
-  // --- total completed ---
-  const totalCompleted = allPics.filter(([id]) =>
+  // Total completed across all categories
+  const totalCompleted = ENTRIES.filter(([id]) =>
     localStorage.getItem("completed_" + id) === "true"
   ).length;
 
   completionSummary.textContent =
     `Completed: ${totalCompleted} / ${totalCount}`;
 
-  // --- category summary ---
+  // Category-specific summary
   if (activeCategory === "all") {
-    categorySummary.innerHTML = "";
-    categorySummary.style.display = "none";  // hide cleanly
+    categorySummary.style.display = "none";
+    categorySummary.textContent = "";
     return;
   }
 
-  const picsInCat = allPics.filter(([id, pic]) => pic.category === activeCategory);
+  const picsInCat = ENTRIES.filter(([_, pic]) => pic.category === activeCategory);
   const completedInCat = picsInCat.filter(([id]) =>
     localStorage.getItem("completed_" + id) === "true"
   ).length;
 
-  categorySummary.style.display = ""; // show when needed
+  categorySummary.style.display = "block";
   categorySummary.textContent =
     `${activeCategory}: ${completedInCat} / ${picsInCat.length} completed`;
 }
