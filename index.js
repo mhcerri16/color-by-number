@@ -29,6 +29,7 @@ const ENTRIES = Object.entries(window.PICTURES).sort((a, b) =>
 
 // ===============================
 // OLD FAST SEARCH (substring only)
+// (kept for future use if needed)
 // ===============================
 function matchesSimple(pic, term) {
   if (!term) return true;
@@ -48,19 +49,31 @@ function renderGallery() {
   const searchTerm = searchBox.value.trim().toLowerCase();
 
   ENTRIES.forEach(([id, pic]) => {
+    // Category filter
     if (activeCategory !== "all" && pic.category !== activeCategory) return;
 
+    // Fast substring search
     const nameStr = (pic.name || id).toLowerCase();
     if (searchTerm && !nameStr.includes(searchTerm)) return;
 
+    // Create tile
     const tile = document.createElement("a");
     tile.className = "thumb";
     tile.href = `color.html?name=${encodeURIComponent(id)}`;
 
+    // ✅ Save list state *before* leaving the page
+    tile.addEventListener("click", () => {
+      sessionStorage.setItem("listScrollY", String(window.scrollY));
+      sessionStorage.setItem("listCategory", activeCategory);
+      sessionStorage.setItem("listSearch", searchBox.value.trim());
+    });
+
+    // Completed tag
     if (localStorage.getItem("completed_" + id) === "true") {
       tile.classList.add("completed");
     }
 
+    // Thumbnail canvas
     const canvas = document.createElement("canvas");
     const ctx = canvas.getContext("2d");
     const rows = pic.data.length;
@@ -160,30 +173,38 @@ randomBtn.addEventListener("click", () => {
 });
 
 // ===============================
-// === ADDED FOR RETURN STATE ===
-// Restore category + scroll after returning from color.html
+// INITIAL LOAD WITH RESTORE
 // ===============================
-window.addEventListener("DOMContentLoaded", () => {
-  if (!window.APP_STATE) return;
+function initFromSavedState() {
+  const savedCategory = sessionStorage.getItem("listCategory");
+  const savedSearch = sessionStorage.getItem("listSearch");
+  const savedScrollY = sessionStorage.getItem("listScrollY");
 
-  // Restore category
-  activeCategory = window.APP_STATE.lastCategory || "all";
+  // Restore category (or default to "all")
+  if (savedCategory) {
+    activeCategory = savedCategory;
+  }
 
-  // Update category buttons visually
+  // Update category button selection
   catBtns.forEach(btn => {
     btn.classList.toggle("selected", btn.dataset.cat === activeCategory);
   });
 
-  // Render with restored category
+  // Restore search box
+  if (savedSearch) {
+    searchBox.value = savedSearch;
+  }
+
+  // Render gallery with restored filters
   renderGallery();
 
-  // Restore scroll position AFTER render
-  setTimeout(() => {
-    window.scrollTo(0, window.APP_STATE.lastScroll || 0);
-  }, 0);
-});
+  // Restore scroll AFTER layout
+  if (savedScrollY !== null) {
+    const y = parseInt(savedScrollY, 10) || 0;
+    setTimeout(() => {
+      window.scrollTo(0, y);
+    }, 0);
+  }
+}
 
-// ===============================
-// INITIAL LOAD (still needed for first boot)
-// ===============================
-renderGallery();
+window.addEventListener("DOMContentLoaded", initFromSavedState);
