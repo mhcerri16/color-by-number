@@ -48,24 +48,19 @@ function renderGallery() {
   const searchTerm = searchBox.value.trim().toLowerCase();
 
   ENTRIES.forEach(([id, pic]) => {
-    // Category filter
     if (activeCategory !== "all" && pic.category !== activeCategory) return;
 
-    // Fast substring search
     const nameStr = (pic.name || id).toLowerCase();
     if (searchTerm && !nameStr.includes(searchTerm)) return;
 
-    // Create tile
     const tile = document.createElement("a");
     tile.className = "thumb";
     tile.href = `color.html?name=${encodeURIComponent(id)}`;
 
-    // Completed tag
     if (localStorage.getItem("completed_" + id) === "true") {
       tile.classList.add("completed");
     }
 
-    // Thumbnail canvas
     const canvas = document.createElement("canvas");
     const ctx = canvas.getContext("2d");
     const rows = pic.data.length;
@@ -165,6 +160,30 @@ randomBtn.addEventListener("click", () => {
 });
 
 // ===============================
-// INITIAL LOAD
+// === ADDED FOR RETURN STATE ===
+// Restore category + scroll after returning from color.html
+// ===============================
+window.addEventListener("DOMContentLoaded", () => {
+  if (!window.APP_STATE) return;
+
+  // Restore category
+  activeCategory = window.APP_STATE.lastCategory || "all";
+
+  // Update category buttons visually
+  catBtns.forEach(btn => {
+    btn.classList.toggle("selected", btn.dataset.cat === activeCategory);
+  });
+
+  // Render with restored category
+  renderGallery();
+
+  // Restore scroll position AFTER render
+  setTimeout(() => {
+    window.scrollTo(0, window.APP_STATE.lastScroll || 0);
+  }, 0);
+});
+
+// ===============================
+// INITIAL LOAD (still needed for first boot)
 // ===============================
 renderGallery();
