@@ -16893,7 +16893,7 @@ window.PICTURES = {
     "1111111111111111",
     "1111111111111111"
   ]
-}
+},
 "herobrine_face": {
   "name": "Herobrine Face",
   "category": "Characters",
