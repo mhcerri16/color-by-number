@@ -16866,8 +16866,8 @@ window.PICTURES = {
     ]
   },
 "Alex_Face": {
-  "name": "Alex Face",
-  "category": "Overworld Mobs",
+  "name": "Alex",
+  "category": "Characters",
   "pixelSize": 16,
   "colors": {
     "0": "#d7893d",
@@ -16895,8 +16895,8 @@ window.PICTURES = {
   ]
 },
 "Herobrine_Face": {
-    "name": "Herobrine Face",
-    "category": "Overworld Mobs",
+    "name": "Herobrine",
+    "category": "Characters",
     "pixelSize": 16,
     "colors": {
       "0": "#331f0d",
@@ -16936,8 +16936,8 @@ window.PICTURES = {
     ]
   },
   "Mike_Face": {
-    "name": "Mike Face",
-    "category": "Overworld Mobs",
+    "name": "Mike",
+    "category": "Characters",
     "pixelSize": 16,
     "colors": {
       "0": "#518528",
@@ -16965,8 +16965,8 @@ window.PICTURES = {
     ]
   },
   "Steve_Face": {
-    "name": "Steve Face",
-    "category": "Overworld Mobs",
+    "name": "Steve",
+    "category": "Characters",
     "pixelSize": 16,
     "colors": {
       "0": "#321f19",
