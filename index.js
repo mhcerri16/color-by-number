@@ -28,20 +28,6 @@ const ENTRIES = Object.entries(window.PICTURES).sort((a, b) =>
 );
 
 // ===============================
-// OLD FAST SEARCH (substring only)
-// (kept for future use if needed)
-// ===============================
-function matchesSimple(pic, term) {
-  if (!term) return true;
-
-  const nameStr = (pic.name || "").toLowerCase();
-  const idStr   = pic.id?.toLowerCase?.() || "";
-  const t = term.toLowerCase();
-
-  return nameStr.includes(t) || idStr.includes(t);
-}
-
-// ===============================
 // RENDER GALLERY
 // ===============================
 function renderGallery() {
@@ -49,10 +35,8 @@ function renderGallery() {
   const searchTerm = searchBox.value.trim().toLowerCase();
 
   ENTRIES.forEach(([id, pic]) => {
-    // Category filter
     if (activeCategory !== "all" && pic.category !== activeCategory) return;
 
-    // Fast substring search
     const nameStr = (pic.name || id).toLowerCase();
     if (searchTerm && !nameStr.includes(searchTerm)) return;
 
@@ -61,7 +45,9 @@ function renderGallery() {
     tile.className = "thumb";
     tile.href = `color.html?name=${encodeURIComponent(id)}`;
 
-    // ✅ Save list state *before* leaving the page
+    // ===============================
+    // SAVE STATE BEFORE LEAVING PAGE
+    // ===============================
     tile.addEventListener("click", () => {
       sessionStorage.setItem("listScrollY", String(window.scrollY));
       sessionStorage.setItem("listCategory", activeCategory);
@@ -173,38 +159,36 @@ randomBtn.addEventListener("click", () => {
 });
 
 // ===============================
-// INITIAL LOAD WITH RESTORE
+// RESTORE STATE WHEN INDEX LOADS
 // ===============================
-function initFromSavedState() {
+function restoreListState() {
   const savedCategory = sessionStorage.getItem("listCategory");
   const savedSearch = sessionStorage.getItem("listSearch");
   const savedScrollY = sessionStorage.getItem("listScrollY");
 
-  // Restore category (or default to "all")
   if (savedCategory) {
     activeCategory = savedCategory;
   }
 
-  // Update category button selection
+  // Restore button selection
   catBtns.forEach(btn => {
     btn.classList.toggle("selected", btn.dataset.cat === activeCategory);
   });
 
-  // Restore search box
+  // Restore search
   if (savedSearch) {
     searchBox.value = savedSearch;
   }
 
-  // Render gallery with restored filters
+  // Render the gallery with restored filters
   renderGallery();
 
-  // Restore scroll AFTER layout
+  // Restore scroll AFTER render
   if (savedScrollY !== null) {
-    const y = parseInt(savedScrollY, 10) || 0;
     setTimeout(() => {
-      window.scrollTo(0, y);
+      window.scrollTo(0, parseInt(savedScrollY, 10) || 0);
     }, 0);
   }
 }
 
-window.addEventListener("DOMContentLoaded", initFromSavedState);
+window.addEventListener("DOMContentLoaded", restoreListState);
