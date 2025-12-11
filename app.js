@@ -3,12 +3,6 @@
 //  + Minecraft Breaking Animation (destroy_stage_0–9)
 // ============================================================================
 
-// === ADDED FOR RETURN STATE ===
-window.APP_STATE = {
-  lastScroll: 0,
-  lastCategory: "all"
-};
-
 function setupColoring(pictureName, PICTURES) {
   const currentPicture = PICTURES[pictureName];
   if (!currentPicture) return;
@@ -24,14 +18,6 @@ function setupColoring(pictureName, PICTURES) {
   const progressText = document.getElementById("progress-text");
 
   title.textContent = currentPicture.name || pictureName;
-
-  // === ADDED FOR RETURN STATE ===
-  // Save scroll and selected category BEFORE entering coloring screen
-  window.APP_STATE.lastScroll = window.scrollY;
-  const selectedBtn = document.querySelector(".cat-btn.selected");
-  if (selectedBtn) {
-    window.APP_STATE.lastCategory = selectedBtn.dataset.cat;
-  }
 
   // ========================================================================
   // STATE
@@ -113,13 +99,14 @@ function setupColoring(pictureName, PICTURES) {
     const zeroHex = currentPicture.colors["0"];
     const isWhiteZero = zeroHex && zeroHex.toLowerCase() === "#ffffff";
 
+    // If user has restored progress, do nothing
     if (restored) return;
 
     if (isWhiteZero) {
       for (let r = 0; r < rows; r++) {
         for (let c = 0; c < cols; c++) {
           if (currentPicture.data[r][c] === "0") {
-            userGrid[r][c] = "0";
+            userGrid[r][c] = "0"; // pre-filled background
           }
         }
       }
@@ -145,7 +132,7 @@ function setupColoring(pictureName, PICTURES) {
   }
 
   // ========================================================================
-  // OVERLAY
+  // OVERLAY (cursor indicator)
   // ========================================================================
   const overlay = document.createElement("canvas");
   overlay.style.position = "absolute";
@@ -225,20 +212,263 @@ function setupColoring(pictureName, PICTURES) {
   }
 
   // ========================================================================
-  // BACK BUTTON — UPDATED
+  // SWATCH COMPLETION INDICATORS + JIGGLE
   // ========================================================================
-  backBtn.onclick = () => {
+  function updateColorChecks() {
+    Object.keys(currentPicture.colors).forEach((num) => {
+      const swatch = document.querySelector(
+        `.color-swatch[data-value="${num}"]`
+      );
+      const label = swatch.querySelector(".swatch-number");
 
-    // Go back to list without resetting scroll
-    window.location.href = "index.html#" + window.APP_STATE.lastCategory;
+      let needed = 0,
+        filled = 0;
 
-    // When index loads, we restore scroll position
-    // (Your index.js will read APP_STATE and call scrollTo)
-  };
+      for (let r = 0; r < rows; r++)
+        for (let c = 0; c < cols; c++)
+          if (currentPicture.data[r][c] == num) {
+            needed++;
+            if (userGrid[r][c] == num) filled++;
+          }
+
+      const complete = needed > 0 && needed === filled;
+      const wasCheck = label.textContent === "✔";
+
+      if (complete) {
+        label.textContent = "✔";
+        label.style.fontSize = "22px";
+
+        if (!wasCheck) {
+          swatch.classList.remove("swatch-jiggle");
+          void swatch.offsetWidth;
+          swatch.classList.add("swatch-jiggle");
+        }
+
+        if (currentColor == num) manualOverride = false;
+      } else {
+        label.textContent = num;
+        label.style.fontSize = "20px";
+      }
+    });
+  }
 
   // ========================================================================
-  // RESET BUTTON
+  // AUTO-SELECT NEXT COLOR (0–9 , a–z)
   // ========================================================================
+  function autoSelectNextColorIfReady() {
+    if (manualOverride) return;
+
+    const nums = Object.keys(currentPicture.colors).sort(
+      (a, b) => parseInt(a, 36) - parseInt(b, 36)
+    );
+
+    for (const num of nums) {
+      let needed = 0,
+        filled = 0;
+
+      for (let r = 0; r < rows; r++)
+        for (let c = 0; c < cols; c++)
+          if (currentPicture.data[r][c] == num) {
+            needed++;
+            if (userGrid[r][c] == num) filled++;
+          }
+
+      if (needed > 0 && filled < needed) {
+        selectColor(
+          num,
+          document.querySelector(`.color-swatch[data-value="${num}"]`),
+          false
+        );
+        return;
+      }
+    }
+  }
+
+  // ========================================================================
+  // DRAW PIXELS (WITH RESTORED HIGHLIGHTS)
+  // ========================================================================
+  function drawPixels() {
+    const size = computePixelSize();
+    canvas.width = cols * size;
+    canvas.height = rows * size;
+    positionOverlay();
+
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    for (let r = 0; r < rows; r++) {
+      for (let c = 0; c < cols; c++) {
+        const target = currentPicture.data[r][c];
+        const painted = userGrid[r][c];
+
+        // base fill
+        ctx.fillStyle =
+          painted === null ? "#ffffff" : currentPicture.colors[painted];
+        ctx.fillRect(c * size, r * size, size, size);
+
+        // highlight (RESTORED)
+        const highlight =
+          painted === null &&
+          currentColor !== null &&
+          String(target) === String(currentColor);
+
+        if (highlight) {
+          ctx.fillStyle = "rgba(250,204,21,0.35)";
+          ctx.fillRect(c * size, r * size, size, size);
+        }
+
+        // numbers
+        if (painted === null) {
+          ctx.textAlign = "center";
+          ctx.textBaseline = "middle";
+
+          ctx.font = highlight
+            ? `bold ${size * 0.65}px Courier New`
+            : `${size * 0.5}px Courier New`;
+
+          ctx.fillStyle = "#000";
+          ctx.fillText(target, c * size + size / 2, r * size + size / 2);
+        }
+      }
+    }
+  }
+
+  // ========================================================================
+  // PAINTING
+  // ========================================================================
+  const BRUSH_RADIUS = 1;
+
+  function paintPixel(clientX, clientY) {
+    if (!currentColor) return;
+
+    const rect = canvas.getBoundingClientRect();
+    const size = computePixelSize();
+
+    const x = (clientX - rect.left) * (canvas.width / rect.width);
+    const y =
+      (clientY - rect.top) * (canvas.height / rect.height);
+
+    // Move paint hitbox up so the thumb doesn't cover numbers
+    const INDICATOR_OFFSET = 40;  // ~1 cm upward
+    const iy = y - INDICATOR_OFFSET;
+    
+    const col = Math.floor(x / size);
+    const row = Math.floor(iy / size);
+
+    for (let dr = -BRUSH_RADIUS; dr <= BRUSH_RADIUS; dr++)
+      for (let dc = -BRUSH_RADIUS; dc <= BRUSH_RADIUS; dc++) {
+        const rr = row + dr,
+          cc = col + dc;
+        if (rr >= 0 && rr < rows && cc >= 0 && cc < cols) {
+          if (currentPicture.data[rr][cc] == currentColor) {
+            userGrid[rr][cc] = currentColor;
+          }
+        }
+      }
+
+    drawPixels();
+    updateProgress();
+    updateColorChecks();
+    autoSelectNextColorIfReady();
+    saveUserGrid();
+  }
+
+  // ========================================================================
+  // INDICATOR (gradient + destroy texture)
+  // ========================================================================
+
+  function drawIndicator(clientX, clientY) {
+    const octx = overlay.getContext("2d");
+    octx.clearRect(0, 0, overlay.width, overlay.height);
+
+    if (!isDragging || !currentColor) return;
+
+    const rect = canvas.getBoundingClientRect();
+    const size = computePixelSize();
+
+    const x = (clientX - rect.left) * (canvas.width / rect.width);
+    const y = (clientY - rect.top) * (canvas.height / rect.height);
+
+    // Move indicator UP so the finger does not cover numbers
+    const INDICATOR_OFFSET = 40; // ~1 cm
+    const ix = x;
+    const iy = y - INDICATOR_OFFSET;
+
+    const radius = BRUSH_RADIUS * size + size / 2;
+
+    const swatch = document.querySelector(
+      `.color-swatch[data-value="${currentColor}"]`
+    );
+    const brushColor = swatch ? swatch.style.background : "#ffffff";
+
+    // gradient
+    const grad = octx.createRadialGradient(ix, iy, radius * 0.15, ix, iy, radius);
+    grad.addColorStop(0, addAlpha(brushColor, "20"));
+    grad.addColorStop(1, "rgba(0,0,0,0)");
+
+    octx.fillStyle = grad;
+    octx.beginPath();
+    octx.arc(ix, iy, radius, 0, Math.PI * 2);
+    octx.fill();
+
+    // outline
+    octx.strokeStyle = brushColor;
+    octx.lineWidth = 3;
+    octx.shadowColor = brushColor;
+    octx.shadowBlur = 6;
+    octx.beginPath();
+    octx.arc(ix, iy, radius, 0, Math.PI * 2);
+    octx.stroke();
+    octx.shadowBlur = 0;
+
+    // breaking texture
+    const stage = getBreakingStage();
+    const img = BREAK_FRAMES[stage];
+    if (img.complete && stage > 0) {
+      octx.save();
+      octx.beginPath();
+      octx.arc(ix, iy, radius, 0, Math.PI * 2);
+      octx.clip();
+      octx.imageSmoothingEnabled = false;
+      octx.drawImage(img, ix - radius, iy - radius, radius * 2, radius * 2);
+      octx.restore();
+    }
+  }
+
+
+  // ========================================================================
+  // POINTER EVENTS
+  // ========================================================================
+  canvas.addEventListener("pointerdown", (e) => {
+    canvas.setPointerCapture(e.pointerId);
+    isDragging = true;
+    paintPixel(e.clientX, e.clientY);
+    drawIndicator(e.clientX, e.clientY);
+  });
+
+  canvas.addEventListener("pointermove", (e) => {
+    if (isDragging) paintPixel(e.clientX, e.clientY);
+    drawIndicator(e.clientX, e.clientY);
+  });
+
+  canvas.addEventListener("pointerup", (e) => {
+    canvas.releasePointerCapture(e.pointerId);
+    isDragging = false;
+    overlay.getContext("2d").clearRect(0, 0, overlay.width, overlay.height);
+  });
+
+  // Prevent scroll on touch
+  canvas.addEventListener("touchstart", (e) => e.preventDefault(), {
+    passive: false,
+  });
+  canvas.addEventListener("touchmove", (e) => e.preventDefault(), {
+    passive: false,
+  });
+
+  // ========================================================================
+  // BUTTONS
+  // ========================================================================
+  backBtn.onclick = () => (window.location.href = "index.html");
+
   resetBtn.onclick = () => {
     if (!confirm("Reset this picture?")) return;
 
