@@ -377,62 +377,62 @@ function setupColoring(pictureName, PICTURES) {
   // ========================================================================
 
   function drawIndicator(clientX, clientY) {
-  const octx = overlay.getContext("2d");
-  octx.clearRect(0, 0, overlay.width, overlay.height);
+    const octx = overlay.getContext("2d");
+    octx.clearRect(0, 0, overlay.width, overlay.height);
 
-  if (!isDragging || !currentColor) return;
+    if (!isDragging || !currentColor) return;
 
-  const rect = canvas.getBoundingClientRect();
-  const size = computePixelSize();
+    const rect = canvas.getBoundingClientRect();
+    const size = computePixelSize();
 
-  const x = (clientX - rect.left) * (canvas.width / rect.width);
-  const y = (clientY - rect.top) * (canvas.height / rect.height);
+    const x = (clientX - rect.left) * (canvas.width / rect.width);
+    const y = (clientY - rect.top) * (canvas.height / rect.height);
 
-  // Move indicator UP so the finger does not cover numbers
-  const INDICATOR_OFFSET = 40; // ~1 cm
-  const ix = x;
-  const iy = y - INDICATOR_OFFSET;
+    // Move indicator UP so the finger does not cover numbers
+    const INDICATOR_OFFSET = 40; // ~1 cm
+    const ix = x;
+    const iy = y - INDICATOR_OFFSET;
 
-  const radius = BRUSH_RADIUS * size + size / 2;
+    const radius = BRUSH_RADIUS * size + size / 2;
 
-  const swatch = document.querySelector(
-    `.color-swatch[data-value="${currentColor}"]`
-  );
-  const brushColor = swatch ? swatch.style.background : "#ffffff";
+    const swatch = document.querySelector(
+      `.color-swatch[data-value="${currentColor}"]`
+    );
+    const brushColor = swatch ? swatch.style.background : "#ffffff";
 
-  // gradient
-  const grad = octx.createRadialGradient(ix, iy, radius * 0.15, ix, iy, radius);
-  grad.addColorStop(0, addAlpha(brushColor, "20"));
-  grad.addColorStop(1, "rgba(0,0,0,0)");
+    // gradient
+    const grad = octx.createRadialGradient(ix, iy, radius * 0.15, ix, iy, radius);
+    grad.addColorStop(0, addAlpha(brushColor, "20"));
+    grad.addColorStop(1, "rgba(0,0,0,0)");
 
-  octx.fillStyle = grad;
-  octx.beginPath();
-  octx.arc(ix, iy, radius, 0, Math.PI * 2);
-  octx.fill();
-
-  // outline
-  octx.strokeStyle = brushColor;
-  octx.lineWidth = 3;
-  octx.shadowColor = brushColor;
-  octx.shadowBlur = 6;
-  octx.beginPath();
-  octx.arc(ix, iy, radius, 0, Math.PI * 2);
-  octx.stroke();
-  octx.shadowBlur = 0;
-
-  // breaking texture
-  const stage = getBreakingStage();
-  const img = BREAK_FRAMES[stage];
-  if (img.complete && stage > 0) {
-    octx.save();
+    octx.fillStyle = grad;
     octx.beginPath();
     octx.arc(ix, iy, radius, 0, Math.PI * 2);
-    octx.clip();
-    octx.imageSmoothingEnabled = false;
-    octx.drawImage(img, ix - radius, iy - radius, radius * 2, radius * 2);
-    octx.restore();
+    octx.fill();
+
+    // outline
+    octx.strokeStyle = brushColor;
+    octx.lineWidth = 3;
+    octx.shadowColor = brushColor;
+    octx.shadowBlur = 6;
+    octx.beginPath();
+    octx.arc(ix, iy, radius, 0, Math.PI * 2);
+    octx.stroke();
+    octx.shadowBlur = 0;
+
+    // breaking texture
+    const stage = getBreakingStage();
+    const img = BREAK_FRAMES[stage];
+    if (img.complete && stage > 0) {
+      octx.save();
+      octx.beginPath();
+      octx.arc(ix, iy, radius, 0, Math.PI * 2);
+      octx.clip();
+      octx.imageSmoothingEnabled = false;
+      octx.drawImage(img, ix - radius, iy - radius, radius * 2, radius * 2);
+      octx.restore();
+    }
   }
-}
 
 
   // ========================================================================
