@@ -3,9 +3,29 @@
 //  + Minecraft Breaking Animation (destroy_stage_0–9)
 // ============================================================================
 
+// ===========================================================
+// SAVE LIST STATE (scroll + category) before entering picture
+// ===========================================================
+if (!window.APP_STATE) {
+  window.APP_STATE = {
+    lastScroll: 0,
+    lastCategory: "all"
+  };
+}
+
 function setupColoring(pictureName, PICTURES) {
   const currentPicture = PICTURES[pictureName];
   if (!currentPicture) return;
+
+  // ===========================================================
+  // SAVE SCROLL + CATEGORY BEFORE leaving index.html
+  // ===========================================================
+  window.APP_STATE.lastScroll = window.scrollY;
+
+  const selectedBtn = document.querySelector(".cat-btn.selected");
+  if (selectedBtn) {
+    window.APP_STATE.lastCategory = selectedBtn.dataset.cat;
+  }
 
   // --- DOM elements ---
   const canvas = document.getElementById("pixel-canvas");
@@ -31,7 +51,7 @@ function setupColoring(pictureName, PICTURES) {
   let manualOverride = false;
 
   // ========================================================================
-  // SAFE ALPHA APPENDER FOR GRADIENT COLORS
+  // SAFE ALPHA APPENDER
   // ========================================================================
   function addAlpha(color, alphaHex) {
     if (color.startsWith("#")) return color + alphaHex;
@@ -93,20 +113,19 @@ function setupColoring(pictureName, PICTURES) {
   if (restored) userGrid = restored;
 
   // ========================================================================
-  // AUTO-FILL BACKGROUND IF 0TH COLOR IS WHITE (#ffffff)
+  // AUTO-FILL WHITE BACKGROUND
   // ========================================================================
   (function autoFillWhiteBackground() {
     const zeroHex = currentPicture.colors["0"];
     const isWhiteZero = zeroHex && zeroHex.toLowerCase() === "#ffffff";
 
-    // If user has restored progress, do nothing
     if (restored) return;
 
     if (isWhiteZero) {
       for (let r = 0; r < rows; r++) {
         for (let c = 0; c < cols; c++) {
           if (currentPicture.data[r][c] === "0") {
-            userGrid[r][c] = "0"; // pre-filled background
+            userGrid[r][c] = "0";
           }
         }
       }
@@ -127,12 +146,11 @@ function setupColoring(pictureName, PICTURES) {
       const sizeH = Math.floor((vh * 0.6) / rows);
       size = Math.max(basePixelSize, Math.min(sizeW, sizeH, basePixelSize * 2));
     }
-
     return size;
   }
 
   // ========================================================================
-  // OVERLAY (cursor indicator)
+  // OVERLAY CANVAS
   // ========================================================================
   const overlay = document.createElement("canvas");
   overlay.style.position = "absolute";
@@ -190,7 +208,8 @@ function setupColoring(pictureName, PICTURES) {
       total = rows * cols;
 
     for (let r = 0; r < rows; r++)
-      for (let c = 0; c < cols; c++) if (userGrid[r][c] !== null) filled++;
+      for (let c = 0; c < cols; c++)
+        if (userGrid[r][c] !== null) filled++;
 
     const pct = Math.floor((filled / total) * 100);
 
@@ -212,7 +231,7 @@ function setupColoring(pictureName, PICTURES) {
   }
 
   // ========================================================================
-  // SWATCH COMPLETION INDICATORS + JIGGLE
+  // SWATCH COMPLETION + JIGGLE
   // ========================================================================
   function updateColorChecks() {
     Object.keys(currentPicture.colors).forEach((num) => {
@@ -251,8 +270,7 @@ function setupColoring(pictureName, PICTURES) {
       }
     });
   }
-
-  // ========================================================================
+    // ========================================================================
   // AUTO-SELECT NEXT COLOR (0–9 , a–z)
   // ========================================================================
   function autoSelectNextColorIfReady() {
@@ -276,7 +294,7 @@ function setupColoring(pictureName, PICTURES) {
       if (needed > 0 && filled < needed) {
         selectColor(
           num,
-          document.querySelector(`.color-swatch[data-value="${num"]}`),
+          document.querySelector(`.color-swatch[data-value="${num}"]`),
           false
         );
         return;
@@ -285,7 +303,7 @@ function setupColoring(pictureName, PICTURES) {
   }
 
   // ========================================================================
-  // DRAW PIXELS (WITH RESTORED HIGHLIGHTS)
+  // DRAW ALL PIXELS (numbers, highlights, fills)
   // ========================================================================
   function drawPixels() {
     const size = computePixelSize();
@@ -300,12 +318,12 @@ function setupColoring(pictureName, PICTURES) {
         const target = currentPicture.data[r][c];
         const painted = userGrid[r][c];
 
-        // base fill
+        // Base fill
         ctx.fillStyle =
           painted === null ? "#ffffff" : currentPicture.colors[painted];
         ctx.fillRect(c * size, r * size, size, size);
 
-        // highlight (RESTORED)
+        // Highlight for the *currently selected* color
         const highlight =
           painted === null &&
           currentColor !== null &&
@@ -316,7 +334,7 @@ function setupColoring(pictureName, PICTURES) {
           ctx.fillRect(c * size, r * size, size, size);
         }
 
-        // numbers
+        // Draw number only if not painted
         if (painted === null) {
           ctx.textAlign = "center";
           ctx.textBaseline = "middle";
@@ -333,7 +351,7 @@ function setupColoring(pictureName, PICTURES) {
   }
 
   // ========================================================================
-  // PAINTING
+  // PAINTING (brush movement + multiple cell fill)
   // ========================================================================
   const BRUSH_RADIUS = 1;
 
@@ -344,26 +362,26 @@ function setupColoring(pictureName, PICTURES) {
     const size = computePixelSize();
 
     const x = (clientX - rect.left) * (canvas.width / rect.width);
-    const y =
-      (clientY - rect.top) * (canvas.height / rect.height);
+    const y = (clientY - rect.top) * (canvas.height / rect.height);
 
-    // Move paint hitbox up so the thumb doesn't cover numbers
-    const INDICATOR_OFFSET = 40;  // ~1 cm upward
+    // Move paint detection UP slightly so finger doesn't hide numbers
+    const INDICATOR_OFFSET = 40; 
     const iy = y - INDICATOR_OFFSET;
-    
+
     const col = Math.floor(x / size);
     const row = Math.floor(iy / size);
 
-    for (let dr = -BRUSH_RADIUS; dr <= BRUSH_RADIUS; dr++)
+    for (let dr = -BRUSH_RADIUS; dr <= BRUSH_RADIUS; dr++) {
       for (let dc = -BRUSH_RADIUS; dc <= BRUSH_RADIUS; dc++) {
-        const rr = row + dr,
-          cc = col + dc;
+        const rr = row + dr;
+        const cc = col + dc;
         if (rr >= 0 && rr < rows && cc >= 0 && cc < cols) {
           if (currentPicture.data[rr][cc] == currentColor) {
             userGrid[rr][cc] = currentColor;
           }
         }
       }
+    }
 
     drawPixels();
     updateProgress();
@@ -373,9 +391,8 @@ function setupColoring(pictureName, PICTURES) {
   }
 
   // ========================================================================
-  // INDICATOR (gradient + destroy texture)
+  // INDICATOR (finger circle + breaking animation)
   // ========================================================================
-
   function drawIndicator(clientX, clientY) {
     const octx = overlay.getContext("2d");
     octx.clearRect(0, 0, overlay.width, overlay.height);
@@ -388,8 +405,7 @@ function setupColoring(pictureName, PICTURES) {
     const x = (clientX - rect.left) * (canvas.width / rect.width);
     const y = (clientY - rect.top) * (canvas.height / rect.height);
 
-    // Move indicator UP so the finger does not cover numbers
-    const INDICATOR_OFFSET = 40; // ~1 cm
+    const INDICATOR_OFFSET = 40;
     const ix = x;
     const iy = y - INDICATOR_OFFSET;
 
@@ -400,35 +416,39 @@ function setupColoring(pictureName, PICTURES) {
     );
     const brushColor = swatch ? swatch.style.background : "#ffffff";
 
-    // gradient
-    const grad = octx.createRadialGradient(ix, iy, radius * 0.15, ix, iy, radius);
+    // soft radial glow
+    const grad = octx.createRadialGradient(ix, iy, radius * 0.1, ix, iy, radius);
     grad.addColorStop(0, addAlpha(brushColor, "20"));
     grad.addColorStop(1, "rgba(0,0,0,0)");
-
     octx.fillStyle = grad;
+
     octx.beginPath();
     octx.arc(ix, iy, radius, 0, Math.PI * 2);
     octx.fill();
 
-    // outline
+    // outline ring
     octx.strokeStyle = brushColor;
     octx.lineWidth = 3;
     octx.shadowColor = brushColor;
     octx.shadowBlur = 6;
+
     octx.beginPath();
     octx.arc(ix, iy, radius, 0, Math.PI * 2);
     octx.stroke();
+
     octx.shadowBlur = 0;
 
     // breaking texture
     const stage = getBreakingStage();
     const img = BREAK_FRAMES[stage];
+
     if (img.complete && stage > 0) {
       octx.save();
       octx.beginPath();
       octx.arc(ix, iy, radius, 0, Math.PI * 2);
       octx.clip();
       octx.imageSmoothingEnabled = false;
+
       octx.drawImage(img, ix - radius, iy - radius, radius * 2, radius * 2);
       octx.restore();
     }
@@ -455,25 +475,17 @@ function setupColoring(pictureName, PICTURES) {
     overlay.getContext("2d").clearRect(0, 0, overlay.width, overlay.height);
   });
 
-  // Prevent scroll on touch
-  canvas.addEventListener("touchstart", (e) => e.preventDefault(), {
-    passive: false,
-  });
-  canvas.addEventListener("touchmove", (e) => e.preventDefault(), {
-    passive: false,
-  });
+  // Prevent scroll while painting on touch devices
+  canvas.addEventListener("touchstart", (e) => e.preventDefault(), { passive: false });
+  canvas.addEventListener("touchmove", (e) => e.preventDefault(), { passive: false });
 
   // ========================================================================
   // BUTTONS
   // ========================================================================
+
+  // The back button RETURNS to index.html exactly as the user left it
   backBtn.onclick = () => {
-    // Use browser history so scroll + state are preserved
-    if (window.history.length > 1) {
-      window.history.back();
-    } else {
-      // Fallback if opened directly
-      window.location.href = "index.html";
-    }
+    window.location.href = "index.html"; 
   };
 
   resetBtn.onclick = () => {
@@ -506,4 +518,7 @@ function setupColoring(pictureName, PICTURES) {
   });
 }
 
+// Export globally
 window.setupColoring = setupColoring;
+
+
