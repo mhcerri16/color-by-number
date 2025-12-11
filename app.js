@@ -276,7 +276,7 @@ function setupColoring(pictureName, PICTURES) {
       if (needed > 0 && filled < needed) {
         selectColor(
           num,
-          document.querySelector(`.color-swatch[data-value="${num}"]`),
+          document.querySelector(`.color-swatch[data-value="${num"]}`),
           false
         );
         return;
@@ -434,7 +434,6 @@ function setupColoring(pictureName, PICTURES) {
     }
   }
 
-
   // ========================================================================
   // POINTER EVENTS
   // ========================================================================
@@ -467,7 +466,15 @@ function setupColoring(pictureName, PICTURES) {
   // ========================================================================
   // BUTTONS
   // ========================================================================
-  backBtn.onclick = () => (window.location.href = "index.html");
+  backBtn.onclick = () => {
+    // Use browser history so scroll + state are preserved
+    if (window.history.length > 1) {
+      window.history.back();
+    } else {
+      // Fallback if opened directly
+      window.location.href = "index.html";
+    }
+  };
 
   resetBtn.onclick = () => {
     if (!confirm("Reset this picture?")) return;
