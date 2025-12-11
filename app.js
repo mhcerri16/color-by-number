@@ -347,8 +347,12 @@ function setupColoring(pictureName, PICTURES) {
     const y =
       (clientY - rect.top) * (canvas.height / rect.height);
 
+    // Move paint hitbox up so the thumb doesn't cover numbers
+    const INDICATOR_OFFSET = 40;  // ~1 cm upward
+    const iy = y - INDICATOR_OFFSET;
+    
     const col = Math.floor(x / size);
-    const row = Math.floor(y / size);
+    const row = Math.floor(iy / size);
 
     for (let dr = -BRUSH_RADIUS; dr <= BRUSH_RADIUS; dr++)
       for (let dc = -BRUSH_RADIUS; dc <= BRUSH_RADIUS; dc++) {
