@@ -251,6 +251,43 @@ function setupColoring(pictureName, PICTURES) {
   }
 
   // ========================================================================
+  // AUTO-SELECT NEXT COLOR (0–9, a–z)
+  // ========================================================================
+  function autoSelectNextColorIfReady() {
+    if (manualOverride) return;
+
+    // sort keys in 0–9, a–z order using base-36 parsing
+    const nums = Object.keys(currentPicture.colors).sort(
+      (a, b) => parseInt(a, 36) - parseInt(b, 36)
+    );
+
+    for (const num of nums) {
+      let needed = 0;
+      let filled = 0;
+
+      for (let r = 0; r < rows; r++) {
+        for (let c = 0; c < cols; c++) {
+          if (currentPicture.data[r][c] == num) {
+            needed++;
+            if (userGrid[r][c] == num) filled++;
+          }
+        }
+      }
+
+      // If this color is not fully done, auto-select it
+      if (needed > 0 && filled < needed) {
+        const swatch = document.querySelector(
+          `.color-swatch[data-value="${num}"]`
+        );
+        if (swatch) {
+          selectColor(num, swatch, false); // userClicked = false
+        }
+        return;
+      }
+    }
+  }
+
+  // ========================================================================
   // DRAWING THE CANVAS
   // ========================================================================
   function drawPixels() {
