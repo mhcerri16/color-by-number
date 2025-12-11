@@ -29,6 +29,26 @@ function setupColoring(pictureName, PICTURES) {
   let isDragging = false;
   let currentColor = null;
   let manualOverride = false;
+  // ========================================================================
+  // AUTO-FILL BACKGROUND IF 0TH COLOR IS WHITE (#ffffff)
+  // ========================================================================
+  (function autoFillWhiteBackground() {
+    const zeroHex = currentPicture.colors["0"];
+    const isWhiteZero = zeroHex && zeroHex.toLowerCase() === "#ffffff";
+
+  // If user has restored progress, do nothing.
+  if (restored) return;
+
+  if (isWhiteZero) {
+    for (let r = 0; r < rows; r++) {
+      for (let c = 0; c < cols; c++) {
+        if (currentPicture.data[r][c] === "0") {
+          userGrid[r][c] = "0";   // pre-filled
+        }
+      }
+    }
+  }
+})();
 
   // ========================================================================
   // SAFE ALPHA APPENDER FOR GRADIENT COLORS
