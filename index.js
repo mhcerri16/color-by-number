@@ -173,6 +173,10 @@ randomBtn.addEventListener("click", () => {
   if (list.length === 0) return;
 
   const [randomId] = list[Math.floor(Math.random() * list.length)];
+
+  localStorage.setItem("lastScroll", String(window.scrollY));
+  localStorage.setItem("lastCategory", activeCategory);
+  
   window.location.href = `color.html?name=${randomId}`;
 });
 
