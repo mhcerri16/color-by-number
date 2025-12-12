@@ -326,7 +326,7 @@ function setupColoring(pictureName, PICTURES) {
             String(value) === String(currentColor);
           
           ctx.font = highlight
-            ? `bold ${size * 0.65}px Courier New`
+            ? `bold ${size * 0.85}px Courier New`
             : `${size * 0.50}px Courier New`;
           
           ctx.fillStyle = "#000";
