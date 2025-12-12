@@ -159,7 +159,8 @@ searchBox.addEventListener("input", () => {
 randomBtn.addEventListener("click", () => {
   const term = searchBox.value.trim().toLowerCase();
 
-  let list = ENTRIES.filter(([id, pic]) => {
+  // Base filtered list (category + search)
+  let baseList = ENTRIES.filter(([id, pic]) => {
     if (activeCategory !== "all" && pic.category !== activeCategory) return false;
 
     if (term) {
@@ -170,9 +171,18 @@ randomBtn.addEventListener("click", () => {
     return true;
   });
 
-  if (list.length === 0) return;
+  if (baseList.length === 0) return;
 
-  const [randomId] = list[Math.floor(Math.random() * list.length)];
+  // Filter to UNCOMPLETED ONLY
+  let uncompleted = baseList.filter(([id]) =>
+    localStorage.getItem("completed_" + id) !== "true"
+  );
+
+  // If all are completed, use full list
+  let finalList = uncompleted.length > 0 ? uncompleted : baseList;
+
+  // Pick random element
+  const [randomId] = finalList[Math.floor(Math.random() * finalList.length)];
 
   sessionStorage.setItem("listScrollY", String(window.scrollY));
   sessionStorage.setItem("listCategory", activeCategory);
