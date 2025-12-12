@@ -101,6 +101,24 @@ function updateSummaries() {
   completionSummary.textContent =
     `Completed: ${totalCompleted} / ${totalCount}`;
 
+  // Reset category highlights
+  catBtns.forEach(btn => btn.classList.remove("complete"));
+
+  // Mark each category if complete
+  const categories = [...new Set(ENTRIES.map(([_, pic]) => pic.category))];
+
+  categories.forEach(cat => {
+    const catPics = ENTRIES.filter(([_, pic]) => pic.category === cat);
+    const catDone = catPics.filter(([id]) =>
+      localStorage.getItem("completed_" + id) === "true"
+    ).length;
+
+    if (catDone === catPics.length && catPics.length > 0) {
+      const btn = document.querySelector(`.cat-btn[data-cat="${cat}"]`);
+      if (btn) btn.classList.add("complete");
+    }
+  });
+  
   if (activeCategory === "all") {
     categorySummary.style.display = "none";
     return;
