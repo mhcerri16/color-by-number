@@ -319,7 +319,16 @@ function setupColoring(pictureName, PICTURES) {
         if (painted === null) {
           ctx.textAlign = "center";
           ctx.textBaseline = "middle";
-          ctx.font = `${size * 0.55}px Courier New`;
+
+          const highlight =
+            painted === null &&
+            currentColor !== null &&
+            String(value) === String(currentColor);
+          
+          ctx.font = highlight
+            ? `bold ${size * 0.65}px Courier New`
+            : `${size * 0.50}px Courier New`;
+          
           ctx.fillStyle = "#000";
           ctx.fillText(value, c * size + size / 2, r * size + size / 2);
         }
