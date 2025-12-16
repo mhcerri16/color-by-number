@@ -339,7 +339,7 @@ function setupColoring(pictureName, PICTURES) {
   // ========================================================================
   // PAINTING LOGIC
   // ========================================================================
-  const BRUSH_RADIUS = 1.25;
+  const BRUSH_RADIUS = 2;
 
   function paintPixel(clientX, clientY) {
     if (!currentColor) return;
