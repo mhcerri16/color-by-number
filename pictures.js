@@ -7793,7 +7793,7 @@ window.PICTURES = {
   },
 "iron_trapdoor": {
     name: "Iron Trapdoor",
-    category: "Ores",
+    category: "Miscellaneous",
     pixelSize: 16,
     colors: {
       "0": "#b1b0b0",
@@ -16909,12 +16909,12 @@ window.PICTURES = {
       "7": "#aa7d66",
       "8": "#b4846d",
       "9": "#ad806d",
-      "a": "#bb8972",
-      "b": "#ffffff",
-      "c": "#b57b67",
-      "d": "#b37b62",
-      "e": "#b78272",
-      "f": "#be886c"
+      "A": "#bb8972",
+      "B": "#ffffff",
+      "C": "#b57b67",
+      "D": "#b37b62",
+      "E": "#b78272",
+      "F": "#be886c"
     },
     "data": [
       "0000000000000000",
@@ -16984,12 +16984,12 @@ window.PICTURES = {
       "7": "#aa7d66",
       "8": "#b4846d",
       "9": "#ad806d",
-      "a": "#87563d",
-      "b": "#bb8972",
-      "c": "#ffffff",
-      "d": "#b57b67",
-      "e": "#b37b62",
-      "f": "#b78272"
+      "A": "#87563d",
+      "B": "#bb8972",
+      "C": "#ffffff",
+      "D": "#b57b67",
+      "E": "#b37b62",
+      "F": "#b78272"
     },
     "data": [
       "0000000000000000",
